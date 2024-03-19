@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'platforms/index'
-  get 'platforms/show'
-  get 'platforms/new'
-  get 'platforms/edit'
-  get 'platforms/create'
-  get 'platforms/update'
-  get 'platforms/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
