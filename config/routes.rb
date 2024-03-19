@@ -1,21 +1,11 @@
 Rails.application.routes.draw do
-  get 'my_guides/new'
-  get 'my_guides/create'
-  get 'my_guides/show'
-  get 'my_guides/edit'
-  get 'my_guides/update'
-  get 'my_guides/redirect'
-  get 'articles/show'
-  get 'articles/new'
-  get 'articles/create'
-  get 'articles/edit'
-  get 'articles/update'
-  get 'subcategories/index'
-  get 'subcategories/show'
-  get 'searches/search'
-  get 'categories/index'
-  get 'categories/show'
-  get 'users/show'
+  get 'platforms/index'
+  get 'platforms/show'
+  get 'platforms/new'
+  get 'platforms/edit'
+  get 'platforms/create'
+  get 'platforms/update'
+  get 'platforms/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -24,6 +14,24 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Standard RESTful routes for Categories
+  resources :categories, only: [:index, :show] do
+    # Nested routes for SubCategories within Categories
+    resources :sub_categories, only: [:index, :show], shallow: true do
+      # Further nested routes for Articles within SubCategories
+      resources :articles, only: [:index], shallow: true
+    end
+  end
+
+  # Routes for Articles (non-nested actions)
+  resources :articles, except: [:index] do
+    # Nested routes for MyGuides related to specific Articles
+    resources :my_guides, shallow: true
+  end
+
+  resources :platforms
+
+  # If you need a specific route for searching or any other custom action,
+  # you can add them here. For example:
+  get 'search', to: 'searches#search'
 end
