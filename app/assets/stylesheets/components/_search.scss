@@ -1,0 +1,26 @@
+.SearchBar {
+  width: 100%;
+  padding: 10px 30px 10px 15px;
+  background: $gh-white; // Supposons que vous avez une variable pour le blanc
+  border-radius: 25px;
+  border: 2px solid $gh-400; // Gris clair de votre schéma de couleurs
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 9px;
+}
+
+.SearchIcon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background-image: url(asset-path('search.svg')); // Sass function for Rails asset pipeline
+  background-size: cover; // Assurez-vous que l'image couvre bien la zone
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.SearchText {
+  @include typography(18px, 400, 27px); // Utilisez le mixin pour la typographie
+  color: $gh-900; // Utilisez une variable pour la couleur
+}
