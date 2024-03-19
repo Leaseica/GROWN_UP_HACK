@@ -10,9 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_19_105427) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_19_121649) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "sub_category_id", null: false
+    t.text "paragraph1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_category_id"], name: "index_articles_on_sub_category_id"
+  end
+
+  create_table "articles_platforms", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "platform_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_articles_platforms_on_article_id"
+    t.index ["platform_id"], name: "index_articles_platforms_on_platform_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "my_guides", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.string "occupation"
+    t.string "address"
+    t.string "social_security"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_my_guides_on_article_id"
+    t.index ["user_id"], name: "index_my_guides_on_user_id"
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "logo"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +78,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_105427) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "occupation"
+    t.string "address"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "sub_categories"
+  add_foreign_key "articles_platforms", "articles"
+  add_foreign_key "articles_platforms", "platforms"
+  add_foreign_key "my_guides", "articles"
+  add_foreign_key "my_guides", "users"
+  add_foreign_key "sub_categories", "categories"
 end
