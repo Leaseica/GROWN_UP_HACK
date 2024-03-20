@@ -1,0 +1,18 @@
+<div class="category-card">
+  <div class="photo">
+    <% if category.photo.attached? %>
+      <%= cl_image_tag(category.photo.key,
+                   width: 300, height: 200,
+                   crop: "thumb", gravity: "face",
+                   alt: "Photo de #{brain.title}") %>
+      <% end %>
+
+  </div>
+  <div class="content">
+    <h2 class="name"><%= category.name %></h2>
+    <h3 class="description">
+      <strong><%= category.description %></strong>
+      <span>•</span>
+    </h3>
+  </div>
+</div>
