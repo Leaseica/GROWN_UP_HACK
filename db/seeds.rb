@@ -9,12 +9,13 @@
 #   end
 
 # Clear existing data
-User.destroy_all
-Category.destroy_all
-SubCategory.destroy_all
-Article.destroy_all
-Platform.destroy_all
+ArticlesPlatform.destroy_all
 MyGuide.destroy_all
+Article.destroy_all
+SubCategory.destroy_all
+Category.destroy_all
+Platform.destroy_all
+User.destroy_all
 
 # Seed Users
 user_1 = User.create(email: "user1@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Developer", address: "1 rue premier", birthday: "1990-01-01")
