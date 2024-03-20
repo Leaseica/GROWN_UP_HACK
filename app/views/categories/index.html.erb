@@ -1,2 +1,59 @@
 <h1>Categories#index</h1>
 <p>Find me in app/views/categories/index.html.erb</p>
+
+<div class = "index">
+  <div class = "navbar"></div>
+  <div class = "gh section">
+    <div class = "breadcrumb"></div>
+    <div class= "section">
+      <div class= "searchbar">
+        <%= form_with url: categories_path, method: :get, class: "d-flex", id: "search-form" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Saisir une spécialité",
+            id: "search-input"
+          %>
+        <%= submit_tag "Rechercher", name: "", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+      <% if params[:query].blank? %>
+        <div class= "list-card">
+          <div class="section">
+            <% if @categories.any? %>
+              <div class="cards">
+                <% @categories.first(3)each do |category| %>
+                  <%= link_to categorie_path(category) do %>
+                    <div class="grid-cell">
+                      <%= render "shared/category_card", category: category %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% else %>
+              <p class="no-result">Aucun résultat</p>
+            <% end %>
+          </div>
+         <div class= "gh Divider24"></div>
+         <div class="section">
+            <% if @categories.any? %>
+              <div class="cards">
+                <% @categories.last(3)each do |category| %>
+                  <%= link_to categorie_path(category) do %>
+                    <div class="grid-cell">
+                      <%= render "shared/category_card", category: category %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% else %>
+              <p class="no-result">Aucun résultat</p>
+            <% end %>
+        </div>
+      <div class="gh Divider24"></div>
+    </div>
+  </div>
+  <div class= "footer"></div>
+</div>
+
+
