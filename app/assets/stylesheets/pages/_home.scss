@@ -1,13 +1,17 @@
 // Specific CSS for your home-page
+
 .banner {
   position: relative;
-  text-align: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content to the bottom */
+  align-items: flex-start; /* Aligns content to the left; change to center if needed */
   color: white;
-  background-image: url(asset-path('home_cover.png'));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 42.5%, #000 95%), url('home_cover.png');
   background-size: cover;
   background-position: center;
-  padding: 500px 40px 40px 50px; /* Adjust padding as needed */
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))
+  padding: 40px 50px; /* Adjust padding as needed; top and bottom padding set to 40px, left and right padding set to 50px */
+  height: 500px; /* Adjust height as needed to maintain aspect ratio or desired size */
 }
 
 .banner h1 {
