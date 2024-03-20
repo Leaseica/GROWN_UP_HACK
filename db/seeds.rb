@@ -47,7 +47,46 @@ ArticlesPlatform.create(article: article1, platform: platform1)
 ArticlesPlatform.create(article: article2, platform: platform2)
 
 # Seed MyGuides
-MyGuide.create(article: article1, occupation: "Developer", address: "1234 Street", social_security: "123-45-6789", user: user_1)
-MyGuide.create(article: article2, occupation: "Coach", address: "5678 Avenue", social_security: "987-65-4321", user: user_2)
+MyGuide.create!(
+  article: article1,
+  user: user_1,
+  occupation: "Web Developer",
+  address: "123 Main St, Cityville",
+  social_security: "123-45-6789",
+  business_structure: "Entrepreneur individuel",
+  is_micro_entrepreneur: true,
+  is_business_extension: false,
+  has_previous_self_employment: false,
+  representative_role: "Indivisaire",
+  representative_type: "Personne physique"
+)
+
+MyGuide.create!(
+  article: article2,
+  user: user_2,
+  occupation: "Graphic Designer",
+  address: "456 Elm St, Townville",
+  social_security: "987-65-4321",
+  business_structure: "Personne Morale",
+  is_micro_entrepreneur: false,
+  is_business_extension: true,
+  has_previous_self_employment: true,
+  representative_role: "Personne ayant le pouvoir d'engager l'établissement",
+  representative_type: "Personne morale"
+)
+
+MyGuide.create!(
+  article: article1,
+  user: user_3,
+  occupation: "Journaliste freelance",
+  address: "789 Oak St, Villageville",
+  social_security: "321-54-9876",
+  business_structure: "Entrepreneur individuel",
+  is_micro_entrepreneur: true,
+  is_business_extension: false,
+  has_previous_self_employment: true,
+  representative_role: "Indivisaire",
+  representative_type: "Personne physique"
+)
 
 puts "Seed data loaded successfully!"

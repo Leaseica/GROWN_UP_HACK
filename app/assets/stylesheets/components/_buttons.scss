@@ -48,16 +48,32 @@
 // Specific Button Sizes
 .btn-large {
   @include button-style($gh-purple, $gh-white, 18px, 16px, 24px);
+
+  &.danger {
+    background-color: $danger
+  }
 }
 
 .btn-xlarge {
   @include button-style($gh-purple, $gh-white, 22px, 10px, 30px, 5px);
+
+  &.danger {
+    background-color: $danger
+  }
 }
 
 .btn-medium {
   @include button-style($gh-purple, $gh-white, 16px, 12px, 20px);
+
+  &.danger {
+    background-color: $danger
+  }
 }
 
 .btn-small {
   @include button-style($gh-purple, $gh-white, 14px, 8px, 12px);
+
+  &.danger {
+    background-color: $danger
+  }
 }
