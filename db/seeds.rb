@@ -14,9 +14,7 @@ MyGuide.destroy_all
 ArticlesPlatform.destroy_all
 Article.destroy_all
 SubCategory.destroy_all
-
 Platform.destroy_all
-
 Category.destroy_all
 User.destroy_all
 
