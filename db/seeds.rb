@@ -44,3 +44,5 @@ ArticlesPlatform.create(article: article2, platform: platform2)
 # Seed MyGuides
 MyGuide.create(article: article1, occupation: "Developer", address: "1234 Street", social_security: "123-45-6789", user: user_1)
 MyGuide.create(article: article2, occupation: "Coach", address: "5678 Avenue", social_security: "987-65-4321", user: user_2)
+
+puts "Seed data loaded successfully!"
