@@ -1,2 +1,11 @@
 <h1>Articles#new</h1>
 <p>Find me in app/views/articles/new.html.erb</p>
+<h1><%= @article.title %></h1>
+
+<%= render "form", article: @article %>
+
+<br>
+
+<div>
+  <%= link_to @article.sub_category[:name], sub_category_path %>
+</div>

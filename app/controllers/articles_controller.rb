@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :description,
-      :paragraph1
+      :paragraph1,
     )
   end
 end

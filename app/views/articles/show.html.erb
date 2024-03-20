@@ -2,5 +2,7 @@
 <p>Find me in app/views/articles/show.html.erb</p>
 
 <%= link_to 'Commencer mes démarches', my_guide_path, class: 'btn btn-small' %>
+<%= link_to 'Commencer mes démarches', new_article_my_guide_path(article_id: @article.id), class: 'btn btn-small' %>
+
 <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small outline', style: 'background-color: $gh-purple'  %>
 <%= button_to "Supprimer cet article", @article, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-small danger'%>

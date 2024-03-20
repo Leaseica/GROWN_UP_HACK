@@ -1,6 +1,6 @@
 class MyGuidesController < ApplicationController
-  before_action :set_article, only: %i[new]
-  before_action :set_user, only: %i[new]
+  before_action :set_article, only: %i[new create]
+  before_action :set_user, only: %i[new create]
   before_action :set_my_guide, only: %i[show edit update destroy]
 
   # GET my_guides/new
@@ -50,7 +50,7 @@ class MyGuidesController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def set_article
@@ -59,7 +59,6 @@ class MyGuidesController < ApplicationController
 
   def my_guide_params
     params.require(:my_guide).permit(
-      :article_id,
       :occupation,
       :address,
       :social_security,
