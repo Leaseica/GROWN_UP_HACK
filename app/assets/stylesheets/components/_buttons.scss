@@ -1,0 +1,63 @@
+// Button Mixins for different states
+@mixin button-style($background-color, $color: $gh-white, $font-size: 16px, $padding-y: 8px, $padding-x: 12px, $border-radius: 6px) {
+  background-color: $background-color;
+  color: $color;
+  font-family: $body-font;
+  font-size: $font-size;
+  font-weight: 700;
+  line-height: 24px;
+  padding: $padding-y $padding-x;
+  border-radius: $border-radius;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: darken($background-color, 10%);
+  }
+
+  &:disabled {
+    background-color: $gh-light-purple;
+    cursor: not-allowed;
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 2px solid $background-color;
+    &:hover {
+      background-color: $background-color;
+      color: $gh-white;
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+    color: $background-color;
+    &:hover {
+      background-color: lighten($background-color, 10%);
+      color: $gh-white;
+    }
+  }
+}
+
+// Specific Button Sizes
+.btn-large {
+  @include button-style($gh-purple, $gh-white, 18px, 16px, 24px);
+}
+
+.btn-xlarge {
+  @include button-style($gh-purple, $gh-white, 22px, 10px, 30px, 5px);
+}
+
+.btn-medium {
+  @include button-style($gh-purple, $gh-white, 16px, 12px, 20px);
+}
+
+.btn-small {
+  @include button-style($gh-purple, $gh-white, 14px, 8px, 12px);
+}
