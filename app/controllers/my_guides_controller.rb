@@ -1,31 +1,35 @@
 class MyGuidesController < ApplicationController
-  before_action :set_article
-  before_action :set_user
-  before_action :set_my_guide
+  before_action :set_article, only: %i[new]
+  before_action :set_user, only: %i[new]
+  before_action :set_my_guide, only: %i[show edit update destroy]
 
+  # GET my_guides/new
   def new
     @my_guide = MyGuide.new
   end
 
+  # GET my_guides/1
+  def show
+  end
+
+  # POST /my_guides
   def create
     @my_guide = MyGuide.new(my_guide_params)
-    @my_guide.article = @my_guide
     if @my_guide.save
-      redirect_to article_path(@article)
+      redirect_to @my_guide, notice: "My Guide was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def show
-  end
-
+  # GET my_guides/1/edit
   def edit
   end
 
+  # PATCH/PUT /my_guides/1
   def update
-    if @my_guide.update(my_guides_params)
-      redirect_to @my_guide, notice: "My_guides was successfully updated."
+    if @my_guide.update(my_guide_params)
+      redirect_to @my_guide, notice: "My_guide was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,10 +38,15 @@ class MyGuidesController < ApplicationController
   def redirect
   end
 
+  def destroy
+    @my_guide.destroy
+    redirect_to restaurant_path(@my_guide.article), status: :see_other
+  end
+
   private
 
   def set_my_guide
-    @my_guide = MyGuide.find(params[:my_guide_id])
+    @my_guide = MyGuide.find(params[:id])
   end
 
   def set_user
@@ -48,7 +57,7 @@ class MyGuidesController < ApplicationController
     @article = Article.find(params[:article_id])
   end
 
-  def my_guides_params
+  def my_guide_params
     params.require(:my_guide).permit(
       :article_id,
       :occupation,

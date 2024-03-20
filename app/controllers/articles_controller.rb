@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article
+  before_action :set_article, only: %i[show edit update destroy]
+  before_action :set_sub_category, only: %i[new create]
 
     # GET /articles/7
   def show
@@ -27,6 +28,11 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/7
   def update
+    if @article.update(article_params)
+      redirect_to @article, notice: "article was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   # DELETE /articles/7
@@ -38,7 +44,11 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:id])
+  end
+
+  def set_sub_category
+    @sub_category = SubCategory.find(params[:sub_category_id])
   end
 
   def article_params
