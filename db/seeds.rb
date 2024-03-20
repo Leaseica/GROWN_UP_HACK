@@ -9,12 +9,16 @@
 #   end
 
 # Clear existing data
-User.destroy_all
-Category.destroy_all
-SubCategory.destroy_all
-Article.destroy_all
-Platform.destroy_all
+
 MyGuide.destroy_all
+ArticlesPlatform.destroy_all
+Article.destroy_all
+SubCategory.destroy_all
+
+Platform.destroy_all
+
+Category.destroy_all
+User.destroy_all
 
 # Seed Users
 user_1 = User.create(email: "user1@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Developer", address: "1 rue premier", birthday: "1990-01-01")
@@ -29,8 +33,8 @@ santé = Category.create(name: "Travail", description: "Explorez notre section '
 finance = Category.create(name: "Travail", description: "Découvrez notre section 'Finance', votre compagnon indispensable pour gérer efficacement vos finances au quotidien. Que ce soit pour ouvrir un compte bancaire, comprendre les différents types d'investissements, optimiser votre budget familial ou obtenir des conseils sur la gestion des dettes, notre application vous offre des ressources claires et des outils pratiques pour vous aider à prendre des décisions financières éclairées. Avec des conseils d'experts, des astuces pour économiser et des réponses à vos questions financières les plus pressantes, prenez en main votre avenir financier dès maintenant.")
 voiture = Category.create(name: "Voiture", description: "Explorez notre section 'Voiture', votre guide fiable pour résoudre les tracas de l'automobile. Que ce soit pour faire face à une panne inattendue, comprendre les formalités administratives liées à votre véhicule ou obtenir des conseils pour économiser sur l'entretien, notre application est là pour vous aider à prendre la route en toute confiance. Avec des conseils pratiques, des informations utiles et des solutions rapides, gardez votre voiture sur la bonne voie sans tracas.")
 # Seed SubCategories
-web_dev = SubCategory.create(name: "Web Development", description: "Developing websites", category: technology)
-health_fitness = SubCategory.create(name: "Health & Fitness", description: "Health and fitness advice", category: lifestyle)
+web_dev = SubCategory.create(name: "Web Development", description: "Developing websites", category: logement)
+health_fitness = SubCategory.create(name: "Health & Fitness", description: "Health and fitness advice", category: travail)
 
 # Seed Articles
 article1 = Article.create(title: "Learn Rails", description: "A comprehensive guide to learning Ruby on Rails.", sub_category: web_dev, paragraph1: "Rails is a powerful framework...")
