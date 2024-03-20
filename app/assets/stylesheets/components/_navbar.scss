@@ -1,25 +1,33 @@
-.navbar-lewagon {
+/* navbar fond d'écran */
+.navbar-guh {
   justify-content: space-between;
   background: $gh-blue;
   color: var(--GH-Base-Colours-gh-white, var(--linear-gray, #FFF));
-  padding: 1.875rem 1.875rem 1.25rem 1.875rem;
+  padding: 1rem 1.875rem 1rem 1.875rem;
 }
 
-.navbar-lewagon .navbar-collapse {
+
+/* navbar agencement des éléments */
+.navbar-guh .navbar-collapse {
   flex-grow: 0;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+/* navbar image du logo*/
+.navbar-guh .navbar-brand img {
+  width: 5.5rem;
 }
+
+/* navbar texte "GrownUp hack"*/
 .brand_heading {
   line-height: normal;
   font-family: "Squada One", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 50px;
+  font-size: 2rem;
 }
 
+/* navbar bouton de login*/
 .nav-buttons button {
   padding: 10px 20px;
   margin-left: 10px; /* Spacing between buttons */
