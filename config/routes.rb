@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :platforms
 
+  resources :users, only: [:show]
   # If you need a specific route for searching or any other custom action,
   # you can add them here. For example:
   get 'search', to: 'searches#search'
