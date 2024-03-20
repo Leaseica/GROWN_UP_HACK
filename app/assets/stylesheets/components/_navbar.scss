@@ -4,6 +4,9 @@
   background: $gh-blue;
   color: var(--GH-Base-Colours-gh-white, var(--linear-gray, #FFF));
   padding: 1rem 1.875rem 1rem 1.875rem;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
 }
 
 
