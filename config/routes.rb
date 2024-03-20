@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "components", to: "pages#components"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   resources :platforms
 
   resources :users, only: [:show]
+  get "profile", to: "users#profile"
   # If you need a specific route for searching or any other custom action,
   # you can add them here. For example:
   get 'search', to: 'searches#search'
