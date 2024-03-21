@@ -1,0 +1,13 @@
+<!-- app/views/users/_form.html.erb -->
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name, label: "Prénom" %>
+  <%= f.input :last_name, label: "Nom de famille" %>
+  <%= f.input :email %>
+  <%= f.input :occupation, label: "Métier" %>
+  <%= f.input :address, label: "Adresse" %>
+  <%= f.input :birthday, label: "Date de naissance" %>
+  <%= f.input :nationality, label: "Nationalité" %>
+  <%= f.input :social_security, label: "Sécurité sociale" %>
+
+  <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+<% end %>
