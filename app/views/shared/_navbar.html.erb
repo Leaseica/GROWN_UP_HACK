@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-guh">
 
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "brand_logo.svg" %>
     <% end %>
     <div class= "brand_heading">GrownUp Hack</div>
@@ -14,10 +14,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "btn btn-small outline", style: "margin-right: 5px" %>
+            <%= link_to "Home", root_path, class: "btn btn-small outline", style: "margin-right: 5px" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "btn btn-small", style: "margin-right: 5px" %>
+            <%= link_to "Profile", user_path(current_user.id), class: "btn btn-small", style: "margin-right: 5px" %>
           </li>
           <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-small" %>

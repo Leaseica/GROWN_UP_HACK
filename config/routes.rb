@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :platforms
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   get "profile", to: "users#profile"
   # If you need a specific route for searching or any other custom action,
   # you can add them here. For example:
