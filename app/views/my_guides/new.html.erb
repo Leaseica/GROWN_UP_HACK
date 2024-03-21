@@ -1,2 +1,8 @@
-<h1>MyGuides#new</h1>
-<p>Find me in app/views/my_guides/new.html.erb</p>
+<h1 class="heading-xl"><%= @article.title %></h1>
+<h2 class="heading-l">Nouvelle démarche</h2>
+
+<%= render "form", my_guide: @my_guide %>
+<div>
+  <%= link_to "Retourner sur l'article", @article %> |
+  <%# <%= link_to @article.sub_category[:name], sub_category_articles_path%>
+</div>

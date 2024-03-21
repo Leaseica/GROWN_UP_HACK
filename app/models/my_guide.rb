@@ -5,6 +5,12 @@ class MyGuide < ApplicationRecord
 
   after_update :update_user_occupation
 
+  enum business_structure: {
+    entrepreneur_individuel: 'Entrepreneur individuel',
+    personne_morale: 'Personne morale',
+    exploitation_en_commun: 'Exploitation en commun'
+  }
+
   private
 
   def update_user_occupation
