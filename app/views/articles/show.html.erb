@@ -1,7 +1,24 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="container3">
+        <div class="menu">
+          <div class="menu-icon">
+              <div class="icon"></div>
+          </div>
+          <div class="menu-text">Home/categories/subcategories</div>
+        </div>
 
-<%= link_to 'Commencer mes démarches', my_guide_path, class: 'btn btn-small' %>
+        <div class="content1">
+          <div class="title" style="margin: 15px">Se lancer en freelance</div>
+
+          <div class="subtitle" style="margin: 15px">Body Extra Large. Most fonts have a particular weight which corresponds to one of the numbers in Common weight name mapping. However some fonts, called variable fonts, can support a range of weights with a more or less fine granularity, and this can give the designer a much closer degree of control over the chosen weight.</div>
+
+
+
+        </div>
+
+
+</div>
+
+
 <%= link_to 'Commencer mes démarches', new_article_my_guide_path(article_id: @article.id), class: 'btn btn-small' %>
 
 <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small outline', style: 'background-color: $gh-purple'  %>

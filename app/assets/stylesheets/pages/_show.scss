@@ -1,0 +1,62 @@
+/* Reset des marges et des paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container3 {
+  width: 100%;
+  height: 100vh;
+  padding-left: 104px;
+  padding-right: 104px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.container2 {
+  width: 100%;
+  height: 100%;
+  padding: 100px 104px 120px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  position: absolute;
+  border: 2px #4A5468 solid;
+}
+
+.content1 {
+  flex: 1;
+  margin: 20px;
+  text-align: center;
+}
