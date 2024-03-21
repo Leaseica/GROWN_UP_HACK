@@ -1,4 +1,4 @@
-/* Reset des marges et des paddings */
+/* Reset des marges et des paddings*/
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +7,10 @@
 
 .container3 {
   width: 100%;
-  height: 100vh;
   padding-left: 104px;
   padding-right: 104px;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 10px;
+  padding-bottom: 50px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -31,6 +30,7 @@
 
 .menu {
   display: flex;
+  margin-top: 40px;
   gap: 20px;
 }
 
@@ -47,16 +47,36 @@
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   left: 3px;
   top: 3px;
   position: absolute;
-  border: 2px #4A5468 solid;
+
 }
 
-.content1 {
+.title1 {
   flex: 1;
-  margin: 20px;
-  text-align: center;
+  padding: 50px 10px 25px 10px;
+  text-align: justify;
+  font-weight: bold;
+}
+.content1 {
+  color: #2D3648;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 27px;
+  word-wrap: break-word;
+  background-color: white;
+}
+
+.checkbox {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  padding: 25px 0px 0px 0px;
 }
