@@ -44,8 +44,44 @@ freelance = SubCategory.create(name: "Se lancer à son compte", description:
 bien_etre_au_travail = SubCategory.create(name: "Bien être au travail", description: "Découvre l'importance vitale de l'équilibre entre travail et vie personnelle. Tu y trouveras des astuces pratiques pour gérer ton stress et cultiver une santé mentale épanouie. De plus, plonge dans les politiques de santé et sécurité en entreprise pour te sentir plus confiant dans ton environnement professionnel, tout en prenant soin de toi.", category: travail )
 
   # Seed Articles
-article1 = Article.create(title: "Learn Rails", description: "A comprehensive guide to learning Ruby on Rails.", sub_category: freelance, paragraph1: "Rails is a powerful framework...")
-article2 = Article.create(title: "Yoga for Beginners", description: "Start your yoga journey today.", sub_category: bien_etre_au_travail, paragraph1: "Yoga is a way to flexibility...")
+article1 = Article.create(
+  title: "Les étapes essentielles pour devenir freelance",
+  description: "Découvrez les étapes clés pour démarrer une carrière en tant que freelance.",
+  sub_category: freelance,
+  paragraph1: "De la définition de vos services à la recherche de clients, apprenez les étapes essentielles pour lancer votre activité de freelance et réussir dans ce domaine compétitif.",
+  )
+article2 = Article.create(
+  title: "Stratégies de marketing pour les freelances",
+  description: "Apprenez à promouvoir votre activité de freelance et à attirer des clients.",
+  sub_category: freelance,
+  paragraph1: "Explorez des stratégies de marketing efficaces pour vous démarquer en tant que freelance, attirer des clients potentiels et développer votre entreprise.",
+  )
+article3 = Article.create(
+  title: "Gestion financière pour les freelances",
+  description: "Maîtrisez la gestion financière pour assurer le succès de votre activité de freelance.",
+  sub_category: freelance,
+  paragraph1: "Apprenez à gérer vos finances en tant que freelance, y compris la tarification de vos services, la facturation des clients, la gestion des taxes et la planification financière à long terme.",
+)
+
+article4 = Article.create(
+  title: "Les outils indispensables pour les freelances",
+  description: "Découvrez les outils et logiciels essentiels pour gérer votre activité de freelance.",
+  sub_category: freelance,
+  paragraph1: "Explorez une liste d'outils et de logiciels indispensables pour les freelances, allant de la gestion de projet à la comptabilité en passant par la collaboration en ligne, pour optimiser votre productivité et votre efficacité professionnelle.",
+)
+article5 = Article.create(
+  title: "Conseils pour réussir en tant que freelance",
+  description: "Obtenez des conseils pratiques pour réussir dans votre carrière de freelance.",
+  sub_category: freelance,
+  paragraph1: "Recevez des conseils éprouvés pour réussir en tant que freelance, y compris la gestion du temps, la communication avec les clients, le développement de compétences et la croissance professionnelle continue.",
+  )
+
+article6= Article.create(
+  title: "Réseautage efficace pour les freelances",
+  description: "Apprenez à développer votre réseau professionnel en tant que freelance.",
+  sub_category: freelance,
+  paragraph1: "Découvrez des stratégies et des techniques pour développer votre réseau professionnel en tant que freelance, y compris la participation à des événements de réseautage, l'utilisation des médias sociaux et la création de relations solides avec d'autres professionnels de votre domaine.",
+  )
 
 # Seed Platforms
 platform1 = Platform.create(name: "GitHub", url: "https://github.com", logo: "github_logo.png", description: "Where the world builds software.")
