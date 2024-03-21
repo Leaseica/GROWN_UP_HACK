@@ -30,13 +30,23 @@ travail = Category.create(name: "Travail", description: "'Travail', votre compag
 santé = Category.create(name: "Santé", description: "Explorez notre section 'Santé', votre guide pratique pour naviguer dans les formalités administratives médicales en toute simplicité. Que ce soit pour commander une carte vitale, comprendre les remboursements médicaux ou savoir comment choisir une mutuelle adaptée, notre application vous offre des conseils clairs et des instructions étape par étape pour simplifier vos démarches. Avec des informations fiables, des astuces pratiques et des réponses à vos questions les plus fréquentes, prenez le contrôle de votre santé administrative dès aujourd'hui.")
 finance = Category.create(name: "Finance", description: "Découvrez notre section 'Finance', votre compagnon indispensable pour gérer efficacement vos finances au quotidien. Que ce soit pour ouvrir un compte bancaire, comprendre les différents types d'investissements, optimiser votre budget familial ou obtenir des conseils sur la gestion des dettes, notre application vous offre des ressources claires et des outils pratiques pour vous aider à prendre des décisions financières éclairées. Avec des conseils d'experts, des astuces pour économiser et des réponses à vos questions financières les plus pressantes, prenez en main votre avenir financier dès maintenant.")
 voiture = Category.create(name: "Voiture", description: "Explorez notre section 'Voiture', votre guide fiable pour résoudre les tracas de l'automobile. Que ce soit pour faire face à une panne inattendue, comprendre les formalités administratives liées à votre véhicule ou obtenir des conseils pour économiser sur l'entretien, notre application est là pour vous aider à prendre la route en toute confiance. Avec des conseils pratiques, des informations utiles et des solutions rapides, gardez votre voiture sur la bonne voie sans tracas.")
-# Seed SubCategories
-web_dev = SubCategory.create(name: "Web Development", description: "Developing websites", category: logement)
-health_fitness = SubCategory.create(name: "Health & Fitness", description: "Health and fitness advice", category: travail)
 
-# Seed Articles
-article1 = Article.create(title: "Learn Rails", description: "A comprehensive guide to learning Ruby on Rails.", sub_category: web_dev, paragraph1: "Rails is a powerful framework...")
-article2 = Article.create(title: "Yoga for Beginners", description: "Start your yoga journey today.", sub_category: health_fitness, paragraph1: "Yoga is a way to flexibility...")
+# Seed SubCategories
+recherche_emploi = SubCategory.create(name: "Recherche d'emploi", description:
+  "Décroche le job de tes rêves en transformant ton CV en une invitation à l'aventure professionnelle et ta lettre de motivation en un coup de génie qui séduira même les dragons des ressources humaines, tandis que tu navigues avec aisance sur les mers tumultueuses des plateformes d'emploi et brille lors des entretiens comme une étoile montante du réseautage professionnel !", category: travail)
+gestion_de_carrière = SubCategory.create(name: "Gestion de carrière", description:
+"Explore les voies de ta carrière avec assurance et navigue avec brio à travers les méandres du monde professionnel, tout en cultivant ta croissance comme un jardinier expert de ton propre destin.", category: travail)
+droit_du_travail = SubCategory.create(name: "Droit du travail", description:
+  "Parcoure les méandres du droit du travail avec assurance, transformant chaque défi en une opportunité de croissance professionnelle pour naviguer avec succès dans le paysage complexe des relations professionnelles, te permettant ainsi de défendre tes droits et de prospérer dans ta carrière.", category: travail)
+formation = SubCategory.create(name: "Formation", description:
+  "Découvre un trésor d'informations sur tes droits à la formation, le fonctionnement du CPF et les différentes options de financement pour naviguer en toute confiance dans le monde de la formation professionnelle, et libére votre potentiel pour façonner ton avenir avec assurance et succès.", category:travail )
+freelance = SubCategory.create(name: "Se lancer à son compte", description:
+  "Prépare-toi à l'aventure de ta vie en découvrant comment te lancer à ton compte. Trouve des conseils pratiques, des astuces et des ressources essentielles pour démarrer ton entreprise, développer ta marque et conquérir le marché. Nos guides détaillés et articles inspirants t'accompagneront à chaque étape de ton parcours entrepreneurial, te permettant de concrétiser tes rêves et de tracer ta propre voie vers le succès.", category: travail )
+bien_etre_au_travail = SubCategory.create(name: "Bien être au travail", description: "Découvre l'importance vitale de l'équilibre entre travail et vie personnelle. Tu y trouveras des astuces pratiques pour gérer ton stress et cultiver une santé mentale épanouie. De plus, plonge dans les politiques de santé et sécurité en entreprise pour te sentir plus confiant dans ton environnement professionnel, tout en prenant soin de toi.", category: travail )
+
+  # Seed Articles
+article1 = Article.create(title: "Learn Rails", description: "A comprehensive guide to learning Ruby on Rails.", sub_category: freelance, paragraph1: "Rails is a powerful framework...")
+article2 = Article.create(title: "Yoga for Beginners", description: "Start your yoga journey today.", sub_category: bien_etre_au_travail, paragraph1: "Yoga is a way to flexibility...")
 
 # Seed Platforms
 platform1 = Platform.create(name: "GitHub", url: "https://github.com", logo: "github_logo.png", description: "Where the world builds software.")
@@ -67,7 +77,7 @@ MyGuide.create!(
   occupation: "Graphic Designer",
   address: "456 Elm St, Townville",
   social_security: "987-65-4321",
-  business_structure: "Personne Morale",
+  business_structure: "Personne morale",
   is_micro_entrepreneur: false,
   is_business_extension: true,
   has_previous_self_employment: true,
