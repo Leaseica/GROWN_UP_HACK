@@ -67,7 +67,7 @@ MyGuide.create!(
   occupation: "Graphic Designer",
   address: "456 Elm St, Townville",
   social_security: "987-65-4321",
-  business_structure: "Personne Morale",
+  business_structure: "Personne morale",
   is_micro_entrepreneur: false,
   is_business_extension: true,
   has_previous_self_employment: true,
