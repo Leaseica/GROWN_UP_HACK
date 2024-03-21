@@ -1,6 +1,28 @@
 <!-- app/views/my_guides/_form.html.erb -->
-<%= simple_form_for(my_guide) do |f| %>
-  <!-- [...] -->
-  <%= f.input :photo, as: :file %>
-  <!-- [...] -->
+
+<%= simple_form_for [@article, @my_guide] do |f| %>
+  <%= f.input :article_id, label: @article.title %>
+  <%= f.input :occupation, label: "Occupation" %>
+  <%= f.input :address, label: "Address" %>
+  <%= f.input :social_security, label: "Social Security Number" %>
+  <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select' } %>
+  <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
+            collection: [[true, 'Oui'], [false, 'Non']],
+            label_method: :last, value_method: :first,
+            label: "L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?*",
+            include_blank: false %>
+  <%= f.input :is_business_extension, as: :radio_buttons,
+            collection: [[true, 'Oui'], [false, 'Non']],
+            label_method: :last, value_method: :first,
+            label: "Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)",
+            include_blank: false %>
+  <%= f.input :has_previous_self_employment,as: :radio_buttons,
+            collection: [[true, 'Oui'], [false, 'Non']],
+            label_method: :last, value_method: :first,
+            label: "L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?",
+            include_blank: false %>
+  <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise" %>
+  <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne" %>
+
+  <%= f.button :submit, "Sauvegarder My Guide" %>
 <% end %>
