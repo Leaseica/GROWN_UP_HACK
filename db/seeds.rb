@@ -14,16 +14,14 @@ MyGuide.destroy_all
 ArticlesPlatform.destroy_all
 Article.destroy_all
 SubCategory.destroy_all
-
 Platform.destroy_all
-
 Category.destroy_all
 User.destroy_all
 
 # Seed Users
-user_1 = User.create(email: "user1@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Developer", address: "1 rue premier", birthday: "1990-01-01")
-user_2 = User.create(email: "user2@example.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Coach", address: "2 rue deuxieme", birthday: "1997-03-03")
-user_3 = User.create(email: "user3@example.com", password: "123456", first_name: "Jeff", last_name: "Doe", occupation: "Developer", address: "3 rue troisieme", birthday: "1998-02-02")
+user_1 = User.create(email: "user1@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Developer", address: "1 rue premier", birthday: "1990-01-01", nationality: "Française", social_security: "123-45-6789")
+user_2 = User.create(email: "user2@example.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Coach", address: "2 rue deuxieme", birthday: "1997-03-03", nationality: "Anglaise", social_security: "987-65-4321")
+user_3 = User.create(email: "user3@example.com", password: "123456", first_name: "Jeff", last_name: "Doe", occupation: "Developer", address: "3 rue troisieme", birthday: "1998-02-02", nationality: "Française", social_security: "111-11-1111")
 
 # Seed Categories
 logement = Category.create(name: "Logement", description: "Découvrez notre section 'Logement', votre allié pour surmonter les embûches de la vie domestique. Des fuites d'eau inattendues aux pertes de clés désagréables, en passant par les litiges avec les propriétaires et les questions sur la taxe foncière, notre application est là pour vous fournir des conseils pratiques, des solutions rapides et des réponses claires à toutes vos préoccupations. Ne laissez plus les problèmes de logement vous prendre au dépourvu, trouvez les réponses dont vous avez besoin ici.")
@@ -49,7 +47,46 @@ ArticlesPlatform.create(article: article1, platform: platform1)
 ArticlesPlatform.create(article: article2, platform: platform2)
 
 # Seed MyGuides
-MyGuide.create(article: article1, occupation: "Developer", address: "1234 Street", social_security: "123-45-6789", user: user_1)
-MyGuide.create(article: article2, occupation: "Coach", address: "5678 Avenue", social_security: "987-65-4321", user: user_2)
+MyGuide.create!(
+  article: article1,
+  user: user_1,
+  occupation: "Web Developer",
+  address: "123 Main St, Cityville",
+  social_security: "123-45-6789",
+  business_structure: "Entrepreneur individuel",
+  is_micro_entrepreneur: true,
+  is_business_extension: false,
+  has_previous_self_employment: false,
+  representative_role: "Indivisaire",
+  representative_type: "Personne physique"
+)
+
+MyGuide.create!(
+  article: article2,
+  user: user_2,
+  occupation: "Graphic Designer",
+  address: "456 Elm St, Townville",
+  social_security: "987-65-4321",
+  business_structure: "Personne Morale",
+  is_micro_entrepreneur: false,
+  is_business_extension: true,
+  has_previous_self_employment: true,
+  representative_role: "Personne ayant le pouvoir d'engager l'établissement",
+  representative_type: "Personne morale"
+)
+
+MyGuide.create!(
+  article: article1,
+  user: user_3,
+  occupation: "Journaliste freelance",
+  address: "789 Oak St, Villageville",
+  social_security: "321-54-9876",
+  business_structure: "Entrepreneur individuel",
+  is_micro_entrepreneur: true,
+  is_business_extension: false,
+  has_previous_self_employment: true,
+  representative_role: "Indivisaire",
+  representative_type: "Personne physique"
+)
 
 puts "Seed data loaded successfully!"

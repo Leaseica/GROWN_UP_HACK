@@ -3,38 +3,60 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrownUpHack Homepage</title>
+    <title>GrownUp Hack Homepage</title>
   </head>
   <body>
     <div class="banner">
-      <div class="container">
+      <div class="container1">
         <h1 class="heading-xxl">Hacking 101 : Premiers pas sans faux pas</h1>
         <p class="regular-xl">Parce que savoir quand appeler le plombier est une science exacte.</p>
         <a class="btn btn-large" href="#">Découvrir</a>
-      </div>
+        </div>
     </div>
 
-    <div class="container">
-      <div class="SearchBar">
-        <div class="SearchIcon"></div>
-        <div class="SearchText">Search</div>
-      </div>
-      <h1 class="heading-xxl">Heading XXL</h1>
-      <h2 class="heading-xl">Heading XL</h2>
-      <h3 class="heading-l">Heading L</h3>
-      <h4 class="heading-m">Heading M</h4>
-      <h5 class="heading-s">Heading S</h5>
-      <h6 class="heading-xs">Heading XS</h6>
-      <p class="heading-xxs">Heading XXS</p>
+    <div class="container2">
+        <div class="section">
+            <div class="title">GrownUp Hack</div>
+            <div class="subtitle">GrownUp Hack est votre passerelle vers une maîtrise parfaite de l'indépendance adulte. Que vous débutiez dans le monde professionnel, que vous emménagiez dans votre premier appartement ou que vous naviguiez dans les méandres de la finance personnelle, nous sommes là pour vous guider à travers chaque étape avec des outils et des ressources conçus pour simplifier votre vie.</div>
+        </div>
 
-      <p class="regular-xl">Body Text XL Regular</p>
-      <p class="semi-bold-l">Body Text L Semi-Bold</p>
-      <p class="bold-m">Body Text M Bold</p>
-      <div class="divider1"></div>
+        <div class="subsection">
+          <div class="card">
+            <div class="card-title">Apprend à gérer tes finances</div>
+            <div class="card-subtitle">Apprend à gérer votre budget, à investir intelligemment et à éviter les pièges financiers avec nos guides détaillés et interactifs.</div>
+          </div>
+          <div class="illustration">
+            <%= image_tag "finance.png", style: "width: 250px; height: 250px; margin-left: 15px" %>
+          </div>
+        </div>
 
-      <button class="btn btn-large">Large Button</button>
-      <button class="btn btn-medium">Medium Button</button>
-      <button class="btn btn-small">Small Button</button>
+        <div class="divider">
+            <div class="line"></div>
+        </div>
+
+        <div class="subsection">
+          <div class="illustration">
+            <%= image_tag "scooter.png", style: "height: 250px; margin-left: 15px" %>
+          </div>
+          <div class="card">
+            <div class="card-title">La Vie Pratique Démystifiée</div>
+            <div class="card-subtitle">De la signature de ton premier bail à la compréhension des assurances, découvre des astuces et des conseils pratiques pour naviguer dans les aspects souvent complexes de la vie quotidienne.</div>
+          </div>
+        </div>
+
+        <div class="divider">
+            <div class="line"></div>
+        </div>
+
+        <div class="subsection">
+          <div class="card">
+            <div class="card-title">En terminer avec ta phobie administrative</div>
+            <div class="card-subtitle">Laisse derrière toi le casse-tête des démarches administratives grâce à nos guides pas-à-pas. Que ce soit pour tes impôts, tes démarches d'assurance ou la création d'une micro-entreprise, on te montre comment simplifier chaque processus.</div>
+          </div>
+          <div class="illustration">
+            <%= image_tag "admin.png", style: "height: 250px; margin-left: 15px" %>
+          </div>
+        </div>
     </div>
   </body>
 </html>
