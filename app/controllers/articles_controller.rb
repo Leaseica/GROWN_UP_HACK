@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
     # GET /articles/7
   def show
+    @sub_category = SubCategory.find(params[:id])
   end
 
   # GET /articles/new
