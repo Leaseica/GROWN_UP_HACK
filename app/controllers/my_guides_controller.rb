@@ -94,7 +94,7 @@ class MyGuidesController < ApplicationController
         :occupation,
         :address,
         :social_security,
-        :gender # Make sure to add this if you've added a gender column to your users table
+        :gender
       ]
     )
   end
