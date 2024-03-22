@@ -19,4 +19,7 @@
 
 <div class="p-3" style="position: fixed; top: 135px; right: 195px">
   <h3>Mon historique</h3>
+    <% Article.where(id: @previews_articles).each do |preview_article| %>
+      <%= preview_article.title %>
+    <% end %>
 </div>
