@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :my_guides
+
+  enum gender: {
+    female: 'Femme',
+    male: 'Homme'
+  }
 end
