@@ -1,0 +1,13 @@
+#show_sub_categories {
+  display: flex;
+  padding: 120px 104px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  align-self: stretch;
+  background: var(--linear-gray, #FFF);
+  .section-row {
+    gap: 10px;
+  }
+}

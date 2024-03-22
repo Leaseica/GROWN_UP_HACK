@@ -1,0 +1,35 @@
+
+<div id="show_sub_categories" class="index">
+  <div class="gh_section">
+
+    <div class="row justify-content-center">
+      <h1>Se lancer à son compte</h1>
+      <h2> Prépare-toi à l'aventure de ta vie en découvrant comment te lancer à ton compte. Trouve des conseils pratiques, des astuces et des ressources essentielles pour démarrer ton entreprise, développer ta marque et conquérir le marché. Nos guides détaillés et articles inspirants t'accompagneront à chaque étape de ton parcours entrepreneurial, te permettant de concrétiser tes rêves et de tracer ta propre voie vers le succès.</h2>
+      <div class="col-sm-8 my-3">
+        <%= form_with url: sub_category_path(@sub_category), method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="list-card">
+      <div class="section">
+        <% if @articles.any? %>
+          <% @articles.each_slice(3) do |article_group| %>
+          <div class="section-row">
+              <% article_group.each do |article| %>
+                  <%= link_to article_path(article), class: "article-card-link" do %>
+                    <%= render "article_card", article: article%>
+                  <% end %>
+              <% end %>
+          </div>
+          <div class="divider1"></div>
+          <% end %>
+        <% else %>
+          <p class="no-result">Aucun résultat</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

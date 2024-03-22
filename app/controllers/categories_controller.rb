@@ -2,13 +2,10 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     if params[:query].present?
-      @categories = @categories.where(name: params[:query])
+      # @categories = @categories.where("name ILIKE ?", "%#{params[:query]}%")
+      @categories = Category.global_search(params[:query])
     end
   end
 
-  def show
-    id = params[:id]
-    @category = Category.find(id)
-  end
-end
 
+end

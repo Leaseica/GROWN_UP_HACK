@@ -20,12 +20,18 @@ Rails.application.routes.draw do
   # Routes for Articles (non-nested actions)
   resources :articles, except: [:index] do
     # Nested routes for MyGuides related to specific Articles
-    resources :my_guides, shallow: true
+    resources :my_guides, shallow: true do
+      member do
+        get :summary
+        get :download
+      end
+    end
   end
+
 
   resources :platforms
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   get "profile", to: "users#profile"
   # If you need a specific route for searching or any other custom action,
   # you can add them here. For example:

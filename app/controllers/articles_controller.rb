@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
 
     # GET /articles/7
   def show
+    @article = Article.find(params[:id])
+    session[:store] ||= []
+    session[:store].unshift(@article.id)
+    session[:store] = session[:store].uniq
   end
 
   # GET /articles/new
@@ -56,6 +60,7 @@ class ArticlesController < ApplicationController
       :title,
       :description,
       :paragraph1,
+      :photo,
     )
   end
 end

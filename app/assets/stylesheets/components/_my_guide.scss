@@ -1,0 +1,60 @@
+$padding-large: 120px 104px;
+$padding-medium: 30px 0;
+$padding-section: 150px;
+$gap-large: 40px;
+
+.gh-body {
+  width: 100%;
+  height: 100%;
+  padding: $padding-large;
+  background: $gh-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: $gap-large;
+}
+
+.my-guide-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $gap-large;
+}
+
+.my-guide-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: $gap-large;
+  padding: 0 $padding-section;
+}
+
+.my-guide-content, .divider1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: $gap-large;
+}
+.bloc-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: $gap-large;
+}
+
+.form-label-input {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: $gap-large;
+
+}
