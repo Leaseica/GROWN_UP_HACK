@@ -19,9 +19,9 @@ Category.destroy_all
 User.destroy_all
 
 # Seed Users
-user_1 = User.create(email: "user1@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Développeur", address: "1 rue premier", birthday: "1990-01-01", nationality: "Française", social_security: "123-45-6789")
-user_2 = User.create(email: "user2@example.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Coach", address: "2 rue deuxieme", birthday: "1997-03-03", nationality: "Anglaise", social_security: "987-65-4321")
-user_3 = User.create(email: "user3@example.com", password: "123456", first_name: "Jeff", last_name: "Doe", occupation: "Développeur", address: "3 rue troisieme", birthday: "1998-02-02", nationality: "Française", social_security: "111-11-1111")
+user_1 = User.create(email: "jane.doe@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Développeur", address: "1 rue premier", birthday: "1990-01-01", nationality: "Française", social_security: "123-45-6789", gender: "Femme")
+user_2 = User.create(email: "user2@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Coach", address: "2 rue deuxieme", birthday: "1997-03-03", nationality: "Anglaise", social_security: "987-65-4321", gender: "Homme")
+user_3 = User.create(email: "user3@example.com", password: "123456", first_name: "Jeff", last_name: "Doe", occupation: "Développeur", address: "3 rue troisieme", birthday: "1998-02-02", nationality: "Française", social_security: "111-11-1111", gender: "Homme")
 
 # Seed Categories
 logement = Category.create(name: "Logement", description: "Découvres notre section 'Logement', ton allié pour surmonter les embûches de la vie domestique. Des fuites d'eau inattendues aux pertes de clés désagréables, en passant par les litiges avec les propriétaires et les questions sur la taxe foncière, notre application est là pour te fournir des conseils pratiques, des solutions rapides et des réponses claires à toutes tes préoccupations. Ne laisses plus les problèmes de logement te prendre au dépourvu, trouves les réponses dont tu as besoin ici.")

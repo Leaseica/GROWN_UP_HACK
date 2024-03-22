@@ -36,17 +36,46 @@
     </div>
 
     <h4 class="semi-bold-xl">Identité de l'entrepreneur</h4>
-    <div class="bloc-form">
-      <div class="form-label-input">
-        <%= f.input :occupation, label: "Occupation" %>
+    <%= f.simple_fields_for :user do |user_form| %>
+      <div class="bloc-form">
+        <div class="form-label-input">
+          <%= user_form.input :first_name, label: "Prénom",  input_html: { value: @user.first_name } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :last_name, label: "Nom",  input_html: { value: @user.last_name } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :birthday, as: :date,
+                      start_year: @user.birthday.try(:year) || Date.today.year - 30,
+                      end_year: Date.today.year - 18,
+                      default: { day: @user.birthday.try(:day) || Date.today.day, month: @user.birthday.try(:month) || Date.today.month, year: @user.birthday.try(:year) || Date.today.year - 30 },
+                      order: [:day, :month, :year],
+                      label: "Date de naissance" %>
+        </div>
+
+        <div class="form-label-input">
+          <%= user_form.input :email, label: "Adresse mail",  input_html: { value: @user.email } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :email, label: "Genre", collection: User.genders.values,
+          default: @user.gender,
+          input_html: { class: 'custom-select' } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :nationality, label: "Nationalité",  input_html: { value: @user.nationality } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :occupation, label: "Occupation",  input_html: { value: @user.occupation } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :address, label: "Address",  input_html: { value: @user.address } %>
+        </div>
+        <div class="form-label-input">
+          <%= user_form.input :social_security, label: "Social Security Number",  input_html: { value: @user.social_security } %>
+        </div>
       </div>
-      <div class="form-label-input">
-        <%= f.input :address, label: "Address" %>
-      </div>
-      <div class="form-label-input">
-        <%= f.input :social_security, label: "Social Security Number" %>
-      </div>
-    </div>
+    <% end %>
+
 
     <h4 class="semi-bold-xl">Composition</h4>
     <div class="bloc-form">

@@ -56,7 +56,8 @@
       .layer {
         background-color: rgba(63, 81, 181, 0.4);
         backdrop-filter: blur(10px);
-        transition: background-color 200ms ease-in-out;
+        -webkit-backdrop-filter: blur(10px);
+        transition: background-color 200ms linear;
         border: 1px rgba(63, 81, 181, 1) solid;
       }
     }

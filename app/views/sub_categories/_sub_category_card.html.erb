@@ -1,9 +1,20 @@
-<div class="subcategory-card" style="background-image: url('<%= "https://picsum.photos/seed/#{sub_category.id}/200/300" %>')">
-  <div class="layer">
-    <div class="content">
-      <h2 class="name"><%= sub_category.name %></h2>
+<% sub_category_images = {
+  "recherche d'emploi" => "recherche.jpg",
+  "gestion de carrière" => "carriere.jpg",
+  "droit du travail" => "droit.jpg",
+  "formation" => "formation.jpg",
+  "se lancer à son compte" => "se_lancer.jpg",
+  "bien être au travail" => "zen.jpg"
+} %>
 
-
+<% sub_category_images.each do |subcategory_name, image_name| %>
+  <% if sub_category.name.downcase == subcategory_name %>
+    <div class="subcategory-card" style="background-image: url('<%= image_path(image_name) %>')">
+      <div class="layer">
+        <div class="content">
+          <h2 class="name"><%= sub_category.name %></h2>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+<% end %>
