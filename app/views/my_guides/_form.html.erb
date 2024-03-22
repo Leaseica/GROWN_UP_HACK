@@ -1,28 +1,64 @@
 <!-- app/views/my_guides/_form.html.erb -->
-
 <%= simple_form_for [@article, @my_guide] do |f| %>
-  <%= f.input :article_id, label: @article.title %>
-  <%= f.input :occupation, label: "Occupation" %>
-  <%= f.input :address, label: "Address" %>
-  <%= f.input :social_security, label: "Social Security Number" %>
-  <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select' } %>
-  <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
-            collection: [[true, 'Oui'], [false, 'Non']],
-            label_method: :last, value_method: :first,
-            label: "L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?*",
-            include_blank: false %>
-  <%= f.input :is_business_extension, as: :radio_buttons,
-            collection: [[true, 'Oui'], [false, 'Non']],
-            label_method: :last, value_method: :first,
-            label: "Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)",
-            include_blank: false %>
-  <%= f.input :has_previous_self_employment,as: :radio_buttons,
-            collection: [[true, 'Oui'], [false, 'Non']],
-            label_method: :last, value_method: :first,
-            label: "L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?",
-            include_blank: false %>
-  <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise" %>
-  <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne" %>
+  <div class="my-guide-content">
+    <h2 class="bold-xxl">I.  Mes démarches URSSAF</h2>
+    <h3 class="bold-xl">1. Création de l'entreprise</h3>
+    <h4 class="semi-bold-xl">Identité de l'entreprise</h4>
 
-  <%= f.button :submit, "Sauvegarder My Guide" %>
+    <div class="bloc-form">
+      <div class="form-label-input">
+        <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select' } %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
+                collection: [[true, 'Oui'], [false, 'Non']],
+                label_method: :last, value_method: :first,
+                label: "L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?*",
+                include_blank: false %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :is_business_extension, as: :radio_buttons,
+                collection: [[true, 'Oui'], [false, 'Non']],
+                label_method: :last, value_method: :first,
+                label: "Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)",
+                include_blank: false %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :has_previous_self_employment,as: :radio_buttons,
+                collection: [[true, 'Oui'], [false, 'Non']],
+                label_method: :last, value_method: :first,
+                label: "L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?",
+                include_blank: false %>
+      </div>
+    </div>
+
+    <h4 class="semi-bold-xl">Identité de l'entrepreneur</h4>
+    <div class="bloc-form">
+      <div class="form-label-input">
+        <%= f.input :occupation, label: "Occupation" %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :address, label: "Address" %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :social_security, label: "Social Security Number" %>
+      </div>
+    </div>
+
+    <h4 class="semi-bold-xl">Composition</h4>
+    <div class="bloc-form">
+      <div class="form-label-input">
+        <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise" %>
+      </div>
+      <div class="form-label-input">
+        <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne" %>
+      </div>
+    </div>
+    <div class="divider1"></div>
+  </div>
+
+  <%= f.button :submit, "Sauvegarder My Guide", class: "btn btn-medium" %>
 <% end %>

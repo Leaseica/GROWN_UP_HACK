@@ -1,8 +1,20 @@
-<h1 class="heading-xl"><%= @article.title %></h1>
-<h2 class="heading-l">Nouvelle démarche</h2>
+<div class="gh-body">
+  <div class="my-guide-section">
+    <div class= "my-guide-heading">
+      <h1 class="bold-heading-xxl"><%= @article.title %></h1>
+      <h3 class="bold-m">Ton guide personnalisé pour t'accompagner dans tes démarches</h3>
+    </div>
 
-<%= render "form", my_guide: @my_guide %>
-<div>
-  <%= link_to "Retourner sur l'article", @article %> |
-  <%# <%= link_to @article.sub_category[:name], sub_category_articles_path%>
+
+      <%= render "form", my_guide: @my_guide %>
+
+
+
+    <div>
+      <%= link_to "Retourner sur l'article", @article %> |
+      <%# <%= link_to @article.sub_category[:name], sub_category_articles_path%>
+    </div>
+
+
+  </div>
 </div>
