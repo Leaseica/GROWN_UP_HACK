@@ -20,8 +20,14 @@ Rails.application.routes.draw do
   # Routes for Articles (non-nested actions)
   resources :articles, except: [:index] do
     # Nested routes for MyGuides related to specific Articles
-    resources :my_guides, shallow: true
+    resources :my_guides, shallow: true do
+      member do
+        get :summary
+        get :download
+      end
+    end
   end
+
 
   resources :platforms
 
