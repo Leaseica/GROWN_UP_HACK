@@ -1,8 +1,21 @@
-<div class="category-card" style="background-image: url('<%= "https://picsum.photos/seed/#{category.id}/200/300" %>')">
-  <div class="layer">
-    <div class="content">
-      <h2 class="name"><%= category.name %></h2>
-      <!--<h3 class="description"><%= category.description %></h3>-->
+<% category_images = {
+  "logement" => "cat_logement.jpg",
+  "santé" => "cat_sante.jpg",
+  "travail" => "cat_travail.jpg",
+  "finance" => "cat_finances.jpg",
+  "voiture" => "cat_voiture.jpg",
+  "administratif" => "cat_admin.jpg"
+} %>
+
+<% category_images.each do |category_name, image_name| %>
+  <% if category.name.downcase == category_name %>
+    <div class="category-card" style="background-image: url('<%= image_path(image_name) %>')">
+
+      <div class="layer">
+        <div class="content">
+          <h2 class="name"><%= category.name %></h2>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+<% end %>
