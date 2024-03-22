@@ -1,0 +1,37 @@
+<!-- app/views/my_guides/summary.html.erb -->
+
+<div class="my-guide-summary">
+  <h2 class="bold-xxl">Récapitulatif de Mes Démarches URSSAF</h2>
+
+  <section class="summary-section">
+    <h3 class="bold-xl">Identité de l'entreprise</h3>
+    <p><strong>Forme de l'entreprise:</strong> <%= @my_guide.business_structure %></p>
+    <p><strong>Statut micro-entrepreneur:</strong> <%= @my_guide.is_micro_entrepreneur ? 'Oui' : 'Non' %></p>
+    <p><strong>Extension d'entreprise étrangère:</strong> <%= @my_guide.is_business_extension ? 'Oui' : 'Non' %></p>
+    <p><strong>Activité non salariée préalable en France:</strong> <%= @my_guide.has_previous_self_employment ? 'Oui' : 'Non' %></p>
+  </section>
+
+  <section class="summary-section">
+    <h3 class="bold-xl">Identité de l'entrepreneur</h3>
+    <p><strong>Prénom:</strong> <%= @user.first_name %></p>
+    <p><strong>Nom:</strong> <%= @user.last_name %></p>
+    <p><strong>Date de naissance:</strong> <%= @user.birthday.strftime('%d/%m/%Y') %></p>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Genre:</strong> <%= @user.gender %></p>
+    <p><strong>Nationalité:</strong> <%= @user.nationality %></p>
+    <p><strong>Occupation:</strong> <%= @user.occupation %></p>
+    <p><strong>Adresse:</strong> <%= @user.address %></p>
+    <p><strong>Numéro de sécurité sociale:</strong> <%= @user.social_security %></p>
+  </section>
+
+  <section class="summary-section">
+    <h3 class="bold-xl">Composition</h3>
+    <p><strong>Rôle du mandataire:</strong> <%= @my_guide.representative_role %></p>
+    <p><strong>Type de personne:</strong> <%= @my_guide.representative_type %></p>
+  </section>
+
+  <div class="actions">
+    <%= link_to 'Éditer', edit_my_guide_path(@my_guide), class: 'btn btn-primary' %>
+    <%= link_to 'Télécharger', download_my_guide_path(@my_guide), target: "_blank", class: 'btn btn-secondary' %>
+  </div>
+</div>

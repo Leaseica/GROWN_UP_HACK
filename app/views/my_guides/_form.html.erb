@@ -80,7 +80,9 @@
     <h4 class="semi-bold-xl">Composition</h4>
     <div class="bloc-form">
       <div class="form-label-input">
-        <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise" %>
+        <%= f.input :representative_role,
+        collection: MyGuide.representative_roles.values,
+        label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise" %>
       </div>
       <div class="form-label-input">
         <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne" %>
