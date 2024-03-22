@@ -1,4 +1,4 @@
-<!-- app/views/my_guides/summary.html.erb -->
+<!-- views/my_guides/summary.html.erb -->
 
 <div class="my-guide-summary">
   <h2 class="bold-xxl">Récapitulatif de Mes Démarches URSSAF</h2>
@@ -34,4 +34,5 @@
     <%= link_to 'Éditer', edit_my_guide_path(@my_guide), class: 'btn btn-primary' %>
     <%= link_to 'Télécharger', download_my_guide_path(@my_guide), target: "_blank", class: 'btn btn-secondary' %>
   </div>
+  <%= link_to "Retourner sur l'article", @article %> |
 </div>
