@@ -1,10 +1,10 @@
 .article-card-link {
   display: flex;
-  width: 400px;
-  height: 324px;
-  display: flex;
-  align-items: stretch;
-  text-decoration: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 53px;
+  flex: 1 0 0;
 
   .article_card {
     flex: 1;
@@ -44,6 +44,7 @@
           text-decoration: none;
           /* 43.56px */
         }
+
       }
     }
   }
