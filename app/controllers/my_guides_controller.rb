@@ -8,6 +8,7 @@ class MyGuidesController < ApplicationController
   # GET my_guides/new
   def new
     @my_guide = MyGuide.new
+    @my_guide.user = current_user
   end
 
   # GET my_guides/1

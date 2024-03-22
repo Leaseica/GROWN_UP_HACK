@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   enum gender: {
     female: 'Femme',
-    male: 'Homme'
+    male: 'Homme',
+    undefined: "Je préfère ne pas le dire"
   }
 end
