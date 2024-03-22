@@ -101,32 +101,32 @@ class MyGuidesController < ApplicationController
 
   def generate_pdf(my_guide)
     Prawn::Document.new do |pdf|
-      pdf.text "My Guide Summary", size: 20, style: :bold
+      pdf.text "Résumé de Mon Guide", size: 20, style: :bold
       pdf.move_down 10
 
-      # Assuming `business_structure` and other attributes are directly accessible
-      # on `my_guide`. Adapt these as necessary to match your actual data structure.
-      pdf.text "Business Structure: #{my_guide.business_structure}"
-      pdf.text "Micro Entrepreneur Status: #{my_guide.is_micro_entrepreneur ? 'Yes' : 'No'}"
-      pdf.text "Business Extension: #{my_guide.is_business_extension ? 'Yes' : 'No'}"
-      pdf.text "Previous Self Employment: #{my_guide.has_previous_self_employment ? 'Yes' : 'No'}"
-      pdf.text "Representative Role: #{my_guide.representative_role}"
-      pdf.text "Representative Type: #{my_guide.representative_type}"
+      # Mettez à jour les noms des attributs selon votre structure de données
+      pdf.text "Forme de l'entreprise : #{my_guide.business_structure}"
+      pdf.text "Statut micro-entrepreneur : #{my_guide.is_micro_entrepreneur ? 'Oui' : 'Non'}"
+      pdf.text "Extension d'entreprise : #{my_guide.is_business_extension ? 'Oui' : 'Non'}"
+      pdf.text "Emploi non salarié précédent : #{my_guide.has_previous_self_employment ? 'Oui' : 'Non'}"
+      pdf.text "Rôle du représentant : #{my_guide.representative_role}"
+      pdf.text "Type de représentant : #{my_guide.representative_type}"
 
-      # Accessing user information. Ensure `user` is associated with `my_guide` for this to work.
-      user = my_guide.user # This assumes a `user` association exists
-      pdf.text "User Details:", style: :bold
-      pdf.text "First Name: #{user.first_name}"
-      pdf.text "Last Name: #{user.last_name}"
-      pdf.text "Date of Birth: #{user.birthday.strftime('%d/%m/%Y') if user.birthday}"
-      pdf.text "Email: #{user.email}"
-      pdf.text "Gender: #{user.gender}"
-      pdf.text "Nationality: #{user.nationality}"
-      pdf.text "Occupation: #{user.occupation}"
-      pdf.text "Address: #{user.address}"
-      pdf.text "Social Security Number: #{user.social_security}"
+      # Accéder aux informations de l'utilisateur associé à my_guide
+      user = my_guide.user # Cela suppose une association `user`
+      pdf.text "Détails de l'utilisateur :", style: :bold
+      pdf.text "Prénom : #{user.first_name}"
+      pdf.text "Nom : #{user.last_name}"
+      pdf.text "Date de naissance : #{user.birthday.strftime('%d/%m/%Y') if user.birthday}"
+      pdf.text "Email : #{user.email}"
+      pdf.text "Genre : #{user.gender}"
+      pdf.text "Nationalité : #{user.nationality}"
+      pdf.text "Occupation : #{user.occupation}"
+      pdf.text "Adresse : #{user.address}"
+      pdf.text "Numéro de sécurité sociale : #{user.social_security}"
 
       pdf.render
     end
   end
+
 end
