@@ -14,7 +14,7 @@
       <div class="section">
         <% if @categories.any? %>
           <% @categories.each_slice(3) do |category_group| %>
-          <div class="row">
+          <div class="section-row">
               <% category_group.each do |category| %>
                   <%= link_to category_sub_categories_path(category), class: "category-card-link" do %>
                     <%= render "shared/category_card", category: category %>

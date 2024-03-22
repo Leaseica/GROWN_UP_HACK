@@ -1,6 +1,6 @@
 
-<div class = "index">
-  <div class = "gh_section">
+<div  class="index">
+  <div class="gh_section">
 
     <div class="row justify-content-center">
     <h1>TRAVAIL<h1>
@@ -12,11 +12,12 @@
         <% end %>
       </div>
     </div>
+
     <div class="list-card">
       <div class="section">
         <% if @sub_categories.any? %>
           <% @sub_categories.each_slice(3) do |sub_category_group| %>
-          <div class="row">
+          <div class="section-row">
               <% sub_category_group.each do |sub_category| %>
                   <%= link_to sub_category_path(sub_category), class: "subcategory-card-link" do %>
                     <%= render "sub_category_card", sub_category: sub_category %>

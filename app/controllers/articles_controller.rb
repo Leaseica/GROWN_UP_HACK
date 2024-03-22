@@ -58,6 +58,7 @@ class ArticlesController < ApplicationController
       :title,
       :description,
       :paragraph1,
+      :photo,
     )
   end
 end
