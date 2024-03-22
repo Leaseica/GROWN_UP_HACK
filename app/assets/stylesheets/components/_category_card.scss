@@ -51,7 +51,7 @@
   &:hover {
     .category-card {
       background-size: 100% 100%;
-      transition: background-size 200ms linear;
+      transition: background-size 200ms ease-in-out;
 
       .layer {
         background-color: rgba(63, 81, 181, 0.4);

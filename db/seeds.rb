@@ -46,43 +46,59 @@ bien_etre_au_travail = SubCategory.create(name: "Bien être au travail", descrip
   # Seed Articles
 article1 = Article.create(
   title: "Les étapes essentielles pour devenir freelance",
-  description: "Découvrez les étapes clés pour démarrer une carrière en tant que freelance.",
+  description: "Découvre les étapes clés pour démarrer ta carrière en tant que freelance.",
   sub_category: freelance,
-  paragraph1: "De la définition de vos services à la recherche de clients, apprenez les étapes essentielles pour lancer votre activité de freelance et réussir dans ce domaine compétitif.",
-  )
+  paragraph1: "De la définition de tes services à la recherche de clients, apprenez les étapes essentielles pour lancer votre activité de freelance et réussir dans ce domaine compétitif.",
+)
+article1.photo.attach(io: File.open("app/assets/images/etapes.jpg"), filename: "etapes.jpg")
+article1.save!
+
 article2 = Article.create(
   title: "Stratégies de marketing pour les freelances",
-  description: "Apprenez à promouvoir votre activité de freelance et à attirer des clients.",
+  description: "Apprends à promouvoir ton activité de freelance et à attirer des clients.",
   sub_category: freelance,
   paragraph1: "Explorez des stratégies de marketing efficaces pour vous démarquer en tant que freelance, attirer des clients potentiels et développer votre entreprise.",
-  )
+)
+
+article2.photo.attach(io: File.open("app/assets/images/marketing_article.jpg"), filename: "marketing_article.jpg")
+article2.save!
+
 article3 = Article.create(
   title: "Gestion financière pour les freelances",
-  description: "Maîtrisez la gestion financière pour assurer le succès de votre activité de freelance.",
+  description: "Maîtrise la gestion financière pour assurer le succès de ton activité de freelance.",
   sub_category: freelance,
   paragraph1: "Apprenez à gérer vos finances en tant que freelance, y compris la tarification de vos services, la facturation des clients, la gestion des taxes et la planification financière à long terme.",
 )
+article3.photo.attach(io: File.open("app/assets/images/finance_article.jpg"), filename: "finance_article.jpg")
+article3.save!
 
 article4 = Article.create(
   title: "Les outils indispensables pour les freelances",
-  description: "Découvrez les outils et logiciels essentiels pour gérer votre activité de freelance.",
+  description:
+  "Découvre les outils et logiciels essentiels pour gérer ton activité de freelance.",
   sub_category: freelance,
-  paragraph1: "Explorez une liste d'outils et de logiciels indispensables pour les freelances, allant de la gestion de projet à la comptabilité en passant par la collaboration en ligne, pour optimiser votre productivité et votre efficacité professionnelle.",
+  paragraph1: "Explorez une liste d'outils et de logiciels indispensables pour les freelances, allant de la gestion de projet à la comptabilité en passant par la collaboration en ligne, pour optimiser votre productivité et votre efficacité professionnelle."
 )
+article4.photo.attach(io: File.open("app/assets/images/photo_freelance_article.jpg"), filename: "photo_freelance_article.jpg")
+article4.save!
+
 article5 = Article.create(
   title: "Conseils pour réussir en tant que freelance",
-  description: "Obtenez des conseils pratiques pour réussir dans votre carrière de freelance.",
+  description: "Conseils pratiques pour réussir dans votre carrière de freelance.",
   sub_category: freelance,
   paragraph1: "Recevez des conseils éprouvés pour réussir en tant que freelance, y compris la gestion du temps, la communication avec les clients, le développement de compétences et la croissance professionnelle continue.",
-  )
+)
+article5.photo.attach(io: File.open("app/assets/images/reussir.jpg"), filename: "reussir.jpg")
+article5.save!
 
-article6= Article.create(
+article6 = Article.create(
   title: "Réseautage efficace pour les freelances",
-  description: "Apprenez à développer votre réseau professionnel en tant que freelance.",
+  description: "Apprends à développer ton réseau professionnel en tant que freelance.",
   sub_category: freelance,
   paragraph1: "Découvrez des stratégies et des techniques pour développer votre réseau professionnel en tant que freelance, y compris la participation à des événements de réseautage, l'utilisation des médias sociaux et la création de relations solides avec d'autres professionnels de votre domaine.",
-  )
-
+)
+article6.photo.attach(io: File.open("app/assets/images/reseau.jpg"), filename: "reseau.jpg")
+article6.save!
 # Seed Platforms
 platform1 = Platform.create(name: "GitHub", url: "https://github.com", logo: "github_logo.png", description: "Where the world builds software.")
 platform2 = Platform.create(name: "Medium", url: "https://medium.com", logo: "medium_logo.png", description: "Read, write and share stories that matter.")
