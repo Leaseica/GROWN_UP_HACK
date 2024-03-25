@@ -4,8 +4,16 @@
   <%= f.input :description %>
   <%= f.input :url %>
   <%= f.input :status, collection: Reminder.statuses.values, include_blank: false %>
-  <%= f.input :start_time, as: :datetime, html5: true %>
-  <%= f.input :end_time, as: :datetime, html5: true %>
+  <div class="row">
+    <div class="input_date">
+      <%= f.input :start_time, as: :datetime, html5: true, input_html: { value: @reminder.start_time || DateTime.now,
+          data: { controller: "datepicker" } } %>
+    </div>
+    <div class="input_date">
+      <%= f.input :end_time, as: :datetime, html5: true, input_html: { value: @reminder.end_time || DateTime.now,
+          data: { controller: "datepicker" } } %>
+    </div>
+  </div>
 
   <%= f.button :submit, value: 'Enregistrer', class: 'btn btn-primary' %>
 <% end %>

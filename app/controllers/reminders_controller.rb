@@ -4,9 +4,16 @@ class RemindersController < ApplicationController
   before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def show
+    # @todo_reminders = Reminder.todo
+    # @in_progress_reminders = Reminder.in_progress
+    # @done_reminders = Reminder.done
+
   end
 
   def index
+    # @todo_reminders = Reminder.todo
+    # @in_progress_reminders = Reminder.in_progress
+    # @done_reminders = Reminder.done
     # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
 
@@ -14,7 +21,7 @@ class RemindersController < ApplicationController
     @reminders = Reminder.where(starts_at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
 
     # Or, for a weekly view:
-      @reminders = Reminder.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
+    @reminders = Reminder.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
   end
 
   def new
@@ -29,7 +36,7 @@ class RemindersController < ApplicationController
 
     respond_to do |format|
       if @reminder.save
-        format.html { redirect_to user_path(@user), notice: 'Reminder was successfully created.' }
+        format.html { redirect_to user_path(@user), notice: 'Le rappel a été créé avec succès.'}
         # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,6 +50,16 @@ class RemindersController < ApplicationController
   end
 
   # PATCH/PUT /reminders/1
+  # def update
+  #   respond_to do |format|
+  #     if @reminder.update(reminder_params)
+  #       format.html { redirect_to @reminder, notice: "Reminder was successfully updated." }
+  #       format.json { render json: { status: 'success', message: 'Status updated successfully' } }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
   def update
     respond_to do |format|
       if @reminder.update(reminder_params)
@@ -52,6 +69,8 @@ class RemindersController < ApplicationController
       end
     end
   end
+
+
 
   def destroy
     @reminder.destroy
@@ -83,5 +102,6 @@ class RemindersController < ApplicationController
       :my_guide_id
     )
   end
+
 
 end

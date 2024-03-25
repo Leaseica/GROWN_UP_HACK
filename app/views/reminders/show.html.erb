@@ -6,7 +6,7 @@
       <p><strong>Titre :</strong> <%= @reminder.title %></p>
       <p><strong>Description :</strong> <%= @reminder.description %></p>
       <p><strong>URL :</strong> <%= link_to @reminder.url, @reminder.url unless @reminder.url.blank? %></p>
-      <p><strong>Status :</strong> <%= @reminder.status %></p>
+      <p><strong>Status :</strong> <%= t(@reminder.status) %></p>
       <p><strong>Heure de début :</strong> <%= @reminder.start_time %></p>
       <p><strong>Heure de fin :</strong> <%= @reminder.end_time %></p>
     </div>

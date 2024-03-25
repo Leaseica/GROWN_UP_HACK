@@ -57,5 +57,6 @@
   </div>
 </div>
 
+<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %> %>
 
-<%= render "simple_calendar/show", events: @reminders, end_attribute: :end_time %>
+<%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>

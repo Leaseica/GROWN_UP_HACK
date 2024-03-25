@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @previews_articles = session[:store]
     @reminders = @user.reminders
     @my_guide = MyGuide.find_by(user: @user)
+    # @todo_reminders = @user.reminders.todo
+    # @in_progress_reminders = @user.reminders.in_progress
+    # @done_reminders = @user.reminders.done
   end
 
   def edit
