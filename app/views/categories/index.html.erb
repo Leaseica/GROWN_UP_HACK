@@ -1,5 +1,16 @@
 
 <div class = "index">
+
+<div class="menu">
+  <%= link_to(root_path, class: "menu-link") do %>
+    <div class="menu-icon">
+      <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
+    </div>
+    <div class="menu-text">Home</div>
+  <% end %>
+  <div class="menu-text">/categories</div>
+</div>
+
   <div class = "gh_section">
     <div class="row justify-content-center">
       <h1> Toutes les catégories </h1>
