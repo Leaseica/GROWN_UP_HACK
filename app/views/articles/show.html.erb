@@ -8,12 +8,25 @@
 
   <body>
     <div class="container3">
-      <div class="menu">
-        <div class="menu-icon">
-          <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
-         </div>
-        <div class="menu-text">Home/categories/subcategories</div>
-      </div>
+
+        <div class="menu">
+          <%= link_to(root_path, class: "menu-link") do %>
+            <div class="menu-icon">
+              <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
+            </div>
+            <div class="menu-text">Home</div>
+          <% end %>
+          <%= link_to(categories_path, class: "menu-link") do %>
+            <div class="menu-text">/categories</div>
+          <% end %>
+          <%= link_to(category_sub_categories_path(@category), class: "menu-link") do %>
+            <div class="menu-text">/sous-catégories</div>
+          <% end %>
+          <%= link_to(sub_category_path(@subcategory), class: "menu-link") do %>
+            <div class="menu-text">/articles</div>
+          <% end %>
+          /se lancer en freelance
+        </div>
 
       <div>
         <div class="gh_section" style="padding-bottom: 30px; padding-top: 100px">
