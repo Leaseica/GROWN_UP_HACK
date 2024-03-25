@@ -37,7 +37,7 @@ class MyGuidesController < ApplicationController
   def update
     respond_to do |format|
       if @my_guide.update(my_guide_params)
-        format.html { redirect_to summary_my_guide_path(@my_guide), notice: "My Guide was successfully created." }
+        format.html { redirect_to summary_my_guide_path(@my_guide), notice: "My Guide was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -58,7 +58,7 @@ class MyGuidesController < ApplicationController
 
   def destroy
     @my_guide.destroy
-    redirect_to restaurant_path(@my_guide.article), status: :see_other
+    redirect_to my_guide_path(@my_guide.article), status: :see_other
   end
 
   private

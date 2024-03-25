@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         get :summary
         get :download
       end
+      resources :reminders, shallow: true
     end
   end
 

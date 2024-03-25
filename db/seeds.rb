@@ -108,7 +108,7 @@ ArticlesPlatform.create(article: article1, platform: platform1)
 ArticlesPlatform.create(article: article2, platform: platform2)
 
 # Seed MyGuides
-MyGuide.create!(
+my_guide_1 = MyGuide.create!(
   article: article1,
   user: user_1,
   occupation: "Web Developer",
@@ -122,7 +122,7 @@ MyGuide.create!(
   representative_type: "Personne physique"
 )
 
-MyGuide.create!(
+my_guide_2 = MyGuide.create!(
   article: article2,
   user: user_2,
   occupation: "Graphic Designer",
@@ -136,7 +136,7 @@ MyGuide.create!(
   representative_type: "Personne morale"
 )
 
-MyGuide.create!(
+my_guide_3 = MyGuide.create!(
   article: article1,
   user: user_3,
   occupation: "Journaliste freelance",
@@ -151,3 +151,16 @@ MyGuide.create!(
 )
 
 puts "Seed data loaded successfully!"
+
+Reminder.create!(
+  title: "Appointment with accountant",
+  description: "Discuss the annual financial statements and tax filings.",
+  url: "http://example.com/meeting/accountant",
+  status: "scheduled",
+  start_time: DateTime.now + 5.days, # Scheduled for 5 days from now
+  end_time: DateTime.now + 5.days + 2.hours, # 2 hours long meeting
+  user: user_1,
+  my_guide: my_guide_1
+)
+
+puts "Reminders seeded!"

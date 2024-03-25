@@ -1,0 +1,12 @@
+<div class="calendar-container">
+  <%= month_calendar(events: @reminders, end_attribute: :end_time) do |date, reminders| %>
+    <%= date %>
+
+    <% reminders.each do |reminder| %>
+      <div class="reminder">
+        <p><%= reminder.name %></p>
+        <small><%= reminder.time unless reminder.multi_days? %></small>
+      </div>
+    <% end %>
+  <% end %>
+</div>
