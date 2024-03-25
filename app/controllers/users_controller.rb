@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @my_guides = @user.my_guides
     @previews_articles = session[:store]
     @reminders = @user.reminders
+    @my_guide = MyGuide.find_by(user: @user)
   end
 
   def edit

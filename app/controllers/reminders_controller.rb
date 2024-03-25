@@ -1,5 +1,5 @@
 class RemindersController < ApplicationController
-  before_action :set_reminder
+  before_action :set_reminder, only: [:show, :edit, :update, :destroy]
   before_action :set_my_guide, only: [:show, :new, :create, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy]
 
@@ -23,13 +23,17 @@ class RemindersController < ApplicationController
 
   # POST /reminders
   def create
-    @mreminder = Reminder.new(params[:reminder])
+    @reminder = Reminder.new(reminder_params)
     @reminder.user = current_user
+    @reminder.my_guide = @my_guide
+
     respond_to do |format|
       if @reminder.save
-        format.html { redirect_to user_path(@user), notice: "Reminder was successfully created." }
+        format.html { redirect_to user_path(@user), notice: 'Reminder was successfully created.' }
+        # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
+        # format.json { render json: @reminder.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,10 +78,10 @@ class RemindersController < ApplicationController
       :url,
       :status,
       :start_time,
-      :end_time
+      :end_time,
+      :user_id,
+      :my_guide_id
     )
   end
-
-
 
 end

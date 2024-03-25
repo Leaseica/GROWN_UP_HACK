@@ -156,7 +156,7 @@ Reminder.create!(
   title: "Appointment with accountant",
   description: "Discuss the annual financial statements and tax filings.",
   url: "http://example.com/meeting/accountant",
-  status: "scheduled",
+  status: 'Terminé',
   start_time: DateTime.now + 5.days, # Scheduled for 5 days from now
   end_time: DateTime.now + 5.days + 2.hours, # 2 hours long meeting
   user: user_1,

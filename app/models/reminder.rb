@@ -2,7 +2,7 @@ class Reminder < ApplicationRecord
   belongs_to :user
   belongs_to :my_guide
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :start_time, :end_time, presence: true
 
   default_scope -> { order(:start_time) }  # Our meetings will be ordered by their start_time by default
@@ -14,4 +14,10 @@ class Reminder < ApplicationRecord
   def multi_days?
     (end_time.to_date - start_time.to_date).to_i >= 1
   end
+
+  enum status: {
+    not_started: 'À faire',
+    in_progress: 'En cours',
+    done: 'Terminé'
+  }
 end
