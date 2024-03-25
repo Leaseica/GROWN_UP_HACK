@@ -4,9 +4,13 @@
     <%= f.input :first_name, label: "Prénom" %>
     <%= f.input :last_name, label: "Nom de famille" %>
     <%= f.input :email %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :occupation, label: "Métier" %>
     <%= f.input :address, label: "Adresse" %>
     <%= f.input :birthday, label: "Date de naissance" %>
+    <%= f.input :email, label: "Genre", collection: User.genders.values,
+          default: (@user.gender),
+          input_html: { class: 'custom-select' } %>
     <%= f.input :nationality, label: "Nationalité" %>
     <%= f.input :social_security, label: "Sécurité sociale" %>
 
