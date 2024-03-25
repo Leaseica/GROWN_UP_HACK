@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row mt-4 mb-4">
+    <h2><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar", style:"width: 125px" %>
+    <%= "Mon profil" %></h2>
+  </div>
+
+  <div class="navbar navbar-expand-sm navbar-light">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= 'active' if current_page?(procedures_path) %>">
+        <%= link_to "Mes démarches", procedures_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(documents_path) %>">
+        <%= link_to "Mes documents", documents_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(user_path(current_user)) %>">
+        <%= link_to "Mes informations personnelles", user_path(current_user), class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="divider pt-1" style="height:30px"><div class="line" style="width:1400px; height:2px"></div></div>
+</div>
