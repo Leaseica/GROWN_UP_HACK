@@ -1,27 +1,49 @@
-<h2 class="ms-5 mt-3"><%= @user.first_name %> <%= @user.last_name %></h2>
 
-<div class="row">
-  <div class="m-3"> <p style="display:inline"><strong>Email :</strong> <%= @user.email %> </p> </div>
+<div class="container">
 
-  <div class="m-3"> <p style="display:inline"><strong>Métier :</strong> <%= @user.occupation %> </p> </div>
+  <div class="row mt-4 mb-4">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+    <h2><%= "Mon profil" %></h2>
+  </div>
 
-  <div class="m-3"> <p style="display:inline"><strong>Adresse :</strong> <%= @user.address %> </p> </div>
+  <div>
+    <h5 class="me-3" style="display:inline-block"><strong>Mes démarches</strong></h5>
+    <h5 class="me-3" style="display:inline-block"><strong>Mes documents</strong></h5>
+    <h5 style="display:inline-block"><strong>Mes informations personnelles</strong></h5>
+  </div>
 
-  <div class="m-3"> <p><strong>Date de naissance :</strong> <%= @user.birthday %> </p> </div>
+  <div class="divider pt-1"><div class="line" style="width:1400px; height:2px"></div></div>
 
-  <div class="m-3"> <p><strong>Nationalité :</strong> <%= @user.nationality %> </p> </div>
+  <div class="row mb-3"> <p style="display:inline"><strong>Prénom et nom :</strong> <%= @user.first_name %> <%= @user.last_name %> </p> </div>
 
-  <div class="m-3"> <p><strong>Sécurité sociale :</strong> <%= @user.social_security %> </p> </div>
+  <div class="row"> <p style="display:inline"><strong>Email :</strong> <%= @user.email %> </p> </div>
+
+  <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
+
+  <div class="row"> <p style="display:inline"><strong>Métier :</strong> <%= @user.occupation %> </p> </div>
+
+  <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
+
+  <div class="row mb-3"> <p style="display:inline"><strong>Adresse :</strong> <%= @user.address %> </p> </div>
+
+  <div class="row mb-3"> <p style="display:inline"><strong>Date de naissance :</strong> <%= @user.birthday %> </p> </div>
+
+  <div class="row mb-3"> <p style="display:inline"><strong>Nationalité :</strong> <%= @user.nationality %> </p> </div>
+
+  <div class="row"> <p style="display:inline"><strong>Sécurité sociale :</strong> <%= @user.social_security %> </p> </div>
+
+  <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
+
+  <%= link_to "Modifier", edit_user_path, class: 'btn btn-small', style:"position: fixed; top: 170px; left: 1510px" %>
+  <%= link_to 'Précédent', :back, class: 'btn btn-small' %>
 
 </div>
 
-<%= link_to "Modifier", edit_user_path, class: 'btn btn-small' %>
-
-<div class="p-3" style="position: fixed; top: 135px; right: 195px">
+<div class="container p-3" style="position: fixed; top: 275px; left: 1185px">
   <h3>Articles récemment consultés</h3>
+  <div class="row">
     <% Article.where(id: @previews_articles).each do |preview_article| %>
       <%= link_to preview_article.title %>
     <% end %>
+  </div>
 </div>
-
-<%= link_to 'Précédent', :back, class: 'btn btn-small' %>
