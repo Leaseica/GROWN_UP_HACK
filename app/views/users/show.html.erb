@@ -2,17 +2,24 @@
 <div class="container">
 
   <div class="row mt-4 mb-4">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-    <h2><%= "Mon profil" %></h2>
+    <h2><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar", style:"width: 125px" %>
+    <%= "Mon profil" %></h2>
+  </div>
+  <div class="navbar navbar-expand-sm navbar-light">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= 'active' if current_page?(user_path) %>">
+        <%= link_to "Mes démarches", user_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(user_path) %>">
+        <%= link_to "Mes documents", user_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(user_path) %>">
+        <%= link_to "Mes informations personnelles", user_path, class: "text-primary nav-link" %>
+      </li>
+    </ul>
   </div>
 
-  <div>
-    <h5 class="me-3" style="display:inline-block"><strong>Mes démarches</strong></h5>
-    <h5 class="me-3" style="display:inline-block"><strong>Mes documents</strong></h5>
-    <h5 style="display:inline-block"><strong>Mes informations personnelles</strong></h5>
-  </div>
-
-  <div class="divider pt-1"><div class="line" style="width:1400px; height:2px"></div></div>
+  <div class="divider pt-1" style="height:30px"><div class="line" style="width:1400px; height:2px"></div></div>
 
   <div class="row mb-3"> <p style="display:inline"><strong>Prénom et nom :</strong> <%= @user.first_name %> <%= @user.last_name %> </p> </div>
 
@@ -28,18 +35,20 @@
 
   <div class="row mb-3"> <p style="display:inline"><strong>Date de naissance :</strong> <%= @user.birthday %> </p> </div>
 
+  <div class="row mb-3"> <p style="display:inline"><strong>Genre :</strong> <%= t(@user.gender) %> </p> </div>
+
   <div class="row mb-3"> <p style="display:inline"><strong>Nationalité :</strong> <%= @user.nationality %> </p> </div>
 
   <div class="row"> <p style="display:inline"><strong>Sécurité sociale :</strong> <%= @user.social_security %> </p> </div>
 
   <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
 
-  <%= link_to "Modifier", edit_user_path, class: 'btn btn-small', style:"position: fixed; top: 170px; left: 1510px" %>
+  <%= link_to "Modifier", edit_user_path, class: 'btn btn-small', style:"position: absolute; top: 330px; left: 1510px" %>
   <%= link_to 'Précédent', :back, class: 'btn btn-small' %>
 
 </div>
 
-<div class="container p-3" style="position: fixed; top: 275px; left: 1185px">
+<div class="container p-3" style="position: absolute; top: 420px; left: 1185px">
   <h3>Articles récemment consultés</h3>
   <div class="row">
     <% Article.where(id: @previews_articles).each do |preview_article| %>
