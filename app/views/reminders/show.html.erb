@@ -1,0 +1,16 @@
+<!-- app/views/reminders/show.html.erb -->
+<div class="container mt-4">
+  <h2>Détails du rappel</h2>
+  <div class="row">
+    <div class="col-12">
+      <p><strong>Titre :</strong> <%= @reminder.title %></p>
+      <p><strong>Description :</strong> <%= @reminder.description %></p>
+      <p><strong>URL :</strong> <%= link_to @reminder.url, @reminder.url unless @reminder.url.blank? %></p>
+      <p><strong>Status :</strong> <%= @reminder.status %></p>
+      <p><strong>Heure de début :</strong> <%= @reminder.start_time %></p>
+      <p><strong>Heure de fin :</strong> <%= @reminder.end_time %></p>
+    </div>
+  </div>
+  <%= link_to 'Éditer', edit_reminder_path(@reminder) %> |
+  <%= link_to "Retourner sur le profil", @user %> |
+</div>

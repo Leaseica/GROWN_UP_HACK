@@ -68,7 +68,7 @@ class RemindersController < ApplicationController
   end
 
   def set_my_guide
-    @my_guide = MyGuide.find(params[:my_guide_id])
+    @my_guide = MyGuide.find(params[:my_guide_id]) if params[:my_guide_id].present?
   end
 
   def reminder_params

@@ -57,17 +57,5 @@
   </div>
 </div>
 
-<%= link_to 'Précédent', :back, class: 'btn btn-small' %>
 
-<div class="calendar-container">
-  <%= month_calendar(events: @reminders, end_attribute: :end_time) do |date, reminders| %>
-    <%= date %>
-
-    <% reminders.each do |reminder| %>
-      <div class="reminder">
-        <p><%= reminder.title %></p>
-        <small><%= reminder.time unless reminder.multi_days? %></small>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<%= render "simple_calendar/show", events: @reminders, end_attribute: :end_time %>
