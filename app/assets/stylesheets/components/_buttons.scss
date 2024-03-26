@@ -65,6 +65,12 @@
 .btn-medium {
   @include button-style($gh-purple, $gh-white, 16px, 12px, 20px);
 
+  &.secondary {
+    background-color: $light-gray;
+    color: $gray
+  }
+
+
   &.danger {
     background-color: $danger
   }
