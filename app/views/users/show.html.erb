@@ -61,8 +61,13 @@
 <div class="container p-3" style="position: absolute; top: 820px; left: 1080px; width: 430px">
   <h3>Articles récemment consultés</h3>
   <div class="row">
-    <% Article.where(id: @previews_articles).each do |preview_article| %>
-      <%= link_to preview_article.title %>
+    <% if @previews_articles.empty? %>
+      <p>Pas d'articles consultés</p>
+    <% else %>
+      <% @previews_articles.each do |preview_article| %>
+        <% article = Article.find(preview_article) %>
+        <%= link_to article.title, article_path(article) %>
+      <% end %>
     <% end %>
   </div>
 </div>
