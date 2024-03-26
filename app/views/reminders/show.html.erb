@@ -16,6 +16,7 @@
     <div class="text-center py-4">
       <%= link_to 'Éditer', edit_reminder_path(@reminder), class: 'btn btn-small me-2' %>
       <%= link_to 'Retourner sur le profil', user_path(@user), class: 'btn btn-small outline-purple' %>
+      <%= link_to "Supprimer", user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" }, class: "btn btn-small danger", type: "button" %>
     </div>
   </div>
 </div>

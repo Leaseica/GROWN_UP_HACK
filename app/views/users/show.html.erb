@@ -57,6 +57,19 @@
   </div>
 </div>
 
-<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %> %>
+<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
 
 <%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>
+
+
+<div class="container p-3">
+  <h3 class="bold-xl text-center mb-2">Mes rappels</h3>
+  <div class="row">
+    <% @reminders.each do |reminder| %>
+      <%= link_to reminder.title %>
+      <%= reminder.start_time.strftime('%Y-%m-%d') %>
+      <%= reminder.end_time.strftime('%Y-%m-%d') %>
+      <%= reminder.status %>
+    <% end %>
+  </div>
+</div>
