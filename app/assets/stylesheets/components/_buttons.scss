@@ -34,6 +34,28 @@
       color: $gh-white;
     }
   }
+  &.outline-purple {
+    color:  $gh-purple;
+    background-color: transparent;
+    border: 2px solid $gh-purple;
+  }
+
+  &.a-faire {
+    color:  $gh-purple;
+    background-color: transparent;
+    border: 2px solid $gh-purple;
+  }
+
+  &.en-cours {
+    color:  $gh-white;
+    background-color: $gh-purple;
+  }
+
+  &.termine {
+    color:  $gh-white;
+    background-color: $gh-green;
+    border: 2px solid $gh-green;
+  }
 
   &.ghost {
     background-color: transparent;
@@ -76,6 +98,7 @@
   &.danger {
     background-color: $danger
   }
+
 }
 
 .btn-outline-primary{

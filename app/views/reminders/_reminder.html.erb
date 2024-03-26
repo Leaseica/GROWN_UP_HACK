@@ -1,0 +1,29 @@
+<!-- _reminder.html.erb -->
+<div class="reminder-card" id="reminder_<%= reminder.id %>" data-controller="edit-status" data-edit-status-target="card">
+
+  <div class="reminder-infos <%= 'd-none' if reminder.errors.any? %>" data-edit-status-target="infos">
+    <h2><%= reminder.title %></h2>
+    <p>Status: <span data-edit-status-target="status"><%= reminder.status %></span></p>
+    <p><%= reminder.description %></p>
+    <p>Start: <%= l(reminder.start_time, format: :short) if reminder.start_time %></p>
+    <p>End: <%= l(reminder.end_time, format: :short) if reminder.end_time %></p>
+    <button data-action="click->edit-status#displayForm">
+      <i class="fa-solid fa-pen fa-xs"></i> Edit Status
+    </button>
+  </div>
+
+  <%= simple_form_for reminder,
+    html: {
+      class: reminder.errors.any? ? "" : "d-none",
+      data: {
+        edit_status_target: "form",
+        action: "submit->edit-status#update"
+      }
+    } do |f|
+  %>
+    <p>Status: <span data-edit-status-target="status"><%= f.input :status, collection: Reminder.statuses.keys, include_blank: false, input_html: { value: reminder.status } %></span></p>
+    <p><%= reminder.description %></p>
+
+    <%= f.button :submit, value: 'Enregistrer', class: 'btn btn-primary' %>
+  <% end %>
+</div>

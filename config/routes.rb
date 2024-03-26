@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         get :download
         post :session_store
       end
+      resources :reminders, shallow: true
     end
   end
 

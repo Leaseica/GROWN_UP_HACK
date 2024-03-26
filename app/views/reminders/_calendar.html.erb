@@ -1,0 +1,9 @@
+<%= month_calendar reminders: reminders do |date, reminders| %>
+  <%= date %>
+
+  <% reminders.each do |reminder| %>
+    <div>
+      <%= reminder.title %>
+    </div>
+  <% end %>
+<% end %>
