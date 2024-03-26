@@ -150,4 +150,7 @@ MyGuide.create!(
   representative_type: "Personne physique"
 )
 
+asso_1 = Asso.create(name: "Asso1", photo: "", address: "171 Avenue du Maine 75014 paris")
+asso_2 = Asso.create(name: "Asso2", photo: "", address: "64 Avenue du Maine, 75015 paris")
+
 puts "Seed data loaded successfully!"
