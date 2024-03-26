@@ -59,17 +59,42 @@
 
 <%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
 
-<%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>
-
-
-<div class="container p-3">
-  <h3 class="bold-xl text-center mb-2">Mes rappels</h3>
-  <div class="row">
-    <% @reminders.each do |reminder| %>
-      <%= link_to reminder.title %>
-      <%= reminder.start_time.strftime('%Y-%m-%d') %>
-      <%= reminder.end_time.strftime('%Y-%m-%d') %>
-      <%= reminder.status %>
-    <% end %>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Rappels</button>
+    <button class="nav-link" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Calendrier</button>
+    <button class="nav-link" id="nav-calendar-tab" data-bs-target="#nav-calendar" type="button" aria-selected="false"><%= link_to 'Nouveau rappel ', new_my_guide_reminder_path(my_guide_id: @my_guide.id), class: 'btn btn-small' %></button>
   </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-reminder" role="tabpanel" aria-labelledby="nav-reminder-tab" tabindex="0">
+       <div class="container p-3">
+          <h3 class="bold-xl text-center mb-2">Mes rappels</h3>
+          <div class="row">
+            <% Reminder.statuses.each do |key, value| %>
+              <div class="col-md-4">
+                <h5 class="text-center mb-3"><%= value %></h5>
+                <% @reminders.select { |reminder| reminder.status == key }.each do |reminder| %>
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h6 class="bold-xl"><%= reminder.title %></h6>
+                      <p class="card-text"><%= reminder.description %></p>
+                      <p class="card-text"><small class="text-muted">Début: <%= reminder.start_time.strftime('%Y-%m-%d') %></small></p>
+                      <p class="card-text"><small class="text-muted">Fin: <%= reminder.end_time.strftime('%Y-%m-%d') %></small></p>
+                      <%= link_to 'Voir', reminder_path(reminder), class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+  </div>
+
+  </div>
+  <div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab" tabindex="0">
+    <%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
 </div>

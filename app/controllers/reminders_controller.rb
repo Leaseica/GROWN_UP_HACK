@@ -22,6 +22,8 @@ class RemindersController < ApplicationController
 
     # Or, for a weekly view:
     @reminders = Reminder.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
+    @reminders = Reminder.all
+    @reminders.user = current_user
   end
 
   def new

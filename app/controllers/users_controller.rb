@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @my_guides = @user.my_guides
     @previews_articles = session[:store]
-    @reminders = @user.reminders
+    @reminders = Reminder.where(user: @user)
     @my_guide = MyGuide.find_by(user: @user)
     # @todo_reminders = @user.reminders.todo
     # @in_progress_reminders = @user.reminders.in_progress
