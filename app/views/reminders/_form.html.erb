@@ -9,7 +9,7 @@
             <%= f.input :description, as: :text, input_html: { class: 'form-control', placeholder: 'Description' }, wrapper_html: { class: 'mb-3' } %>
             <%= f.input :url, input_html: { class: 'form-control', placeholder: 'https://exemple.com' }, wrapper_html: { class: 'mb-3' } %>
 
-            <%= f.input :status, collection: Reminder.statuses.map { |key, value| [value, key] }, selected: @reminder.status, include_blank: false, input_html: { class: 'form-select' }, wrapper_html: { class: 'mb-3' } %>
+            <%= f.input :status, collection: Reminder::STATUS, selected: @reminder.status, include_blank: false, input_html: { class: 'form-select' }, wrapper_html: { class: 'mb-3' } %>
 
             <div class="row g-2 mb-3">
               <div class="col-md-6">

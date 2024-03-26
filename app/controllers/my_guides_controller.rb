@@ -179,7 +179,7 @@ class MyGuidesController < ApplicationController
       title: "Prendre rendez-vous avec un serrurier",
       description: "Contacter un serrurier pour remplacer la serrure.",
       url: "",
-      status: 'à faire',
+      status: 'À faire',
       start_time: DateTime.now + 1.day,
       end_time: DateTime.now + 1.day + 2.hours,
       user: my_guide.user,

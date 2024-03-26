@@ -22,9 +22,11 @@ class Reminder < ApplicationRecord
   # scope :in_progress, -> { where(status: :in_progress) }
   # scope :done, -> { where(status: :done) }
 
-  enum status: {
-    not_started: 'À faire',
-    in_progress: 'En cours',
-    done: 'Terminé'
-  }
+  # enum status: {
+  #   not_started: 'À faire',
+  #   in_progress: 'En cours',
+  #   done: 'Terminé'
+  # }
+  STATUS = ['À faire', 'En cours', 'Terminé']
+  validates :status, inclusion: {in: Reminder::STATUS}
 end

@@ -82,11 +82,11 @@
        <div class="container p-3">
           <h3 class="bold-xl text-center mb-2">Mes rappels</h3>
           <div class="row">
-            <% Reminder.statuses.each do |key, value| %>
+            <% Reminder::STATUS.each do |status| %>
               <div class="col-md-4">
-                <h5 class="text-center mb-3"><%= value %></h5>
+                <h5 class="text-center mb-3"><%= status %></h5>
                 <ul>
-                  <% @reminders.select { |reminder| reminder.status == key }.each do |reminder| %>
+                  <% @reminders.select { |reminder| reminder.status == status }.each do |reminder| %>
                     <li class="card mb-3">
                       <div class="card-body">
                         <h6 class="bold-xl"><%= link_to reminder.title, reminder_path(reminder) %></h6>
@@ -98,11 +98,10 @@
                             <%= t(reminder.status) %>
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <% Reminder.statuses.each do |key, value| %>
+                            <% Reminder::STATUS.each do |status| %>
                               <li><a class="dropdown-item" href="#">
-                              <%= link_to value,  reminder_path(reminder, status: key),
-                                method: :patch,
-                                data: { turbo_confirm: "Are you sure?", turbo_method: :update },
+                              <%= link_to status, reminder_path(reminder, 'reminder[status]': status),
+                                data: { turbo_confirm: "Are you sure?", turbo_method: :patch },
                                 class: "dropdown-item" %>
 
                               </a></li>
