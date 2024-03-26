@@ -7,74 +7,92 @@
   </head>
 
   <body>
-        <div class="menu">
-          <%= link_to(root_path, class: "menu-link") do %>
-            <div class="menu-icon">
-              <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
-            </div>
-            <div class="menu-text">Home</div>
-          <% end %>
-          <%= link_to(categories_path, class: "menu-link") do %>
-            <div class="menu-text">/categories</div>
-          <% end %>
-          <%= link_to(category_sub_categories_path(@category), class: "menu-link") do %>
-            <div class="menu-text">/sous-catégories</div>
-          <% end %>
-          <%= link_to(sub_category_path(@subcategory), class: "menu-link") do %>
-            <div class="menu-text">/articles</div>
-          <% end %>
-          /se lancer en freelance
+
+    <div class="menu">
+      <%= link_to(root_path, class: "menu-link") do %>
+        <div class="menu-icon">
+          <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
         </div>
+        <div class="menu-text">Home</div>
+      <% end %>
+      <%= link_to(categories_path, class: "menu-link") do %>
+        <div class="menu-text">/categories</div>
+      <% end %>
+      <%= link_to(category_sub_categories_path(@category), class: "menu-link") do %>
+        <div class="menu-text">/sous-catégories</div>
+      <% end %>
+      <%= link_to(sub_category_path(@subcategory), class: "menu-link") do %>
+        <div class="menu-text">/articles</div>
+      <% end %>
+      /se lancer en freelance
+    </div>
+
+
+  <div class="container3">
+    <div>
+      <div class="gh_section" style="padding-bottom: 30px; padding-top: 100px">
+        <h1>Se lancer en freelance</h1>
+      </div>
+
+      <div class="subtitle" style="margin: 0px 150px 30px 150px">Ce statut une approche simplifiée pour démarrer une activité indépendante. Ses avantages: gestion administrative légère, fiscalité simplifiée et cotisations sociales basées sur le chiffre d'affaires.<br>C'est une option idéale pour les débutants ou les travailleurs à temps partiel.
+      </div>
+    </div>
+
     <div class="container3">
+      <div class="title1" style="padding-bottom: 0px">
+          <h1 style="font-size: 30px;">Avant tout : choisis la structure juridique de ton activité !</h1>
+      </div>
 
+<div style="width: 100%">
 
-      <div>
-        <div class="gh_section" style="padding-bottom: 30px; padding-top: 100px">
-          <h1>Se lancer en freelance</h1>
-        </div>
-
-        <div class="subtitle" style="margin: 0px 150px 30px 150px">Le statut de freelance offre une approche simplifiée pour démarrer une activité indépendante. Ce statut présente des avantages tels qu'une gestion administrative légère, une fiscalité simplifiée et des cotisations sociales basées sur le chiffre d'affaires. C'est une option idéale pour les débutants ou ceux travaillant à temps partiel.
+      <div data-controller="toggle" class="mt-5">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Entrepreneur individuel ⬇️ </button>
+        <div data-toggle-target="togglableElement" class="d-none">
+          <div class="content1">
+            <strong>Micro-entreprise</strong> (ou auto-entreprise) : C'est une forme simplifiée d'entreprise individuelle, souvent utilisée par les freelances. Tu bénéficies de formalités administratives allégées, d'une comptabilité simplifiée et paies des impôts et des cotisations sociales sur la base de ton chiffre d'affaires réel.<br>
+            <strong>Entreprise Individuelle :</strong> C’est la forme la plus simple et la plus courante pour démarrer en tant que freelance. Tu es considéré comme une seule entité avec ton entreprise et es responsable de toutes les dettes et obligations commerciales. Les revenus de l'entreprise sont inclus dans ta déclaration de revenus personnelle.<br>
+            <strong>Entreprise Individuelle à Responsabilité Limitée (EIRL) :</strong> Cela te permet de séparer ton patrimoine personnel de celui de ton entreprise, ce qui protège tes biens personnels en cas de difficultés financières de ton entreprise.<br>
+            <br>
+          </div>
         </div>
       </div>
 
-      <div class="container3">
-        <div class="title1">
-            <h1 style="font-size: 30px;">Première étape : choisis ta structure juridique de ton activité : </h1>
+
+      <div data-controller="toggle" class="mt-5">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Personne morale ⬇️ </button>
+        <div data-toggle-target="togglableElement" class="d-none">
+          <div class="content1">
+            <strong>Société par Actions Simplifiée Unipersonnelle (SASU) :</strong> C'est une forme de société plus complexe où tu es le seul actionnaire. Cela offre une responsabilité limitée, mais implique des formalités administratives et comptables plus complexes.<br>
+            <strong>Société à Responsabilité Limitée (SARL) :</strong> Tu peux créer une SARL en tant que freelance si tu as l'intention de travailler avec d'autres personnes. Cela offre une responsabilité limitée et une séparation des actifs personnels et professionnels, mais implique également des formalités plus lourdes.<br>
+            <br>
+          </div>
         </div>
+      </div>
 
-        <div class="content1">
-          <ul>
-            <strong>Entrepreneur individuel</strong><br>
-            <li>
-            <strong>Micro-entreprise</strong> (ou auto-entreprise) : C'est une forme simplifiée d'entreprise individuelle, souvent utilisée par les freelances. Tu bénéficies de formalités administratives allégées, d'une comptabilité simplifiée et paies des impôts et des cotisations sociales sur la base de ton chiffre d'affaires réel.</li>
-            <li><strong>Entreprise Individuelle :</strong> C’est la forme la plus simple et la plus courante pour démarrer en tant que freelance. Tu es considéré comme une seule entité avec ton entreprise et es responsable de toutes les dettes et obligations commerciales. Les revenus de l'entreprise sont inclus dans ta déclaration de revenus personnelle.</li>
-            <li><strong>Entreprise Individuelle à Responsabilité Limitée (EIRL) :</strong> Cela te permet de séparer ton patrimoine personnel de celui de ton entreprise, ce qui protège tes biens personnels en cas de difficultés financières de ton entreprise.</li>
-            <br>
 
-            <strong>Personne morale</strong>
+      <div data-controller="toggle" class="mt-5">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Exploitation en commun ⬇️ </button>
+        <div data-toggle-target="togglableElement" class="d-none">
+          <div class="content1">
+            <strong>Le portage salarial</strong> est une option pour les personnes qui veulent exercer une activité indépendante sans créer leur propre entreprise. Elles travaillent comme consultants ou prestataires de services pour une entreprise de portage salarial. Cette entreprise facture les clients pour les services fournis par ces consultants et leur verse un salaire en tant que salariés. Cela permet aux entrepreneurs de bénéficier des avantages du statut de salarié tout en conservant une certaine autonomie dans leur travail.<br>
             <br>
-            <li><strong>Société par Actions Simplifiée Unipersonnelle (SASU) :</strong> C'est une forme de société plus complexe où tu es le seul actionnaire. Cela offre une responsabilité limitée, mais implique des formalités administratives et comptables plus complexes.</li>
-            <li><strong>Société à Responsabilité Limitée (SARL) :</strong> Tu peux créer une SARL en tant que freelance si tu as l'intention de travailler avec d'autres personnes. Cela offre une responsabilité limitée et une séparation des actifs personnels et professionnels, mais implique également des formalités plus lourdes.</li>
-            <!-- Ligne vide -->
-
-            <br>
-            <strong>Exploitation en commun</strong>
-            <br>
-            <li><strong>Le portage salarial</strong> est une option pour les personnes qui veulent exercer une activité indépendante sans créer leur propre entreprise. Elles travaillent comme consultants ou prestataires de services pour une entreprise de portage salarial. Cette entreprise facture les clients pour les services fournis par ces consultants et leur verse un salaire en tant que salariés. Cela permet aux entrepreneurs de bénéficier des avantages du statut de salarié tout en conservant une certaine autonomie dans leur travail.</li>
-          </ul>
+          </div>
         </div>
+      </div>
+
+</div>
 
         <div class="title1">
-            <h1 style="font-size: 40px;">Conclusion</h1>
+            <h1 style="font-size: 30px; margin-top: 50px">Notre conseil</h1>
         </div>
 
        <div class="content1">
-            Pour ceux qui envisagent de devenir freelances, la meilleure option est souvent de choisir le statut d'auto-entrepreneur. C'est un choix populaire en raison de sa simplicité administrative, de sa faible charge fiscale et de la protection des biens personnels en cas de difficultés financières. C'est un excellent point de départ pour tester une activité ou démarrer une petite entreprise. Il est important de bien comprendre les implications des différents statuts en discutant avec d'autres auto-entrepreneurs expérimentés ou en recherchant des informations supplémentaires auprès d'organismes publics spécialisés tels que le site officiel du gouvernement dédié à l'entrepreneuriat en France (https://entreprendre.service-public.fr/).
+            Pour ceux qui envisagent de devenir freelances, la meilleure option est souvent de choisir le statut d'<strong>auto-entrepreneur</strong>. C'est un choix populaire en raison de sa simplicité administrative, de sa faible charge fiscale et de la protection des biens personnels en cas de difficultés financières. C'est un excellent point de départ pour tester une activité ou démarrer une petite entreprise. Il est important de bien comprendre les implications des différents statuts en discutant avec d'autres auto-entrepreneurs expérimentés ou en recherchant des informations supplémentaires auprès d'organismes publics spécialisés tels que le site officiel du gouvernement dédié à l'entrepreneuriat en France (https://entreprendre.service-public.fr/).
         </div>
 
 
         <div class="title1">
-            <h2 style="font-size: 24px; font-weight: bold">Avant de commencer les démarches, vérifie que tu disposes des documents. <br> Tu en auras besoin pour remplir ton formulaire</h2>
+            <h1 style="font-size: 30px; margin-top: 50px">Avant de commencer les démarches,<br>tu auras besoin de ces documents pour pouvoir remplir ton formulaire</h1>
         </div>
 
         <div class="checkbox">
@@ -102,6 +120,8 @@
         </div>
       </div>
 
+    <div class="divider">
+        <div class="line"></div>
     </div>
 
     <div class="container3">
