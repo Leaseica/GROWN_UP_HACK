@@ -22,8 +22,10 @@ class MyGuidesController < ApplicationController
   def create
     @my_guide = MyGuide.new(my_guide_params)
     @my_guide.user = current_user
+
     respond_to do |format|
       if @my_guide.save
+        create_reminders_for_my_guide(@my_guide)
         format.html { redirect_to summary_my_guide_path(@my_guide), notice: "My Guide was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -63,6 +65,7 @@ class MyGuidesController < ApplicationController
     redirect_to my_guide_path(@my_guide.article), status: :see_other
   end
 
+
   private
 
   def set_my_guide
@@ -75,6 +78,10 @@ class MyGuidesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:article_id])
+  end
+
+  def set_reminder
+    @reminder = Reminder.find(params[:article_id])
   end
 
   def my_guide_params
@@ -132,4 +139,53 @@ class MyGuidesController < ApplicationController
       pdf.render
     end
   end
+
+
+  def create_reminders_for_my_guide(my_guide)
+    # Créez ici vos rappels spécifiques en fonction du type de guide
+    # Exemple : démarches pour freelance
+    if my_guide.article.title.include?("freelance")
+      create_freelance_reminders(my_guide)
+    elsif my_guide.article.title.include?("clefs")
+      create_lost_keys_reminders(my_guide)
+    end
+  end
+
+  def create_freelance_reminders(my_guide)
+    Reminder.create!(
+      title: "Étude de marché et définition de la niche",
+      description: "Analyser le marché pour identifier une niche rentable.",
+      url: "",
+      status: 'À faire',
+      start_time: DateTime.now,
+      end_time: DateTime.now + 1.month + 1.hour,
+      user: my_guide.user,
+      my_guide: my_guide
+    )
+    Reminder.create!(
+      title: "Immatriculation de l'entreprise",
+      description: "Commencez les démarches d'immatriculation de votre entreprise.",
+      url: "",
+      start_time: 2.months.before(my_guide.created_at),
+      end_time: 2.months.before(my_guide.created_at),
+      status: 'À faire',
+      user: my_guide.user,
+      my_guide: my_guide
+    )
+  end
+
+  def create_lost_keys_reminders(my_guide)
+    Reminder.create!(
+      title: "Prendre rendez-vous avec un serrurier",
+      description: "Contacter un serrurier pour remplacer la serrure.",
+      url: "",
+      status: 'à faire',
+      start_time: DateTime.now + 1.day,
+      end_time: DateTime.now + 1.day + 2.hours,
+      user: my_guide.user,
+      my_guide: my_guide
+    )
+    # Ajoutez d'autres rappels spécifiques à la perte de clefs ici
+  end
+
 end

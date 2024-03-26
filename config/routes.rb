@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       member do
         get :summary
         get :download
+        post :start_procedures
       end
       resources :reminders, shallow: true
     end

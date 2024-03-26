@@ -79,7 +79,9 @@ class RemindersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+
   private
+
   def set_reminder
     @reminder = Reminder.find(params[:id])
   end
@@ -101,7 +103,7 @@ class RemindersController < ApplicationController
       :start_time,
       :end_time,
       :user_id,
-      :my_guide_id
+      :my_guide_id,
     )
   end
 

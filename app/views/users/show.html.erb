@@ -75,17 +75,39 @@
             <% Reminder.statuses.each do |key, value| %>
               <div class="col-md-4">
                 <h5 class="text-center mb-3"><%= value %></h5>
-                <% @reminders.select { |reminder| reminder.status == key }.each do |reminder| %>
-                  <div class="card mb-3">
-                    <div class="card-body">
-                      <h6 class="bold-xl"><%= reminder.title %></h6>
-                      <p class="card-text"><%= reminder.description %></p>
-                      <p class="card-text"><small class="text-muted">Début: <%= reminder.start_time.strftime('%Y-%m-%d') %></small></p>
-                      <p class="card-text"><small class="text-muted">Fin: <%= reminder.end_time.strftime('%Y-%m-%d') %></small></p>
-                      <%= link_to 'Voir', reminder_path(reminder), class: "btn btn-primary" %>
-                    </div>
-                  </div>
-                <% end %>
+                <ul>
+                  <% @reminders.select { |reminder| reminder.status == key }.each do |reminder| %>
+                    <li class="card mb-3">
+                      <div class="card-body">
+                        <h6 class="bold-xl"><%= link_to reminder.title, reminder_path(reminder) %></h6>
+                        <p class="card-text"><%= reminder.description %></p>
+                        <p class="card-text"><small class="text-muted">Début: <%= reminder.start_time.strftime('%Y-%m-%d') %></small></p>
+                        <p class="card-text"><small class="text-muted">Fin: <%= reminder.end_time.strftime('%Y-%m-%d') %></small></p>
+                        <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <%= t(reminder.status) %>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <% Reminder.statuses.each do |key, value| %>
+                              <li><a class="dropdown-item" href="#">
+                              <%= link_to value,  reminder_path(reminder, status: key),
+                                method: :patch,
+                                data: { turbo_confirm: "Are you sure?", turbo_method: :update },
+                                class: "dropdown-item" %>
+
+                              </a></li>
+                            <% end %>
+                          </ul>
+                        </div>
+                        <% if reminder.my_guide.present? && reminder.my_guide.article.present? %>
+                          <p class="semi-bold-s">Article associé : <%= reminder.my_guide.article.title %></p>
+                        <% else %>
+                          <p class="card-text">Article associé non trouvé</p>
+                        <% end %>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
               </div>
             <% end %>
           </div>
