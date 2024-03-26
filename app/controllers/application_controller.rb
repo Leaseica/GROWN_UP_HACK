@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+
+  before_action :initialize_session_store
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
@@ -9,5 +12,9 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
+  end
+
+  def initialize_session_store
+    session[:store] ||= []
   end
 end
