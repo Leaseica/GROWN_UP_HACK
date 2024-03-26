@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
     @my_guides = @user.my_guides
     @previews_articles = session[:store]
+    @reminders = Reminder.where(user: @user)
+    @my_guide = MyGuide.find_by(user: @user)
   end
 
   def edit

@@ -1,0 +1,22 @@
+.banner-infos{
+  margin-bottom: 50px;
+  margin-left: 25px;
+  .container {
+    background-color: lightgrey;
+    padding-bottom: 300px;
+    padding-top: 40px;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px gray;
+    h1 {
+      width: 700px;
+      position: absolute;
+      top: 480px;
+    }
+    img {
+        width: 584px;
+        height: 246.199px;
+        flex-shrink: 0;
+        float: right;
+      }
+  }
+}

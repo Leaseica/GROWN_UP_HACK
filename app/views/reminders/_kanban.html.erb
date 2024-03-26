@@ -1,0 +1,29 @@
+<div class="kanban-board">
+  <div class="kanban-column todo">
+    <h3>TODO</h3>
+    <div class="kanban-tasks">
+      <% @todo_reminders.each do |reminder| %>
+        <%= render 'reminders/reminder', reminder: reminder %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="kanban-column in-progress">
+    <h3>In Progress</h3>
+    <div class="kanban-tasks">
+      <% @in_progress_reminders.each do |reminder| %>
+        <%= render 'reminders/reminder', reminder: reminder %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="kanban-column done">
+    <h3>Done</h3>
+    <div class="kanban-tasks">
+      <% @done_reminders.each do |reminder| %>
+
+        <%= render 'reminders/reminder', reminder: reminder %>
+      <% end %>
+    </div>
+  </div>
+</div>

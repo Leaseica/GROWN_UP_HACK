@@ -1,0 +1,46 @@
+.reminder-status {
+  display: flex;
+  border-radius: 5px;
+  font-family: $body-font;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 8px 12px;
+
+
+  &.a-faire {
+    color:  $gh-purple;
+    background-color: transparent;
+    border: 2px solid $gh-purple;
+  }
+  &.en-cours {
+    color:  $gh-white;
+    background-color: $gh-purple;
+  }
+
+  &.termine {
+    color:  $gh-white;
+    background-color: $gh-green;
+    border: 2px solid $gh-green;
+  }
+}
+
+.card {
+
+  &.a-faire {
+    background-color: transparent;
+    border: 2px solid $gh-purple;
+  }
+  &.en-cours {
+    color:  $gh-purple;
+    background-color: transparent;
+    border: 2px solid $gh-purple;
+  }
+
+  &.termine {
+    color:  $gh-white;
+    background-color: $gh-white;
+    border: 2px solid $gh-green;
+  }
+
+}
