@@ -29,4 +29,7 @@ class Reminder < ApplicationRecord
   # }
   STATUS = ['À faire', 'En cours', 'Terminé']
   validates :status, inclusion: {in: Reminder::STATUS}
+  def status_class(status)
+    status.parameterize(separator: '-')
+  end
 end

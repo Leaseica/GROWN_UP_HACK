@@ -153,16 +153,6 @@ class MyGuidesController < ApplicationController
 
   def create_freelance_reminders(my_guide)
     Reminder.create!(
-      title: "Étude de marché et définition de la niche",
-      description: "Analyser le marché pour identifier une niche rentable.",
-      url: "",
-      status: 'À faire',
-      start_time: DateTime.now,
-      end_time: DateTime.now + 1.month + 1.hour,
-      user: my_guide.user,
-      my_guide: my_guide
-    )
-    Reminder.create!(
       title: "Immatriculation de l'entreprise",
       description: "Commencez les démarches d'immatriculation de votre entreprise.",
       url: "",
@@ -172,6 +162,85 @@ class MyGuidesController < ApplicationController
       user: my_guide.user,
       my_guide: my_guide
     )
+    # Étape 1: Déclaration de l'activité
+  Reminder.create!(
+    title: "Déclaration de l'activité auto-entrepreneur",
+    description: "Déclarez votre activité en tant qu'auto-entrepreneur au Guichet unique ou sur autoentrepreneur.urssaf.fr.",
+    url: 'https://procedures.inpi.fr/?/',
+    status: 'À faire',
+    start_time: DateTime.now,
+    end_time: DateTime.now + 1.hour,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
+
+  # Étape 2: Demande d'Acre (optionnelle mais conseillée)
+  Reminder.create!(
+    title: "Demande d'Acre",
+    description: "Effectuez votre demande d'Acre auprès de l'Urssaf dès que votre activité est déclarée pour bénéficier d'allègements de cotisations.",
+    status: 'À faire',
+    url: 'https://www.autoentrepreneur.urssaf.fr/portail/accueil/une-question/nous-contacter/courriel.html?choixacre=ok',
+    start_time: DateTime.now + 1.day,
+    end_time: DateTime.now + 2.days,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
+  Reminder.create!(
+    title: "Demande d'Acre : Consulter la réponse de l'Urssaf",
+    description: "En cas de réponse favorable, l'Urssaf délivre une attestation disponible dans la rubrique 'Mes attestations' dès sa prise en compte par mon Urssaf.
+    En cas de rejet de la demande, l'Urssaf motive et notifie sa décision.
+    En cas d'absence de réponse dans un délai d'un mois, l'Acre est considérée comme accordée.",
+    status: 'À faire',
+    url: 'https://login.urssaf.fr',
+    start_time: DateTime.now + 1.day,
+    end_time: DateTime.now + 30.days,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
+
+  # Étape 3: Création de l'espace Urssaf
+  Reminder.create!(
+    title: "Création de votre espace Urssaf",
+    description: "Créez votre espace sur le site de l'Urssaf pour déclarer et payer vos cotisations en ligne.",
+    status: 'À faire',
+    start_time: DateTime.now + 2.days,
+    end_time: DateTime.now + 2.days + 1.hour,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
+
+  # Étape 4: Réception du numéro Siret
+  Reminder.create!(
+    title: "Réception de votre numéro Siret",
+    description: "Attendez de recevoir votre numéro Siret, environ 15 jours après la déclaration de votre activité.",
+    status: 'À faire',
+    start_time: DateTime.now + 15.days,
+    end_time: DateTime.now + 15.days + 1.hour,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
+
+  # Étape 5: Réception de la notification d'affiliation
+  Reminder.create!(
+    title: "Réception de la notification d'affiliation Urssaf",
+    description: "Vous recevrez votre notification d'affiliation de l'Urssaf en tant que travailleur indépendant sous 4 à 10 semaines.",
+    status: 'À faire',
+    start_time: DateTime.now + 4.weeks,
+    end_time: DateTime.now + 10.weeks,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
+
+  # Étape 6: Début de l'activité
+  Reminder.create!(
+    title: "première déclaration",
+    description: "Vous pouvez commencer à émettre des factures et devez déclarer votre chiffre d'affaires à l'issue des 90 premiers jours d'activité.",
+    status: 'À faire',
+    start_time: DateTime.now + 90.days,
+    end_time: DateTime.now + 90.days + 1.hour,
+    user: my_guide.user,
+    my_guide: my_guide
+  )
   end
 
   def create_lost_keys_reminders(my_guide)
