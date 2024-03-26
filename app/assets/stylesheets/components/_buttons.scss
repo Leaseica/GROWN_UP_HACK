@@ -34,6 +34,11 @@
       color: $gh-white;
     }
   }
+  &.outline-purple {
+    color:  $gh-purple;
+    background-color: transparent;
+    border: 2px solid $gh-purple;
+  }
 
   &.ghost {
     background-color: transparent;

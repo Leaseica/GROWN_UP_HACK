@@ -63,7 +63,7 @@ class RemindersController < ApplicationController
   def update
     respond_to do |format|
       if @reminder.update(reminder_params)
-        format.html { redirect_to user_path(@user), notice: "Reminder was successfully updated." }
+        format.html { redirect_to @reminder, notice: "Reminder was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

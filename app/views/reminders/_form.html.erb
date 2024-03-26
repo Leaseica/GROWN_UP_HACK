@@ -1,26 +1,30 @@
 
 <%= simple_form_for [@my_guide, @reminder], html: { class: 'form-horizontal' } do |f| %>
-  <div class="container">
+  <div class="container py-4">
     <div class="row justify-content-md-center">
-      <div class="col-md-6">
-        <%= f.input :title, input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' } %>
-        <%= f.input :description, as: :text, input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' } %>
-        <%= f.input :url, input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' } %>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <%= f.input :title, input_html: { class: 'form-control', placeholder: 'Titre' }, wrapper_html: { class: 'mb-3' } %>
+            <%= f.input :description, as: :text, input_html: { class: 'form-control', placeholder: 'Description' }, wrapper_html: { class: 'mb-3' } %>
+            <%= f.input :url, input_html: { class: 'form-control', placeholder: 'https://exemple.com' }, wrapper_html: { class: 'mb-3' } %>
 
-        <%= f.input :status, collection: Reminder.statuses.map { |key, value| [value, key] }, selected: @reminder.status, include_blank: false, input_html: { class: 'form-select' }, wrapper_html: { class: 'mb-3' } %>
+            <%= f.input :status, collection: Reminder.statuses.map { |key, value| [value, key] }, selected: @reminder.status, include_blank: false, input_html: { class: 'form-select' }, wrapper_html: { class: 'mb-3' } %>
 
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :start_time, as: :datetime, html5: true, input_html: {  class: 'form-control', value: @reminder.start_time || DateTime.now,
-            data: { controller: "datepicker" } } %>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <%= f.input :start_time, as: :datetime, label: 'Heure de début', html5: true, input_html: { class: 'form-control', data: { controller: "datepicker" } }, wrapper_html: { class: '' } %>
+              </div>
+              <div class="col-md-6">
+                <%= f.input :end_time, as: :datetime, label: 'Heure de fin', html5: true, input_html: { class: 'form-control', data: { controller: "datepicker" } }, wrapper_html: { class: '' } %>
+              </div>
+            </div>
+            <div class="text-center mb-1">
+            <%= f.button :submit, 'Enregistrer', class: 'btn btn-medium' %>
           </div>
-          <div class="col-md-6">
-            <%= f.input :end_time, as: :datetime, html5: true, input_html: { value: @reminder.end_time || DateTime.now,
-          data: { controller: "datepicker" } } %>
           </div>
+
         </div>
-
-        <%= f.button :submit, 'Enregistrer', class: 'btn btn-primary' %>
       </div>
     </div>
   </div>

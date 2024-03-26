@@ -1,4 +1,9 @@
-<h1>Nouveau rappel</h1>
+<div class= "py-5">
+  <h1 class="bold-xxl text-center">Nouveau rappel</h1>
 
+  <%= render "form", reminder: @reminder %>
 
-<%= render "form", reminder: @reminder %>
+  <div class="text-center py-3">
+    <%= link_to "Retourner sur le profil", @user %> |
+  </div>
+</div>
