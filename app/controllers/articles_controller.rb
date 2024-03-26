@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
     session[:store] ||= []
     session[:store].unshift(@article.id)
     session[:store] = session[:store].uniq
+    @subcategory = @article.sub_category
+    @category = @subcategory.category
   end
 
   # GET /articles/new
