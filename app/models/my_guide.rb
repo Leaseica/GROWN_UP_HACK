@@ -2,8 +2,7 @@ class MyGuide < ApplicationRecord
   belongs_to :article
   belongs_to :user
   has_one_attached :photo
-  has_many :reminders
-
+  has_many :reminders, dependent: :destroy
   accepts_nested_attributes_for :user
 
   after_update :update_user_occupation
