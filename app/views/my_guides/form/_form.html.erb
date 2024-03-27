@@ -1,0 +1,10 @@
+<div class="steps-form" data-controller="edit-step">
+    <%= simple_form_for [@article, @my_guide] do |f| %>
+      <%= render "my_guides/form/step_menu", my_guide: @my_guide %>
+      <div class="form-content">
+        <%= render "my_guides/form/step0", my_guide: @my_guide, f: f %>
+        <%= render "my_guides/form/step1", my_guide: @my_guide, f: f %>
+        <%= render "my_guides/form/step2", my_guide: @my_guide, f: f %>
+      </div>
+  <% end %>
+</div>
