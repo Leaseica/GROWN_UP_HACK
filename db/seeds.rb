@@ -149,6 +149,12 @@ my_guide_3 = MyGuide.create!(
   representative_type: "Personne physique"
 )
 
+asso_1 = Asso.create(name: "AFE", photo: "", address: "14 rue Delambre, 75014 paris, France")
+asso_2 = Asso.create(name: "BGE Parif", photo: "", address: "168 Bis rue Raymond Losserand, 75015 paris, France")
+asso_3 = Asso.create(name: "CCI Paris", photo: "", address: "16 rue Yves Toudic, 75010 paris, France")
+asso_4 = Asso.create(name: "BPI France", photo: "", address: "8, boulevard Haussmann, 75009 paris, France")
+asso_5 = Asso.create(name: "Station F", photo: "", address: "55 Boulevard Vincent Auriol, 75013 paris, France")
+
 puts "Seed data loaded successfully!"
 
 Reminder.create!(
