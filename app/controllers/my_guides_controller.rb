@@ -66,7 +66,17 @@ class MyGuidesController < ApplicationController
   end
 
 
+
   private
+  def create_reminders_for_my_guide(my_guide)
+    # Créez ici vos rappels spécifiques en fonction du type de guide
+    # Exemple : démarches pour freelance
+    if my_guide.article.title.include?("freelance")
+      create_freelance_reminders(my_guide)
+    elsif my_guide.article.title.include?("clefs")
+      create_lost_keys_reminders(my_guide)
+    end
+  end
 
   def set_my_guide
     @my_guide = MyGuide.find(params[:id])
@@ -81,7 +91,7 @@ class MyGuidesController < ApplicationController
   end
 
   def set_reminder
-    @reminder = Reminder.find(params[:article_id])
+    @reminder = Reminder.find(params[:reminder_id])
   end
 
   def my_guide_params
@@ -141,15 +151,6 @@ class MyGuidesController < ApplicationController
   end
 
 
-  def create_reminders_for_my_guide(my_guide)
-    # Créez ici vos rappels spécifiques en fonction du type de guide
-    # Exemple : démarches pour freelance
-    if my_guide.article.title.include?("freelance")
-      create_freelance_reminders(my_guide)
-    elsif my_guide.article.title.include?("clefs")
-      create_lost_keys_reminders(my_guide)
-    end
-  end
 
   def create_freelance_reminders(my_guide)
     Reminder.create!(
