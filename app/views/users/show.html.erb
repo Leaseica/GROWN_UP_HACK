@@ -60,9 +60,77 @@
 
 <div class="container p-3" style="position: absolute; top: 820px; left: 1080px; width: 430px">
   <h3>Articles récemment consultés</h3>
+  
   <div class="row">
-    <% Article.where(id: @previews_articles).each do |preview_article| %>
-      <%= link_to preview_article.title %>
+    <% if @previews_articles.empty? %>
+      <p>Pas d'articles consultés</p>
+    <% else %>
+      <% Article.where(id: @previews_articles).each do |preview_article| %>
+        <%= link_to preview_article.title, article_path(preview_article) %>
+      <% end %>
     <% end %>
   </div>
+</div>
+
+<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Rappels</button>
+    <button class="nav-link" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Calendrier</button>
+    <button class="nav-link" id="nav-calendar-tab" data-bs-target="#nav-calendar" type="button" aria-selected="false"><%= link_to 'Nouveau rappel ', new_my_guide_reminder_path(my_guide_id: @my_guide.id), class: 'btn btn-small' %></button>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-reminder" role="tabpanel" aria-labelledby="nav-reminder-tab" tabindex="0">
+       <div class="container text-center p-3">
+          <h3 class="bold-xxl text-center mb-2">Mes rappels</h3>
+          <div class="row">
+            <% Reminder::STATUS.each do |status| %>
+              <div class="col-md-4">
+                <h5 class="<%= "d-block text-center mb-3 reminder-status  #{status.parameterize(separator: '-')}" %>"><%= status %></h5>
+                <ul>
+                  <% @reminders.select { |reminder| reminder.status == status }.each do |reminder| %>
+                    <li class="text-center<%= " mb-3 card  #{status.parameterize(separator: '-')}" %>">
+                      <div class="card-body">
+                        <h6 class="bold-xl"><%= link_to reminder.title, reminder_path(reminder) %></h6>
+                        <p class="card-text"><%= reminder.description %></p>
+                        <p class="card-text"><small class="text-muted">Début: <%= reminder.start_time.strftime('%Y-%m-%d') %></small></p>
+                        <p class="card-text"><small class="text-muted">Fin: <%= reminder.end_time.strftime('%Y-%m-%d') %></small></p>
+                        <div class="dropdown">
+                          <button class=" dropdown-toggle <%= "btn btn-small #{reminder.status.parameterize(separator: '-')}" %>" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <%= reminder.status %>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <% Reminder::STATUS.each do |status| %>
+                              <li><a class="dropdown-item" href="#">
+                              <%= link_to status, reminder_path(reminder, 'reminder[status]': status),
+                                data: { turbo_method: :patch },
+                                class: "dropdown-item" %>
+
+                              </a></li>
+                            <% end %>
+                          </ul>
+                        </div>
+                        <% if reminder.my_guide.present? && reminder.my_guide.article.present? %>
+                          <p class="semi-bold-s">Article associé : <%= reminder.my_guide.article.title %></p>
+                        <% else %>
+                          <p class="card-text">Article associé non trouvé</p>
+                        <% end %>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </div>
+  </div>
+
+  </div>
+  <div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab" tabindex="0">
+    <%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
 </div>

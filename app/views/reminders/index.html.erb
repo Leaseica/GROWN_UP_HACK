@@ -1,0 +1,31 @@
+<h1>Liste des rappels</h1>
+
+<div id="events_calendar">
+  <%= render partial: "calendar", locals: {reminders: @reminders} %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Date de début</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reminders.each do |reminder| %>
+      <tr>
+        <td><%= reminder.title %></td>
+        <td><%= reminder.start_time %></td>
+        <td><%= link_to 'Show', reminder %></td>
+        <td><%= link_to 'Edit', edit_event_path(reminder) %></td>
+        <td><%= link_to 'Destroy', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouveau rappel',  new_my_guide_reminder_path(my_guide_id: @my_guide.id) %>

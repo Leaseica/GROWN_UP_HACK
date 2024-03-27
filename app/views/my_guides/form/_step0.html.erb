@@ -1,0 +1,35 @@
+<div class="step step0" data-edit-step-target="step0">
+  <div class="step-content">
+    <div class="form-label-input">
+        <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
+        </div>
+        <div class="form-label-input">
+          <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select' } %>
+        </div>
+        <div class="form-label-input">
+          <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
+                    collection: [[true, 'Oui'], [false, 'Non']],
+                    label_method: :last, value_method: :first,
+                    label: "L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?*",
+                    include_blank: false %>
+        </div>
+        <div class="form-label-input">
+          <%= f.input :is_business_extension, as: :radio_buttons,
+                    collection: [[true, 'Oui'], [false, 'Non']],
+                    label_method: :last, value_method: :first,
+                    label: "Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)",
+                    include_blank: false %>
+        </div>
+        <div class="form-label-input">
+          <%= f.input :has_previous_self_employment,as: :radio_buttons,
+                    collection: [[true, 'Oui'], [false, 'Non']],
+                    label_method: :last, value_method: :first,
+                    label: "L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?",
+                    include_blank: false %>
+      </div>
+  </div>
+
+  <div class="navigation">
+    <button  class="btn btn-medium"  type="button" data-action="click->edit-step#next">Suivant</button>
+  </div>
+</div>

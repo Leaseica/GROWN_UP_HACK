@@ -22,7 +22,6 @@ User.destroy_all
 user_1 = User.create(email: "jane.doe@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Développeur", address: "1 rue premier", birthday: "1990-01-01", nationality: "Française", social_security: "123-45-6789", gender: "Femme")
 user_2 = User.create(email: "user2@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Coach", address: "2 rue deuxieme", birthday: "1997-03-03", nationality: "Anglaise", social_security: "987-65-4321", gender: "Homme")
 user_3 = User.create(email: "user3@example.com", password: "123456", first_name: "Jeff", last_name: "Doe", occupation: "Développeur", address: "3 rue troisieme", birthday: "1998-02-02", nationality: "Française", social_security: "111-11-1111", gender: "Homme")
-
 # Seed Categories
 logement = Category.create(name: "Logement", description: "Découvres notre section 'Logement', ton allié pour surmonter les embûches de la vie domestique. Des fuites d'eau inattendues aux pertes de clés désagréables, en passant par les litiges avec les propriétaires et les questions sur la taxe foncière, notre application est là pour te fournir des conseils pratiques, des solutions rapides et des réponses claires à toutes tes préoccupations. Ne laisses plus les problèmes de logement te prendre au dépourvu, trouves les réponses dont tu as besoin ici.")
 administratif = Category.create(name: "Administratif", description: "Plonges dans notre section 'Administratif', ton guide essentiel pour naviguer dans les méandres bureaucratiques en toute confiance. Que ce soit pour comprendre les démarches pour obtenir une carte d'identité, résoudre des litiges fiscaux ou déchiffrer des documents officiels complexes, notre application est là pour simplifier tes démarches administratives. Trouves des conseils clairs, des réponses rapides et des astuces pratiques pour résoudre tes problèmes administratifs sans tracas.")
@@ -108,7 +107,7 @@ ArticlesPlatform.create(article: article1, platform: platform1)
 ArticlesPlatform.create(article: article2, platform: platform2)
 
 # Seed MyGuides
-MyGuide.create!(
+my_guide_1 = MyGuide.create!(
   article: article1,
   user: user_1,
   occupation: "Web Developer",
@@ -122,7 +121,7 @@ MyGuide.create!(
   representative_type: "Personne physique"
 )
 
-MyGuide.create!(
+my_guide_2 = MyGuide.create!(
   article: article2,
   user: user_2,
   occupation: "Graphic Designer",
@@ -136,7 +135,7 @@ MyGuide.create!(
   representative_type: "Personne morale"
 )
 
-MyGuide.create!(
+my_guide_3 = MyGuide.create!(
   article: article1,
   user: user_3,
   occupation: "Journaliste freelance",
@@ -157,3 +156,16 @@ asso_4 = Asso.create(name: "BPI France", photo: "", address: "8, boulevard Hauss
 asso_5 = Asso.create(name: "Station F", photo: "", address: "55 Boulevard Vincent Auriol, 75013 paris, France")
 
 puts "Seed data loaded successfully!"
+
+Reminder.create!(
+  title: "Appointment with accountant",
+  description: "Discuss the annual financial statements and tax filings.",
+  url: "http://example.com/meeting/accountant",
+  status: 'Terminé',
+  start_time: DateTime.now + 5.days, # Scheduled for 5 days from now
+  end_time: DateTime.now + 5.days + 2.hours, # 2 hours long meeting
+  user: user_1,
+  my_guide: my_guide_1
+)
+
+puts "Reminders seeded!"
