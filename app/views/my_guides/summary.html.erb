@@ -44,7 +44,7 @@
     <div class= "container-right">
       <%= image_tag 'telechargement_reussi.svg' %>
       <section class="summary-reminders">
-      <h3>Mes rappels</h3>
+      <h3><%= link_to "Mes rappels", user_path(@user) %></h3>
           <% @reminders.each do |reminder| %>
             <div class="reminder-content">
             <tr>
