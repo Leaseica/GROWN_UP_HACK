@@ -10,6 +10,15 @@ class ArticlesController < ApplicationController
     session[:store] = session[:store].uniq
     @subcategory = @article.sub_category
     @category = @subcategory.category
+    @assos = Asso.all
+    # The `geocoded` scope filters only assos with coordinates
+    @markers = @assos.geocoded.map do |asso|
+      {
+        lat: asso.latitude,
+        lng: asso.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { asso: asso })
+      }
+    end
   end
 
   # GET /articles/new

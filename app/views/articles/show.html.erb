@@ -8,10 +8,6 @@
 
   <body>
 
-    <div style="width: 70%; height: 400px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
     <div class="menu">
       <%= link_to(root_path, class: "menu-link") do %>
@@ -209,28 +205,106 @@
         <div class="line"></div>
     </div>
 
+  <div data-controller="toggle" class="mt-5">
+    <button data-action="click->toggle#fire" class="btn btn-title">Aller plus loin: Les plateformes d'entraides ⬇️ </button>
+    <div data-toggle-target="togglableElement" class="d-none">
 
-    <div class="title1">
-        <h1 style="font-size: 40px;">Aller plus loin: Les plateformes de freelances</h1>
+    <div class="container4">
+
+      <div class="map-container">
+        <div style="width: 400px; height: 500px; margin-top: 100px"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="align">
+          <%= link_to "https://www.afecreation.fr", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "AFE.png", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
+
+        <div class="content1">
+          <strong>Agence France Entrepreneur</strong>, lancée à l'initiative de l'État, vise à informer et à assister les entrepreneurs de tous horizons, quel que soit leur statut juridique. Son site internet, convivial et exhaustif, vous permettra d'accéder à un espace collaboratif entre les divers acteurs de l'entrepreneuriat en France.
+        </div>
+
+        <div class="align">
+          <%= link_to "https://www.pgparif.com", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "BGE.png", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
+
+        <div class="content1">
+          <strong>BGE Parif</strong> est un réseau d’appui aux entrepreneurs de la région Île-de-France. Cet organisme se donne pour mission de soutenir les petites entreprises lors de leur création, afin de leur permettre de se développer et de pérenniser.
+        </div>
+
+        <div class="align">
+          <%= link_to "https://www.entreprises.cci-paris-idf.fr", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "CCI.png", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
+
+        <div class="content1">
+          <strong>Chambre du Commerce et de l’Industrie</strong> a pour vocation première d’accompagner les entrepreneurs dans la création de leur entreprise. Pour ce faire, elle organise notamment des sessions collectives d’information sur le sujet de la création (ou de la reprise) d’une entreprise. Ces formations, à l’heure ou sous forme de stage de plusieurs jours sont payantes.
+        </div>
+
+        <div class="align">
+          <%= link_to "https://www.bpifrance.fr", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "BPI.png", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
+
+        <div class="content1">
+          <strong>BPI France</strong> vous accompagne grâce à une aide dans la gestion de projet, des conseils commerciaux et marketing, des questions juridiques… Si vous souhaitez rencontrer les experts de BPI France, sachez que le premier rendez-vous est ouvert à tous. Il faut compter au plus une quinzaine de jours d’attente. Cette “banque des entrepreneurs” accompagne et finance les projets de création d’entreprise innovante.
+        </div>
+
+        <div class="align">
+          <%= link_to "https://stationf.co/", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "F.png", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
+
+        <div class="content1">
+          <strong>Station F</strong> est le plus grand incubateur au monde. C'est une structure d’aide à la création d’entreprises, elle fournit un appui, des conseils et un accompagnement aux porteurs de projet. Il existe 229 incubateurs en France.
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+    <div class="divider">
+        <div class="line"></div>
     </div>
 
-    <div class="align">
-      <%= link_to "https://www.cremedelacreme.io", class: "navbar-brand", target: "_blank" do %>
-      <%= image_tag "creme.jpg", style: "width: 67px;" %>
-      <% end %>
-      <p></p>
-    </div>
+  <div data-controller="toggle" class="mt-5">
+    <button data-action="click->toggle#fire" class="btn btn-title">Aller plus loin: Les plateformes de freelance ⬇️ </button>
+    <div data-toggle-target="togglableElement" class="d-none">
 
-    <div class="content1">
-      <strong>Crème de la crème</strong> est une plateforme qui met en relation des entreprises avec des freelances experts du digital pour des missions diverses. Crème de la crème se démarque par son processus de sélection rigoureux des freelances, garantissant la qualité des profils proposés aux entreprises, ainsi que par son approche centrée sur les compétences et l'expertise des freelances.
-    </div>
+         <div class="align">
+          <%= link_to "https://www.cremedelacreme.io", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "creme.jpg", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
 
-    <div class="align">
-      <%= link_to "https://www.malt.fr", class: "navbar-brand", target: "_blank" do %>
-      <%= image_tag "malt.jpg", style: "width: 67px;" %>
-      <% end %>
-      <p></p>
-    </div>
+        <div class="content1">
+          <strong>Crème de la crème</strong> est une plateforme qui met en relation des entreprises avec des freelances experts du digital pour des missions diverses. Crème de la crème se démarque par son processus de sélection rigoureux des freelances, garantissant la qualité des profils proposés aux entreprises, ainsi que par son approche centrée sur les compétences et l'expertise des freelances.
+        </div>
+
+        <div class="align">
+          <%= link_to "https://www.malt.fr", class: "navbar-brand", target: "_blank" do %>
+          <%= image_tag "malt.jpg", style: "width: 67px;" %>
+          <% end %>
+          <p></p>
+        </div>
 
     <div class="content1">
       <strong>Malt</strong> offre un large réseau de freelances qualifiés dans divers secteurs, offrant aux entreprises un accès à une variété d'experts pour leurs projets. Ce qui distingue Malt, c'est ses outils de gestion de projet intégrés qui facilitent le travail indépendant et la réalisation de projets professionnels de haute qualité. Les freelances bénéficient également d'une visibilité accrue grâce à une plateforme bien établie, ce qui leur permet de trouver plus facilement des opportunités de collaboration avec des entreprises de toutes tailles. Ils proposent aussi des outils en ligne facilitant les tâches administratives.
@@ -257,12 +331,9 @@
     <div class="content1">
       <strong>Comeup</strong> est une plateforme innovante qui vise à connecter les entreprises avec des talents émergents et créatifs. Contrairement aux plateformes traditionnelles, Comeup se concentre sur la découverte de nouveaux talents et sur la mise en valeur de leur créativité. Les entreprises peuvent découvrir et collaborer avec des freelances talentueux qui apportent une touche unique à leurs projets. Avec une approche axée sur l'exploration et la diversité des talents, Comeup offre une expérience de mise en relation dynamique et stimulante pour les entreprises à la recherche de nouvelles perspectives créatives.
     </div>
-
-
   </div>
-
-
-
+  </div>
+  </div>
 
 
     <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small outline', style: 'background-color: $gh-purple'  %>
