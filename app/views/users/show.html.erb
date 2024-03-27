@@ -21,18 +21,24 @@
    <%= link_to 'Précédent', :back, class: 'btn btn-small' %>
   <div class="divider pt-1" style="height:30px"><div class="line" style="width:1320px; height:2px"></div></div>
 </div>
-<div class= "infos-perso">
-  <div class="banner-infos">
-    <div class=container>
-      <h1><strong>Mes informations personnelles</strong></h1>
-      <%= image_tag "infos.png" %>
+
+<div class="profile-tab">
+  <div class="banner-profile">
+    <div class="header">
+      <h1 class="bold-xxl"><strong>Mes informations personnelles</strong></h1>
     </div>
+      <div class="img">
+        <%= image_tag 'img_infos.svg', class: 'img-infos' %>
+      </div>
   </div>
 
-  <div class= "profile-content">
-    <div class="l container-profile">
 
-      <div class="regular-xl"><strong>Prénom et nom :</strong> <%= @user.first_name %> <%= @user.last_name %> </p> </div>
+
+  <div class= "profile-content">
+    <div class="container-profile">
+      <h3 class="bold-xxl"><strong><%= @user.first_name %> <%= @user.last_name %><strong></h3>
+
+
 
       <div class="regular-xl"><strong>Email :</strong> <%= @user.email %> </p> </div>
 
@@ -56,7 +62,6 @@
 
       <%= link_to "Modifier", edit_user_path, class: 'btn btn-small' %>
 
-
     </div>
 
     <div class="consultes" >
@@ -73,8 +78,9 @@
       </div>
     </div>
   </div>
-  <%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
 </div>
+<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
+
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Rappels</button>
