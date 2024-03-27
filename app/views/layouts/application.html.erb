@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GrownUp Hack - Homepage - astuces pour la vie d'adulte</title>
+    <title><%= "GrownUp Hack - astuces pour la vie d'adulte" %></title>
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
+    <meta name="description" content="<%= "Votre plateforme de référence pour des conseils sur la vie adulte, des conseils de carrière et des ressources de développement personnel." %>">
+
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= "GrownUp Hack - astuces pour la vie d'adulte" %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= "https://www.grownuphack.com/" %>" />
+    <meta property="og:image" content="<%= favicon_link_tag %>" />
+    <meta property="og:description" content="<%= "Votre plateforme de référence pour des conseils sur la vie adulte, des conseils de carrière et des ressources de développement personnel." %>" />
+    <meta property="og:site_name" content="<%= "GrownUp Hack - astuces pour la vie d'adulte" %>" />
 
   </head>
 
