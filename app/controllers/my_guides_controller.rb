@@ -4,7 +4,7 @@ class MyGuidesController < ApplicationController
   before_action :set_article, only: [:new, :create, :edit, :update]
   before_action :set_my_guide, only: [:show, :edit, :update, :destroy, :summary]
   before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy, :summary]
-  before_action :set_reminder, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_reminder, only: [:new, :create, :edit, :update, :destroy]
 
 
   # GET my_guides/new
@@ -91,7 +91,7 @@ class MyGuidesController < ApplicationController
   end
 
   def set_reminder
-    @reminder = Reminder.find(params[:reminder_id])
+    @reminder = Reminder.find(params[:reminder_id]) if params[:reminder_id].present?
   end
 
   def my_guide_params
