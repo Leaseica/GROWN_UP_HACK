@@ -18,62 +18,63 @@
       </li>
     </ul>
   </div>
-
+   <%= link_to 'Précédent', :back, class: 'btn btn-small' %>
   <div class="divider pt-1" style="height:30px"><div class="line" style="width:1320px; height:2px"></div></div>
 </div>
-
-<div class="banner-infos">
-  <div class=container>
-    <h1><strong>Mes informations personnelles</strong></h1>
-    <%= image_tag "infos.png" %>
+<div class= "infos-perso">
+  <div class="banner-infos">
+    <div class=container>
+      <h1><strong>Mes informations personnelles</strong></h1>
+      <%= image_tag "infos.png" %>
+    </div>
   </div>
-</div>
 
-<div class="container">
+  <div class= "profile-content">
+    <div class="l container-profile">
 
-  <div class="row mb-3"> <p style="display:inline"><strong>Prénom et nom :</strong> <%= @user.first_name %> <%= @user.last_name %> </p> </div>
+      <div class="regular-xl"><strong>Prénom et nom :</strong> <%= @user.first_name %> <%= @user.last_name %> </p> </div>
 
-  <div class="row"> <p style="display:inline"><strong>Email :</strong> <%= @user.email %> </p> </div>
+      <div class="regular-xl"><strong>Email :</strong> <%= @user.email %> </p> </div>
 
-  <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
+      <div><div class="line" style="height:2px"></div></div>
 
-  <div class="row"> <p style="display:inline"><strong>Métier :</strong> <%= @user.occupation %> </p> </div>
+      <div class="regular-xl"><strong>Métier :</strong> <%= @user.occupation %> </p> </div>
 
-  <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
+      <div class="divider pt-1"><div class="line" style=" height:2px"></div></div>
 
-  <div class="row mb-3"> <p style="display:inline"><strong>Adresse :</strong> <%= @user.address %> </p> </div>
+      <div class="regular-xl"><strong>Adresse :</strong> <%= @user.address %> </p> </div>
 
-  <div class="row mb-3"> <p style="display:inline"><strong>Date de naissance :</strong> <%= @user.birthday %> </p> </div>
+      <div ><strong>Date de naissance :</strong> <%= @user.birthday %> </p> </div>
 
-  <div class="row mb-3"> <p style="display:inline"><strong>Genre :</strong> <%= t(@user.gender) %> </p> </div>
+      <div class="regular-xl"><p><strong>Genre :</strong> <%= t(@user.gender) %> </p> </div>
 
-  <div class="row mb-3"> <p style="display:inline"><strong>Nationalité :</strong> <%= @user.nationality %> </p> </div>
+      <div class="regular-xl"><p><strong>Nationalité :</strong> <%= @user.nationality %> </p> </div>
 
-  <div class="row"> <p style="display:inline"><strong>Sécurité sociale :</strong> <%= @user.social_security %> </p> </div>
+      <div class="regular-xl"><strong>Sécurité sociale :</strong> <%= @user.social_security %> </p> </div>
 
-  <div class="divider pt-1"><div class="line" style="width:700px; height:2px"></div></div>
+      <div class="divider pt-1"><div class="line" style="height:2px"></div></div>
 
-  <%= link_to "Modifier", edit_user_path, class: 'btn btn-small', style:"position: absolute; top: 700px; left: 1420px" %>
-  <%= link_to 'Précédent', :back, class: 'btn btn-small' %>
+      <%= link_to "Modifier", edit_user_path, class: 'btn btn-small' %>
 
-</div>
 
-<div class="container p-3" style="position: absolute; top: 820px; left: 1080px; width: 430px">
-  <h3>Articles récemment consultés</h3>
+    </div>
 
-  <div class="row">
-    <% if @previews_articles.empty? %>
-      <p>Pas d'articles consultés</p>
-    <% else %>
-      <% Article.where(id: @previews_articles).each do |preview_article| %>
-        <%= link_to preview_article.title, article_path(preview_article) %>
-      <% end %>
-    <% end %>
+    <div class="consultes" >
+      <h3 class="bold-xxl"><strong>Articles récemment consultés<strong></h3>
+
+      <div class="row bold-xl">
+        <% if @previews_articles.empty? %>
+          <p>Pas d'articles consultés</p>
+        <% else %>
+          <% Article.where(id: @previews_articles).each do |preview_article| %>
+            <%= link_to preview_article.title, article_path(preview_article) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
+  <%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
 </div>
-
-<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
-
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Rappels</button>

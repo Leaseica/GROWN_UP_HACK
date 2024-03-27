@@ -49,6 +49,7 @@ class MyGuidesController < ApplicationController
   end
 
   def summary
+    @reminders = @my_guide.reminders
   end
 
   def download

@@ -87,6 +87,12 @@
 .btn-medium {
   @include button-style($gh-purple, $gh-white, 16px, 12px, 20px);
 
+  &.secondary {
+    background-color: $light-gray;
+    color: $gray
+  }
+
+
   &.danger {
     background-color: $danger
   }
@@ -109,4 +115,12 @@
   box-shadow: grey 2px 2px 2px;
   background-color: #00CCAA;
   font-size: large;
+}
+
+.btn-title {
+  border: thin solid lightblue;
+  width: 100%;
+  text-align: start;
+  padding: 10px;
+  font-size: x-large;
 }

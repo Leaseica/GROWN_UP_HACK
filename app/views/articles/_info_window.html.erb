@@ -1,0 +1,16 @@
+<% marker_images = {
+  "AFE" => "AFE.png",
+  "BGE Parif" => "BGE.png",
+  "CCI Paris" => "CCI.png",
+  "BPI France" => "BPI.png",
+  "Station F" => "F.png",
+} %>
+
+<% marker_images.each do |asso_name, image_name| %>
+  <% if asso.name.downcase == asso_name.downcase %>
+    <%= image_tag image_name, height: 60, width: 60, alt: "Image" %>
+  <% end %>
+<% end %>
+
+<h2><%= asso.name %></h2>
+<p><%= asso.address %></p>
