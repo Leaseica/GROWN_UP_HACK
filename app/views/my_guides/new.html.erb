@@ -1,13 +1,13 @@
-<div class="gh-body">
+<div class="gh-body" data-controller='progress-bar'>
   <div class="my-guide-section">
     <div class= "my-guide-heading">
       <h1 class="bold-heading-xxl"><%= @article.title %></h1>
       <h3 class="bold-xl">Ton guide personnalisé pour t'accompagner dans tes démarches</h3>
     </div>
     <div><div class="app-card mb-3" tabindex="-1"><div class="row"><div class="col-12"><p>Les champs suivis d'une étoile (<strong class="text-danger text-large">*</strong>) sont obligatoires.</p><p>Remplissez l'ensemble des champs obligatoires de chaque section, puis validez la création de votre entreprise.</p><div class="d-flex mt-2 mb-0"></div></div></div></div></div>
-    <div data-controller='progress-bar'  class="container mx-auto">
-      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-progress-bar-target="my_guide">
-        <div class="progress-bar" style="width: 0%"></div>
+    <div class="container mx-auto">
+      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar color-progression" style="width: 0%" data-progress-bar-target="bar"></div>
       </div>
     </div>
     <%= render "my_guides/form/form", my_guide: @my_guide %>
