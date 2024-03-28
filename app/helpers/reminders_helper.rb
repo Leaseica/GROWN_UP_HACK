@@ -3,7 +3,7 @@ module RemindersHelper
   def status_color(status)
     case status
     when "À faire"
-      'warning'
+      'danger'
     when 'Terminé'
       'success'
     when 'En cours'
