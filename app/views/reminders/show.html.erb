@@ -19,17 +19,14 @@
           <% end %>
         </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Titre :</strong> <%= @reminder.title %></li>
-        <li class="list-group-item"><strong>Description :</strong> <%= @reminder.description %></li>
-        <li class="list-group-item"><strong>URL :</strong> <%= link_to @reminder.url, @reminder.url unless @reminder.url.blank? %></li>
-        <li class="list-group-item"><strong>Status :</strong> <%= t(@reminder.status) %></li>
-
-
-
-        <li class="list-group-item"><strong>Heure de début :</strong> <%= @reminder.start_time.strftime('%Y-%m-%d %H:%M') %></li>
-        <li class="list-group-item"><strong>Heure de fin :</strong> <%= @reminder.end_time.strftime('%Y-%m-%d %H:%M') %></li>
-      </ul>
+      <section class="summary-section">
+        <p><strong>Titre:</strong> <%= @reminder.title %></p>
+        <p><strong>Description:</strong> <%= @reminder.description %></p>
+        <p><strong>URL:</strong> <%= link_to @reminder.url, @reminder.url unless @reminder.url.blank? %></p>
+        <p><strong>Status:</strong>  <%= t(@reminder.status) %></p>
+        <p><strong>Heure de début :</strong>   <%= @reminder.start_time.strftime('%Y-%m-%d %H:%M') %></p>
+        <p><strong>Heure de fin :</strong>  <%= @reminder.end_time.strftime('%Y-%m-%d %H:%M') %></p>
+      </section>
     </div>
     <div class="text-center py-4">
       <%= link_to 'Éditer', edit_reminder_path(@reminder), class: 'btn btn-small me-2' %>
