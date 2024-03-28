@@ -10,13 +10,13 @@
           <i class="fa-solid fa-chevron-down"></i>
         </button>
       </div>
-      <div class="bloc-form d-none" data-edit-step-target="form">
+      <div class="bloc-form d-none" data-edit-step-target="form" data-controller='progress-bar'>
 
           <div class="form-label-input">
             <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
           </div>
-          <div class="form-label-input">
-            <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select' } %>
+          <div class="form-label-input" data-progress-bar-target="test">
+            <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { data: {progress_bar_target: "input1"}, class: 'custom-select' } %>
           </div>
           <div class="form-label-input">
             <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
