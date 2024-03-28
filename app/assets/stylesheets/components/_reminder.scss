@@ -1,14 +1,11 @@
-$gh-purple: #3F51B5;
-$gh-green: #4CAF50;
 $gh-white: #FFFFFF;
 $gh-100: #F5F5F5; // Assuming a very light gray for backgrounds
 $body-font: 'Inter', sans-serif;
 
 .reminder-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
   gap: 1.5rem;
-  align-items: start;
+  align-items: center;
 }
 
 .section {
@@ -99,7 +96,7 @@ $body-font: 'Inter', sans-serif;
   }
 
   &.termine {
-    border: 2px solid $gh-green;
+    border: 5px solid $gh-green;
   }
 
   &__title {
@@ -144,5 +141,26 @@ $body-font: 'Inter', sans-serif;
     background-color: $gh-green;
     color: $gh-white;
     border: 2px solid $gh-green;
+  }
+}
+
+/* For larger screens, ensure three columns */
+@media (min-width: 992px) { /* Adjust breakpoint as needed */
+  .reminder-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* For medium screens, two columns */
+@media (min-width: 768px) and (max-width: 991px) {
+  .reminder-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* For smaller screens, one column */
+@media (max-width: 767px) {
+  .reminder-container {
+    grid-template-columns: 1fr;
   }
 }
