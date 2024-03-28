@@ -2,10 +2,10 @@
   <div class="step step2 d-none"  data-edit-step-target="step2">
     <div class="step-content">
         <div class="form-label-input">
-          <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise" %>
+          <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise", input_html: { data: {progress_bar_target: "input14", action: "progress-bar#fourteenth_input"} } %>
         </div>
         <div class="form-label-input">
-          <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne" %>
+          <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne", input_html: { data: {progress_bar_target: "input15", action: "progress-bar#fifteenth_input"} } %>
         </div>
     </div>
     <div class="navigation">

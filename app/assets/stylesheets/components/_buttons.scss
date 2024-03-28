@@ -34,6 +34,14 @@
       color: $gh-white;
     }
   }
+  &.outline-nav {
+    background-color: transparent;
+
+    &:hover {
+      background-color: $background-color;
+      color: $gh-white;
+    }
+  }
   &.outline-purple {
     color:  $gh-purple;
     background-color: transparent;
@@ -66,7 +74,9 @@
     }
   }
 }
-
+  .color-progression {
+    background-color: $gh-purple
+  }
 // Specific Button Sizes
 .btn-large {
   @include button-style($gh-purple, $gh-white, 18px, 16px, 24px);
