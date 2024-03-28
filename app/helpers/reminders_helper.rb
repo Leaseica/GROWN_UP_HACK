@@ -1,11 +1,12 @@
+# app/helpers/reminders_helper.rb
 module RemindersHelper
-  def status_color(reminder)
-    case reminder.status
-    when 'Pending'
+  def status_color(status)
+    case status
+    when "À faire"
       'warning'
-    when 'Completed'
+    when 'Terminé'
       'success'
-    when 'InProgress'
+    when 'En cours'
       'primary'
     else
       'secondary'

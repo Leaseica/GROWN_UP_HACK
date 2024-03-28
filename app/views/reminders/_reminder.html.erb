@@ -1,29 +1,35 @@
 <!-- _reminder.html.erb -->
-<div class="reminder-card" id="reminder_<%= reminder.id %>" data-controller="edit-status" data-edit-status-target="card">
 
-  <div class="reminder-infos <%= 'd-none' if reminder.errors.any? %>" data-edit-status-target="infos">
-    <h2><%= reminder.title %></h2>
-    <p>Status: <span data-edit-status-target="status"><%= reminder.status %></span></p>
-    <p><%= reminder.description %></p>
-    <p>Start: <%= l(reminder.start_time, format: :short) if reminder.start_time %></p>
-    <p>End: <%= l(reminder.end_time, format: :short) if reminder.end_time %></p>
-    <button data-action="click->edit-status#displayForm">
-      <i class="fa-solid fa-pen fa-xs"></i> Edit Status
-    </button>
-  </div>
+<% Reminder::STATUS.each do |status| %>
+  <% @reminders.select { |reminder| reminder.status == status }.drop(3).each do |reminder| %>
+    <div class="card Card-<%= status.parameterize(separator: '-') %> mb-3">
+      <h6 class="Card__title"><%= link_to reminder.title, reminder_path(reminder) %></h6>
+      <div class="Card__body">
+        <% if reminder.my_guide.present? && reminder.my_guide.article.present? %>
+          <div class="Card__body-block">
+            <div class="Card__body-header">
+              <%= image_tag 'book-open.svg', class: 'Card__body-icon--book' %>
+              <h5 class="Card__body-text--semi-bold">Article associé</h5>
+            </div>
+            <p class="regular-s"><%= reminder.my_guide.article.title %></p>
+          </div>
+        <% else %>
+          <p class="regular-s">Article associé non trouvé</p>
+        <% end %>
 
-  <%= simple_form_for reminder,
-    html: {
-      class: reminder.errors.any? ? "" : "d-none",
-      data: {
-        edit_status_target: "form",
-        action: "submit->edit-status#update"
-      }
-    } do |f|
-  %>
-    <p>Status: <span data-edit-status-target="status"><%= f.input :status, collection: Reminder.statuses.keys, include_blank: false, input_html: { value: reminder.status } %></span></p>
-    <p><%= reminder.description %></p>
+        <div class="Card__body-header">
+          <%= image_tag 'Clock.svg', class: 'Card__body-icon--book' %>
+          <% days_left = (reminder.end_time.to_date - Date.today).to_i %>
+          <p class="Card__body-text--semi-bold"><small class="text-muted">Jours restants: <%= days_left %> jours</small></p>
+        </div>
 
-    <%= f.button :submit, value: 'Enregistrer', class: 'btn btn-primary' %>
+        <% if reminder.my_guide.present? %>
+          <div class="Card__body-form">
+            <%= image_tag 'external-link.svg', class: 'Card__body-icon--book' %>
+            <h5 class="bold-m"><%= link_to 'Mon formulaire', summary_my_guide_path(reminder.my_guide) %></h5>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-</div>
+<% end %>
