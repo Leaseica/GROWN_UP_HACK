@@ -46,13 +46,7 @@
                 </div>
                 <div class="Card__body-form">
                   <% if reminder.my_guide.present? %>
-                    <div class="Card__body-header">
-                      <div class="Card__body-icon">
-                        <%= image_tag 'external-link.svg', class: 'Card__body-icon--book' %>
-                      </div>
-                        <h5 class="bold-m"><%= link_to 'Mon formulaire',summary_my_guide_path(@my_guide) %></h5>
-                    </div>
-
+                    <h5 class="bold-m"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i> <%= link_to 'Mon formulaire',summary_my_guide_path(@my_guide) %></h5>
                   <% end %>
                 </div>
               </div>

@@ -52,7 +52,7 @@
                 <td><%= reminder.title %></td>
               </div>
               <div class="reminder-date">
-                <td><%= reminder.start_time %></td>
+                <td><%= reminder.start_time.strftime('%Y-%m-%d %H:%M') %></td>
               </div>
             </tr>
           </div>
