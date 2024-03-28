@@ -2704,7 +2704,7 @@
         <div class="button">Reviens à la maison !</div>
       </div>
       <div class="sorry">Oops! Désolée, la page n'a pas été trouvée.</div>
-    </div><a class="inspiration" href="https://dribbble.com/shots/4571035-Error-404" target="_blank" rel="noopener">GrownUp Hack</a>
+    </div><a class="inspiration" target="_blank" rel="noopener">GrownUp Hack</a>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -2728,9 +2728,9 @@
           oh.style.animation = 'floating 3s linear infinite';
         });
 
-        // Redirection vers la page root
+        // Redirection vers la page back
         document.querySelector('.button').addEventListener('click', function() {
-          window.location.href = 'http://127.0.0.1:3000/';
+          history.back();
         });
       });
     </script>
