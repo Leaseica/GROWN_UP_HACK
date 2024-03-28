@@ -1,93 +1,90 @@
 <div class="container">
 
-  <div class="row mt-4 mb-4">
-    <h2><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar", style:"width: 125px" %>
-    <%= "Mon profil" %></h2>
-  </div>
-
-  <div class="navbar navbar-expand-sm navbar-light">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item <%= 'active' if current_page?(procedures_path) %>">
-        <%= link_to "Mes démarches", procedures_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item <%= 'active' if current_page?(documents_path) %>">
-        <%= link_to "Mes documents", documents_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item <%= 'active' if current_page?(user_path) %>">
-        <%= link_to "Mes informations personnelles", user_path, class: "text-primary nav-link" %>
-      </li>
-    </ul>
-  </div>
-   <%= link_to 'Précédent', :back, class: 'btn btn-small' %>
-  <div class="divider pt-1" style="height:30px"><div class="line" style="width:1320px; height:2px"></div></div>
-</div>
-<div class= "infos-perso">
-  <div class="banner-infos">
-    <div class=container>
-      <h1><strong>Mes informations personnelles</strong></h1>
-      <%= image_tag "infos.png" %>
+  <div class="banner-user">
+    <div class="content">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar"%>
+      <h1 class="bold-xxl" style="color:#3F51B5">Mon profil</h1>
     </div>
   </div>
 
-  <div class= "profile-content">
-    <div class="l container-profile">
-
-      <div class="regular-xl"><strong>Prénom et nom :</strong> <%= @user.first_name %> <%= @user.last_name %> </p> </div>
-
-      <div class="regular-xl"><strong>Email :</strong> <%= @user.email %> </p> </div>
-
-      <div><div class="line" style="height:2px"></div></div>
-
-      <div class="regular-xl"><strong>Métier :</strong> <%= @user.occupation %> </p> </div>
-
-      <div class="divider pt-1"><div class="line" style=" height:2px"></div></div>
-
-      <div class="regular-xl"><strong>Adresse :</strong> <%= @user.address %> </p> </div>
-
-      <div ><strong>Date de naissance :</strong> <%= @user.birthday %> </p> </div>
-
-      <div class="regular-xl"><p><strong>Genre :</strong> <%= t(@user.gender) %> </p> </div>
-
-      <div class="regular-xl"><p><strong>Nationalité :</strong> <%= @user.nationality %> </p> </div>
-
-      <div class="regular-xl"><strong>Sécurité sociale :</strong> <%= @user.social_security %> </p> </div>
-
-      <div class="divider pt-1"><div class="line" style="height:2px"></div></div>
-
-      <%= link_to "Modifier", edit_user_path, class: 'btn btn-small' %>
-
-
+  <div class="profile-tab">
+    <div class="banner-profile">
+      <div class="header">
+        <h2 class="bold-xxl" style="color:#3F51B5">Mes démarches</h2>
+        <div class="card-body pt-0 pt-md-4">
+          <div class="text-start">
+            <h3 class="bold-xl">Articles récemment consultés</h3>
+            <div class="regular-l">
+              <% if @previews_articles.empty? %>
+                <p>Pas d'articles consultés</p>
+              <% else %>
+                <% Article.where(id: @previews_articles).each do |preview_article| %>
+                  <%= link_to preview_article.title, article_path(preview_article) %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="img">
+        <%= image_tag 'img_procedures.svg', class: 'img-procedure' %>
+      </div>
     </div>
 
-    <div class="consultes" >
-      <h3 class="bold-xxl"><strong>Articles récemment consultés<strong></h3>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Mes tâches</button>
+        <button class="nav-link" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Mon calendrier</button>
+        <button class="nav-link" id="nav-calendar-tab" data-bs-target="#nav-calendar" type="button" aria-selected="false"><%= link_to 'Nouvelle tâche ', new_my_guide_reminder_path(my_guide_id: @my_guide.id), class: 'btn btn-small' %></button>
+      </div>
+    </nav>
 
-      <div class="row bold-xl">
-        <% if @previews_articles.empty? %>
-          <p>Pas d'articles consultés</p>
-        <% else %>
-          <% Article.where(id: @previews_articles).each do |preview_article| %>
-            <%= link_to preview_article.title, article_path(preview_article) %>
-          <% end %>
-        <% end %>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-reminder" role="tabpanel" aria-labelledby="nav-reminder-tab" tabindex="0">
+        <%= render "reminders/kanban", reminder: @reminder %>
+      </div>
+      <div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab" tabindex="0">
+        <%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>
       </div>
     </div>
   </div>
-  <%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
-</div>
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Rappels</button>
-    <button class="nav-link" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Calendrier</button>
-    <button class="nav-link" id="nav-calendar-tab" data-bs-target="#nav-calendar" type="button" aria-selected="false"><%= link_to 'Nouveau rappel ', new_my_guide_reminder_path(my_guide_id: @my_guide.id), class: 'btn btn-small' %></button>
-  </div>
-</nav>
 
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-reminder" role="tabpanel" aria-labelledby="nav-reminder-tab" tabindex="0">
-    <%= render "reminders/kanban", reminder: @reminder %>
-  </div>
-  <div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab" tabindex="0">
-    <%= render "simple_calendar/show", reminders: @reminders, end_attribute: :end_time %>
+<!-- User's Personal Information Card -->
+<div class="profile-tab">
+  <div class="banner-profile">
+
+    <!-- Personal Information Section -->
+    <div class="header">
+      <h2 class="bold-xxl" style="color:#3F51B5">Mes informations personnelles
+      <%= link_to edit_user_registration_path do %>
+        <i class="fa-solid fa-user-pen fa-sm ps-3"></i>
+      <% end %></h2>
+      <div class="profile-content">
+        <div class="content">
+          <div class="user-header">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar large-avatar", alt: "avatar" %>
+            <div class="user-info">
+              <h3 class="bold-xl"><%= @user.first_name %>, <%= @user.last_name %></h3>
+              <p class="bold-l"><i class="fa-solid fa-briefcase"></i> <%= @user.occupation %></p>
+            </div>
+
+          </div>
+          <div class="user-info">
+            <p class="email"><%= @user.email %></p>
+            <p class="birthdate">Date de naissance: <%= l(@user.birthday, format: :long) %></p>
+            <p class="address">Adresse: <%= @user.address %></p>
+            <p class="nationality">Nationalité: <%= @user.nationality %></p>
+            <p class="social-security">Sécurité Sociale: <%= @user.social_security %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative Image Section -->
+    <div class="img">
+      <%= image_tag 'img_infos.svg', class: 'infos' %>
+    </div>
+
   </div>
 </div>

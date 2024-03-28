@@ -1,7 +1,7 @@
 <div class="reminder-container">
   <div class="section">
     <div class="section-content">
-    <h3 class="bold-xxl text-center mb-2">Mes rappels</h3>
+    <h3 class="bold-xxl text-center mb-2"></h3>
     <div class="kanban">
       <% Reminder::STATUS.each do |status| %>
         <div class="<%= "cards-container #{status.parameterize(separator: '-')}" %>">
