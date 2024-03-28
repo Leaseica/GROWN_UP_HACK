@@ -118,7 +118,8 @@ my_guide_1 = MyGuide.create!(
   is_business_extension: false,
   has_previous_self_employment: false,
   representative_role: "Indivisaire",
-  representative_type: "Personne physique"
+  representative_type: "Personne physique",
+  titre: "guide1"
 )
 
 my_guide_2 = MyGuide.create!(
@@ -132,7 +133,8 @@ my_guide_2 = MyGuide.create!(
   is_business_extension: true,
   has_previous_self_employment: true,
   representative_role: "Personne ayant le pouvoir d'engager l'établissement",
-  representative_type: "Personne morale"
+  representative_type: "Personne morale",
+  titre: "guide2"
 )
 
 my_guide_3 = MyGuide.create!(
@@ -146,7 +148,8 @@ my_guide_3 = MyGuide.create!(
   is_business_extension: false,
   has_previous_self_employment: true,
   representative_role: "Indivisaire",
-  representative_type: "Personne physique"
+  representative_type: "Personne physique",
+  titre: "guide3"
 )
 
 asso_1 = Asso.create(name: "AFE", photo: "", address: "14 rue Delambre, 75014 paris, France")
