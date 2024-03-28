@@ -1,8 +1,10 @@
 <div class="container">
 
-  <div class="profile-tab">
-    <h1 class="bold-xxl" style="color:#3F51B5">Mon profil</h1>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar", style:"width: 125px" %>
+  <div class="banner-user">
+    <div class="content">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar"%>
+      <h1 class="bold-xxl" style="color:#3F51B5">Mon profil</h1>
+    </div>
   </div>
 
   <div class="profile-tab">
@@ -11,7 +13,7 @@
         <h2 class="bold-xxl" style="color:#3F51B5">Mes démarches</h2>
         <div class="card-body pt-0 pt-md-4">
           <div class="text-start">
-            <h3 class="bold-xl"  >Articles récemment consultés</h3>
+            <h3 class="bold-xl">Articles récemment consultés</h3>
             <div class="regular-l">
               <% if @previews_articles.empty? %>
                 <p>Pas d'articles consultés</p>
@@ -48,142 +50,41 @@
     </div>
   </div>
 
+<!-- User's Personal Information Card -->
+<div class="profile-tab">
+  <div class="banner-profile">
 
-
-  <div class="profile-tab">
-    <div class="banner-profile">
-        <div class="header">
-          <h1 class="bold-xxl">Mes informations personnelles</h1>
-          <div class="card-body pt-0 pt-md-4">
-            <div class="text-start">
-              <div class= "profile-content">
-                <div class="container-profile">
-                  <div class="content">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-                    <div class="user-info">
-                      <h3 class="name"><strong><%= @user.first_name %> <%= @user.last_name %><strong></h3>
-                      <p class="occupation" style="color:#3F51B5"><i class="fa-solid fa-briefcase me-2"></i> <%= @user.occupation %></p>
-                    </div>
-                  </div>
-                <div class="card-body">
-                  <hr class="divider1">
-
-                  <!-- Email and Birth Date -->
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Email</h6>
-                      <p class="text-muted"><%= @user.email %></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Date de naissance</h6>
-                      <p class="text-muted"><%= l(@user.birthday, format: :long) %></p>
-                    </div>
-                  </div>
-
-                  <!-- Address and Nationality -->
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Adresse</h6>
-                      <p class="text-muted"><%= @user.address %></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Nationalité</h6>
-                      <p class="text-muted"><%= @user.nationality %></p>
-                    </div>
-                  </div>
-
-                  <!-- Social Security -->
-                  <div class="row pt-1">
-                    <div class="col-12 mb-3">
-                      <h6>Sécurité Sociale</h6>
-                      <p class="text-muted"><%= @user.social_security %></p>
-                    </div>
-                  </div>
-
-                  <!-- Edit Profile Button -->
-                  <div class="text-center">
-                    <%= link_to "Modifier", edit_user_path, class: 'btn btn-small outline-purple' %>
-                  </div>
-                </div>
-              </div>
+    <!-- Personal Information Section -->
+    <div class="header">
+      <h2 class="bold-xxl" style="color:#3F51B5">Mes informations personnelles
+      <%= link_to edit_user_registration_path do %>
+        <i class="fa-solid fa-user-pen fa-sm ps-3"></i>
+      <% end %></h2>
+      <div class="profile-content">
+        <div class="content">
+          <div class="user-header">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar large-avatar", alt: "avatar" %>
+            <div class="user-info">
+              <h3 class="bold-xl"><%= @user.first_name %>, <%= @user.last_name %></h3>
+              <p class="bold-l"><i class="fa-solid fa-briefcase"></i> <%= @user.occupation %></p>
             </div>
-          </div>
-        </div>
-        <div class="img">
-          <%= image_tag 'img_infos.svg', class: 'infos' %>
-        </div>
-    </div>
-  </div>
-
-  <div class="container-fluid mt--7">
-      <div class="row">
-        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-          <div class="card card-profile shadow">
 
           </div>
-        </div>
-
-        <div class="col-xl-8 order-xl-1">
-          <div class="card shadow">
-              <div class= "infos-perso">
-                <div class= "profile-content">
-                  <div class="container-profile">
-                    <div class="content">
-                      <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-                      <div class="user-info">
-                        <h3 class="name"><strong><%= @user.first_name %> <%= @user.last_name %><strong></h3>
-                        <p class="occupation" style="color:#3F51B5"><i class="fa-solid fa-briefcase me-2"></i> <%= @user.occupation %></p>
-                      </div>
-                    </div>
-                  <div class="card-body">
-                    <hr class="divider1">
-
-                    <!-- Email and Birth Date -->
-                    <div class="row pt-1">
-                      <div class="col-6 mb-3">
-                        <h6>Email</h6>
-                        <p class="text-muted"><%= @user.email %></p>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <h6>Date de naissance</h6>
-                        <p class="text-muted"><%= l(@user.birthday, format: :long) %></p>
-                      </div>
-                    </div>
-
-                    <!-- Address and Nationality -->
-                    <div class="row pt-1">
-                      <div class="col-6 mb-3">
-                        <h6>Adresse</h6>
-                        <p class="text-muted"><%= @user.address %></p>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <h6>Nationalité</h6>
-                        <p class="text-muted"><%= @user.nationality %></p>
-                      </div>
-                    </div>
-
-                    <!-- Social Security -->
-                    <div class="row pt-1">
-                      <div class="col-12 mb-3">
-                        <h6>Sécurité Sociale</h6>
-                        <p class="text-muted"><%= @user.social_security %></p>
-                      </div>
-                    </div>
-
-                    <!-- Edit Profile Button -->
-                    <div class="text-center">
-                      <%= link_to "Modifier", edit_user_path, class: 'btn btn-small outline-purple' %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="user-info">
+            <p class="email"><%= @user.email %></p>
+            <p class="birthdate">Date de naissance: <%= l(@user.birthday, format: :long) %></p>
+            <p class="address">Adresse: <%= @user.address %></p>
+            <p class="nationality">Nationalité: <%= @user.nationality %></p>
+            <p class="social-security">Sécurité Sociale: <%= @user.social_security %></p>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Decorative Image Section -->
+    <div class="img">
+      <%= image_tag 'img_infos.svg', class: 'infos' %>
+    </div>
+
   </div>
 </div>
-
-
-<%# <%= render "reminders/kanban",  reminder: @reminder, end_attribute: :end_time %>
