@@ -1,3 +1,6 @@
+.container-user {
+  padding: 4.5rem 4.875rem;
+}
 .profile-tab {
   display: flex;
   padding: 1.5rem 1.875rem;
@@ -86,8 +89,8 @@
 
   .user-header {
     display: flex;
-    padding-top: 3.125rem;
-    flex-direction: column;
+    // padding-top: 3.125rem;
+    // flex-direction: column;
     align-items: center;
     gap: 1.5rem;
   }
@@ -111,7 +114,7 @@
   }
 
   .user-info {
-    margin-left: 20px; /* Space between avatar and user info text */
+    margin-left: 130px; /* Space between avatar and user info text */
   }
 }
 
