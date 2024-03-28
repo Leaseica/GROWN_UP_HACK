@@ -2728,9 +2728,11 @@
           oh.style.animation = 'floating 3s linear infinite';
         });
 
-        // Redirection vers la page back
+
+        // Redirection vers la page home
         document.querySelector('.button').addEventListener('click', function() {
-          history.back();
+          console.log("Bouton cliqué !");
+          window.location.href = 'https://www.grownuphack.com/';
         });
       });
     </script>
