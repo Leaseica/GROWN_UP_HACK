@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= "GrownUp Hack - astuces pour la vie d'adulte" %></title>
-    <%= favicon_link_tag %>
+    <%= favicon_link_tag "favicon.ico", rel:"icon", type:"image.ico" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -15,10 +15,9 @@
     <meta property="og:title" content="<%= "GrownUp Hack - astuces pour la vie d'adulte" %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= "https://www.grownuphack.com/" %>" />
-    <meta property="og:image" content="logoXL.jpg" />
+    <meta property="og:image" content="logoXL.png" />
     <meta property="og:description" content="<%= "Votre plateforme de référence pour des conseils sur la vie adulte, des conseils de carrière et des ressources de développement personnel." %>" />
     <meta property="og:site_name" content="<%= "GrownUp Hack - astuces pour la vie d'adulte" %>" />
-
   </head>
 
   <body>
