@@ -25,7 +25,7 @@
           </li>
         <% else %>
           <li class="nav-item active">
-            <%= link_to "Créer un compte", "#", class: "btn btn-small outline-nav", style: "margin-right: 5px" %>
+            <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-small outline-nav", style: "margin-right: 5px" %>
           </li>
           <li class="nav-item">
             <%= link_to "Connexion", new_user_session_path, class: "btn btn-small" %>

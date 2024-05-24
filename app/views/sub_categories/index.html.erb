@@ -1,21 +1,7 @@
 <div  class="index">
-
-<div class="menu">
-  <%= link_to(root_path, class: "menu-link") do %>
-    <div class="menu-icon">
-      <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
-    </div>
-    <div class="menu-text">Home</div>
-  <% end %>
-  <%= link_to(categories_path, class: "menu-link") do %>
-    <div class="menu-text">/categories</div>
-  <% end %>
-  /sous-catégories
-</div>
-
   <div class="gh_section">
     <div class="row justify-content-center">
-    <h1>TRAVAIL<h1>
+    <h1><%= @category.name %><h1>
     <h2>  Nos guides et articles t'accompagnent à chaque étape, comme des cartes au trésor te menant vers le succès dans ton voyage professionnel. </h2>
       <div class="col-sm-8 my-3">
         <%= form_with url: category_sub_categories_path(@category), method: :get, class: "d-flex" do %>
@@ -31,7 +17,7 @@
           <% @sub_categories.each_slice(3) do |sub_category_group| %>
           <div class="section-row">
               <% sub_category_group.each do |sub_category| %>
-                  <%= link_to sub_category_path(sub_category), class: "subcategory-card-link" do %>
+                  <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "subcategory-card-link" do %>
                     <%= render "sub_category_card", sub_category: sub_category %>
                   <% end %>
               <% end %>
@@ -44,6 +30,10 @@
           <p class="no-result">Aucun résultat</p>
         <% end %>
       </div>
+    </div>
+
+    <div>
+      <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small" %>
     </div>
   </div>
 </div>

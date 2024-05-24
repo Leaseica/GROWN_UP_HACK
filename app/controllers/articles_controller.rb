@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   before_action :set_sub_category, only: %i[new create]
   before_action :session_store, only: %i[show]
+  before_action :set_breadcrumbs, only: [:show]
 
     # GET /articles/7
   def show
