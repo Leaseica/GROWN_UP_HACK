@@ -42,3 +42,8 @@
   align-items: flex-start;
   gap: 1rem; /* Ensures buttons use the font from the body or specified for the navbar */
 }
+
+.navbar-toggler {
+  border: 0.5px solid var(--GH-Base-Colours-gh-white, var(--linear-gray, #FFF));
+  background: none;
+}

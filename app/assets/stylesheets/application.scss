@@ -13,12 +13,9 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
-@import "components/buttons";
 @import "components/dividers";
 @import 'components/typography';
 @import "components/search";
-@import "components/footer";
 
 @import "pages/show";
 @import "pages/home";
@@ -28,3 +25,8 @@
 @import "components/calendar";
 @import "components/kanban";
 @import "components/reminder";
+@import 'components/header';
+@import 'components/main';
+@import 'components/footer';
+@import 'components/buttons';
+// @import 'components/responsive';
