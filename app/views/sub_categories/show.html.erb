@@ -1,26 +1,9 @@
-<div class="menu">
-  <%= link_to(root_path, class: "menu-link") do %>
-    <div class="menu-icon">
-      <%= image_tag "home.png", style: "width: 24px; height: 24px; padding-bottom: 6px;" %>
-    </div>
-    <div class="menu-text">Home</div>
-  <% end %>
-  <%= link_to(categories_path, class: "menu-link") do %>
-    <div class="menu-text">/categories</div>
-  <% end %>
-  <%= link_to(category_sub_categories_path(89), class: "menu-link") do %>
-    <div class="menu-text">/sous-catégories</div>
-  <% end %>
-  /articles
-</div>
-
-
 <div id="show_sub_categories" class="index">
 
 
   <div class="gh_section">
     <div class="row justify-content-center">
-      <h1 style="padding-bottom: 30px">Se lancer à son compte</h1>
+      <h1 style="padding-bottom: 30px"><%= @sub_category.name %></h1>
       <h2> Prépare-toi à l'aventure de ta vie en découvrant comment te lancer à ton compte. Trouve des conseils pratiques, des astuces et des ressources essentielles pour démarrer ton entreprise, développer ta marque et conquérir le marché. Nos guides détaillés et articles inspirants t'accompagneront à chaque étape de ton parcours entrepreneurial, te permettant de concrétiser tes rêves et de tracer ta propre voie vers le succès.</h2>
       <div class="col-sm-8 my-3">
         <%= form_with url: sub_category_path(@sub_category), method: :get, class: "d-flex" do %>

@@ -55,6 +55,7 @@ gem "cloudinary"
 gem 'prawn'
 gem "geocoder"
 gem "simple_calendar"
+gem "breadcrumbs_on_rails"
 
 group :development, :test do
   gem "dotenv-rails"

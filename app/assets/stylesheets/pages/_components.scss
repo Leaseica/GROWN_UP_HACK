@@ -1,0 +1,113 @@
+.banner {
+  background: url('banner-image.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+
+  .container1 {
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .heading-xxl {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+  }
+
+  .regular-xl {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+  }
+
+  .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      text-decoration: none;
+
+      &:hover {
+          background-color: #0056b3;
+      }
+  }
+}
+
+.container2 {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  .section, .subsection {
+      margin-bottom: 2rem;
+  }
+
+  .title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+  }
+
+  .subtitle {
+      font-size: 1rem;
+      color: #666;
+  }
+
+  .card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      .card-title {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+      }
+
+      .card-subtitle {
+          font-size: 1rem;
+          color: #666;
+      }
+  }
+
+  .illustration {
+      margin: 1rem 0;
+
+      .responsive-image {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+      }
+  }
+
+  .divider {
+      text-align: center;
+      margin: 2rem 0;
+
+      .line {
+          width: 50%;
+          border: 0;
+          height: 1px;
+          background: #ddd;
+      }
+  }
+}
+
+@media (min-width: 768px) {
+  .subsection {
+      display: flex;
+      align-items: center;
+
+      .illustration {
+          flex: 1;
+          margin: 0 1rem;
+      }
+
+      .card {
+          flex: 2;
+          margin: 0 1rem;
+      }
+  }
+}

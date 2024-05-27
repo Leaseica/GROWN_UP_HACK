@@ -10,7 +10,6 @@
     <%= javascript_importmap_tags %>
     <meta name="description" content="<%= "Votre plateforme de référence pour des conseils sur la vie adulte, des conseils de carrière et des ressources de développement personnel." %>">
 
-
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= "GrownUp Hack - astuces pour la vie d'adulte" %>" />
     <meta property="og:type" content="website" />
@@ -25,6 +24,19 @@
   <body>
     <%= render "shared/navbar" %>
     <%# <%= render "shared/flashes" %>
+
+  <% unless controller_name == "pages" && action_name == "home"|| controller_name == "users" || request.path == root_path || request.path == new_user_session_path || request.path == new_user_registration_path %>
+    <nav class="p-3 bg-white" aria-label="breadcrumb">
+      <%= render_breadcrumbs :separator => ' / ' %>
+    </nav>
+  <% end %>
+
+
+
+
+
+
+
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>

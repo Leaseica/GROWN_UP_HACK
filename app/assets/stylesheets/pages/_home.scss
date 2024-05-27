@@ -1,141 +1,277 @@
-// Specific CSS for your home-page
+// // Specific CSS for your home-page
 
-.banner {
+// .banner {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-end; /* Aligns content to the bottom */
+//   align-items: flex-start; /* Aligns content to the left; change to center if needed */
+//   color: white;
+//   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 42.5%, #000 95%), url('home_cover.png');
+//   background-size: cover;
+//   background-position: center;
+//   padding: 40px 40px 0px 40px; /* Adjust padding as needed; top and bottom padding set to 40px, left and right padding set to 50px */
+//   height: 500px; /* Adjust height as needed to maintain aspect ratio or desired size */
+// }
+
+// .banner h1 {
+//   margin: 0;
+//   color: white;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   font-size: 32px;
+//   font-weight: bold;
+//   padding-bottom: 10px;
+// }
+
+// .banner p {
+//   font-size: 20px;
+//   color: white;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
+
+// .container1 {
+//   padding: 100px 0px 20px 70px;
+//   margin: 10px
+// }
+
+// .container2 {
+//   width: 100%;
+//   height: 100%;
+//   padding: 100px 104px 120px;
+//   background: white;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   align-items: center;
+//   gap: 50px;
+// }
+
+// .title {
+//   color: #2D3648;
+//   font-size: 56px;
+//   font-family: Inter;
+//   font-weight: 700;
+//   line-height: 67.20px;
+//   letter-spacing: 0.56px;
+//   word-wrap: break-word
+// }
+
+// .subtitle {
+//   color: #2D3648;
+//   font-size: 20px;
+//   font-family: Inter;
+//   font-weight: 400;
+//   line-height: 35.20px;
+//   word-wrap: break-word;
+//   text-align: center;
+//   margin-bottom: 50px;
+// }
+
+// .illustration {
+//   width: auto;
+//   height: auto;
+//   max-width: 100%;
+//   max-height: 100%;
+// }
+
+// .section {
+//   align-self: stretch;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   align-items: center;
+//   gap: 40px;
+// }
+
+// .subsection {
+//   width: 1000px;
+//   height: 250px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .card {
+//   flex: 1 1 0;
+//   align-self: stretch;
+//   padding: 20px 50px;
+//   background: #F7F9FC;
+//   border-radius: 5px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 40px;
+// }
+
+// .card-title {
+//   color: #2D3648;
+//   font-size: 32px;
+//   font-family: Inter;
+//   font-weight: 700;
+//   line-height: 41.60px;
+//   word-wrap: break-word;
+//   text-align: center;
+// }
+// .card-subtitle {
+//   color: #2D3648;
+//   font-size: 18px;
+//   font-family: Inter;
+//   font-weight: 400;
+//   line-height: 27px;
+//   word-wrap: break-word;
+//   text-align: center;
+// }
+
+// .divider {
+//   align-self: stretch;
+//   height: 51px;
+//   padding: 24px 0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .line {
+//   align-self: stretch;
+//   height: 3px;
+//   background: #3F51B5;
+//   border-radius: 15px;
+// }
+.hero-banner {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Aligns content to the bottom */
-  align-items: flex-start; /* Aligns content to the left; change to center if needed */
+  justify-content: flex-end;
+  align-items: flex-start;
   color: white;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 42.5%, #000 95%), url('home_cover.png');
   background-size: cover;
   background-position: center;
-  padding: 40px 40px 0px 40px; /* Adjust padding as needed; top and bottom padding set to 40px, left and right padding set to 50px */
-  height: 500px; /* Adjust height as needed to maintain aspect ratio or desired size */
-}
+  padding: 40px;
+  height: 500px;
+  text-align: left; /* Ensure text alignment */
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-  padding-bottom: 10px;
-}
+  h1 {
+      margin: 0;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      font-size: 32px;
+      font-weight: bold;
+      padding-bottom: 10px;
+  }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.container1 {
-  padding: 100px 0px 20px 70px;
-  margin: 10px
+  p {
+      font-size: 20px;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 }
 
 .container2 {
   width: 100%;
-  height: 100%;
-  padding: 100px 104px 120px;
+  padding: 100px 50px;
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   gap: 50px;
-}
 
-.title {
-  color: #2D3648;
-  font-size: 56px;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: 67.20px;
-  letter-spacing: 0.56px;
-  word-wrap: break-word
-}
+  .section, .subsection{
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 50px;
+  }
 
-.subtitle {
-  color: #2D3648;
-  font-size: 20px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 35.20px;
-  word-wrap: break-word;
-  text-align: center;
-  margin-bottom: 50px;
-}
+  .title {
+    color: #2D3648;
+    font-size: 2.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-.illustration {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-}
+  .subtitle {
+    color: #2D3648;
+    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 50px;
+  }
 
-.section {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 40px;
-}
+  .subsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
 
-.subsection {
-  width: 1000px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    @media (min-width: 768px) {
+      flex-direction: row;
+      text-align: left;
+    }
 
-.card {
-  flex: 1 1 0;
-  align-self: stretch;
-  padding: 20px 50px;
-  background: #F7F9FC;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
 
-.card-title {
-  color: #2D3648;
-  font-size: 32px;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: 41.60px;
-  word-wrap: break-word;
-  text-align: center;
-}
-.card-subtitle {
-  color: #2D3648;
-  font-size: 18px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 27px;
-  word-wrap: break-word;
-  text-align: center;
-}
+    .card {
+      background: #F7F9FC;
+      padding: 3.125rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      @media (max-width: 1024px) {
+        order: 2;
+      }
 
-.divider {
-  align-self: stretch;
-  height: 51px;
-  padding: 24px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+      .card-title {
+        color: #2D3648;
+        font-size: 1.5rem;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
 
-.line {
-  align-self: stretch;
-  height: 3px;
-  background: #3F51B5;
-  border-radius: 15px;
+      .card-subtitle {
+        color: #2D3648;
+        font-size: 1rem;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+
+    .illustration {
+      text-align: center;
+      @media (max-width: 1024px) {
+        max-width: 50%;
+      }
+
+      .responsive-image {
+        max-width: 80%;
+        height: auto;
+        display: flex;
+        flex: 1;
+        margin: 0 auto;
+      }
+    }
+  }
+  .divider {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+
+
+    .line {
+      width: 100%;
+      height: 3px;
+      background: #3F51B5;
+      border-radius: 15px;
+    }
+  }
 }

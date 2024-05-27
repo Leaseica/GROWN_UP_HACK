@@ -9,8 +9,7 @@ class SubCategoriesController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @sub_category = SubCategory.find(id)
+    @sub_category = SubCategory.find(params[:id])
     @articles = @sub_category.articles
     if params[:query].present?
       @articles = @articles.where("title ILIKE ?", "%#{params[:query]}%")

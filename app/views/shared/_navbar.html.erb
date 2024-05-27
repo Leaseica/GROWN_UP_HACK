@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-guh">
+<div class="navbar navbar-expand-sm navbar-guh">
 
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
@@ -7,11 +7,12 @@
     <div class= "brand_heading">GrownUp Hack</div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span><i class="fa-solid fa-bars" style="color: #ffffff;"></i></span>
     </button>
 
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="d-flex align-items-center navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "btn btn-small outline-nav", style: "margin-right: 5px" %>
@@ -24,7 +25,7 @@
           </li>
         <% else %>
           <li class="nav-item active">
-            <%= link_to "Créer un compte", "#", class: "btn btn-small outline-nav", style: "margin-right: 5px" %>
+            <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-small outline-nav", style: "margin-right: 5px" %>
           </li>
           <li class="nav-item">
             <%= link_to "Connexion", new_user_session_path, class: "btn btn-small" %>
