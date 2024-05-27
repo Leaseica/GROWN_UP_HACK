@@ -21,3 +21,126 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+$gh-white: #FFFFFF;
+$gh-100: #F5F5F5; // Assuming a very light gray for backgrounds
+$body-font: 'Inter', sans-serif;
+
+.reminder-container {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-content {
+  width: 100%;
+}
+
+.kanban {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cards-container {
+  width: 100%;
+  border-radius: 10px;
+  padding: 1.3125rem 1.25rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.875rem;
+  box-sizing: content-box;
+
+  &.a-faire {
+    color:  $gh-purple;
+    background-color: $gh-100;
+  }
+  &.en-cours {
+    color:  $gh-purple;
+    background: #ECEEF8;
+  }
+
+  &.termine {
+    color:  $gh-green;
+    background-color: $gh-100;
+  }
+
+  .cards-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+}
+
+
+.card {
+  display: flex;
+  padding: 1.625rem 2.5625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  border-radius: 0.625rem;
+  background: $gh-white;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+
+  &.a-faire {
+    border: 2px solid $gh-purple;
+  }
+
+  &.en-cours {
+    border: 2px solid $gh-purple;
+  }
+
+  &.termine {
+    border: 5px solid $gh-green;
+  }
+
+  &__title {
+    color: black;
+    font-family: $body-font;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 140%;
+    text-decoration-line: underline;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  // Additional styles for icons, text, forms, and progress bars as previously defined
+}
+
+
+/* For larger screens, ensure three columns */
+@media (min-width: 992px) { /* Adjust breakpoint as needed */
+  .reminder-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* For medium screens, two columns */
+@media (min-width: 768px) and (max-width: 991px) {
+  .reminder-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* For smaller screens, one column */
+@media (max-width: 767px) {
+  .reminder-container {
+    grid-template-columns: 1fr;
+  }
+}

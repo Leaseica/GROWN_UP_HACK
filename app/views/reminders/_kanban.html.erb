@@ -6,9 +6,9 @@
         <div class="kanban">
           <div class="cards-container <%= status.parameterize(separator: '-') %>">
             <div class="cards-header">
-              <div class="cards-header ellipse1" style="background: <%= status_color(status) %>;"></div>
+              <i class="fa-solid fa-circle mb-2"></i>
               <h5 class="bold-xl"><%= status.humanize %></h5>
-              <div class="cards-header-count">
+              <div class="mb-2">
                 <%= @reminders.select { |r| r.status == status }.count %>
               </div>
             </div>
@@ -35,7 +35,7 @@
                   <% end %>
                 </div>
                 <div class="dropdown">
-                  <button class=" dropdown-toggle <%= "btn btn-small #{reminder.status.parameterize(separator: '-')}" %>" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button class=" dropdown-toggle <%= "dropdown-tasks #{reminder.status.parameterize(separator: '-')}" %>" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <%= reminder.status %>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
