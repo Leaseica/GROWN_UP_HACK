@@ -18,3 +18,27 @@
 .breadcrumb {
   margin: 2rem;
 }
+
+// Define variables for customization and maintenance
+$divider-bg-color: $gh-purple;
+$divider-radius: 15px;
+
+// Divider class
+.divider1 {
+  height: 0.1875rem;
+  align-self: stretch;
+  width: 100%;
+  background: $divider-bg-color;
+  border-radius: $divider-radius;
+  margin-bottom: 0.5rem;
+}
+
+// Divider class with margin
+.divider2 {
+  height: 0.1875rem;
+  align-self: stretch;
+  width: 100%;
+  background: $divider-bg-color;
+  border-radius: $divider-radius;
+  margin: 1rem 0;
+}
