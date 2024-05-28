@@ -41,21 +41,24 @@
             Entrepreneur individuel ⬇️
           </button>
           <div class="collapse" id="toggleIndividualEntrepreneur">
-            <div class="btn btn-outline-primary">
-              <p class="mb-2">Auto-entreprise:</p>
+            <div class="card-article">
+
+              <p class="mb-2 article-subtitle"><strong>Auto-entreprise</strong></p>
               <ul>
                 <li>Forme simplifiée d'entreprise individuelle souvent utilisée par les freelances</li>
                 <li>Formalités administratives allégées</li>
                 <li>Comptabilité simplifiée</li>
                 <li>Impôts et cotisations sociales sur la base de ton chiffre d'affaires réel</li>
               </ul>
-              <p class="mb-2">Entreprise Individuelle:</p>
+
+              <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle</strong></p>
               <ul>
                 <li>Tu es considéré comme une seule entité avec ton entreprise</li>
                 <li>Tu es donc responsable de toutes les dettes et obligations commerciales</li>
                 <li>Les revenus de l'entreprise sont inclus dans ta déclaration de revenus personnelle</li>
               </ul>
-              <p class="mb-2">Entreprise Individuelle à Responsabilité Limitée:</p>
+
+              <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle à Responsabilité Limitée</strong></p>
               <ul>
                 <li>Permet de séparer ton patrimoine personnel de celui de ton entreprise</li>
                 <li>Ce qui protège tes biens personnels en cas de difficultés financières de ton entreprise</li>
@@ -70,14 +73,16 @@
             Personne morale ⬇️
           </button>
           <div class="collapse" id="togglePersonneMorale">
-            <div class="btn btn-outline-primary">
-              <p class="mb-2">Société par Actions Simplifiée Unipersonnelle:</p>
+            <div class="card-article">
+
+              <p class="mb-2 article-subtitle"><strong>Société par Actions Simplifiée Unipersonnelle</strong></p>
               <ul>
                 <li>Forme de société plus complexe où tu es le seul actionnaire</li>
                 <li>Responsabilité plus limitée</li>
                 <li>Formalités administratives et comptables plus complexes</li>
               </ul>
-              <p class="mb-2">Société à Responsabilité Limitée:</p>
+
+              <p class="mb-2 article-subtitle"><strong>Société par Actions Limitée</strong></p>
               <ul>
                 <li>Seulement si tu as l'intention de travailler avec d'autres personnes!</li>
                 <li>Offre une responsabilité limitée et une séparation des actifs personnels et professionnels</li>
@@ -93,8 +98,9 @@
             Exploitation en commun ⬇️
           </button>
           <div class="collapse" id="toggleExploitationEnCommun">
-            <div class="card card-body">
-              <p class="mb-2">Le portage salarial:</p>
+            <div class="card-article">
+
+              <p class="mb-2 article-subtitle"><strong>Le Portage salarial</strong></p>
               <ul>
                 <li>Exercer une activité indépendante sans créer sa propre entreprise</li>
                 <li>Statut de consultant ou prestataire de services pour une entreprise de portage salarial</li>
@@ -139,7 +145,7 @@
           Les plateformes d'entraides ⬇️
           </button>
           <div class="collapse" id="toggleEntaides">
-            <div class="card card-body">
+            <div class="card-article">
               <div class="d-flex align-items-center mb-3">
                 <%= link_to "https://www.grownuphack.com/404", class: "navbar-brand me-3", target: "_blank" do %>
                 <%= image_tag "AFE.png", style: "width: 67px;" %>
@@ -186,7 +192,7 @@
           Les plateformes de freelance ⬇️
           </button>
           <div class="collapse" id="toggleFreelance">
-            <div class="card card-body">
+            <div class="card-article">
               <div class="d-flex align-items-center mb-3">
                 <%= link_to "https://www.cremedelacreme.io", class: "navbar-brand me-3", target: "_blank" do %>
                 <%= image_tag "creme.jpg", style: "width: 67px;" %>
@@ -200,14 +206,13 @@
                 <% end %>
                 <p><strong>Malt</strong> offre un large réseau de freelances qualifiés dans divers secteurs, offrant aux entreprises un accès à une variété d'experts pour leurs projets. Ce qui distingue Malt, c'est ses outils de gestion de projet intégrés qui facilitent le travail indépendant et la réalisation de projets professionnels de haute qualité. Les freelances bénéficient également d'une visibilité accrue grâce à une plateforme bien établie, ce qui leur permet de trouver plus facilement des opportunités de collaboration avec des entreprises de toutes tailles. Ils proposent aussi des outils en ligne facilitant les tâches administratives.</p>
               </div>
-            </div>
 
-            <div class="d-flex align-items-center mb-3">
-              <%= link_to "https://www.comeup.com", class: "navbar-brand me-3", target: "_blank" do %>
-              <%= image_tag "comeup.jpg", style: "width: 67px;" %>
-              <% end %>
-              <p><strong>Comeup</strong> est une plateforme innovante qui vise à connecter les entreprises avec des talents émergents et créatifs. Contrairement aux plateformes traditionnelles, Comeup se concentre sur la découverte de nouveaux talents et sur la mise en valeur de leur créativité. Les entreprises peuvent découvrir et collaborer avec des freelances talentueux qui apportent une touche unique à leurs projets. Avec une approche axée sur l'exploration et la diversité des talents, Comeup offre une expérience de mise en relation dynamique et stimulante pour les entreprises à la recherche de nouvelles perspectives créatives.</p>
-            </div>
+              <div class="d-flex align-items-center mb-3">
+                <%= link_to "https://www.comeup.com", class: "navbar-brand me-3", target: "_blank" do %>
+                <%= image_tag "comeup.jpg", style: "width: 67px;" %>
+                <% end %>
+                <p><strong>Comeup</strong> est une plateforme innovante qui vise à connecter les entreprises avec des talents émergents et créatifs. Contrairement aux plateformes traditionnelles, Comeup se concentre sur la découverte de nouveaux talents et sur la mise en valeur de leur créativité. Les entreprises peuvent découvrir et collaborer avec des freelances talentueux qui apportent une touche unique à leurs projets. Avec une approche axée sur l'exploration et la diversité des talents, Comeup offre une expérience de mise en relation dynamique et stimulante pour les entreprises à la recherche de nouvelles perspectives créatives.</p>
+              </div>
 
             <div class="d-flex align-items-center mb-3">
               <%= link_to "https://www.upwork.com", class: "navbar-brand me-3", target: "_blank" do %>
@@ -217,14 +222,15 @@
             </div>
           </div>
 
-        </div>
 
-        <div class="mt-5">
-          <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small outline', style: 'background-color: $gh-purple'  %>
-          <%= button_to "Supprimer cet article", @article, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-small outline', style: 'background-color: $gh-purple'%>
-        </div>
-        <div>
-          <%= link_to 'Retour', articles_path, class: 'btn btn-small outline', style: 'background-color: $gh-purple' %>
+
+          <div class="mt-5">
+            <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small outline', style: 'background-color: $gh-purple'  %>
+            <%= button_to "Supprimer cet article", @article, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-small outline', style: 'background-color: $gh-purple'%>
+          </div>
+          <div>
+            <%= link_to 'Retour', articles_path, class: 'btn btn-small outline', style: 'background-color: $gh-purple' %>
+          </div>
         </div>
       </div>
     </div>
