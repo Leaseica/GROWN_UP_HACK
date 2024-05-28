@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   before_action :set_sub_category, only: %i[new create]
   before_action :session_store, only: %i[show]
-  before_action :set_breadcrumbs, only: [:show]
+  # before_action :set_breadcrumbs, only: [:show]
 
     # GET /articles/7
   def show
@@ -36,8 +36,10 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
+    @article.sub_category = @sub_category
+
     if @article.save
-      redirect_to article_path(@article)
+      redirect_to @article, notice: "Article was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -73,8 +75,11 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :description,
-      :paragraph1,
-      :photo,
+      :rich_body,
+      :photo
     )
   end
+
+
+
 end

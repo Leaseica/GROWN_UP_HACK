@@ -5,4 +5,7 @@ class Article < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
   has_one_attached :photo
+
+  has_rich_text :rich_body
+  has_rich_text :content
 end

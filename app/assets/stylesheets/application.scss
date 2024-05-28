@@ -1,3 +1,6 @@
+// External libraries
+@import "trix/dist/trix";
+
 // Graphical variables
 @import "config/colors";
 
@@ -27,4 +30,5 @@
 @import 'components/main';
 @import 'components/footer';
 @import 'components/buttons';
+@import 'components/actiontext';
 // @import 'components/responsive';

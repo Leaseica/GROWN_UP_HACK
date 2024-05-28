@@ -1,9 +1,22 @@
 <!-- app/views/articles/_form.html.erb -->
-<%= simple_form_for @article do |f| %>
-  <%= f.input :title, label: "Article Title" %>
-  <%= f.input :description, as: :text, label: "Article Description" %>
-  <%= f.input :sub_category_id, collection: SubCategory.all, label_method: :name, value_method: :id, prompt: "Choose a Subcategory" %>
-  <%= f.input :photo, as: :file %>
 
-  <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+<%= simple_form_for [@sub_category, @article], url: category_sub_category_articles_path(category_id: @sub_category.category_id, sub_category_id: @sub_category.id), html: { multipart: true } do |f| %>
+  <!-- form fields -->
+  <%= f.error_notification %>
+  <%# <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %> %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label: "Article Title" %>
+    <%= f.input :photos, as: :file %>
+    <%= f.input :rich_text_rich_body, as: :text, label: "Article Description" %>
+    <%= f.input :sub_category_id, collection: SubCategory.all, label: "Sub Category" %>
+
+  </div>
+  <div class="form-inputs">
+    <%= f.rich_text_area :rich_body, label: "Article Content" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+  </div>
 <% end %>

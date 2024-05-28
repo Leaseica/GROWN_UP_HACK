@@ -14,5 +14,6 @@ class SubCategoriesController < ApplicationController
     if params[:query].present?
       @articles = @articles.where("title ILIKE ?", "%#{params[:query]}%")
     end
+
   end
 end
