@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
     <%= tinymce_assets %>
-    <%# <script type="text/javascript" src="/assets/tinymce.js">
-    </script> %>
+    <script type="text/javascript" src="/assets/tinymce.js">
+    </script>
 
     <!-- Primary Meta Tags -->
     <meta name="description" content="<%= "Votre plateforme de référence pour des conseils sur la vie adulte, des conseils de carrière et des ressources de développement personnel." %>">
@@ -30,7 +30,7 @@
     <%= render "shared/navbar" %>
     <%# <%= render "shared/flashes" %>
 
-  <% unless controller_name == "pages" && action_name == "home"|| controller_name == "users" || request.path == root_path || request.path == new_user_session_path || request.path == new_user_registration_path %>
+  <% unless controller_name == "pages" && action_name == "home"|| controller_name == "users" ||controller_name == "article" && action_name == "edit" || "new" || request.path == root_path || request.path == new_user_session_path || request.path == new_user_registration_path %>
     <nav class="p-3 bg-white" aria-label="breadcrumb">
       <%= render_breadcrumbs :separator => ' / ' %>
     </nav>

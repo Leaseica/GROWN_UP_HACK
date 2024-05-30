@@ -74,9 +74,10 @@
     }
   }
 }
-  .color-progression {
-    background-color: $gh-purple
-  }
+.color-progression {
+  background-color: $gh-purple
+}
+
 // Specific Button Sizes
 .btn-large {
   @include button-style($gh-purple, $gh-white, 18px, 16px, 24px);
@@ -117,7 +118,7 @@
 
 }
 
-.btn-outline-primary{
+.btn-outline-primary {
   border: thin solid $gh-light-purple;
   width: 100%;
   text-align: start;
@@ -157,5 +158,33 @@
     background-color: $gh-green;
     color: $gh-white;
     border: 2px solid $gh-green;
+  }
+}
+
+.btn-green {
+  display: inline-flex;
+  align-items: center;
+  background-color: darken($gh-green, 5%);
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: $gh-300;
+
+  &:hover {
+    background-color: $gh-green;
+  }
+}
+
+.btn-gray {
+  display: inline-flex;
+  align-items: center;
+  background-color: $gh-600;
+  margin: 1rem auto;
+  font-weight: 600;
+  color: $gh-100;
+
+  &:hover {
+    background-color: $gh-purple;
   }
 }
