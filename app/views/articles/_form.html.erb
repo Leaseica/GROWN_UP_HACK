@@ -1,9 +1,76 @@
 <!-- app/views/articles/_form.html.erb -->
+<div class="container2">
+  <div class="subsection">
+    <div class="card">
+      <div class="card-title">Choisis la structure juridique de ton activité</div>
+      <div class="card-subtitle">Choisir la structure juridique de ton activité est une étape cruciale. Elle détermine la gestion de tes finances, tes obligations légales, ainsi que tes risques et responsabilités. Prends le temps de bien réfléchir pour trouver la formule qui correspondra le mieux à tes besoins et objectifs professionnels.</div>
+    </div>
+    <div class="illustration">
+      <%= image_tag("choice.png", class: "responsive-image") %>
+    </div>
+  </div>
+</div>
 <%= simple_form_for @article do |f| %>
-  <%= f.input :title, label: "Article Title" %>
-  <%= f.input :description, as: :text, label: "Article Description" %>
-  <%= f.input :sub_category_id, collection: SubCategory.all, label_method: :name, value_method: :id, prompt: "Choose a Subcategory" %>
-  <%= f.input :photo, as: :file %>
+  <%= f.error_notification %>
+  <%= tinymce %>
+  <div class="container px-3 py-2">
+    <div class="mt-5">
+      <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleExploitationEnCommun" aria-expanded="true" aria-controls="toggleExploitationEnCommun">Paramètres de l'article ⬇️
+      </button>
+      <div class="collapse show" id="toggleExploitationEnCommun" aria-labelledby="toggleExploitationEnCommun" state="active">
+        <div class="edit">
+          <div class="testedit">
+            <div class="card-edit">
+              <div class="form-row">
+                <%= f.input :title, label: "Titre de l'article",
+                input_html: { class: 'form-control' },
+                label_html: { class: 'fw-bold' } %>
+              </div>
+            </div>
 
-  <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+            <div class="form-row">
+              <div class="form-group col-sm">
+                <%= f.input :description, as: :text, label: "Description de l'article", input_html: { class: 'form-control', rows: 5 },
+                label_html: { class: 'fw-bold'} %>
+              </div>
+            </div>
+
+
+            <div class="form-group col-sm">
+              <%= f.association :sub_category, label_method: :name, value_method: :id, label: "Sélectionner la sous-catégorie de l'article",
+              input_html: { class: 'form-control' }, prompt: @article.sub_category.name,
+              label_html: { class: 'fw-bold'}  %>
+            </div>
+
+            <div class="form-group col-sm">
+              <%= f.input :photo, as: :file,
+                label: "Ajouter une photo de couverture",
+                input_html: { class: 'form-control-file' },
+                label_html: { class: 'fw-bold'} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleArticleContent" aria-expanded="false" aria-controls="toggleArticleContent">Contenu de l'article ⬇️
+    </button>
+    <div class="collapse" id="toggleArticleContent">
+      <div class="card-article">
+        <div class="form-row">
+          <div class="form-group col-sm">
+            <%= f.input :paragraph1, label: false,
+            input_html: { class: 'form-control tinymce', rows: 10 } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-sm">
+        <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+        <%= f.button :button, "Save Draft", class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
 <% end %>

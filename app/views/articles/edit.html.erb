@@ -1,9 +1,8 @@
 
-<h1><%= @article.title %></h1>
+<h1 class="mb-2 text-center article-subtitle"><strong>Éditer 📝 <%= @article.title %></strong></h1>
 
-<%= render "form", article: @article %>
+  <%= render "form", article: @article %>
 
-<br>
 
 <div>
   <%= link_to "Retourner sur l'article", @article %> |
