@@ -25,3 +25,8 @@ force_br_newline: true
 verify_html: false
 convert_urls: false
 relative_urls: false
+# selector: 'textarea',  // change this value according to your HTML
+plugins: 'importcss',
+content_css: 'app/assets/stylesheets/richtext.css',
+importcss_exclusive: false
+placeholder: 'Type here...'

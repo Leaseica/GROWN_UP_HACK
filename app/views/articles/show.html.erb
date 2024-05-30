@@ -9,10 +9,27 @@
   <body>
 
 
-    <div class="container2">
+    <div class="container-home">
+      <div class="section">
+        <h1 class="title">
+          <%= @article.title %>
+        </h1>
+        <p class="subtitle">
+          <%= @article.description %>
+        </p>
+        <p>
+          <%= image_tag @article.photo, class: "responsive-image" %>
+        </p>
+        <p>
+          <%= @article.paragraph1.html_safe %> <!-- This will render the HTML content of the article -->
+        </p>
+
+      </div>
+
       <div class="section">
           <h1 class="title">Se lancer en freelance</h1>
           <p class="subtitle">Ce statut offre une approche simplifiée pour démarrer une activité indépendante. Ses avantages: gestion administrative légère, fiscalité simplifiée et cotisations sociales basées sur le chiffre d'affaires. C'est une option idéale pour les débutants ou les travailleurs à temps partiel.</p>
+
       </div>
 
       <div class="subsection">
@@ -188,10 +205,10 @@
 
         <!-- Plateformes de freelance -->
         <div class="mt-5">
-          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleFreelance" aria-expanded="false" aria-controls="toggleFreelance">
-          Les plateformes de freelance ⬇️
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleFreelance1" aria-expanded="false" aria-controls="toggleFreelance1">
+          Les plateformes de freelancetest ⬇️
           </button>
-          <div class="collapse" id="toggleFreelance">
+          <div class="collapse" id="toggleFreelance1">
             <div class="card-article">
               <div class="d-flex align-items-center mb-3">
                 <%= link_to "https://www.cremedelacreme.io", class: "navbar-brand me-3", target: "_blank" do %>

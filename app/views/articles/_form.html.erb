@@ -2,7 +2,7 @@
 
 <%= simple_form_for @article do |f| %>
   <%= f.error_notification %>
-  <%= tinymce %>
+
 
     <h2 class="subtitle-editor">Paramètres de l'article ⬇️</h2>
     <div class="card-editor">
@@ -42,6 +42,7 @@
     <div class="form-group col-sm">
       <%= f.input :paragraph1, label: false,
       input_html: { class: 'form-control tinymce', rows: 10 } %>
+      <%= tinymce %> <!-- TinyMCE editor -->
     </div>
   </div>
 
