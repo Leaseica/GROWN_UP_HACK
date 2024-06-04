@@ -1,32 +1,28 @@
-<div class="body">
-  <div class="container-user">
-    <div class="banner-use text-center mt-3 mb-4">
-      <h1 class="bold-xxl text-center" style="font-size:4.5rem">Mon profil</h1>
+<div class="container-user">
+  <div class="banner-user">
+    <div class="d-flex align-items-end gap-3">
+      <%= image_tag("avatar_helene.png", class: "avatar-bordered", alt: "avatar") %>
+      <h1 class="title-xl">
+        <%= @user.first_name %>, <%= @user.last_name %>
+        <%= link_to edit_user_registration_path do %>
+        <i class="fa-solid fa-user-pen fa-xs ps-2"></i>
+        <% end %>
+      </h1>
     </div>
-    <!-- User's Personal Information Card -->
+    <p class="bold-xl"><i class="fa-solid fa-briefcase me-2"></i> <%= @user.occupation %></p>
+  </div>
+
+  <!-- User's Personal Information Card -->
   <div class="profile-tab">
     <div class="banner-profile">
 
       <!-- Personal Information Section -->
-      <div class="header">
-        <div class="content">
-          <div class="user-header">
-            <%= image_tag("avatar_helene.png", class: "avatar large-avatar", alt: "avatar") %>
-            <div>
-              <h2 class="bold-xxl" style="color:#3F51B5"><%= @user.first_name %>, <%= @user.last_name %>
-              <%= link_to edit_user_registration_path do %>
-               <i class="fa-solid fa-user-pen fa-sm ps-3"></i>
-              <% end %>
-              </h2>
-              <p class="bold-xl"><i class="fa-solid fa-briefcase me-2"></i> <%= @user.occupation %></p>
-            </div>
-          </div>
-        </div>
 
+      <div class="header">
+        <h2 class="bold-xxl" style="color:#3F51B5">Mes informations</h2>
         <div class="profile-content">
           <div class="content">
-            <div class="user-info">
-
+            <div class="container">
               <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
               <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
               <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %></p>
@@ -38,8 +34,8 @@
       </div>
 
       <!-- Decorative Image Section -->
-      <div class="img">
-        <%= image_tag 'img_infos.svg', class: 'infos' %>
+      <div class="illustration">
+        <%= image_tag 'img_infos.svg', class: 'responsive-image' %>
       </div>
 
     </div>
