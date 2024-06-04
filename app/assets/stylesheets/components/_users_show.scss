@@ -2,17 +2,29 @@
   padding: 4.5rem 4.875rem;
 }
 
-.banner-user {
+.container-banner {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sub-header {
+  width: 37.5625rem;
+  height: 5.125rem;
+  display: flex;
+  // flex-direction: column;
+  justify-content: stretch;
   align-items: center;
   padding: 1.875rem 2.75rem;
+  gap: 1.5rem;
+  font-size: 2rem;
 }
 
 .profile-tab {
   display: flex;
-  padding: 1.5rem 1.875rem;
+  padding: 1.5rem 0;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
@@ -100,5 +112,22 @@
     display: flex;
     flex: 1;
     margin: 0 auto;
+  }
+}
+
+.btn-edit {
+  background: transparent;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: $gh-purple;
+    padding: 0.9375rem 2.5rem;
   }
 }
