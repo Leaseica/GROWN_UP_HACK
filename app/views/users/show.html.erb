@@ -4,7 +4,6 @@
     <%= image_tag("avatar/cat.png", class: "avatar-bordered", alt: "avatar") %> <!-- This will display the user's avatar -->
     <h1 class="title-xl"><%= @user.first_name %>, <%= @user.last_name %></h1>
   </div>
-
   <!-- User's Personal Information Card -->
   <div class="profile-tab">
     <div class="banner-profile">
@@ -25,7 +24,7 @@
               <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Nationalité : </strong> <%= @user.nationality %></p>
               <p class="regular-l"><i class="fa-solid fa-address-card me-2"></i><strong> Sécurité Sociale : </strong> <%= @user.social_security %></p>
               <div class="divider1 mb-3 mt-4"></div>
-              <%= link_to edit_user_registration_path, class: 'btn btn-outline' do %>
+              <%= link_to edit_user_path, class: 'btn btn-outline' do %>
                 <i class="fa-solid fa-user-pen me-2"></i> Éditer
               <% end %>
             </div>
@@ -66,8 +65,8 @@
           </div>
         </div>
       </div>
-      <div class="img">
-        <%= image_tag 'img_procedures.svg', class: 'img-procedure' %>
+      <div class="illustration">
+        <%= image_tag 'img_procedures.svg', class: 'responsive-image' %>
       </div>
     </div>
   </div>

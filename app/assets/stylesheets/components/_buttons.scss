@@ -142,7 +142,13 @@
   &:hover {
     background-color: $gh-purple;
     color: $gh-white;
+
+    &.danger {
+      background-color: $danger
+    }
   }
+
+
 
   @media (max-width: 768px) {
     width: 100%;

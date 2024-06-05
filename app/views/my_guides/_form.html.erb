@@ -75,7 +75,7 @@
                 <%= user_form.input :email, label: "Adresse mail",  input_html: { value: @user.email } %>
               </div>
               <div class="form-label-input">
-                <%= user_form.input :email, label: "Genre", collection: User.genders.values,
+                <%= user_form.input :gender, label: "Genre", collection: User.genders.values,
                 default: @user.gender,
                 input_html: { class: 'custom-select' } %>
               </div>

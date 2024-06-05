@@ -33,3 +33,58 @@
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-8 order-lg-1">
+    <div class="card shadow m-5">
+      <div class="header mt-4">
+        <div class="row align-items-center pt-2">
+          <h3 class="bold-xxl py-2">Modifier mes identifiants de connexion</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <h6 class="heading-small text-muted mb-4">Identifiants de connexion</h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.input :email, required: true, autofocus: true %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.input :password,
+                          hint: "leave it blank if you don't want to change it",
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+                <%= f.input :password_confirmation,
+                            required: false,
+                            input_html: { autocomplete: "new-password" } %>
+                <%= f.input :current_password,
+                            hint: "we need your current password to confirm your changes",
+                            required: true,
+                            input_html: { autocomplete: "current-password" } %>
+              </div>
+            </div>
+            <hr class="my-4">
+
+            <!-- Update -->
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+                <%= link_to "Back", :back %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
