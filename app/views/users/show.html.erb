@@ -1,7 +1,7 @@
 <div class="container-user">
 
   <div class="container-banner">
-    <%= image_tag("avatar_helene.png", class: "avatar-bordered", alt: "avatar") %> <!-- This will display the user's avatar -->
+    <%= image_tag("avatar/cat.png", class: "avatar-bordered", alt: "avatar") %> <!-- This will display the user's avatar -->
     <h1 class="title-xl"><%= @user.first_name %>, <%= @user.last_name %></h1>
   </div>
 
@@ -24,7 +24,10 @@
               <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %></p>
               <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Nationalité : </strong> <%= @user.nationality %></p>
               <p class="regular-l"><i class="fa-solid fa-address-card me-2"></i><strong> Sécurité Sociale : </strong> <%= @user.social_security %></p>
-              <div class="btn-edit text-decoration-none"><%= link_to edit_user_registration_path do %><i class="fa-solid fa-user-pen me-2"></i> Éditer<% end %></div>
+              <div class="divider1 mb-3 mt-4"></div>
+              <%= link_to edit_user_registration_path, class: 'btn btn-outline' do %>
+                <i class="fa-solid fa-user-pen me-2"></i> Éditer
+              <% end %>
             </div>
           </div>
         </div>
