@@ -57,6 +57,7 @@ gem "geocoder"
 gem "simple_calendar"
 gem "breadcrumbs_on_rails"
 gem 'tinymce-rails'
+gem 'countries', require: 'countries/global'
 
 group :development, :test do
   gem "dotenv-rails"

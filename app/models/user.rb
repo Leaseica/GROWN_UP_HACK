@@ -12,4 +12,11 @@ class User < ApplicationRecord
     male: 'Homme',
     undefined: "Je préfère ne pas le dire"
   }
+
+  # def nationakity_name
+  #   country = ISO3166::Country
+  #   country.find_country_by_alpha2(n
+  #   ationality).name
+
+
 end

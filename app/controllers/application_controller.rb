@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   before_action :set_breadcrumbs, unless: -> { controller_name == "pages" && action_name == "home" || controller_name == "users"}
 
 
+  def countries
+    @countries = Country.all_names_with_codes
 
+
+  end
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb

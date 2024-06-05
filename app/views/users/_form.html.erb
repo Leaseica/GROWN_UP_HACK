@@ -1,11 +1,14 @@
 <!-- app/views/users/_form.html.erb -->
 <div class="mb-5 pb-5">
   <h3 class="title-xl text-center mt-5">Mon compte</h3>
+  <div><%= @countries.first %></div>
+
   <div class="row justify-content-center mb-5">
     <div class="col-lg-8 order-lg-1">
       <div class="card shadow mt-4">
 
         <div class="card-body">
+
           <%= simple_form_for @user, html: { class: 'form', data: { controller: "datepicker" } } do |f| %>
             <!-- Link to registrations/edit -->
 
@@ -13,7 +16,7 @@
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
-                  <%= f.input :email, input_html: { class: 'form-control form-control-alternative' } %>
+                  <%= f.input :email, label: 'Adresse mail', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
                 <div class="col-lg-6">
                   <%= f.label 'Mot de passe', class: 'mb-2' %>
@@ -39,15 +42,16 @@
                   <%= f.input :last_name, label: 'Nom de famille', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-lg-6">
                   <%= f.input :birthday, as: :string, label: 'Date de naissance', input_html: { class: 'form-control', type: 'date', data: { datepicker_target: "birthday" } }, wrapper: false %>
                 </div>
                 <div class="col-lg-6">
                   <%= f.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'form-control' } %>
-
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-md-12">
                   <%= f.input :address, label: 'Adresse', input_html: { class: 'form-control form-control-alternative' } %>
@@ -55,12 +59,20 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <%= f.input :nationality, label: 'Nationalité', input_html: { class: 'form-control form-control-alternative' } %>
+                  <%= f.input :occupation, label: 'Occupation', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
               </div>
+
               <div class="row">
-                <div class="col-md-12">
-                  <%= f.input :social_security, label: 'Sécurité sociale', input_html: { class: 'form-control form-control-alternative' } %>
+                <div class="col-lg-6">
+                   <%= f.input :nationality, label: 'Nationalité', collection: @countries, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' } %>
+
+
+
+
+                </div>
+                <div class="col-lg-6">
+                   <%= f.input :social_security, label: 'Sécurité sociale', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
               </div>
             </div>

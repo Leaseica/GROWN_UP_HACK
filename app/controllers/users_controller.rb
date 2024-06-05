@@ -23,6 +23,8 @@ class UsersController < ApplicationController
     @my_guides = MyGuide.where(user: @user)
   end
 
+
+
   private
 
   def user_params
