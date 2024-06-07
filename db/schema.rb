@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_102608) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_122902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_102608) do
     t.text "paragraph1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "raw_html_content"
     t.index ["sub_category_id"], name: "index_articles_on_sub_category_id"
   end
 

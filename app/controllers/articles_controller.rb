@@ -81,7 +81,8 @@ class ArticlesController < ApplicationController
       :description,
       :paragraph1,
       :photo,
-      :sub_category_id
+      :sub_category_id,
+      :raw_html_content
     )
   end
 end

@@ -15,4 +15,7 @@ module ApplicationHelper
     ( common_countries + ["-- Toutes les nationalités --"] + all_countries).uniq
   end
 
+  def get_binding
+    binding
+  end
 end
