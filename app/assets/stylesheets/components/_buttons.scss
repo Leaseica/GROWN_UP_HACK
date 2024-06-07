@@ -48,22 +48,22 @@
     border: 2px solid $gh-purple;
   }
 
-  &.a-faire {
-    color:  $gh-purple;
-    background-color: transparent;
-    border: 2px solid $gh-purple;
-  }
+  // &.a-faire {
+  //   color:  $gh-purple;
+  //   background-color: transparent;
+  //   border: 2px solid $gh-purple;
+  // }
 
-  &.en-cours {
-    color:  $gh-white;
-    background-color: $gh-purple;
-  }
+  // &.en-cours {
+  //   color:  $gh-white;
+  //   background-color: $gh-purple;
+  // }
 
-  &.termine {
-    color:  $gh-white;
-    background-color: $gh-green;
-    border: 2px solid $gh-green;
-  }
+  // &.termine {
+  //   color:  $gh-white;
+  //   background-color: $gh-green;
+  //   border: 2px solid $gh-green;
+  // }
 
   &.ghost {
     background-color: transparent;
@@ -74,9 +74,10 @@
     }
   }
 }
-  .color-progression {
-    background-color: $gh-purple
-  }
+.color-progression {
+  background-color: $gh-purple
+}
+
 // Specific Button Sizes
 .btn-large {
   @include button-style($gh-purple, $gh-white, 18px, 16px, 24px);
@@ -115,9 +116,11 @@
     background-color: $danger
   }
 
+
+
 }
 
-.btn-outline-primary{
+.btn-outline-primary {
   border: thin solid $gh-light-purple;
   width: 100%;
   text-align: start;
@@ -125,6 +128,35 @@
   box-shadow: grey 2px 2px 2px;
   background-color: btn-outline-primary;
   font-size: large;
+}
+.btn-outline {
+  border: 2px solid $gh-purple;
+  padding: 0.3rem 1rem;
+  box-shadow: $gh-100 2px 2px 2px;
+  font-weight: 700;
+  color: $gh-purple;
+  transition: background 0.3s;
+  text-align: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $gh-purple;
+    color: $gh-white;
+
+    &.danger {
+      background-color: $danger
+    }
+  }
+
+
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 1rem;
+
+  }
+
 }
 
 .btn-title {
@@ -157,5 +189,33 @@
     background-color: $gh-green;
     color: $gh-white;
     border: 2px solid $gh-green;
+  }
+}
+
+.btn-green {
+  display: inline-flex;
+  align-items: center;
+  background-color: darken($gh-green, 5%);
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: $gh-300;
+
+  &:hover {
+    background-color: $gh-green;
+  }
+}
+
+.btn-gray {
+  display: inline-flex;
+  align-items: center;
+  background-color: $gh-600;
+  margin: 1rem auto;
+  font-weight: 600;
+  color: $gh-100;
+
+  &:hover {
+    background-color: $gh-purple;
   }
 }

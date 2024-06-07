@@ -114,7 +114,7 @@ class MyGuidesController < ApplicationController
         :nationality,
         :occupation,
         :address,
-        :social_security,
+        :phone_number,
         :gender
       ]
     )
@@ -145,7 +145,7 @@ class MyGuidesController < ApplicationController
       pdf.text "Nationality: #{user.nationality}"
       pdf.text "Occupation: #{user.occupation}"
       pdf.text "Address: #{user.address}"
-      pdf.text "Social Security Number: #{user.social_security}"
+      pdf.text "phone_number: #{user.phone_number}"
 
       pdf.render
     end

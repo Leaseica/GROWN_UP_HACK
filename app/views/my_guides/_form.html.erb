@@ -75,7 +75,7 @@
                 <%= user_form.input :email, label: "Adresse mail",  input_html: { value: @user.email } %>
               </div>
               <div class="form-label-input">
-                <%= user_form.input :email, label: "Genre", collection: User.genders.values,
+                <%= user_form.input :gender, label: "Genre", collection: User.genders.values,
                 default: @user.gender,
                 input_html: { class: 'custom-select' } %>
               </div>
@@ -89,7 +89,7 @@
                 <%= user_form.input :address, label: "Address",  input_html: { value: @user.address } %>
               </div>
               <div class="form-label-input">
-                <%= user_form.input :social_security, label: "Social Security Number",  input_html: { value: @user.social_security } %>
+                <%= user_form.input :phone_number, label: "Social Security Number",  input_html: { value: @user.phone_number } %>
               </div>
             <% end %>
 

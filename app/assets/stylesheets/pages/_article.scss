@@ -1,3 +1,33 @@
+.container-article {
+  width: 100%;
+  padding: 100px 50px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  .subsection-article {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 50px;
+  }
+
+  .subsection-article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+}
+
+
 .card-article {
   display: flex;
   flex-direction: column;
@@ -29,7 +59,7 @@
   margin-bottom: 50px;
 }
 
-.subsection {
+.subsection-article {
   display: flex;
   flex-direction: column;
   align-items: center;

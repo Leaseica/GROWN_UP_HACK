@@ -1,11 +1,8 @@
+<!-- This is the view for the edit action of the ArticlesController -->
 
-<h1><%= @article.title %></h1>
+<div class="container-editor">
+  <%= link_to "⬅️ Retourner sur l'article", @article, class: "link-editor" %>
 
-<%= render "form", article: @article %>
-
-<br>
-
-<div>
-  <%= link_to "Retourner sur l'article", @article %> |
-  <%= link_to @article.sub_category[:name], sub_category_path %>
+  <h1 class="text-center title-editor">📝 <%= @article.title %></h1>
+  <%= render "form", article: @article %> <!-- form for new and edit : app/views/articles/_form.html.erb -->
 </div>
