@@ -5,8 +5,6 @@ class MyGuide < ApplicationRecord
   has_many :reminders, dependent: :destroy
   accepts_nested_attributes_for :user
 
-  after_update :update_user_occupation
-
   enum business_structure: {
     entrepreneur_individuel: 'Entrepreneur individuel',
     personne_morale: 'Personne morale',
@@ -18,13 +16,4 @@ class MyGuide < ApplicationRecord
     joint_owner: "Indivisaire"
   }
 
-  private
-
-  def update_user_occupation
-    # Check if the occupation attribute was changed during the update
-    if saved_change_to_occupation?
-      # Update the associated user's occupation
-      user.update(occupation: self.occupation)
-    end
-  end
 end

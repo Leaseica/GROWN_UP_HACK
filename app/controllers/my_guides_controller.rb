@@ -112,13 +112,14 @@ class MyGuidesController < ApplicationController
         :"birthday(1i)",
         :email,
         :nationality,
-        :occupation,
+        :occupation,  # This and below are part of the user model
         :address,
         :phone_number,
         :gender
       ]
     )
   end
+
 
   def generate_pdf(my_guide)
     Prawn::Document.new do |pdf|
