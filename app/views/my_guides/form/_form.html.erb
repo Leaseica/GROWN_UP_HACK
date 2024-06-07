@@ -69,13 +69,15 @@
             </div>
           </nav>
         </div>
-        <div class="card-step shadow mt-4">
 
 
+
+
+        <% form_object = @my_guide.new_record? ? [@article, @my_guide] : @my_guide %>
+
+        <%= simple_form_for form_object do |f| %>
           <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0" style="height: 500px; overflow-y: scroll;">
-            <% form_object = @my_guide.new_record? ? [@article, @my_guide] : @my_guide %>
-
-            <%= simple_form_for form_object do |f| %>
+            <div class="card-step mt-4">
               <div id="item-1">
                 <h4><i class="fa-regular fa-building me-3" id="picto_id_company" data-name="Picto etablissement" aria-hidden="true"></i>Identité de l'entreprise</h4>
               </div>
@@ -203,13 +205,16 @@
                   <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne", input_html: { data: {progress_bar_target: "input15"} } %>
                 </div>
               </div>
-              <div class="mt-4">
-                <%= f.button :submit, class: 'btn btn-primary' %>
-              </div>
-            <% end %>
+            </div>
+          </div>
+          <div class="mt-4">
+            <%= f.button :submit, class: 'btn btn-primary' %>
           </div>
 
-        </div>
+        <% end %>
+
+
+
       </div>
 
     </div>
