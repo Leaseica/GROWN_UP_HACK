@@ -1,14 +1,36 @@
 .container-user {
   padding: 4.5rem 4.875rem;
 }
+
+.container-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sub-header {
+  width: 37.5625rem;
+  height: 5.125rem;
+  display: flex;
+  // flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  padding: 1.875rem 2.75rem;
+  gap: 1.5rem;
+  font-size: 2rem;
+}
+
 .profile-tab {
   display: flex;
-  padding: 1.5rem 1.875rem;
+  padding: 1.5rem 0;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.5rem;
   align-self: stretch;
 }
+
 .banner-profile {
   display: flex;
   padding: 1.875rem 2.75rem;
@@ -21,10 +43,9 @@
   /* elevation3 */
   box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
 
-
   .header {
     display: flex;
-    padding-top: 3.125rem;
+    padding-top: 0.125rem;
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
@@ -35,125 +56,35 @@
     }
 
   }
-
-  .img {
-    display: flex;
-    height: 20.57688rem;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    .procedure {
-      width: 28.27325rem;
-      height: 18.57688rem;
-      flex-shrink: 0;
-    }
-
-    .infos {
-      width: 36.5rem;
-      height: 15.5rem;
-      flex-shrink: 0;
-    }
-  }
-}
-.profile-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-  align-self: stretch;
-  padding: 1.5rem 1.875rem;
 }
 
-.banner-profile {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-  background: #F7F9FC;
-  border-radius: 0.5rem;
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
-  padding: 1.875rem 2.75rem;
-
-  .header {
-    flex: 1;
-    padding-top: 3.125rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5rem;
-
-    .personal-info-title {
-      color: #3F51B5;
-    }
-  }
-
-  .user-header {
-    display: flex;
-    // padding-top: 3.125rem;
-    // flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .img {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    .infos {
-      width: 36.5rem; // Adjust as needed
-      height: auto; // Keep the aspect ratio of the image
-    }
-  }
-
-  .large-avatar {
-    border: 2px solid $gh-purple; /* or use a different style as per the design */
-    border-radius: 50%; /* Make avatar circular */
-    padding: 4px; /* Space between the avatar image and border */
-  }
-
-  .user-info {
-    margin-left: 130px; /* Space between avatar and user info text */
-  }
-}
-
-.btn.edit-profile {
-  background: transparent;
-  border: 1px solid #3F51B5;
-  color: #3F51B5;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-  margin-top: 1rem;
-}
 
 @media (max-width: 768px) {
   .banner-profile {
     flex-direction: column;
+    padding-top: 3rem;
 
-    .header, .img {
-      width: 100%;
+    .header {
+      order: 2;
+      margin-top: 2rem;
     }
 
-    .img .infos {
-      order: 2; // Moves the image to the bottom on small screens
+    .illustration .img .infos {
+      order: 1;
     }
   }
 }
 
+.illustration {
+  text-align: center;
+  align-items: center;
 
-.banner-user{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-  padding: 1.875rem 2.75rem;
-  .avatar {
-    border: 2px solid $gh-purple; /* or use a different style as per the design */
-    border-radius: 50%; /* Make avatar circular */
-    padding: 4px; /* Space between the avatar image and border */
+  .responsive-image {
+    align-items: center;
+    max-width: 80%;
+    height: auto;
+    display: flex;
+    flex: 1;
+    margin: 0 auto;
   }
 }

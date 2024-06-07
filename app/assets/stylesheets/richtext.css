@@ -1,0 +1,169 @@
+/* For other boilerplate styles, see: https://www.tiny.cloud/docs/tinymce/7/editor-content-css/ */
+/*
+* For rendering images inserted using the image plugin.
+* Includes image captions using the HTML5 figure element.
+*/
+
+figure.image {
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 0 2px 0 1px;
+  background: #f5f2f0;
+}
+
+figure.align-left {
+  float: left;
+}
+
+figure.align-right {
+  float: right;
+}
+
+figure.image img {
+  margin: 8px 8px 0 8px;
+}
+
+figure.image figcaption {
+  margin: 6px 8px 6px 8px;
+  text-align: center;
+}
+
+/*
+ Alignment using classes rather than inline styles
+ check out the "formats" option
+*/
+
+img.align-left {
+  float: left;
+}
+
+img.align-right {
+  float: right;
+}
+
+/* Basic styles for Table of Contents plugin (tableofcontents) */
+.mce-toc {
+  border: 1px solid gray;
+}
+
+.mce-toc h2 {
+  margin: 4px;
+}
+
+.mce-toc li {
+  list-style-type: none;
+}
+.container-home {
+  width: 100%;
+  padding: 100px 50px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.container-home .section,
+.container-home .subsection {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 50px;
+}
+
+.container-home .title {
+  color: #2D3648;
+  font-size: 2.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container-home .subtitle {
+  color: #2D3648;
+  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.container-home .subsection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .container-home .subsection {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.container-home .subsection .card {
+  background: #F7F9FC;
+  padding: 3.125rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .container-home .subsection .card {
+    order: 2;
+  }
+}
+
+.container-home .subsection .card .card-title {
+  color: #2D3648;
+  font-size: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.container-home .subsection .card .card-subtitle {
+  color: #2D3648;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.container-home .subsection .illustration {
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .container-home .subsection .illustration {
+    max-width: 50%;
+  }
+}
+
+.container-home .subsection .illustration .responsive-image {
+  max-width: 80%;
+  height: auto;
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+}
+
+.container-home .divider {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.container-home .divider .line {
+  width: 100%;
+  height: 3px;
+  background: #3F51B5;
+  border-radius: 15px;
+}

@@ -1,61 +1,139 @@
 <!-- app/views/users/_form.html.erb -->
+<div class="mb-5 pb-5">
+  <h3 class="title-xl text-center mt-5">Mon compte</h3>
 
-<div class="row justify-content-center">
-  <div class="col-lg-8 order-lg-1">
-    <div class="card shadow m-5">
-      <div class="header mt-4">
-        <div class="row align-items-center pt-2">
-          <h3 class="bold-xxl py-2">Mon compte</h3>
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-8 order-lg-1">
+      <div class="card shadow mt-4">
+
+        <div class="card-body">
+
+          <%= simple_form_for @user, html: { class: 'form', data: { controller: "datepicker" } } do |f| %>
+            <!-- Link to registrations/edit -->
+
+            <h6 class="bold-l mb-4">Identifiants de connexion</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <%= f.input :email, label: 'Adresse mail', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+                <div class="col-lg-6">
+                  <%= f.label 'Mot de passe', class: 'mb-2' %>
+                  <!-- Button trigger modal Modifier MDP -->
+                  <button type="button" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#PasswordModal">
+                    <i class="fa-solid fa-user-pen me-2"></i> Modifier mon mot de passe
+                  </button>
+                </div>
+              </div>
+
+            </div>
+            <hr class="my-4">
+
+            <!-- Contact information -->
+            <h6 class="bold-l mb-4">Informations personnelles</h6>
+            <div class="blockquote-footer">Ces informations sont enregistrées automatiquement lors de la complétion d'un formulaire dans le but de faciliter vos saisies futures. Vous avez la possibilité de désactiver cette option à tout moment.</div>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <%= f.input :first_name, label: 'Prénom', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+                <div class="col-lg-6">
+                  <%= f.input :last_name, label: 'Nom de famille', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <%= f.input :birthday, as: :string, label: 'Date de naissance', input_html: { class: 'form-control', type: 'date', data: { datepicker_target: "birthday" } }, wrapper: false %>
+                </div>
+                <div class="col-lg-6">
+                  <%= f.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'form-control' } %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :address, label: 'Adresse', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :occupation, label: 'Occupation', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <%= f.input :nationality, label: 'Nationalité', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' }, :default => 'France' %>
+                </div>
+                <div class="col-lg-6">
+                   <%= f.input :phone_number, label: 'Numéro de téléphone', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+            <!-- Submit -->
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+              </div>
+            </div>
+
+
+          <% end %>
         </div>
       </div>
-      <div class="card-body">
-        <%= simple_form_for @user, html: { class: 'form' } do |f| %>
-          <h6 class="heading-small text-muted mb-4">Information de l'utilisateur</h6>
-          <div class="pl-lg-4">
-            <div class="row">
-              <div class="col-lg-6">
-                <%= f.input :first_name, label: 'Prénom', input_html: { class: 'form-control form-control-alternative' } %>
-              </div>
-              <div class="col-lg-6">
-                <%= f.input :last_name, label: 'Nom de famille', input_html: { class: 'form-control form-control-alternative' } %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <%= f.input :email, input_html: { class: 'form-control form-control-alternative' } %>
-              </div>
-              <div class="col-lg-6">
-                <%= f.input :birthday, as: :string, label: 'Date de naissance', input_html: { class: 'form-control form-control-alternative', type: 'date' }, wrapper: false %>
-              </div>
-            </div>
-          </div>
-          <hr class="my-4">
-          <!-- Contact information -->
-          <h6 class="heading-small text-muted mb-4">Informations de contact</h6>
-          <div class="pl-lg-4">
-            <div class="row">
-              <div class="col-md-12">
-                <%= f.input :address, label: 'Adresse', input_html: { class: 'form-control form-control-alternative' } %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <%= f.input :nationality, label: 'Nationalité', input_html: { class: 'form-control form-control-alternative' } %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <%= f.input :social_security, label: 'Sécurité sociale', input_html: { class: 'form-control form-control-alternative' } %>
-              </div>
-            </div>
-          </div>
-          <hr class="my-4">
-          <!-- Submit -->
+    </div>
+  </div>
+
+  <!-- Delete my account -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8 order-lg-1">
+      <div class="card shadow mt-4">
+        <div class="card-body">
+          <h6 class="bold-l mb-4">Supprimer mon compte</h6>
+          <div class="blockquote-footer">Si tu es sûr de vouloir nous quitter, clique ici pour supprimer ton compte. On espère te revoir bientôt !</div>
           <div class="pl-lg-4">
             <div class="form-group">
-              <%= f.button :submit, "Sauvegarder", class: "btn btn-small" %>
+              <%= button_to registration_path(@user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline danger' do %>
+                <i class="fa-solid fa-ban"></i> Supprimer mon compte
+              <% end %>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal new-password-->
+  <div class="modal fade" id="PasswordModal" tabindex="-1" aria-labelledby="ModalPassword" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="ModalPassword"><i class="fa-solid fa-user-lock me-2"></i> Modifier mon mot de passe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
+            <%= f.input :current_password,
+                        label: "Mot de passe actuel",
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
+            <%= f.input :password,
+                        label: "Nouveau mot de passe",
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        label: "Confirmer le mot de passe",
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <%= f.button :submit, "Sauvegarder", class:'btn btn-small' %>
+        </div>
         <% end %>
       </div>
     </div>

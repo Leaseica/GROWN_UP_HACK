@@ -1,0 +1,100 @@
+.container-editor {
+  width: 100%;
+  padding: 3rem 5rem;
+  background: $gh-blue;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-top: $gh-200 2px solid;
+  border-bottom: $gh-200 2px solid;
+}
+.section-editor, .subsection-editor {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 50px;
+}
+
+.title-editor {
+  color: $gh-200;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.subtitle-editor {
+  color: $gh-200;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.subsection-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    text-align: left;
+  }
+
+}
+.card-editor {
+  background: $gh-300;
+  padding: 3.125rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  @media (max-width: 1024px) {
+    order: 2;
+  }
+
+
+  .card-title-editor {
+    color: #2D3648;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .card-subtitle-editor {
+    color: #2D3648;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .illustration-editor {
+    text-align: center;
+    @media (max-width: 1024px) {
+      max-width: 50%;
+    }
+
+    .responsive-image-editor {
+      max-width: 80%;
+      height: auto;
+      display: flex;
+      flex: 1;
+      margin: 0 auto;
+    }
+  }
+}
+
+.link-editor {
+  color: $gh-100;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $gh-200;
+    font-weight: 700;
+  }
+}
