@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
         format.json { render json: { error: 'Error in deleting the article' }, status: :unprocessable_entity }
       end
     end
-  rescue ActiveRecord::RecordNotFound => e
+  rescue ActiveRecord::RecordNotFound
     respond_to do |format|
       format.html { redirect_to articles_url, alert: 'Article not found.' }
       format.json { render json: { error: 'Article not found' }, status: :not_found }

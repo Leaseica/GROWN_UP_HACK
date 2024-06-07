@@ -77,12 +77,12 @@ end
 puts "Seeding Articles..."
 # Seed Articles
 articles_data = [
-  { title: "Les étapes essentielles pour devenir freelance", description: "Découvre les étapes clés...", sub_category: sub_categories[4], image: "etapes.jpg" },
-  { title: "Stratégies de marketing pour les freelances", description: "Apprends à promouvoir ton activité...", sub_category: sub_categories[4], image: "marketing_article.jpg" },
-  { title: "Gestion financière pour les freelances", description: "Maîtrise la gestion financière...", sub_category: sub_categories[4], image: "finance_article.jpg" },
-  { title: "Les outils indispensables pour les freelances", description: "Découvre les outils et logiciels...", sub_category: sub_categories[4], image: "photo_freelance_article.jpg" },
-  { title: "Conseils pour réussir en tant que freelance", description: "Conseils pratiques pour réussir...", sub_category: sub_categories[4], image: "reussir.jpg" },
-  { title: "Réseautage efficace pour les freelances", description: "Apprends à développer ton réseau...", sub_category: sub_categories[4], image: "reseau.jpg" }
+  { title: "Les étapes essentielles pour devenir freelance", description: "Découvre les étapes clés...", sub_category: sub_categories[4], photo: "etapes.jpg" },
+  { title: "Stratégies de marketing pour les freelances", description: "Apprends à promouvoir ton activité...", sub_category: sub_categories[4], photo: "marketing_article.jpg" },
+  { title: "Gestion financière pour les freelances", description: "Maîtrise la gestion financière...", sub_category: sub_categories[4], photo: "finance_article.jpg" },
+  { title: "Les outils indispensables pour les freelances", description: "Découvre les outils et logiciels...", sub_category: sub_categories[4], photo: "photo_freelance_article.jpg" },
+  { title: "Conseils pour réussir en tant que freelance", description: "Conseils pratiques pour réussir...", sub_category: sub_categories[4], photo: "reussir.jpg" },
+  { title: "Réseautage efficace pour les freelances", description: "Apprends à développer ton réseau...", sub_category: sub_categories[4], photo: "reseau.jpg" },
 ]
 
 articles_data.each do |data|
@@ -90,9 +90,9 @@ articles_data.each do |data|
     art.description = data[:description]
   end
 
-  file_path = Rails.root.join("app/assets/images/#{data[:image]}")
+  file_path = Rails.root.join("app/assets/images/#{data[:photo]}")
   if File.exist?(file_path)
-    article.photo.attach(io: File.open(file_path), filename: data[:image])
+    article.photo.attach(io: File.open(file_path), filename: data[:photo])
     article.save!
   else
     puts "File not found: #{file_path}"

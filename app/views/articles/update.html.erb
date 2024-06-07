@@ -231,7 +231,7 @@
         <div class="card-subtitle">Choisir la structure juridique de ton activité est une étape cruciale. Elle détermine la gestion de tes finances, tes obligations légales, ainsi que tes risques et responsabilités. Prends le temps de bien réfléchir pour trouver la formule qui correspondra le mieux à tes besoins et objectifs professionnels.</div>
       </div>
       <div class="illustration">
-        <img src="app/assets/images/choice.png" alt="Choice">
+        <img src="app/assets/images/choice.png" class="responsive-image" alt="Choice">
       </div>
     </div>
 
@@ -408,7 +408,7 @@
 
             <div class="d-flex align-items-center mb-3">
               <a href="https://www.comeup.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/upwork.jpeg" style="width: 67px;" alt="Comeup">
+                <img src="app/assets/images/comeup.jpg" style="width: 67px;" alt="Comeup">
               </a>
               <p><strong>Comeup</strong> est une plateforme innovante qui vise à connecter les entreprises avec des talents émergents et créatifs. Contrairement aux plateformes traditionnelles, Comeup se concentre sur la découverte de nouveaux talents et sur la mise en valeur de leur créativité. Les entreprises peuvent découvrir et collaborer avec des freelances talentueux qui apportent une touche unique à leurs projets. Avec une approche axée sur l'exploration et la diversité des talents, Comeup offre une expérience de mise en relation dynamique et stimulante pour les entreprises à la recherche de nouvelles perspectives créatives.</p>
             </div>
@@ -421,16 +421,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-5">
-        <a href="/articles/84/edit" class="btn btn-small outline" style="background-color: $gh-purple">Éditer</a>
-        <form action="/articles/84" method="post" data-turbo-method="delete" data-turbo-confirm="Are you sure?" class="btn btn-small outline" style="background-color: $gh-purple">
-          <button type="submit">Supprimer cet article</button>
-        </form>
-      </div>
-      <div>
-        <a href="/articles" class="btn btn-small outline" style="background-color: $gh-purple">Retour</a>
       </div>
     </div>
   </div>
@@ -447,3 +437,23 @@
                                  .gsub('app/assets/images/upwork.jpeg', asset_path('upwork.jpeg'))
                                  .gsub('app/assets/images/comeup.jpg', asset_path('comeup.jpg'))
                                  .gsub('app/assets/images/creme.jpg', asset_path('creme.jpg')) %>
+<% article_images = {
+  "les étapes essentielles pour devenir freelance" => "etapes.jpg",
+  "stratégies de marketing pour les freelances" => "marketing_article.jpg",
+  "gestion financière pour les freelances" => "finance_article.jpg",
+  "les outils indispensables pour les freelances" => "photo_freelance_article.jpg",
+  "conseils pour réussir en tant que freelance" => "reussir.jpg",
+  "réseautage efficace pour les freelances" => "reseau.jpg"
+} %>
+
+<% article_images.each do |article_title, image_name| %>
+  <% if article.title.downcase == article_title %>
+    <div class="subcategory-card" style="background-image: url('<%= image_path(image_name) %>')">
+      <div class="layer">
+        <div class="content">
+          <h2 class="name"><%= article.title %></h2>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

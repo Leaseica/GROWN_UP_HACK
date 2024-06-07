@@ -6,10 +6,4 @@ class Article < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   has_one_attached :photo
 
-  # def rendered_html_content(view_context)
-  #   ERB.new(raw_html_content).result(view_context.get_binding)
-  # rescue SyntaxError => e
-  #   Rails.logger.error("ERB Syntax Error: #{e.message}")
-  #   "Error rendering content"
-  # end
 end
