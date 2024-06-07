@@ -1,4 +1,25 @@
-<h1 class="heading-xl"><%= @article.title %></h1>
-<h2 class="heading-l">I.  Mes démarches URSSAF</h2>
+<div class="gh-body" data-controller='progress-bar'>
+  <div class="my-guide-section">
+    <div class= "my-guide-heading">
+      <h1 class="bold-heading-xxl"><%= @article.title %></h1>
+      <h3 class="bold-xl">Ton guide personnalisé pour t'accompagner dans tes démarches</h3>
+    </div>
+    <div>
+      <div class="app-card mb-3" tabindex="-1">
+        <div class="row">
+          <div class="col-12">
+            <p>Les champs suivis d'une étoile (<strong class="text-danger text-large">*</strong>) sont obligatoires.</p>
+            <p>Remplissez l'ensemble des champs obligatoires de chaque section, puis validez la création de votre entreprise.</p>
+            <div class="d-flex mt-2 mb-0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<%= render "form", my_guide: @my_guide %>
+    <%= render "my_guides/form/form", my_guide: @my_guide %>
+    <div>
+      <%= link_to "Retourner sur l'article", @article %> |
+      <%# <%= link_to @article.sub_category[:name], sub_category_articles_path%>
+    </div>
+  </div>
+</div>

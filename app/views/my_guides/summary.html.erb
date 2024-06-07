@@ -35,7 +35,8 @@
         <p><strong>Type de personne:</strong> <%= @my_guide.representative_type %></p>
       </section>
         <div class="actions">
-          <%= link_to 'Éditer', edit_my_guide_path(@my_guide), class: 'btn btn-primary' %>
+          <%= link_to 'Éditer', edit_my_guide_path(@my_guide, article_id: @my_guide.article.id), class: 'btn btn-small' %>
+
           <%= link_to 'Télécharger', download_my_guide_path(@my_guide), target: "_blank", class: 'btn btn-secondary' %>
         </div>
 

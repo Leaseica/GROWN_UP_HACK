@@ -1,3 +1,15 @@
+.card-step {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  background: #F7F9FC;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  @media (max-width: 1024px) {
+    order: 2;
+  }
+}
+
 .gh-body {
   display: flex;
   align-items: stretch;
@@ -48,8 +60,6 @@
           display: flex;
           flex-direction: column;
           align-items: stretch;
-          width: 350px;
-
           justify-content: space-between;
           padding: 15px;
           background-color: #99EBDD;
@@ -134,18 +144,20 @@
   .simple_form {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
 
     .steps-menu {
       display: flex;
       flex-direction: column;
-      width: 480px;
-      padding: 32px;
+      padding: 2rem 3rem;
 
-      #picto_identite_entreprise,
-      #picto_etablissement,
+
+      #picto_id_company,
+      #picto_id_entrepeneur,
       #picto_composition {
         display: inline-block;
-
         width: 50px;
         height: 50px;
         border-radius: 6px;
@@ -154,8 +166,7 @@
       }
 
       .step-line {
-        //flex: 1;
-        height: 128px;
+        height: 6rem;
         border-left: #aaa 2px solid;
         margin-left: 24px;
       }
@@ -236,8 +247,6 @@
             .flex1 {
               flex:3;
             }
-
-            /* Faites en sorte que le conteneur prenne tout l'espace disponible */
 
           }
 

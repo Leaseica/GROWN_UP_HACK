@@ -89,6 +89,8 @@ class MyGuidesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:article_id])
+  rescue ActiveRecord::RecordNotFound
+    @article = @my_guide.article if @my_guide.present?
   end
 
   def set_reminder

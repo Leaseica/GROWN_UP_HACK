@@ -7,6 +7,7 @@ export default class extends Controller {
     console.log(this.barTarget)
     console.log(this.input1Target.value)
   }
+
   first_input() {
     console.log(this.input1Target.value)
     if (this.input1Target.value != "") {
