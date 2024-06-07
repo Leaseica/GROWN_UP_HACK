@@ -1,7 +1,6 @@
 <!-- app/views/users/_form.html.erb -->
 <div class="mb-5 pb-5">
   <h3 class="title-xl text-center mt-5">Mon compte</h3>
-  <div><%= @countries.first %></div>
 
   <div class="row justify-content-center mb-5">
     <div class="col-lg-8 order-lg-1">
@@ -65,11 +64,7 @@
 
               <div class="row">
                 <div class="col-lg-6">
-                   <%= f.input :nationality, label: 'Nationalité', collection: @countries, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' } %>
-
-
-
-
+                  <%= f.input :nationality, label: 'Nationalité', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' }, :default => 'France' %>
                 </div>
                 <div class="col-lg-6">
                    <%= f.input :social_security, label: 'Sécurité sociale', input_html: { class: 'form-control form-control-alternative' } %>
