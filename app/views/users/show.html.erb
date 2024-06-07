@@ -22,7 +22,7 @@
               <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
               <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %></p>
               <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Nationalité : </strong> <%= @user.nationality %></p>
-              <p class="regular-l"><i class="fa-solid fa-address-card me-2"></i><strong> Sécurité Sociale : </strong> <%= @user.social_security %></p>
+              <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
               <div class="divider1 mb-3 mt-4"></div>
               <%= link_to edit_user_path, class: 'btn btn-outline' do %>
                 <i class="fa-solid fa-user-pen me-2"></i> Éditer
