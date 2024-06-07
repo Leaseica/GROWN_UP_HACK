@@ -1,7 +1,8 @@
 <!-- app/views/articles/_form.html.erb -->
 
-
-<%= simple_form_for @article do |f| %>
+<% form_object = @article.new_record? ? [@sub_category, @article] : @article %>
+<%= simple_form_for form_object do |f| %>
+  <%=  f.hidden_field :sub_category_id, value: @sub_category.id %>
   <%= f.error_notification %>
     <h2 class="subtitle-editor">Paramètres de l'article ⬇️</h2>
     <div class="card-editor">
@@ -22,8 +23,8 @@
 
 
       <div class="form-group col-sm">
-        <%= f.association :sub_category, label_method: :name, value_method: :id, label: "Sélectionner la sous-catégorie de l'article",
-        input_html: { class: 'form-control' }, prompt: @article.sub_category.name,
+        <%= f.input :sub_category, label_method: :name, value_method: :id, label: "Sélectionner la sous-catégorie de l'article",
+        input_html: { class: 'form-control' }, prompt: @sub_category.name,
         label_html: { class: 'fw-bold'}  %>
       </div>
 

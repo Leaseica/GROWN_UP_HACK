@@ -1,4 +1,7 @@
 class SubCategoriesController < ApplicationController
+  before_action :set_category
+  before_action :set_sub_category, only: [:show]
+
   def index
     @category = Category.find(params[:category_id])
     @sub_categories = @category.sub_categories
@@ -14,5 +17,15 @@ class SubCategoriesController < ApplicationController
     if params[:query].present?
       @articles = @articles.where("title ILIKE ?", "%#{params[:query]}%")
     end
+  end
+
+  private
+
+  def set_category
+    @category = Category.find(params[:category_id] || @sub_category.category_id)
+  end
+
+  def set_sub_category
+    @sub_category = SubCategory.find(params[:id])
   end
 end
