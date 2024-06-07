@@ -435,3 +435,15 @@
     </div>
   </div>
 </body>
+
+ <%= raw @article.raw_html_content.gsub('app/assets/images/choice.png', asset_path('choice.png'))
+                                 .gsub('app/assets/images/idee.png', asset_path('idee.png'))
+                                 .gsub('app/assets/images/AFE.png', asset_path('AFE.png'))
+                                 .gsub('app/assets/images/BGE.png', asset_path('BGE.png'))
+                                 .gsub('app/assets/images/CCI.png', asset_path('CCI.png'))
+                                 .gsub('app/assets/images/BPI.png', asset_path('BPI.png'))
+                                 .gsub('app/assets/images/stationf.png', asset_path('stationf.png'))
+                                 .gsub('app/assets/images/malt.jpg', asset_path('malt.jpg'))
+                                 .gsub('app/assets/images/upwork.jpeg', asset_path('upwork.jpeg'))
+                                 .gsub('app/assets/images/comeup.jpg', asset_path('comeup.jpg'))
+                                 .gsub('app/assets/images/creme.jpg', asset_path('creme.jpg')) %>

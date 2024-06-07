@@ -57,9 +57,27 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/7
   def destroy
-    @article.destroy
-    redirect_to articles_url, notice: "Article was successfully destroyed."
+    @article = Article.find(params[:id])
+    sub_category_id = @article.sub_category_id
+
+    if @article.destroy
+      respond_to do |format|
+        format.html { redirect_to sub_category_path(sub_category_id), notice: 'Article was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to articles_url, alert: 'Error in deleting the article.' }
+        format.json { render json: { error: 'Error in deleting the article' }, status: :unprocessable_entity }
+      end
+    end
+  rescue ActiveRecord::RecordNotFound => e
+    respond_to do |format|
+      format.html { redirect_to articles_url, alert: 'Article not found.' }
+      format.json { render json: { error: 'Article not found' }, status: :not_found }
+    end
   end
+
 
   private
 
