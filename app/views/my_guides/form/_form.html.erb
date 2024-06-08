@@ -1,8 +1,20 @@
 
- <div class="container mx-auto">
+<div class="container mx-auto">
   <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
     <div class="progress-bar color-progression" style="width: 0%" data-progress-bar-target="bar"></div>
   </div>
+</div>
+
+<div class="steps-form" data-controller="edit-step">
+  <% form_object = @my_guide.new_record? ? [@article, @my_guide] : @my_guide %>
+  <%= simple_form_for form_object do |f| %>
+    <%= render "my_guides/form/step_menu", my_guide: @my_guide %>
+    <div class="form-content">
+      <%= render "my_guides/form/step0", my_guide: @my_guide, f: f %>
+      <%= render "my_guides/form/step1", my_guide: @my_guide, f: f %>
+      <%= render "my_guides/form/step2", my_guide: @my_guide, f: f %>
+    </div>
+  <% end %>
 </div>
 
 <div class="mb-5 pb-5">
@@ -166,7 +178,7 @@
               <div id="item-2-6">
                 <div class="form-label-input">
                   <%= f.simple_fields_for :user do |user_form| %>
-                    <%= user_form.input :nationality, label: "Nationalité", input_html: { value: @user.nationality, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"} } %>
+                    <%= user_form.input :nationality, label: 'Nationalité', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { value: @user.nationality, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"}} %>
                   <% end %>
                 </div>
               </div>
@@ -207,16 +219,11 @@
               </div>
             </div>
           </div>
-          <div class="mt-4">
-            <%= f.button :submit, class: 'btn btn-primary' %>
+          <div class= "row justify-content-center mt-3">
+            <%= f.button :submit, "Sauvegarder My Guide", class: "btn btn-small", style: "width:30%" %>
           </div>
-
         <% end %>
-
-
-
       </div>
-
     </div>
   </div>
 </div>

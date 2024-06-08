@@ -1,6 +1,9 @@
-<div class="gh-body" data-controller='progress-bar'>
+<div class="container-home" data-controller='progress-bar'>
   <div class="my-guide-section">
     <div class= "my-guide-heading">
+      <div>
+        <%= link_to "⬅️  Retourner sur l'article", @article, class: "link-blue" %>
+      </div>
       <h1 class="bold-heading-xxl"><%= @article.title %></h1>
       <h3 class="bold-xl">Ton guide personnalisé pour t'accompagner dans tes démarches</h3>
     </div>
@@ -17,9 +20,5 @@
     </div>
 
     <%= render "my_guides/form/form", my_guide: @my_guide %>
-    <div>
-      <%= link_to "Retourner sur l'article", @article %> |
-      <%# <%= link_to @article.sub_category[:name], sub_category_articles_path%>
-    </div>
   </div>
 </div>
