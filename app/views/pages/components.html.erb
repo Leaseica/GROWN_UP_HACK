@@ -263,3 +263,213 @@
     </div>
   </body>
 </html>
+<div class="mb-5 pb-5">
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-12 order-lg-1">
+      <div class="d-flex">
+        <div class="col-4">
+          <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Identité de l'entreprise
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <nav class="nav nav-pills flex-column">
+                      <a class="nav-link ms-3 my-1" href="#item-1-1">Quelle est la forme de l'entreprise que vous souhaitez créer ?</a>
+                      <a class="nav-link ms-3 my-1" href="#item-1-2">L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?</a>
+                      <a class="nav-link ms-3 my-1" href="#item-1-3">Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)</a>
+                      <a class="nav-link ms-3 my-1" href="#item-1-4">L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?</a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Identité de l'entrepreneur
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <nav class="nav nav-pills flex-column">
+                      <a class="nav-link ms-3 my-1" href="#item-2-1">Prénom</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-2">Nom</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-3">Date de naissance</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-4">Adresse mail</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-5">Genre</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-6">Nationalité</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-7">Profession</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-8">Adresse</a>
+                      <a class="nav-link ms-3 my-1" href="#item-2-9">N° de téléphone</a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Composition
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <nav class="nav nav-pills flex-column">
+                      <a class="nav-link ms-3 my-1" href="#item-3-1">Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise</a>
+                      <a class="nav-link ms-3 my-1" href="#item-3-2">Type de personne</a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+
+
+
+        <% form_object = @my_guide.new_record? ? [@article, @my_guide] : @my_guide %>
+
+        <%= simple_form_for form_object do |f| %>
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0" style="height: 500px; overflow-y: scroll;">
+            <div class="card-step mt-4">
+              <div id="item-1">
+                <h4><i class="fa-regular fa-building me-3" id="picto_id_company" data-name="Picto etablissement" aria-hidden="true"></i>Identité de l'entreprise</h4>
+              </div>
+              <div id="item-1-1">
+                <div class="step step0" data-edit-step-target="step0">
+                  <div class="step-content">
+                    <div class="form-label-input">
+                      <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
+                    </div>
+                    <div class="form-label-input">
+                      <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select', data: {progress_bar_target: "input1", action: "progress-bar#first_input"} } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="item-1-2">
+                <div class="form-label-input">
+                  <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
+                            collection: [[true, 'Oui'], [false, 'Non']],
+                            label_method: :last, value_method: :first,
+                            label: "L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?*",
+                            include_blank: false, input_html: { data: {progress_bar_target: "input2", action: "progress-bar#second_input"} } %>
+                </div>
+              </div>
+              <div id="item-1-3">
+                <div class="form-label-input">
+                  <%= f.input :is_business_extension, as: :radio_buttons,
+                            collection: [[true, 'Oui'], [false, 'Non']],
+                            label_method: :last, value_method: :first,
+                            label: "Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)",
+                            include_blank: false, input_html: { data: {progress_bar_target: "input3", action: "progress-bar#third_input"} } %>
+                </div>
+              </div>
+              <div id="item-1-4">
+                <div class="form-label-input">
+                  <%= f.input :has_previous_self_employment, as: :radio_buttons,
+                            collection: [[true, 'Oui'], [false, 'Non']],
+                            label_method: :last, value_method: :first,
+                            label: "L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?",
+                            include_blank: false, input_html: { data: {progress_bar_target: "input4", action: "progress-bar#fourth_input"} } %>
+                </div>
+              </div>
+              <div id="item-2">
+                <h4><i class="fa-solid fa-address-card me-3" id="picto_id_entrepeneur" data-name="Picto identite entreprise" aria-hidden="true"></i>Identité de l'entrepreneur</h4>
+              </div>
+              <div id="item-2-1">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :first_name, label: "Prénom", input_html: { value: @user.first_name, data: {progress_bar_target: "input5", action: "progress-bar#fifth_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-2">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :last_name, label: "Nom", input_html: { value: @user.last_name, data: {progress_bar_target: "input6", action: "progress-bar#sixth_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-3">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :birthday, as: :date,
+                        start_year: @user.birthday.try(:year) || Date.today.year - 30,
+                        end_year: Date.today.year - 18,
+                        default: { day: @user.birthday.try(:day) || Date.today.day, month: @user.birthday.try(:month) || Date.today.month, year: @user.birthday.try(:year) || Date.today.year - 30 },
+                        order: [:day, :month, :year],
+                        label: "Date de naissance", input_html: { data: {progress_bar_target: "input7", action: "progress-bar#seventh_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-4">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :email, label: "Adresse mail", input_html: { value: @user.email, data: {progress_bar_target: "input8", action: "progress-bar#eighth_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-5">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { data: {progress_bar_target: "input9", action: "progress-bar#ninth_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-6">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :nationality, label: 'Nationalité', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { value: @user.nationality, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"}} %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-7">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :profession, label: "Profession", input_html: { value: @user.occupation, data: {progress_bar_target: "input11", action: "progress-bar#eleventh_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-8">
+                <h5>Adresse</h5>
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :address, label: "Adresse", input_html: { value: @user.address, data: {progress_bar_target: "input12", action: "progress-bar#twelfth_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-2-9">
+                <div class="form-label-input">
+                  <%= f.simple_fields_for :user do |user_form| %>
+                    <%= user_form.input :phone_number, label: "N° de téléphone", input_html: { value: @user.phone_number, data: {progress_bar_target: "input13", action: "progress-bar#thirteenth_input"} } %>
+                  <% end %>
+                </div>
+              </div>
+              <div id="item-3">
+                <h4><i class="fa-solid fa-person-chalkboard me-3" id="picto_composition" data-name="Picto composition" aria-hidden="true"></i>Composition</h4>
+              </div>
+              <div id="item-3-1">
+                <div class="form-label-input">
+                  <%= f.input :representative_role, label: "Rôle du mandataire (représentant) intervenant dans la gestion de l'entreprise", input_html: { data: {progress_bar_target: "input14"} } %>
+                </div>
+              </div>
+              <div id="item-3-2">
+                <div class="form-label-input">
+                  <%= f.input :representative_type, collection: ["Personne Morale", "Personne Physique"], label: "Type de personne", prompt: "Selectionne un type de personne", input_html: { data: {progress_bar_target: "input15"} } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class= "row justify-content-center mt-3">
+            <%= f.button :submit, "Sauvegarder My Guide", class: "btn btn-small", style: "width:30%" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

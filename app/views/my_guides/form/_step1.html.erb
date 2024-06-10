@@ -1,65 +1,68 @@
-<div class="step step1 d-none"  data-edit-step-target="step1">
-  <div class="step-content">
-      <%= f.simple_fields_for :user do |user_form| %>
+<div class="step d-none" data-edit-step-target="step">
+  <%= f.simple_fields_for :user do |user_form| %>
+    <div class="row justify-content-center">
+      <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
+
+      <%# <--Introduction --> %>
+      <div class="col-lg-11">
+        <h6 class="bold-l mb-4"><i class="fa-solid fa-address-card me-2"></i>Identité de l'entrepreneur</h6>
+        <div class="blockquote-footer">es informations sont enregistrées automatiquement lors de la complétion d'un formulaire dans le but de faciliter vos saisies futures. Vous avez la possibilité de désactiver cette option à tout moment.</div>
+      </div>
+
+      <%#  <--Form --> %>
+      <div class="col-lg-10">
         <div class="row">
-          <h6 class="bold-l mb-4">Informations personnelles</h6>
-          <div class="blockquote-footer">Ces informations sont enregistrées automatiquement lors de la complétion d'un formulaire dans le but de faciliter vos saisies futures. Vous avez la possibilité de désactiver cette option à tout moment.</div>
-          <div class="pl-lg-4">
-          <div class="row">
-            <div class="col-lg-6">
-              <%= user_form.input :birthday, as: :string, label: 'Date de naissance', input_html: { class: 'form-control', type: 'date', data: { datepicker_target: "birthday" } }, wrapper: false %>
-            </div>
-            <div class="col-lg-6">
-              <%= user_form.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'form-control' } %>
-            </div>
+          <div class="col-lg-6">
+            <%= user_form.input :first_name, label: "Prénom",  input_html: { value: @user.first_name, data: {progress_bar_target: "input5", action: "progress-bar#fifth_input"} } %>
+          </div>
+          <div class="col-lg-6">
+            <%= user_form.input :last_name, label: "Nom",  input_html: { value: @user.last_name, data: {progress_bar_target: "input6", action: "progress-bar#sixth_input"} } %>
           </div>
         </div>
-            <div class= "flex1">
-              <div class="form-label-input">
-                <%= user_form.input :first_name, label: "Prénom",  input_html: { value: @user.first_name, data: {progress_bar_target: "input5", action: "progress-bar#fifth_input"} } %>
-              </div>
-              <div class="form-label-input">
-                <%= user_form.input :last_name, label: "Nom",  input_html: { value: @user.last_name, data: {progress_bar_target: "input6", action: "progress-bar#sixth_input"} } %>
-              </div>
-              <div class="form-label-input">
-                <%= user_form.input :birthday, as: :date,
+        <div class="row">
+          <div class="col-lg-6">
+            <%= user_form.input :email, label: "Adresse mail",  input_html: { value: @user.email, data: {progress_bar_target: "input8", action: "progress-bar#eighth_input"} } %>
+          </div>
+          <div class="col-lg-3">
+            <%= user_form.input :phone_number, label: "N° de téléphone",  input_html: { value: @user.phone_number, data: {progress_bar_target: "input13", action: "progress-bar#thirteenth_input"} } %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-5">
+
+            <%= user_form.input :birthday, as: :date,
                             start_year: @user.birthday.try(:year) || Date.today.year - 30,
                             end_year: Date.today.year - 18,
                             default: { day: @user.birthday.try(:day) || Date.today.day, month: @user.birthday.try(:month) || Date.today.month, year: @user.birthday.try(:year) || Date.today.year - 30 },
-                            order: [:day, :month, :year],
-                            label: "Date de naissance", input_html: { data: {progress_bar_target: "input7", action: "progress-bar#seventh_input"} } %>
-              </div>
-            </div>
-            <div class="flex2">
-              <div class="form-label-input">
-                <%= user_form.input :email, label: "Adresse mail",  input_html: { value: @user.email, data: {progress_bar_target: "input8", action: "progress-bar#eighth_input"} } %>
-              </div>
-              <div class="form-label-input">
-                <%= user_form.input :email, label: "Genre", collection: User.genders.values,
-                default: @user.gender,
-                input_html: { class: 'custom-select', data: {progress_bar_target: "input9", action: "progress-bar#ninth_input"} } %>
-              </div>
-              <div class="form-label-input">
-                <%= user_form.input :nationality, label: "Nationalité",  input_html: { value: @user.nationality, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"} } %>
-              </div>
+                            label: "Date de naissance", input_html: { class: 'custom-select', data: { progress_bar_target: "input7", action: "progress-bar#seventh_input" } } %>
+          </div>
 
-            </div>
-            <div class="flex3">
-                <div class="form-label-input">
-                  <%= user_form.input :occupation, label: "Profession",  input_html: { value: @user.occupation, data: {progress_bar_target: "input11", action: "progress-bar#eleventh_input"} } %>
-                </div>
-                <div class="form-label-input">
-                  <%= user_form.input :address, label: "Adresse",  input_html: { value: @user.address, data: {progress_bar_target: "input12", action: "progress-bar#twelfth_input"} } %>
-                </div>
-                <div class="form-label-input">
-                  <%= user_form.input :phone_number, label: "N° de téléphone",  input_html: { value: @user.phone_number, data: {progress_bar_target: "input13", action: "progress-bar#thirteenth_input"} } %>
-                </div>
-            </div>
-
+          <div class="col-lg-3">
+            <%= user_form.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'form-control' } %>
+          </div>
+          <div class="col-md-4">
+            <%= user_form.input :nationality, label: 'Nationalité', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { value: @user.nationality, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"}, class: 'custom-select' }  %>
+          </div>
         </div>
 
-      <% end %>
-  </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <%= user_form.input :address, label: "Adresse",  input_html: { value: @user.address, data: {progress_bar_target: "input12", action: "progress-bar#twelfth_input"} } %>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= user_form.input :occupation, label: "Profession",  input_html: { value: @user.occupation, data: {progress_bar_target: "input11", action: "progress-bar#eleventh_input"} } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+  <%#  <--Navigation --> %>
   <div class="navigation">
     <button  class="btn secondary btn-medium"  type="button" data-action="click->edit-step#previous">Précédent</button>
     <button  class="btn btn-medium"  type="button" data-action="click->edit-step#next">Suivant</button>
