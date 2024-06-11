@@ -16,4 +16,9 @@ class MyGuide < ApplicationRecord
     joint_owner: "Indivisaire"
   }
 
+  enum representative_type: {
+    natural_person: 'Personne physique',
+    legal_person: 'Personne morale'
+  }
+
 end
