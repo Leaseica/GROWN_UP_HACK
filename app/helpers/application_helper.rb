@@ -1,7 +1,6 @@
 module ApplicationHelper
 
   def countries_list
-    # ISO3166::Country.all.map { |country| country.nationality }.uniq.sort
     common_countries = [ "France",
                         "Belgique",
                         "Suisse",

@@ -109,15 +109,15 @@ class MyGuidesController < ApplicationController
       user_attributes: [
         :first_name,
         :last_name,
-        :"birthday(3i)",
-        :"birthday(2i)",
-        :"birthday(1i)",
+        :birthday,
         :email,
-        :nationality,
-        :occupation,  # This and below are part of the user model
+        :country,
+        :occupation,
         :address,
         :phone_number,
-        :gender
+        :gender,
+        :zip_code,
+        :city
       ]
     )
   end
@@ -145,7 +145,7 @@ class MyGuidesController < ApplicationController
       pdf.text "Date of Birth: #{user.birthday.strftime('%d/%m/%Y') if user.birthday}"
       pdf.text "Email: #{user.email}"
       pdf.text "Gender: #{user.gender}"
-      pdf.text "Nationality: #{user.nationality}"
+      pdf.text "Country: #{user.country}"
       pdf.text "Occupation: #{user.occupation}"
       pdf.text "Address: #{user.address}"
       pdf.text "phone_number: #{user.phone_number}"

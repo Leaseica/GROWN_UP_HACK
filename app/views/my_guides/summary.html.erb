@@ -23,9 +23,11 @@
         <p><strong>Date de naissance:</strong> <%= @user.birthday.strftime('%d/%m/%Y') %></p>
         <p><strong>Email:</strong> <%= @user.email %></p>
         <p><strong>Genre:</strong> <%= t(@user.gender) %></p>
-        <p><strong>Nationalité:</strong> <%= @user.nationality %></p>
         <p><strong>Occupation:</strong> <%= @user.occupation %></p>
         <p><strong>Adresse:</strong> <%= @user.address %></p>
+        <p><strong>Ville:</strong> <%= @user.city %></p>
+        <p><strong>Code postal:</strong> <%= @user.zip_code %></p>
+        <p><strong>Pays:</strong> <%= @user.country %></p>
         <p><strong>Numéro de téléphone:</strong> <%= @user.phone_number %></p>
       </section>
 

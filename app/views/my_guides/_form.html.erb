@@ -83,7 +83,7 @@
                 input_html: { class: 'custom-select' } %>
               </div>
               <div class="form-label-input">
-                <%= user_form.input :nationality, label: "Nationalité",  input_html: { value: @user.nationality } %>
+                <%= user_form.input :country, label: "Nationalité",  input_html: { value: @user.country } %>
               </div>
               <div class="form-label-input">
                 <%= user_form.input :occupation, label: "Occupation",  input_html: { value: @user.occupation } %>
@@ -291,7 +291,7 @@
                   <div id="item-2-6">
                     <div class="form-label-input">
                       <%= f.simple_fields_for :user do |user_form| %>
-                        <%= user_form.input :nationality, label: "Nationalité", input_html: { value: @user.nationality, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"} } %>
+                        <%= user_form.input :country, label: "Pays", input_html: { value: @user.contry, data: {progress_bar_target: "input10", action: "progress-bar#tenth_input"} } %>
                       <% end %>
                     </div>
                   </div>
