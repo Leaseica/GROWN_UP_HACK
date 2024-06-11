@@ -16,19 +16,19 @@
         </div>
       </div>
 
-     <div class="stepper" data-controller="edit-step">
-      <div class="icon-item" data-edit-step-target="iconItem" data-action="click->edit-step#goToStep_0">
-        <div class="badge badge-purple" data-edit-step-target="icon">1</div>
+     <div class="stepper">
+      <div class="icon-item" data-edit-step-target="menuStep" data-action="click->edit-step#menuStepClick">
+        <div class="badge active" data-edit-step-target="icon"></div>
         <div class="text"><i class="fa-regular fa-building me-2"></i>Identité de l'entreprise</div>
       </div>
       <div class="divider-between"></div>
-      <div class="icon-item" data-edit-step-target="iconItem" data-action="click->edit-step#goToStep_1">
-        <div class="badge badge-purple" data-edit-step-target="icon">2</div>
+      <div class="icon-item notstarted" data-edit-step-target="menuStep" data-action="click->edit-step#menuStepClick">
+        <div class="badge notstarted" data-edit-step-target="icon"></div>
         <div class="text"><i class="fa-solid fa-address-card me-2"></i>Identité de l'entrepreneur</div>
       </div>
       <div class="divider-between"></div>
-      <div class="icon-item" data-edit-step-target="iconItem" data-action="click->edit-step#goToStep_2">
-        <div class="badge badge-purple">3</div>
+      <div class="icon-item notstarted" data-edit-step-target="menuStep" data-action="click->edit-step#menuStepClick">
+        <div class="badge notstarted" data-edit-step-target="icon"></div>
         <div class="text"><i class="fa-solid fa-person-chalkboard me-2"></i>Composition</div>
       </div>
     </div>
@@ -38,7 +38,7 @@
 
     <div class="form-content ">
       <% form_object = @my_guide.new_record? ? [@article, @my_guide] : @my_guide %>
-      <%= simple_form_for form_object , html: {  class: 'form', data: { controller: "datepicker" } } do |f| %>
+      <%= simple_form_for form_object , html: {  class: 'form' } do |f| %>
         <%= render "my_guides/form/step0", my_guide: @my_guide, f: f %>
         <%= render "my_guides/form/step1", my_guide: @my_guide, f: f %>
         <%= render "my_guides/form/step2", my_guide: @my_guide, f: f %>

@@ -46,10 +46,26 @@ $badge-colors: (
     size: 36px;
 
   }
+  &.notstarted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: $gh-200; // Gray indicates not started step
+    color: $gh-purple;
+    border: $gh-purple 2px solid;
+
+  }
+
   &.active {
-
-    border-color: blue; // Blue indicates the current active step
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: $gh-purple; // Purple indicates active step
+    color: #fff;
   }
   &.error {
 

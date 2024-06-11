@@ -41,15 +41,15 @@
   }
 
   &.done {
-    color: $gh-green;
+    color: $gh-purple;
     font-size: 1.2rem;
     font-weight: 600;
   }
 
-  &.disabledtest {
-    color: $gh-300;
+  &.notstarted {
+    color: $gh-500;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
