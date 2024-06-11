@@ -20,7 +20,7 @@
               <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong><%= @user.occupation %></p>
               <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
               <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
-              <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city @user.zip_code %></p>
+              <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city %> <%=  @user.zip_code%></p>
               <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong> <%= @user.country %></p>
               <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
               <div class="divider1 mb-3 mt-4"></div>
