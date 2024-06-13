@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def self.titles
+    I18n.t('titles').map { |key, value| [value, key] }
+  end
+
+
   def countries_list
     common_countries = [ "France",
                         "Belgique",

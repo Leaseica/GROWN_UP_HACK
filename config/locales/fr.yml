@@ -8,59 +8,59 @@ fr:
             dépendant(e) existe
           has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
             dépendants existent
+          has_and_belongs_to_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record} dépendants existent
+        taken: est déjà utilisé(e)
+
+    models:
+      user: Utilisateur
+    attributes:
+      user:
+        email: Adresse email
+        password: Mot de passe
+        first_name: Prénom
+        last_name: Nom
+        birthday: Date de naissance
+        occupation: Occupation
+        phone_number: Numéro de téléphone
+        title: Titre
+        zip_code: Code Postal
+        address: Adresse
+        city: Ville
+        country: Pays
+
+
+
+ # Titles and polite forms of address
+  titles:
+    mr: M.
+    mrs: Mme
+    full_titles:
+      mr: "Monsieur"
+      mrs: "Madame"
+    rather_not_say: "Préfère ne pas le dire"
+
+  # Gender
+  gender:
+    female: Femme
+    male: Homme
+    rather_not_say: "Préfère ne pas le dire"
+
+  # Date and time formats
   date:
-    abbr_day_names:
-    - dim
-    - lun
-    - mar
-    - mer
-    - jeu
-    - ven
-    - sam
-    abbr_month_names:
-    -
-    - jan.
-    - fév.
-    - mars
-    - avr.
-    - mai
-    - juin
-    - juil.
-    - août
-    - sept.
-    - oct.
-    - nov.
-    - déc.
-    day_names:
-    - dimanche
-    - lundi
-    - mardi
-    - mercredi
-    - jeudi
-    - vendredi
-    - samedi
+    abbr_day_names: [dim., lun., mar., mer., jeu., ven., sam.]
+    abbr_month_names: [nil, janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
     formats:
       default: "%d/%m/%Y"
       long: "%-d %B %Y"
       short: "%-d %b"
-    month_names:
-    -
-    - janvier
-    - février
-    - mars
-    - avril
-    - mai
-    - juin
-    - juillet
-    - août
-    - septembre
-    - octobre
-    - novembre
-    - décembre
+    month_names: [nil, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+
     order:
     - :day
     - :month
     - :year
+
   datetime:
     distance_in_words:
       about_x_hours:
@@ -218,3 +218,15 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+
+
+   # Pagination
+  views:
+    pagination:
+      first: "&laquo; Premier"
+      last: "Dernier &raquo;"
+      next: "Suivant &raquo;"
+      previous: "&laquo; Précédent"
+      truncate:
+        one: "Affichage de <b>1</b> élément"
+        other: "Affichage de <b>%{count}</b> éléments"
