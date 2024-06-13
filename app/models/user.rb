@@ -17,4 +17,37 @@ class User < ApplicationRecord
     male: 'Homme',
     undefined: "Je préfère ne pas le dire"
   }
+
+  enum title: {
+    mrs: 'Mme',
+    mr: 'M.',
+    undefined: "Je préfère ne pas le dire"
+  }
+
+
+  def full_name
+    "#{first_name}, #{last_name.capitalize}"
+  end
+
+  def full_address
+    "#{address}, #{zip_code} #{city}"
+  end
+
+  def full_name_title
+    "#{title} #{first_name}, #{last_name.capitalize}"
+  end
+
+  def full_title
+    if User.titles.value == 'Mme'
+      "Madame"
+    elsif User.titles.value == 'M.'
+      "Monsieur"
+    else
+      "Je préfère ne pas le dire"
+    end
+  end
+
+  def full_name_full_title
+    "#{full_title} #{first_name}, #{last_name.capitalize}"
+  end
 end

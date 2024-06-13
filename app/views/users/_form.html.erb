@@ -37,8 +37,10 @@
             <div class="blockquote-footer">Ces informations sont enregistrées automatiquement lors de la complétion d'un formulaire dans le but de faciliter vos saisies futures. Vous avez la possibilité de désactiver cette option à tout moment.</div>
             <div class="pl-lg-4">
               <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                   <%= f.input :first_name, label: 'Prénom' %>
+                </div>
+                <div class="col-lg-4">
                   <%= f.input :last_name, label: 'Nom de famille' %>
                 </div>
               </div>
@@ -48,33 +50,36 @@
                   <%= f.input :birthday, as: :string, label: 'Date de naissance', input_html: { data: { datepicker_target: "birthday" }, style: 'width: 80%' } %>
                 </div>
 
-                <div class="col-2">
+                <div class="col-3">
                   <%= f.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'custom-select'} %>
                 </div>
+
               </div>
 
               <div class="row">
-                <div class="col-lg-5">
+                 <div class="col-lg-4">
+                   <%= f.input :phone_number, label: 'Numéro de téléphone', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+                <div class="col-lg-8">
                   <%= f.input :address, label: 'Adresse', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
+
               </div>
               <div class="row">
+                <div class="col-lg-3">
+                  <%= f.input :city, label: 'Ville', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
                 <div class="col-lg-2">
                   <%= f.input :zip_code, label: 'Code postal', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
-
                 <div class="col-lg-3 ">
                   <%= f.input :country, label: 'Pays', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' }, priority: [ "France" ] %>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-8">
                   <%= f.input :occupation, label: 'Occupation', input_html: { class: 'form-control form-control-alternative' } %>
-
-                </div>
-                <div class="col-lg-4">
-                   <%= f.input :phone_number, label: 'Numéro de téléphone', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
               </div>
             </div>
