@@ -36,6 +36,9 @@
             <h6 class="bold-l mb-4">Informations personnelles</h6>
             <div class="blockquote-footer">Ces informations sont enregistrées automatiquement lors de la complétion d'un formulaire dans le but de faciliter vos saisies futures. Vous avez la possibilité de désactiver cette option à tout moment.</div>
             <div class="pl-lg-4">
+              <div>
+                <%= f.input :auto_fill, as: :boolean, label: 'Activer la saisie automatique', input_html: { class: 'form-check-input' } %>
+              </div>
               <div class="row">
                 <div class="col-lg-4">
                   <%= f.input :first_name, label: 'Prénom' %>
