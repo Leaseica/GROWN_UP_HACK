@@ -28,8 +28,6 @@ fr:
         city: Ville
         country: Pays
 
-
-
  # Titles and polite forms of address
   titles:
     mr: M.
@@ -40,7 +38,7 @@ fr:
     rather_not_say: "Préfère ne pas le dire"
 
   # Gender
-  gender:
+  genders:
     female: Femme
     male: Homme
     rather_not_say: "Préfère ne pas le dire"

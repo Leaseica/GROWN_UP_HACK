@@ -1,9 +1,12 @@
 module ApplicationHelper
 
-  def self.titles
-    I18n.t('titles').map { |key, value| [value, key] }
+  def genders_list
+    I18n.t('genders').values
   end
 
+  def titles_list
+    I18n.t('titles').except(:full_titles).values
+  end
 
   def countries_list
     common_countries = [ "France",

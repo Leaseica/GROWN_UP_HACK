@@ -41,4 +41,7 @@ class User < ApplicationRecord
     components = [address, zip_code, city].compact.join(' ')
     components.present? ? components : "Aucune adresse fournie"
   end
+
+
+
 end

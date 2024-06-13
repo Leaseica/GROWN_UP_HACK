@@ -1,3 +1,4 @@
+
 // Graphical variables
 @import "config/colors";
 
@@ -5,13 +6,15 @@
 @import "config/bootstrap_variables";
 @import "config/effects";
 @import "config/tinymce";
-
+@import "config/variables-dark";
+@import "config/utilities";
 
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 @import "simple_calendar";
+
 
 // Your CSS partials
 @import "components/index";

@@ -28,9 +28,10 @@
 
   &.outline {
     background-color: transparent;
-    border: 2px solid $gh-white;
+    border: 2px solid $gh-purple;
+    color: $gh-purple;
     &:hover {
-      background-color: $background-color;
+      background-color: $gh-purple;
       color: $gh-white;
     }
   }
@@ -45,25 +46,10 @@
   &.outline-purple {
     color:  $gh-purple;
     background-color: transparent;
-    border: 2px solid $gh-purple;
+
+    border: solid $gh-purple;
+    border-width: 2px;
   }
-
-  // &.a-faire {
-  //   color:  $gh-purple;
-  //   background-color: transparent;
-  //   border: 2px solid $gh-purple;
-  // }
-
-  // &.en-cours {
-  //   color:  $gh-white;
-  //   background-color: $gh-purple;
-  // }
-
-  // &.termine {
-  //   color:  $gh-white;
-  //   background-color: $gh-green;
-  //   border: 2px solid $gh-green;
-  // }
 
   &.ghost {
     background-color: transparent;
