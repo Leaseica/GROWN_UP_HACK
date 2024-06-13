@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Se lancer en freelance</title>
+    <title><%= @article.title %></title>
+    <meta name="description" content="<%= @article.description %>">
   </head>
 
   <body>
@@ -11,15 +12,21 @@
       <div class="section">
         <h1 class="title"><%= @article.title %></h1>
         <p class="subtitle"><%= @article.description %></p>
-        <p><%= @article.paragraph1.html_safe %> <!-- This will render the HTML content of the article --></p>
+        <p><%= @article.paragraph1.html_safe? %> <!-- This will render the HTML content of the article --></p>
       </div>
+
+
+        <%= raw process_raw_html_content(@article.raw_html_content) %>
+
+
+
 
       <div class="mt-5">
         <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small', style: 'background-color: $gh-purple'  %>
-        <%= button_to "Supprimer cet article", @article, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-small'%>
+        <%= button_to "Supprimer cet article", article_path(@article), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small' %>
       </div>
       <div>
-        <%= link_to 'Retour', articles_path, class: 'btn btn-small', style: 'background-color: $gh-purple' %>
+        <%= link_to 'Retour', :back, class: 'btn btn-small', style: 'background-color: $gh-purple' %>
       </div>
     </div>
   </body>

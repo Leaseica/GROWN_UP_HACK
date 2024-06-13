@@ -1,28 +1,31 @@
 <!-- app/views/users/_form.html.erb -->
-<div class="mb-5 pb-5">
-  <h3 class="title-xl text-center mt-5">Mon compte</h3>
+<div class="mb-5 px-5  py-5 bg-primary">
+  <h3 class="title xl text-center mt-5">Mon compte</h3>
 
   <div class="row justify-content-center mb-5">
     <div class="col-lg-8 order-lg-1">
-      <div class="card shadow mt-4">
+      <div class="card shadow mt-4 0">
 
-        <div class="card-body">
+        <div class="card-body px-3 py-3 pt-4">
 
-          <%= simple_form_for @user, html: { class: 'form', data: { controller: "datepicker" } } do |f| %>
+          <%= simple_form_for @user, html: {  data: { controller: "datepicker" } } do |f| %>
             <!-- Link to registrations/edit -->
 
             <h6 class="bold-l mb-4">Identifiants de connexion</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
-                  <%= f.input :email, label: 'Adresse mail', input_html: { class: 'form-control form-control-alternative' } %>
+                  <%= f.input :email, label: 'Adresse mail' %>
                 </div>
-                <div class="col-lg-6">
-                  <%= f.label 'Mot de passe', class: 'mb-2' %>
-                  <!-- Button trigger modal Modifier MDP -->
-                  <button type="button" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#PasswordModal">
-                    <i class="fa-solid fa-user-pen me-2"></i> Modifier mon mot de passe
-                  </button>
+                <div class="col-lg-5">
+                  <div class="row">
+                    <%= f.label :password, 'Mot de passe', class: 'mb-2' %>
+                     <!-- Button trigger modal Modifier MDP -->
+                    <button type="button" class="btn btn-outline ms-2" data-bs-toggle="modal" data-bs-target="#PasswordModal">
+                      <i class="fa-solid fa-user-pen me-2"></i> Modifier mon mot de passe
+                    </button>
+                  </div>
+
                 </div>
               </div>
 
@@ -34,39 +37,43 @@
             <div class="blockquote-footer">Ces informations sont enregistrées automatiquement lors de la complétion d'un formulaire dans le but de faciliter vos saisies futures. Vous avez la possibilité de désactiver cette option à tout moment.</div>
             <div class="pl-lg-4">
               <div class="row">
-                <div class="col-lg-6">
-                  <%= f.input :first_name, label: 'Prénom', input_html: { class: 'form-control form-control-alternative' } %>
+                <div class="col-lg-4">
+                  <%= f.input :first_name, label: 'Prénom' %>
+                  <%= f.input :last_name, label: 'Nom de famille' %>
                 </div>
-                <div class="col-lg-6">
-                  <%= f.input :last_name, label: 'Nom de famille', input_html: { class: 'form-control form-control-alternative' } %>
+                <div class="col-lg-4">
+                  <%= f.input :birthday, as: :string, label: 'Date de naissance', input_html: { data: { datepicker_target: "birthday" } } %>
+                   <%= f.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'form-control' } %>
                 </div>
+
               </div>
 
               <div class="row">
-                <div class="col-lg-6">
-                  <%= f.input :birthday, as: :string, label: 'Date de naissance', input_html: { class: 'form-control', type: 'date', data: { datepicker_target: "birthday" } }, wrapper: false %>
-                </div>
-                <div class="col-lg-6">
-                  <%= f.input :gender, label: 'Genre', collection: User.genders.values, prompt: 'Choisissez un genre', input_html: { class: 'form-control' } %>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-5">
                   <%= f.input :address, label: 'Adresse', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
+
+
+
               </div>
               <div class="row">
-                <div class="col-md-12">
-                  <%= f.input :occupation, label: 'Occupation', input_html: { class: 'form-control form-control-alternative' } %>
+                <div class="col-lg-2">
+                  <%= f.input :zip_code, label: 'Code postal', input_html: { class: 'form-control form-control-alternative' } %>
+                </div>
+
+                <div class="col-lg-3 ">
+                  <%= f.input :country, label: 'Pays', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' }, priority: [ "France" ] %>
+
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-lg-6">
-                  <%= f.input :nationality, label: 'Nationalité', collection: countries_list, prompt: 'Choisissez une nationalité', input_html: { class: 'form-control' }, :default => 'France' %>
+                <div class="col-lg-4">
+                  <%= f.input :occupation, label: 'Occupation', input_html: { class: 'form-control form-control-alternative' } %>
+
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                    <%= f.input :phone_number, label: 'Numéro de téléphone', input_html: { class: 'form-control form-control-alternative' } %>
                 </div>
               </div>

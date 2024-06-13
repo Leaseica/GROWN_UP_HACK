@@ -1,0 +1,66 @@
+
+.icon {
+  width: 1.5rem;
+  position: relative;
+  height: 1.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.text {
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: 150%;
+  // font-weight: 500;
+  // font-size: 1.5rem;
+
+
+}
+
+.text-done {
+  position: relative;
+  letter-spacing: -0.01em;
+  line-height: 150%;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: $gh-purple;
+}
+.icon-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  color: $gh-purple;
+  font-size: 1.2rem;
+
+  &.active {
+    color: $gh-purple;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  &.done {
+    color: $gh-purple;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  &.notstarted {
+    color: $gh-500;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 0.75rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #4a5468;
+  margin: 1rem 2rem;
+
+}

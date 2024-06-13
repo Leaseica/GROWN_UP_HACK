@@ -1,11 +1,8 @@
-<h1>Articles#new</h1>
-<p>Find me in app/views/articles/new.html.erb</p>
-<h1><%= @article.title %></h1>
+<div class="container-editor">
+  <div>
+    <%= link_to  '⬅️ ' + @article.sub_category[:name], sub_category_path(@sub_category), class: 'link-editor' %>
+  </div>
 
-<%= render "form", article: @article %>
-
-<br>
-
-<div>
-  <%= link_to @article.sub_category[:name], sub_category_path %>
+  <h1 class="text-center title-editor">📝 Nouvel article</h1>
+  <%= render "form", article: @article %> <!-- form for new and edit : app/views/articles/_form.html.erb -->
 </div>

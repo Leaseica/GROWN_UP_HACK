@@ -1,260 +1,38 @@
-.gh-body {
+.card-step {
   display: flex;
-  align-items: stretch;
   flex-direction: column;
-
-  .my-guide-section {
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-
-    .app-card {
-      border: #ddd 1px solid;
-      box-shadow: 0px 0px 32px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 24px;
-      padding: 20px;
-    }
-
-    .my-guide-heading {
-      display: flex;
-      align-items: stretch;
-      flex-direction: column;
-      padding: 0px;
-    }
-
-    .my-guide-content {
-      display: flex;
-      align-items: stretch;
-      flex-direction: column;
-
-
-
-      /* Styles des colonnes de chaque étape */
-
-      /* Styles des cartes d'étape */
-      .step-card {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        border-radius: 10px;
-        background-color: #99EBDD;
-        overflow: hidden;
-        box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
-        width: 100%;
-
-        .step-infos {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          width: 350px;
-
-          justify-content: space-between;
-          padding: 15px;
-          background-color: #99EBDD;
-          border-bottom: 1px solid #ddd;
-
-          h4 {
-            font-weight: bold;
-            padding: 8px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            max-width: 100%;
-            font-size: 17px;
-          }
-
-
-          .button {
-            position: absolute;
-            top: -12px;
-            right: 5px;
-            height: 22px;
-            border: 1px solid white;
-            border-radius: 50%;
-            padding: 0px 6px;
-            background: black;
-            color: white;
-            display: none;
-
-
-
-          }
-
-        }
-
-        .bloc-form {
-          padding: 15px;
-
-          .form-label-input {
-            margin-bottom: 10px;
-          }
-        }
-      }
-
-      /* Styles des informations d'étape */
-
-      /* Styles des boutons */
-
-      /* Styles des titres */
-
-
-      /* Styles des blocs de formulaire */
-
-
-      /* Styles des labels et des champs de saisie */
-
-
-      /* Styles du bouton de soumission */
-
-    }
+  padding: 1rem 2rem;
+  @media (max-width: 1024px) {
+    order: 2;
   }
 }
 
-.btn-submit {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+.my-guide-heading {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  padding: 0px;
 }
 
-/* Styles du survol du bouton de soumission */
-.btn-submit:hover {
-  background-color: #0056b3;
-}
 
-.steps-form {
-  border: #ddd 1px solid;
-  box-shadow: 0px 0px 32px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
 
-  .simple_form {
+
+  .form-content {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem 3rem;
+    box-shadow: 0px 0px 32px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: $gh-200;
 
-    .steps-menu {
-      display: flex;
-      flex-direction: column;
-      width: 480px;
-      padding: 32px;
-
-      #picto_identite_entreprise,
-      #picto_etablissement,
-      #picto_composition {
-        display: inline-block;
-
-        width: 50px;
-        height: 50px;
-        border-radius: 6px;
-        text-align: center;
-        margin-right: 8px;
-      }
-
-      .step-line {
-        //flex: 1;
-        height: 128px;
-        border-left: #aaa 2px solid;
-        margin-left: 24px;
-      }
-
-      a {
-        text-decoration: none;
-
-        b {
-          display: inline-block;
-          background-color: #eee;
-          width: 45px;
-          height: 45px;
-          border-radius: 25px;
-          text-align: center;
-          margin-right: 8px;
-        }
-
-        &.current {
-          text-decoration: none;
-          color: $gh-purple;
-
-          b {
-            background-color: $gh-purple;
-            color: #fff;
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-
-    .form-content {
-      display: flex;
-      flex: 1 0;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 32px;
-      border-left: #ddd 1px solid;
-
-      .step {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 32px;
-
-        .step-content {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-
-          .row-flex {
-            display: flex;
-            flex-direction: row;
-            /* changer la direction de flexbox en ligne */
-            align-items: stretch;
-            gap: 32px;
-
-            .flex1,
-            .flex2,
-            .flex3 {
-              flex: 2;
-              /* Faire en sorte que chaque flex ait la même taille */
-              display: flex;
-              flex-direction: column;
-              border-color: #99EBDD;
-
-              align-items: stretch;
-
-              .form-label-input {
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-              }
-            }
-
-            .flex1 {
-              flex:3;
-            }
-
-            /* Faites en sorte que le conteneur prenne tout l'espace disponible */
-
-          }
-
-
-        }
-
-
-      }
-
-
-    }
-
+    // Styles des boutons de navigation (suivant/précédent)
     .navigation {
       display: flex;
       flex-direction: row;
       justify-content: end;
       gap: 8px;
     }
+
   }
-}

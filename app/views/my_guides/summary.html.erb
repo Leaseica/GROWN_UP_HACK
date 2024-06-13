@@ -23,9 +23,11 @@
         <p><strong>Date de naissance:</strong> <%= @user.birthday.strftime('%d/%m/%Y') %></p>
         <p><strong>Email:</strong> <%= @user.email %></p>
         <p><strong>Genre:</strong> <%= t(@user.gender) %></p>
-        <p><strong>Nationalité:</strong> <%= @user.nationality %></p>
         <p><strong>Occupation:</strong> <%= @user.occupation %></p>
         <p><strong>Adresse:</strong> <%= @user.address %></p>
+        <p><strong>Ville:</strong> <%= @user.city %></p>
+        <p><strong>Code postal:</strong> <%= @user.zip_code %></p>
+        <p><strong>Pays:</strong> <%= @user.country %></p>
         <p><strong>Numéro de téléphone:</strong> <%= @user.phone_number %></p>
       </section>
 
@@ -35,7 +37,8 @@
         <p><strong>Type de personne:</strong> <%= @my_guide.representative_type %></p>
       </section>
         <div class="actions">
-          <%= link_to 'Éditer', edit_my_guide_path(@my_guide), class: 'btn btn-primary' %>
+          <%= link_to 'Éditer', edit_my_guide_path(@my_guide, article_id: @my_guide.article.id), class: 'btn btn-small' %>
+
           <%= link_to 'Télécharger', download_my_guide_path(@my_guide), target: "_blank", class: 'btn btn-secondary' %>
         </div>
 

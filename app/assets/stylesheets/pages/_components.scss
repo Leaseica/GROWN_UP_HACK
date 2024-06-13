@@ -1,3 +1,127 @@
+// Components import from components.scss
+@import 'components/container';
+@import 'components/stepper';
+
+// scss to transfert to components.scss
+// Define the colors for easy maintenance
+$badge-colors: (
+  purple: $gh-purple,
+  blue: $gh-blue,
+  red: $gh-red,
+  green: $gh-green,
+);
+
+// Base styling for the badge
+.badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+
+  // position: absolute;
+  // left: -18px; // Half width to center the badge on the line
+  // z-index: 1000;
+
+  @each $name, $color in $badge-colors {
+    &-#{$name} {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: $color;
+    }
+  }
+
+
+  &.completed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: $gh-purple;
+    @include fa-icon-solid($fa-var-circle-check);
+    size: 36px;
+
+  }
+  &.notstarted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: $gh-200; // Gray indicates not started step
+    color: $gh-purple;
+    border: $gh-purple 2px solid;
+
+  }
+
+  &.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: $gh-purple; // Purple indicates active step
+    color: #fff;
+  }
+  &.error {
+
+    border-color: red; // Red indicates validation errors
+
+  }
+}
+
+
+.icon {
+  width: 36px;
+  height: 36px;
+
+  &.circle-check {
+    @include fa-icon-solid($fa-var-circle-check);
+  }
+}
+
+.timeline {
+  position: relative;
+  list-style: none;
+  padding-top: 18px; // Adjust to align the line's start just below the first badge
+  padding-bottom: 18px; // Adjust to align the line's end just at the last badge
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 18px; // Start the line below the top of the first badge
+    bottom: 18px; // End the line at the bottom of the last badge
+    left: 18px; // Center the line with respect to the badges, considering their width
+    width: 2px;
+    background-color: $gh-purple; // Color of the line
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 20px 0; // Even padding for spacing between items
+
+    &:last-child {
+      padding-bottom: 0; // Remove padding at the bottom of the last item
+    }
+
+    .timeline-badge {
+      position: absolute;
+      top: 0; // Align badge top with its item container
+      left: 0; // Align badge horizontally
+      transform: translateX(-50%); // Center the badge on the line
+    }
+
+    .timeline-content {
+      margin-left: 50px; // Space for the text next to the badge
+    }
+  }
+}
+
+
 .banner {
   background: url('banner-image.jpg') no-repeat center center;
   background-size: cover;
@@ -35,6 +159,25 @@
   }
 }
 
+
+.card-gray-left {
+  border: #ddd 1px solid;
+  box-shadow: 0px 0px 32px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: $gh-200;
+  background: $gh-200;
+}
+
+.card-white-left {
+  border: #ddd 1px solid;
+  box-shadow: 0px 0px 32px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: $gh-100;
+}
+
+
 .container-components {
   max-width: 1200px;
   margin: 2rem auto;
@@ -54,8 +197,8 @@
       color: #666;
   }
 
-  .card {
-      background: #f9f9f9;
+  .card-200 {
+      background: $gh-200;
       padding: 1.5rem;
       border-radius: 0.5rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -202,13 +345,24 @@
   }
 }
 
-.title-xl {
+.title {
   color: #2D3648;
   font-size: 4rem;
-  font-family: 'Inter', sans-serif;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
+
+  &.xl {
+    font-size: 4rem;
+  }
+
+  &.lg {
+    font-size: 3rem;
+  }
+
+  &.md {
+    font-size: 2.5rem;
+  }
 }
 
 .subtitle-xl {

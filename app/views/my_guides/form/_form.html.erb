@@ -1,10 +1,53 @@
-<div class="steps-form" data-controller="edit-step">
-    <%= simple_form_for [@article, @my_guide] do |f| %>
-      <%= render "my_guides/form/step_menu", my_guide: @my_guide %>
-      <div class="form-content">
+
+<%= link_to "⬅️  Retourner sur l'article", @article, class: "link-blue " %>
+<div class="row justify-content-center mt-5">
+
+  <h1 class="title md mb-4"><%= @article.title %></h1>
+
+
+
+  <div class="col-lg-11" data-controller="edit-step datepicker">
+    <div class="mb-5">
+      <div class="col-lg-8">
+        <h3 class="bold-l">Ton guide personnalisé pour t'accompagner dans tes démarches</h3>
+        <div class="blockquote-footer">
+          <p>Les champs suivis d'une étoile (<strong class="text-danger text-large">*</strong>) sont obligatoires.</p>
+          <p>Remplissez l'ensemble des champs obligatoires de chaque section, puis validez la création de votre entreprise.</p>
+        </div>
+      </div>
+
+     <div class="stepper">
+      <div class="icon-item" data-edit-step-target="menuStep" data-action="click->edit-step#menuStepClick">
+        <div class="badge active" data-edit-step-target="icon"></div>
+        <div class="text"><i class="fa-regular fa-building me-2"></i>Identité de l'entreprise</div>
+      </div>
+      <div class="divider-between"></div>
+      <div class="icon-item notstarted" data-edit-step-target="menuStep" data-action="click->edit-step#menuStepClick">
+        <div class="badge notstarted" data-edit-step-target="icon"></div>
+        <div class="text"><i class="fa-solid fa-address-card me-2"></i>Identité de l'entrepreneur</div>
+      </div>
+      <div class="divider-between"></div>
+      <div class="icon-item notstarted" data-edit-step-target="menuStep" data-action="click->edit-step#menuStepClick">
+        <div class="badge notstarted" data-edit-step-target="icon"></div>
+        <div class="text"><i class="fa-solid fa-person-chalkboard me-2"></i>Composition</div>
+      </div>
+    </div>
+
+    </div>
+
+
+    <div class="form-content ">
+      <% form_object = @my_guide.new_record? ? [@article, @my_guide] : @my_guide %>
+      <%= simple_form_for form_object , html: {  class: 'form' } do |f| %>
         <%= render "my_guides/form/step0", my_guide: @my_guide, f: f %>
         <%= render "my_guides/form/step1", my_guide: @my_guide, f: f %>
         <%= render "my_guides/form/step2", my_guide: @my_guide, f: f %>
-      </div>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar color-progression" style="width: 5%" data-progress-bar-target="bar"></div>
+    </div>
+  </div>
 </div>

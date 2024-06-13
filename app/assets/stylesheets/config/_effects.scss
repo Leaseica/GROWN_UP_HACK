@@ -34,6 +34,11 @@ $divider-radius: 15px;
   background: $divider-bg-color;
   border-radius: $divider-radius;
   margin-bottom: 0.5rem;
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid $gh-purple
+  }
 }
 
 // Divider class with margin
@@ -44,4 +49,38 @@ $divider-radius: 15px;
   background: $divider-bg-color;
   border-radius: $divider-radius;
   margin: 1rem 0;
+}
+
+// text divider
+.divider-b {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid $gh-purple
+  }
+}
+
+.divider-a {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid $gh-purple
+  }
+}
+
+
+.divider-between {
+  flex: 1;
+  position: relative;
+  border-top: 2px solid #3f51b5;
+  box-sizing: border-box;
+  height: 0.125rem;
 }

@@ -37,3 +37,14 @@ $border-radius-sm: 5px;
 // e.g. $navbar-brand-color: $gh-blue;
 // e.g. $navbar-brand-hover-color: $gh-blue;
 // e.g. $navbar-brand-padding-y: 0.3125rem;
+$form-validation-states: (
+  "valid": (
+    "color": $gh-purple,
+    "icon": ''
+  ),
+  "invalid": (
+    "color": $gh-red,
+    "icon": ''
+  )
+);
+$input-color:$gh-blue,

@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     # Nested routes for SubCategories within Categories
     resources :sub_categories, only: [:index, :show], shallow: true do
       # Further nested routes for Articles within SubCategories
-      resources :articles, only: [:index], shallow: true
+      resources :articles, except: [:show], shallow: true
     end
   end
 
   # Routes for Articles (non-nested actions)
-  resources :articles, except: [:index] do
+  resources :articles, only: [:show] do
     # Nested routes for MyGuides related to specific Articles
     resources :my_guides, shallow: true do
       member do

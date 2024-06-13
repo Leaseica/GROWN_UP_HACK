@@ -1,46 +1,38 @@
+
 <!-- app/views/articles/_form.html.erb -->
+<% form_object = @article.new_record? ? [@sub_category, @article] : @article %>
 
-
-<%= simple_form_for @article do |f| %>
+<%= simple_form_for form_object do |f| %>
+  <%= f.hidden_field :sub_category_id, value: @sub_category.id %>
   <%= f.error_notification %>
-    <h2 class="subtitle-editor">Paramètres de l'article ⬇️</h2>
-    <div class="card-editor">
 
-      <div class="form-row">
-        <%= f.input :title, label: "Titre de l'article",
-        input_html: { class: 'form-control' },
-        label_html: { class: 'fw-bold' } %>
-      </div>
+  <h2 class="subtitle-editor">Paramètres de l'article ⬇️</h2>
+  <div class="card-editor">
+    <div class="form-row">
+      <%= f.input :title, label: "Titre de l'article", input_html: { class: 'form-control' }, label_html: { class: 'fw-bold' } %>
+    </div>
 
-
-      <div class="form-row">
-        <div class="form-group col-sm">
-          <%= f.input :description, as: :text, label: "Description de l'article", input_html: { class: 'form-control', rows: 5 },
-          label_html: { class: 'fw-bold'} %>
-        </div>
-      </div>
-
-
+    <div class="form-row">
       <div class="form-group col-sm">
-        <%= f.association :sub_category, label_method: :name, value_method: :id, label: "Sélectionner la sous-catégorie de l'article",
-        input_html: { class: 'form-control' }, prompt: @article.sub_category.name,
-        label_html: { class: 'fw-bold'}  %>
-      </div>
-
-      <div class="form-group col-sm">
-        <%= f.input :photo, as: :file,
-          label: "Ajouter une photo de couverture",
-          input_html: { class: 'form-control-file' },
-          label_html: { class: 'fw-bold'} %>
+        <%= f.input :description, as: :text, label: "Description de l'article", input_html: { class: 'form-control', rows: 5 }, label_html: { class: 'fw-bold' } %>
       </div>
     </div>
 
+    <div class="form-row">
+      <div class="form-group col-sm">
+        <%= f.input :raw_html_content, as: :text, label: "HTML Content", input_html: { class: 'form-control', rows: 15 }, label_html: { class: 'fw-bold' } %>
+      </div>
+    </div>
+
+    <div class="form-group col-sm">
+      <%= f.input :photo, as: :file, label: "Ajouter une photo de couverture", input_html: { class: 'form-control-file' }, label_html: { class: 'fw-bold' } %>
+    </div>
+  </div>
 
   <h2 class="subtitle-editor">Contenu de l'article ⬇️</h2>
   <div class="form-row">
     <div class="form-group col-sm">
-      <%= f.input :paragraph1, label: false,
-      input_html: { class: 'form-control tinymce', rows: 10 } %>
+      <%= f.input :paragraph1, label: false, input_html: { class: 'form-control tinymce', rows: 10 } %>
       <%= tinymce %>
     </div>
   </div>
@@ -51,5 +43,4 @@
       <%= f.button :button, "Save Draft", class: "btn btn-gray" %>
     </div>
   </div>
-
 <% end %>

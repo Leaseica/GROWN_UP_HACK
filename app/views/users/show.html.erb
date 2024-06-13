@@ -1,8 +1,8 @@
-<div class="container-user">
+<div class="container-m3 p-4rem">
 
   <div class="container-banner">
     <%= image_tag("avatar/cat.png", class: "avatar-bordered", alt: "avatar") %> <!-- This will display the user's avatar -->
-    <h1 class="title-xl"><%= @user.first_name %>, <%= @user.last_name %></h1>
+    <h1 class="title xl"><%= @user.first_name %>, <%= @user.last_name %></h1>
   </div>
   <!-- User's Personal Information Card -->
   <div class="profile-tab">
@@ -20,8 +20,8 @@
               <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong><%= @user.occupation %></p>
               <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
               <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
-              <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %></p>
-              <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Nationalité : </strong> <%= @user.nationality %></p>
+              <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city %> <%=  @user.zip_code%></p>
+              <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong> <%= @user.country %></p>
               <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
               <div class="divider1 mb-3 mt-4"></div>
               <%= link_to edit_user_path, class: 'btn btn-outline' do %>

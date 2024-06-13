@@ -1,35 +1,62 @@
-<div class="step step0" data-edit-step-target="step0">
-  <div class="step-content">
-    <div class="form-label-input">
-        <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
+
+<div class="step" data-edit-step-target="step">
+  <div class="row justify-content-center">
+    <%= f.input :article_id, as: :hidden, input_html: { value: @article.id } %>
+
+    <%# <--Introduction --> %>
+    <div class="col-lg-11">
+      <h6 class="bold-xl mb-4"><i class="fa-regular fa-building me-2"></i>Identité de l'entreprise</h6>
+      <div class="blockquote-footer">Pour démarrer votre activité de freelance, la première étape consiste à définir l'identité de votre entreprise. Cette section est essentielle pour définir la structure juridique et le statut fiscal de votre activité de freelance. Choisissez avec soin le type d'entreprise que vous souhaitez créer, si vous désirez bénéficier du statut de micro-entrepreneur, et indiquez toute extension internationale ou activité antérieure non salariée en France.</div>
+    </div>
+    <%#  <--Form --> %>
+    <div class="col-lg-11">
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.input :business_structure,
+              collection: MyGuide.business_structures.values,
+              label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*",
+              prompt: "Selectionne une forme parmi la liste",
+              input_html: { class: 'custom-select', data: {progress_bar_target: "input1", action: "progress-bar#first_input"} } %>
         </div>
-        <div class="form-label-input">
-          <%= f.input :business_structure, collection: MyGuide.business_structures.values, label: "Quelle est la forme de l'entreprise que vous souhaitez créer ?*", prompt: "Selectionne une forme parmi la liste", input_html: { class: 'custom-select', data: {progress_bar_target: "input1", action: "progress-bar#first_input"} } %>
-        </div>
-        <div class="form-label-input">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <%= f.input :is_micro_entrepreneur, as: :radio_buttons,
                     collection: [[true, 'Oui'], [false, 'Non']],
-                    label_method: :last, value_method: :first,
+                    label_method: :last,
+                    value_method: :first,
                     label: "L'entreprise bénéficie-t-elle du statut micro-entrepreneur ?*",
-                    include_blank: false, input_html: { data: {progress_bar_target: "input2", action: "progress-bar#second_input"} } %>
+                    include_blank: false,
+                    input_html: { data: {progress_bar_target: "input2", action: "progress-bar#second_input"} } %>
         </div>
-        <div class="form-label-input">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <%= f.input :is_business_extension, as: :radio_buttons,
                     collection: [[true, 'Oui'], [false, 'Non']],
-                    label_method: :last, value_method: :first,
+                    label_method: :last,
+                    value_method: :first,
                     label: "Extension d'une entreprise étrangère ou d'une entreprise établie dans les territoires d'Outre-mer (COM)",
-                    include_blank: false, input_html: { data: {progress_bar_target: "input3", action: "progress-bar#third_input"} } %>
+                    include_blank: false,
+                    input_html: { data: {progress_bar_target: "input3", action: "progress-bar#third_input"} } %>
         </div>
-        <div class="form-label-input">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <%= f.input :has_previous_self_employment,as: :radio_buttons,
                     collection: [[true, 'Oui'], [false, 'Non']],
-                    label_method: :last, value_method: :first,
+                    label_method: :last,
+                    value_method: :first,
                     label: "L'entrepreneur a-t-il déjà exercé une activité non salariée en France ?",
-                    include_blank: false, input_html: { data: {progress_bar_target: "input4", action: "progress-bar#fourth_input"} } %>
+                    include_blank: false,
+                    input_html: { data: {progress_bar_target: "input4", action: "progress-bar#fourth_input"} } %>
+        </div>
       </div>
-  </div>
+    </div>
 
-  <div class="navigation">
-    <button  class="btn btn-medium"  type="button" data-action="click->edit-step#next click->progress-bar#second_step">Suivant</button>
+    <%#  <--Navigation --> %>
+    <div class="navigation">
+      <button  class="btn btn-medium"  type="button" data-action="click->edit-step#next click->progress-bar#second_step">Suivant</button>
+    </div>
   </div>
 </div>

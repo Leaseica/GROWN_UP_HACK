@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
-  before_action :set_sub_category, only: %i[new create]
+  before_action :set_sub_category, only: %i[new create edit update]
   before_action :session_store, only: %i[show]
   before_action :set_breadcrumbs, only: [:show]
 
@@ -26,16 +26,18 @@ class ArticlesController < ApplicationController
   end
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = Article.new(sub_category: @sub_category)
   end
 
   # GET /articles/7/edit
   def edit
+
   end
 
   # POST /articles
   def create
     @article = Article.new(article_params)
+    @subcategory = @article.sub_category
     if @article.save
       redirect_to article_path(@article)
     else
@@ -55,9 +57,27 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/7
   def destroy
-    @article.destroy
-    redirect_to articles_url, notice: "Article was successfully destroyed."
+    @article = Article.find(params[:id])
+    sub_category_id = @article.sub_category_id
+
+    if @article.destroy
+      respond_to do |format|
+        format.html { redirect_to sub_category_path(sub_category_id), notice: 'Article was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to articles_url, alert: 'Error in deleting the article.' }
+        format.json { render json: { error: 'Error in deleting the article' }, status: :unprocessable_entity }
+      end
+    end
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |format|
+      format.html { redirect_to articles_url, alert: 'Article not found.' }
+      format.json { render json: { error: 'Article not found' }, status: :not_found }
+    end
   end
+
 
   private
 
@@ -66,7 +86,11 @@ class ArticlesController < ApplicationController
   end
 
   def set_sub_category
-    @sub_category = SubCategory.find(params[:sub_category_id])
+    if params[:sub_category_id]
+      @sub_category = SubCategory.find(params[:sub_category_id])
+    else
+      @sub_category = @article.sub_category
+    end
   end
 
   def article_params
@@ -75,6 +99,8 @@ class ArticlesController < ApplicationController
       :description,
       :paragraph1,
       :photo,
+      :sub_category_id,
+      :raw_html_content
     )
   end
 end

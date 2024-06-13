@@ -90,11 +90,30 @@
   color: $gh-100;
   font-size: 1rem;
   font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
   text-decoration: none;
   transition: color 0.3s;
+  background-color: $gh-blue;
 
   &:hover {
     color: $gh-200;
     font-weight: 700;
   }
+
+}
+
+.link-blue {
+  color: $gh-800;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $gh-blue;
+    font-weight: 700;
+  }
+
 }

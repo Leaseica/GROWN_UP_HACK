@@ -7,19 +7,20 @@ export default class extends Controller {
     console.log(this.barTarget)
     console.log(this.input1Target.value)
   }
+
   first_input() {
     console.log(this.input1Target.value)
     if (this.input1Target.value != "") {
       this.barTarget.style = "width: 7.15%"
-    } else{
-      this.barTarget.style = "width: 0%"
+    } else {
+      this.barTarget.style = "width: 5%"
     }
   }
   second_input() {
     console.log(this.input2Target.value)
     if (this.input2Target.value != "") {
       this.barTarget.style = "width: 14.3%"
-    } else{
+    } else {
       this.barTarget.style = "width: 7.15%"
     }
   }

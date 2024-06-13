@@ -1,14 +1,21 @@
 import { Controller } from "@hotwired/stimulus"
-import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
 
+import flatpickr from "flatpickr";
+// export default class extends Controller {
+
+//   connect() {
+//     flatpickr(this.element)
+//   }
+// }
 
 export default class extends Controller {
   static targets = ["birthday"]
+
   connect() {
     flatpickr(this.birthdayTarget, {
-      dateFormat: "d/m/Y",
-      altFormat: "d/m/Y",
       altInput: true,
+      altFormat: "d/m/Y",
+      dateFormat: "Y-m-d",
 
     // flatpickr(this.calendarTarget, {
     //   minDate: "today",
@@ -21,5 +28,7 @@ export default class extends Controller {
     //     this.endTarget.value = selectedDates[1].toLocaleDateString();
     //   }
     })
+
   }
+
 }
