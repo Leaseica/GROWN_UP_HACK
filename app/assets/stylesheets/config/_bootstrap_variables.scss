@@ -5,67 +5,67 @@
 // // 3. You can override them below!
 
 
-// // scss-docs-start gray-color-variables
+// scss-docs-start gray-color-variables
 
-// $white:    #fff !default;
-// $gray-100: #f8f9fa !default;
-// $gray-200: #e9ecef !default;
-// $gray-300: #dee2e6 !default;
-// $gray-400: #ced4da !default;
-// $gray-500: #adb5bd !default;
-// $gray-600: #6c757d !default;
-// $gray-700: #495057 !default;
-// $gray-800: #343a40 !default;
-// $gray-900: #212529 !default;
-// $black:    #000 !default;
-// // scss-docs-end gray-color-variables
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+// scss-docs-end gray-color-variables
 
-// // fusv-disable
-// // scss-docs-start gray-colors-map
-// $grays: (
-//   "100": $gray-100,
-//   "200": $gray-200,
-//   "300": $gray-300,
-//   "400": $gray-400,
-//   "500": $gray-500,
-//   "600": $gray-600,
-//   "700": $gray-700,
-//   "800": $gray-800,
-//   "900": $gray-900
-// ) !default;
-// // scss-docs-end gray-colors-map
-// // fusv-enable
-// // scss-docs-start color-variables
-// $blue:    #6610f2 !default;
-// $indigo:  $gh-blue !default;
-// $purple:  $gh-purple !default;
-// $pink:    #d63384 !default;
-// $red:     $gh-red !default;
-// $orange:  #fd7e14 !default;
-// $yellow:  #ffc107 !default;
-// $green:   $gh-green !default;
-// $teal:    #20c997 !default;
-// $cyan:    #0dcaf0 !default;
-// // scss-docs-end color-variables
+// fusv-disable
+// scss-docs-start gray-colors-map
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+) !default;
+// scss-docs-end gray-colors-map
+// fusv-enable
+// scss-docs-start color-variables
+$blue:    $gh-blue !default;
+$indigo:  $gh-blue !default;
+$purple:  $gh-purple !default;
+$pink:    #d63384 !default;
+$red:     $gh-red !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #41B06E!default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
+// scss-docs-end color-variables
 
-// // scss-docs-start colors-map
-// $colors: (
-//   "blue":       $blue,
-//   "indigo":     $indigo,
-//   "purple":     $purple,
-//   "pink":       $pink,
-//   "red":        $red,
-//   "orange":     $orange,
-//   "yellow":     $yellow,
-//   "green":      $green,
-//   "teal":       $teal,
-//   "cyan":       $cyan,
-//   "black":      $black,
-//   "white":      $white,
-//   "gray":       $gray-600,
-//   "gray-dark":  $gray-800
-// ) !default;
-// // scss-docs-end colors-map
+// scss-docs-start colors-map
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "black":      $black,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+) !default;
+// scss-docs-end colors-map
 
 // // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
@@ -297,29 +297,29 @@
 // ) !default;
 // // fusv-enable
 
-// // scss-docs-start theme-color-variables
-// $primary:       $blue;
-// $secondary:     $gray-600 !default;
-// $success:       $green !default;
-// $info:          $cyan !default;
-// $warning:       $yellow !default;
-// $danger:        $red !default;
-// $light:         $gray-100 !default;
-// $dark:          $gray-900 !default;
-// // scss-docs-end theme-color-variables
+// scss-docs-start theme-color-variables
+$primary:       $blue;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
+// scss-docs-end theme-color-variables
 
-// // scss-docs-start theme-colors-map
-// $theme-colors: (
-//   "primary":    $primary,
-//   "secondary":  $secondary,
-//   "success":    $success,
-//   "info":       $info,
-//   "warning":    $warning,
-//   "danger":     $danger,
-//   "light":      $light,
-//   "dark":       $dark
-// );
-// // scss-docs-end theme-colors-map
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+// scss-docs-end theme-colors-map
 
 // // scss-docs-start theme-text-variables
 // $primary-text-emphasis:   shade-color($primary, 60%) !default;
@@ -379,7 +379,7 @@
 // $enable-cssgrid:              false !default;
 // $enable-button-pointers:      true !default;
 // $enable-rfs:                  true !default;
-// $enable-validation-icons:     true !default;
+$enable-validation-icons:     false !default;
 // $enable-negative-margins:     false !default;
 // $enable-deprecation-messages: true !default;
 // $enable-important-utilities:  true !default;
@@ -389,8 +389,8 @@
 
 // // Prefix for :root CSS variables
 
-// $variable-prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
-// $prefix:                      $variable-prefix !default;
+$variable-prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix:                      $variable-prefix !default;
 
 // // Gradient
 // //
@@ -566,10 +566,10 @@
 // $component-active-bg:         $primary !default;
 
 // // scss-docs-start focus-ring-variables
-// $focus-ring-width:      .25rem !default;
-// $focus-ring-opacity:    .25 !default;
-// $focus-ring-color:      rgba($primary, $focus-ring-opacity) !default;
-// $focus-ring-blur:       0 !default;
+$focus-ring-width:      .25rem !default;
+$focus-ring-opacity:    .25 !default;
+$focus-ring-color:      rgba($primary, $focus-ring-opacity) !default;
+$focus-ring-blur:       0 !default;
 // $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color !default;
 // // scss-docs-end focus-ring-variables
 
@@ -778,6 +778,7 @@
 //   "light":      $light,
 //   "dark":       $dark,
 // ) !default;
+
 // // scss-docs-end table-loop
 
 
@@ -792,10 +793,10 @@
 // $input-btn-font-size:         $font-size-base !default;
 // $input-btn-line-height:       $line-height-base !default;
 
-// $input-btn-focus-width:         $focus-ring-width !default;
-// $input-btn-focus-color-opacity: $focus-ring-opacity !default;
+$input-btn-focus-width:         $focus-ring-width !default;
+$input-btn-focus-color-opacity: $focus-ring-opacity !default;
 // $input-btn-focus-color:         $focus-ring-color !default;
-// $input-btn-focus-blur:          $focus-ring-blur !default;
+$input-btn-focus-blur:          $focus-ring-blur !default;
 // $input-btn-focus-box-shadow:    $focus-ring-box-shadow !default;
 
 // $input-btn-padding-y-sm:      .25rem !default;
@@ -835,7 +836,7 @@
 
 // $btn-font-weight:             $font-weight-normal !default;
 // $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
-// $btn-focus-width:             $input-btn-focus-width !default;
+$btn-focus-width:             $input-btn-focus-width !default;
 // $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
 // $btn-disabled-opacity:        .65 !default;
 // $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
@@ -914,7 +915,7 @@
 // $input-focus-bg:                        $input-bg !default;
 // $input-focus-border-color:              tint-color($component-active-bg, 50%) !default;
 // $input-focus-color:                     $input-color !default;
-// $input-focus-width:                     $input-btn-focus-width !default;
+$input-focus-width:                     $input-btn-focus-width !default;
 // $input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
 
 // $input-placeholder-color:               var(--#{$prefix}secondary-color) !default;
@@ -1014,7 +1015,7 @@
 // $form-select-indicator-color:       $gray-800 !default;
 // $form-select-indicator:             url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
 
-// $form-select-feedback-icon-padding-end: $form-select-padding-x * 2.5 + $form-select-indicator-padding !default;
+// $form-select-feedback-icon-padding-end: $form-select-padding-x * 1.5 + $form-select-indicator-padding !default;
 // $form-select-feedback-icon-position:    center right $form-select-indicator-padding !default;
 // $form-select-feedback-icon-size:        $input-height-inner-half $input-height-inner-half !default;
 
@@ -1087,13 +1088,13 @@
 // $form-feedback-margin-top:          $form-text-margin-top !default;
 // $form-feedback-font-size:           $form-text-font-size !default;
 // $form-feedback-font-style:          $form-text-font-style !default;
-// $form-feedback-valid-color:         $success !default;
-// $form-feedback-invalid-color:       $danger !default;
+$form-feedback-valid-color:         $purple !default;
+$form-feedback-invalid-color:       $danger !default;
 
-// $form-feedback-icon-valid-color:    $form-feedback-valid-color !default;
-// $form-feedback-icon-valid:          url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='#{$form-feedback-icon-valid-color}' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>") !default;
-// $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
-// $form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
+$form-feedback-icon-valid-color:    $form-feedback-valid-color !default;
+$form-feedback-icon-valid:          url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='#{$form-feedback-icon-valid-color}' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>") !default;
+$form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
+$form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
 // // scss-docs-end form-feedback-variables
 
 // // scss-docs-start form-validation-colors
@@ -1104,24 +1105,24 @@
 // // scss-docs-end form-validation-colors
 
 // // scss-docs-start form-validation-states
-// $form-validation-states: (
-//   "valid": (
-//     "color": var(--#{$prefix}form-valid-color),
-//     "icon": $form-feedback-icon-valid,
-//     "tooltip-color": #fff,
-//     "tooltip-bg-color": var(--#{$prefix}success),
-//     "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity),
-//     "border-color": var(--#{$prefix}form-valid-border-color),
-//   ),
-//   "invalid": (
-//     "color": var(--#{$prefix}form-invalid-color),
-//     "icon": $form-feedback-icon-invalid,
-//     "tooltip-color": #fff,
-//     "tooltip-bg-color": var(--#{$prefix}danger),
-//     "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity),
-//     "border-color": var(--#{$prefix}form-invalid-border-color),
-//   )
-// ) !default;
+$form-validation-states: (
+  "valid": (
+    "color": var(--#{$prefix}form-valid-color),
+    "icon": $form-feedback-icon-valid,
+    "tooltip-color": #fff,
+    "tooltip-bg-color": var(--#{$prefix}success),
+    "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity),
+    "border-color": var(--#{$prefix}form-valid-border-color),
+  ),
+  "invalid": (
+    "color": var(--#{$prefix}form-invalid-color),
+    "icon": $form-feedback-icon-invalid,
+    "tooltip-color": #fff,
+    "tooltip-bg-color": var(--#{$prefix}danger),
+    "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity),
+    "border-color": var(--#{$prefix}form-invalid-border-color),
+  )
+) !default;
 // // scss-docs-end form-validation-states
 
 // // Z-index master list
