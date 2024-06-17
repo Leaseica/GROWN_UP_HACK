@@ -1,20 +1,27 @@
 // Define variables for your color scheme
-
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #00CCAA;
+// $blue:    #1B212C;
+// $indigo:  #6610f2;
+// $purple:  #6f42c1;
+// $pink:    #d63384;
+// $red:     #dc3545;
+// $orange:  #fd7e14;
+// $yellow:  #ffc107;
+// $green:   #0dcaf0;
+// $teal:    #20c997;
+// $cyan:    #0dcaf0;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
 
 // GH Brand Colours
 $gh-blue: #1B212C;
+$gh-blue-lighten: lighten($gh-blue, 10%);
+$gh-purple: #3F51B5;
+$gh-purple-darken: darken($gh-purple, 20%);
 $gh-green: #00CCAA;
 $gh-light-green: #99EBDD;
-$gh-purple: #3F51B5;
+
 $gh-light-purple: #929CD5;
+$gh-red: #DC2626;
 
 $gh-black: #000000;
 $gh-900: #1B212C;

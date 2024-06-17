@@ -7,28 +7,22 @@
   <!-- User's Personal Information Card -->
   <div class="profile-tab">
     <div class="banner-profile">
-
       <!-- Personal Information Section -->
 
       <div class="header">
 
-        <h2 class="subtitle-xl" style="color:#3F51B5">Mes informations</h2>
-
-        <div class="profile-content">
-          <div class="content">
-            <div class="container">
-              <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong><%= @user.occupation %></p>
-              <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
-              <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
-              <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city %> <%=  @user.zip_code%></p>
-              <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong> <%= @user.country %></p>
-              <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
-              <div class="divider1 mb-3 mt-4"></div>
-              <%= link_to edit_user_path, class: 'btn btn-outline' do %>
-                <i class="fa-solid fa-user-pen me-2"></i> Éditer
-              <% end %>
-            </div>
-          </div>
+        <h2 class="subtitle-xl text-brand">Mes informations</h2>
+        <div class="container">
+          <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong><%= @user.occupation %></p>
+          <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
+          <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
+          <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city %> <%=  @user.zip_code%></p>
+          <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong> <%= @user.country %></p>
+          <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
+          <div class="divider1 mb-3 mt-4"></div>
+          <%= link_to edit_user_path, class: 'btn btn-outline' do %>
+            <i class="fa-solid fa-user-pen me-2"></i> Éditer
+          <% end %>
         </div>
       </div>
 
@@ -43,7 +37,7 @@
   <div class="profile-tab">
     <div class="banner-profile">
       <div class="header">
-        <h2 class="bold-xxl" style="color:#3F51B5">Mes démarches</h2>
+        <h2 class="subtitle-xl text-brand">Mes démarches</h2>
         <div class="container">
           <div class="text-start gap-3">
             <div class="pb-2">

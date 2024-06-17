@@ -106,6 +106,7 @@ class MyGuidesController < ApplicationController
       :has_previous_self_employment,
       :representative_role,
       :representative_type,
+      # Due to its strong parameter requirements in Rails, we need to explicitly permit the nested attributes for the user model.
       user_attributes: [
         :first_name,
         :last_name,
@@ -117,8 +118,10 @@ class MyGuidesController < ApplicationController
         :phone_number,
         :gender,
         :zip_code,
-        :city
+        :city,
+        :title
       ]
+
     )
   end
 

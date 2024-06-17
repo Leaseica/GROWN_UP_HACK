@@ -26,6 +26,15 @@
 #     en:
 #       "yes": yup
 #       enabled: "ON"
+# Path: config/locales/en.yml
 
 en:
   hello: "Hello world"
+
+# Title translations
+  titles:
+    mr: "Mr"
+    mrs: "Mrs"
+    ms: "Ms"
+    miss: "Miss"
+    rather_not_say: "Rather not say"

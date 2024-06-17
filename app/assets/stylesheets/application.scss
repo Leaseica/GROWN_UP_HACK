@@ -1,34 +1,14 @@
-// Graphical variables
-@import "config/colors";
-
-@import "config/fonts";
-@import "config/bootstrap_variables";
-@import "config/effects";
-@import "config/tinymce";
-
-
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 @import "simple_calendar";
 
-// Your CSS partials
+// Graphical variables
+@import "config/index";
+
+// Your CSS files here
 @import "components/index";
-@import "components/search";
-@import "pages/show";
-@import "pages/home";
-@import "pages/article";
-@import 'pages/editor';
-@import 'pages/components';
-
-@import "components/body";
-@import "components/my_guide";
-@import "components/calendar";
-@import "components/kanban";
-@import 'components/header';
-@import 'components/main';
-@import 'components/footer';
-@import 'components/buttons';
-
-// @import 'components/responsive';
+@import "pages/index";
+@import "forms/index";
+@import 'mixins/index';

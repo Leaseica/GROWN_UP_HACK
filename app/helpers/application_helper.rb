@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def genders_list
+    I18n.t('genders').values
+  end
+
+  def titles_list
+    I18n.t('titles').except(:full_titles).values
+  end
+
   def countries_list
     common_countries = [ "France",
                         "Belgique",
