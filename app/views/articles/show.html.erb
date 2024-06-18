@@ -14,9 +14,10 @@
         <p class="subtitle"><%= @article.description %></p>
         <p><%= @article.paragraph1.html_safe? %> <!-- This will render the HTML content of the article --></p>
       </div>
+        <% if @article.raw_html_content.present? %>
+          <%= @article.raw_html_content.html_safe %>
+        <% end %>
 
-
-        <%= raw process_raw_html_content(@article.raw_html_content) %>
 
 
 

@@ -78,4 +78,8 @@ class ApplicationController < ActionController::Base
       add_breadcrumb @article.title, article_path(@article)
     end
   end
+
+
+
+
 end
