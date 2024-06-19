@@ -46,7 +46,6 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "bootstrap", "~> 5.2"
-gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
@@ -58,6 +57,12 @@ gem "simple_calendar"
 gem "breadcrumbs_on_rails"
 gem 'tinymce-rails'
 gem 'countries', require: 'countries/global'
+
+# Authentication, authorization, and user management
+gem "pundit"
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
   gem "dotenv-rails"
