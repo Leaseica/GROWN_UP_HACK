@@ -25,7 +25,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? && record.user == user
+    user.admin?
   end
 
   def destroy?

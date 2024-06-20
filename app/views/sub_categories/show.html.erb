@@ -12,9 +12,9 @@
         <% end %>
       </div>
 
-       <% if policy(@article).new? %> <%# Check if the user is authorized to create a new article %>
-        <%= link_to "new article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" %>
-      <% end %>
+
+        <%= link_to "new article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
+
 
 
 
