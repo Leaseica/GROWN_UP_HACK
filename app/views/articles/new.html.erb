@@ -1,6 +1,7 @@
+<%# new_sub_category_article GET    /sub_categories/:sub_category_id/articles/new(.:format)  %>
 <div class="container-editor">
   <div>
-    <%= link_to  '⬅️ ' + @article.sub_category[:name], sub_category_path(@sub_category), class: 'link-editor' %>
+    <%= link_to  '⬅️ ' + @sub_category[:name], sub_category_path(@sub_category), class: 'link-editor' %>
   </div>
 
   <h1 class="text-center title-editor">📝 Nouvel article</h1>

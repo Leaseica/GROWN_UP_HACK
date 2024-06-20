@@ -12,13 +12,24 @@ class SubCategoriesController < ApplicationController
   end
 
   def show
-    @sub_category = SubCategory.find(params[:id])
+    # 1. Fetch all articles belonging to the sub-category.
     @articles = @sub_category.articles
+
+    # 2. Initialize a new Article object.
+    # This is done to ensure @article is available for policy check in the view.
+    @article = Article.new
+
+    # Render the view
     if params[:query].present?
       @articles = @articles.where("title ILIKE ?", "%#{params[:query]}%")
     end
   end
 
+  def new
+    @sub_category = SubCategory.new
+    # @article = Article.new(sub_category: @sub_category)
+    # authorize @article
+  end
   private
 
   def set_category

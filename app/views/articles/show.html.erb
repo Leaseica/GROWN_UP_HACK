@@ -23,8 +23,9 @@
 
 
       <div class="mt-5">
-        <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-small', style: 'background-color: $gh-purple'  %>
-        <%= button_to "Supprimer cet article", article_path(@article), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small' %>
+        <%= link_to "Éditer",edit_article_path(@article), class: 'btn btn-small', style: 'background-color: $gh-purple' if policy(@article).edit? %> |
+        <!-- [...] -->
+        <%= button_to "Supprimer cet article", @article, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small' if policy(@article).destroy? %>
       </div>
       <div>
         <%= link_to 'Retour', :back, class: 'btn btn-small', style: 'background-color: $gh-purple' %>

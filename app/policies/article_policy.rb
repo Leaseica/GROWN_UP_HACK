@@ -16,6 +16,10 @@ class ArticlePolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    user.admin? # or any other condition that allows the user to create a new article
+  end
+
   def create?
     user.admin?
   end

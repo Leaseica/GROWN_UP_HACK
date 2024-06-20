@@ -34,14 +34,11 @@ class ArticlesController < ApplicationController
     session[:store] << params[:id] unless session[:store].include?(params[:id])
     session[:store] = session[:store].last(5) if session[:store].size > 5
   end
-  # GET /articles/new
-  def new
-    @article = Article.new(sub_category: @sub_category)
-    authorize @article
-  end
+  # GET  new_sub_category_article /sub_categories/:sub_category_id/articles/new(.:format)
 
-  # GET /articles/7/edit
-  def edit
+  # http://127.0.0.1:3000/sub_categories/5/articles/new?locale=fr
+  def new
+    @article = Article.new
     authorize @article
   end
 
@@ -49,6 +46,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @subcategory = @article.sub_category
+    @article.user = current_user
     authorize @article
     if @article.save
       redirect_to article_path(@article)
@@ -57,6 +55,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # GET /articles/7/edit
+  def edit
+    authorize @article
+  end
 
   # PATCH/PUT /articles/7
   def update
