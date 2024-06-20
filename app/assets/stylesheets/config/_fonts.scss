@@ -57,3 +57,26 @@ $size-map: (
     @include typography(nth($values, 1), 700, nth($values, 2), nth($values, 3));
   }
 }
+
+// Usage
+.title-s {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+
+  &.gh-blue {
+    color: $gh-blue;
+  }
+
+  &.gh-green {
+    color: $gh-green;
+  }
+
+  &.gh-800 {
+    color: $gh-800;
+  }
+
+  &.gh-purple {
+    color: $gh-purple;
+  }
+}

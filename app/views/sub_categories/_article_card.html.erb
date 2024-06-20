@@ -12,7 +12,12 @@
   <div class="subcategory-card">
     <div class="layer">
       <div class="content">
-        <h2 class="name">No Article Available</h2>
+        <h2 class="name">
+          <ul>
+            <% random_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
       </div>
     </div>
   </div>

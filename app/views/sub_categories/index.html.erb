@@ -11,26 +11,24 @@
       </div>
     </div>
 
-    <div class="list-card">
-      <div class="section">
-        <% if @sub_categories.any? %>
-          <% @sub_categories.each_slice(3) do |sub_category_group| %>
+
+    <div class="card-index">
+      <% if @sub_categories.any? %>
+        <% @sub_categories.each_slice(3) do |sub_category_group| %>
           <div class="section-row">
-              <% sub_category_group.each do |sub_category| %>
-                  <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "subcategory-card-link" do %>
-                    <%= render "sub_category_card", sub_category: sub_category %>
-                  <% end %>
+            <% sub_category_group.each do |sub_category| %>
+              <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "subcategory-card-link" do %>
+                <%= render "sub_category_card", sub_category: sub_category %>
               <% end %>
+            <% end %>
           </div>
-            <div class="divider">
-                <div class="line"></div>
-            </div>
-          <% end %>
-        <% else %>
-          <p class="no-result">Aucun résultat</p>
+          <div class="divider1 mb-3 mt-4"></div>
         <% end %>
-      </div>
+      <% else %>
+        <p class="title-s gh-800"><%= random_messages %></p>
+      <% end %>
     </div>
+
 
     <div>
       <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small" %>
