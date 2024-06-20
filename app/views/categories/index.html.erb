@@ -9,7 +9,7 @@
         <% end %>
       </div>
     </div>
-    <div class="list-card">
+    <div class="card-index">
       <div class="section">
         <% if @categories.any? %>
           <% @categories.each_slice(3) do |category_group| %>
@@ -20,9 +20,7 @@
                   <% end %>
               <% end %>
           </div>
-            <div class="divider">
-                <div class="line"></div>
-            </div>
+          <div class="section-row divider1 mb-3 mt-4"></div>
           <% end %>
         <% else %>
           <p class="title-s gh-800 my-5"><%= random_messages %></p>

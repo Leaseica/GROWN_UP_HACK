@@ -22,13 +22,13 @@
 
 
 
-      <div class="mt-5">
-        <%= link_to "Éditer",edit_article_path(@article), class: 'btn btn-small', style: 'background-color: $gh-purple' if policy(@article).edit? %> |
-        <!-- [...] -->
+      <div class="hstack gap-3 justify-content-center mt-5">
+        <%= link_to "📝 Éditer",edit_article_path(@article), role: 'button', class: 'btn btn-small' if policy(@article).edit? %>
+        <div class="vr"></div>
         <%= button_to "Supprimer cet article", @article, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small' if policy(@article).destroy? %>
       </div>
       <div>
-        <%= link_to 'Retour', :back, class: 'btn btn-small', style: 'background-color: $gh-purple' %>
+        <%= link_to 'Retour', :back, class: 'btn btn-small' %>
       </div>
     </div>
   </body>

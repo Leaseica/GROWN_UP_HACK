@@ -9,7 +9,6 @@
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
       </div>
-      <%= link_to "new article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
     </div>
 
 
@@ -28,6 +27,7 @@
       <% else %>
         <p class="title-s gh-800 my-5"><%= random_messages %></p>
       <% end %>
+      <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
     </div>
 
   </div>
