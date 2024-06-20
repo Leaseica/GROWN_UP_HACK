@@ -18,7 +18,7 @@ $headers-font: 'Inter', 'sans-serif';
 // }
 // $my-font: "Font Name";
 @mixin typography($size, $weight, $line-height, $letter-spacing: null, $font-style: normal) {
-  color: $gh-blue;
+  // color: $gh-blue;
   font-family: $body-font;
   font-size: $size;
   font-style: $font-style;
@@ -78,5 +78,32 @@ $size-map: (
 
   &.gh-purple {
     color: $gh-purple;
+  }
+}
+
+.title-xl {
+  font-weight: 700;
+  font-size: 2.25rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding-bottom: 10px;
+
+  &.gh-blue {
+    color: $gh-blue;
+  }
+
+  &.gh-green {
+    color: $gh-green;
+  }
+
+  &.gh-purple {
+    color: $gh-purple;
+  }
+
+  &.gh-800 {
+    color: $gh-800;
+  }
+
+  &.white {
+    color: white;
   }
 }
