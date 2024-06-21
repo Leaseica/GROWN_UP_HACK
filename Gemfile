@@ -61,8 +61,7 @@ gem 'countries', require: 'countries/global'
 # Authentication, authorization, and user management
 gem "pundit"
 gem 'devise'
-gem 'activeadmin', github: 'activeadmin/activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
 
 group :development, :test do
   gem "dotenv-rails"
