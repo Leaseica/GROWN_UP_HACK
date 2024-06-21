@@ -55,7 +55,7 @@ gem 'prawn'
 gem "geocoder"
 gem "simple_calendar"
 gem "breadcrumbs_on_rails"
-gem 'tinymce-rails'
+gem 'tinymce-rails', '~> 7.1', '>= 7.1.2.1'
 gem 'countries', require: 'countries/global'
 
 # Authentication, authorization, and user management
@@ -87,4 +87,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "sassc-rails"
