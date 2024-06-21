@@ -19,6 +19,8 @@ class ArticlesController < ApplicationController
     @subcategory = @article.sub_category
     @category = @subcategory.category
     @assos = Asso.all
+    # @platforms = @article.platforms
+    @platforms = Platform.all
     # The `geocoded` scope filters only assos with coordinates
     @markers = @assos.geocoded.map do |asso|
       {

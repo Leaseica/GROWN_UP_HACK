@@ -17,7 +17,7 @@ RailsAdmin.config do |config|
   end
 
   # == Whitelist models ==
-  config.included_models = [ "Article", "User" ]
+  # config.included_models = [ "Article", "User" ]
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
