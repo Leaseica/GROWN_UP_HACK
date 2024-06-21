@@ -1,4 +1,4 @@
-// Import your components CSS files here.
+// Import your components SCSS files here.
 @import "alert";
 @import "article_card";
 @import "avatar";
@@ -6,6 +6,7 @@
 @import "calendar";
 @import "category_card";
 @import "category_index";
+@import "cards";
 @import "container";
 @import "documents_show";
 @import "footer";
@@ -19,7 +20,5 @@
 @import "search";
 @import "step-infos";
 @import "stepper";
-@import "sub_categories_show";
-@import "subcategory_card";
 @import "summary";
 @import "users_show";

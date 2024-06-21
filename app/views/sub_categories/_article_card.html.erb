@@ -1,19 +1,8 @@
-
-<% if article %>
-  <div class="subcategory-card"
+<div class="subcategory-card"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(article.photo.key, height: 300, crop: :fill) if article&.photo %>')">
-    <div class="layer">
-      <div class="content">
-        <h2 class="name"><%= article.title %></h2>
-      </div>
+  <div class="layer">
+    <div class="content">
+      <h3 class="title-xl white"><%= article.title %></h3>
     </div>
   </div>
-<% else %>
-  <div class="subcategory-card">
-    <div class="layer">
-      <div class="content">
-        <h2 class="name">No Article Available</h2>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>

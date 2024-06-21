@@ -1,15 +1,26 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show] # Devise authentication
+  after_action :verify_authorized, except: [:index, :show]  # Pundit authorization
+  after_action :verify_policy_scoped, only: [:index]
+
   before_action :set_article, only: %i[show edit update destroy]
   before_action :set_sub_category, only: %i[new create edit update]
   before_action :session_store, only: %i[show]
   before_action :set_breadcrumbs, only: [:show]
 
-    # GET /articles/7
+  # GET /articles
+  def index
+    @articles = policy_scope(Article)
+  end
+
+  # GET /articles/7
   def show
     @article = Article.find(params[:id])
     @subcategory = @article.sub_category
     @category = @subcategory.category
     @assos = Asso.all
+    # @platforms = @article.platforms
+    @platforms = Platform.all
     # The `geocoded` scope filters only assos with coordinates
     @markers = @assos.geocoded.map do |asso|
       {
@@ -18,26 +29,27 @@ class ArticlesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { asso: asso })
       }
     end
+    authorize @article
   end
 
   def session_store
     session[:store] << params[:id] unless session[:store].include?(params[:id])
     session[:store] = session[:store].last(5) if session[:store].size > 5
   end
-  # GET /articles/new
+  # GET  new_sub_category_article /sub_categories/:sub_category_id/articles/new(.:format)
+
+  # http://127.0.0.1:3000/sub_categories/5/articles/new?locale=fr
   def new
-    @article = Article.new(sub_category: @sub_category)
-  end
-
-  # GET /articles/7/edit
-  def edit
-
+    @article = Article.new
+    authorize @article
   end
 
   # POST /articles
   def create
     @article = Article.new(article_params)
     @subcategory = @article.sub_category
+    @article.user = current_user
+    authorize @article
     if @article.save
       redirect_to article_path(@article)
     else
@@ -45,9 +57,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # GET /articles/7/edit
+  def edit
+    authorize @article
+  end
 
   # PATCH/PUT /articles/7
   def update
+    authorize @article
     if @article.update(article_params)
       redirect_to @article, notice: "article was successfully updated."
     else
@@ -59,7 +76,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     sub_category_id = @article.sub_category_id
-
+    authorize @article
     if @article.destroy
       respond_to do |format|
         format.html { redirect_to sub_category_path(sub_category_id), notice: 'Article was successfully destroyed.' }

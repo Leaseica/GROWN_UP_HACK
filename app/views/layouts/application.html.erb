@@ -30,17 +30,19 @@
     <%= render "shared/navbar" %>
     <%# <%= render "shared/flashes" %>
 
-  <% unless controller_name == "pages" && action_name == "home" || controller_name == "my_guides" || controller_name == "users" || request.path == root_path || request.path == new_user_session_path || request.path == new_user_registration_path %>
+  <% unless controller_name == "pages" && action_name == "home" ||
+  controller_name == "my_guides" ||
+  controller_name == "users" ||
+  request.path == root_path ||
+  request.path == new_user_session_path ||
+  request.path == new_user_registration_path ||
+  controller_name == "articles" && action_name == "edit" ||
+  controller_name == "articles" && action_name == "new" %>
+
     <nav class="p-3 bg-transparent" aria-label="breadcrumb">
       <%= render_breadcrumbs :separator => ' / ' %>
     </nav>
   <% end %>
-
-
-
-
-
-
 
     <%= yield %>
     <%= render 'shared/footer' %>

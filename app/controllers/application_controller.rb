@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  include Pundit::Authorization
 
   before_action :initialize_session_store
 
@@ -30,9 +31,14 @@ class ApplicationController < ActionController::Base
     session[:store] ||= []
   end
 
-
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(request.referrer || root_path)
+  end
 
   def set_breadcrumbs
     add_breadcrumb '<i class="fa-solid fa-house"></i>'.html_safe, :root_path

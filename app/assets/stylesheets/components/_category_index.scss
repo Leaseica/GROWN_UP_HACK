@@ -7,10 +7,10 @@
   gap: 40px;
   align-self: stretch;
   background: var(--linear-gray, #FFF);
-  h1{
+
+  h1 {
     color: var(--WF-Base-800, #2D3648);
     /* Headings/Heading XXL */
-    font-family: Inter;
     font-size: 56px;
     font-style: normal;
     font-weight: 700;
@@ -18,14 +18,11 @@
     letter-spacing: 0.56px;
     text-align: center;
   }
-  h2{
+  h2 {
     color: var(--WF-Base-800, #2D3648);
     text-align: center;
     font-feature-settings: 'calt' off;
-
-
     /* Body/Regular/Text XL */
-    font-family: Inter;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -36,8 +33,7 @@
     display: flex;
     flex-direction: row;
     display: flex;
-    width: 1295px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-start;
     gap: 24px;
 

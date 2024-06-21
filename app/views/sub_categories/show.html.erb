@@ -1,6 +1,4 @@
 <div id="show_sub_categories" class="index">
-
-
   <div class="gh_section">
     <div class="row justify-content-center">
       <h1 style="padding-bottom: 30px"><%= @sub_category.name %></h1>
@@ -11,27 +9,26 @@
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
       </div>
-
-      <%= link_to "new article",  new_sub_category_article_path(@sub_category), class: "btn btn-primary" %>
     </div>
 
-    <div class="list-card">
-      <div class="section">
-        <% if @articles.any? %>
-          <% @articles.each_slice(3) do |article_group| %>
+
+    <div class="card-index">
+      <% if @articles.any? %>
+        <% @articles.each_slice(3) do |article_group| %>
           <div class="section-row">
-              <% article_group.each do |article| %>
-                  <%= link_to article_path(article), class: "subcategory-card-link", data: {turbo_prefetch: false} do %>
-                    <%= render "article_card", article: article%>
-                  <% end %>
+            <% article_group.each do |article| %>
+              <%= link_to article_path(article), class: "subcategory-card-link", data: {turbo_prefetch: false} do %>
+                <%= render "article_card", article: article %>
               <% end %>
+            <% end %>
           </div>
-          <div class="divider1"></div>
-          <% end %>
-        <% else %>
-          <p class="no-result">Aucun résultat</p>
+          <div class="divider1 mb-3 mt-4"></div>
         <% end %>
-      </div>
+      <% else %>
+        <p class="title-s gh-800 my-5"><%= random_messages %></p>
+      <% end %>
+      <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
     </div>
+
   </div>
 </div>
