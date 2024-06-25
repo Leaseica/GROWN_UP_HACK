@@ -26,7 +26,7 @@ menubar: 'file edit view insert format tools table help'
 toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl"
 
 # image_list: 'documents.jpg'
-content_css: '/richtext.css'
+
 # importcss_append: true
 image_caption: true
 image_advtab: true

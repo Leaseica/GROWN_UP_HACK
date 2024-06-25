@@ -43,7 +43,8 @@
             <div class="pb-2">
               <h3 class="bold-xl mb-2">Formulaire en cours</h3>
               <% if @my_guide.user_id.present? %>
-                  <% <h5 class="regular-l"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i> <%= link_to 'Mon formulaire',summary_my_guide_path(@my_guide)</h5> %>
+                  <h5 class="regular-l"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>
+                  <%= link_to 'Mon formulaire',summary_my_guide_path(@my_guide) %></h5>
               <% end %>
             </div>
             <h3 class="bold-xl mt-4">Articles récemment consultés</h3>
