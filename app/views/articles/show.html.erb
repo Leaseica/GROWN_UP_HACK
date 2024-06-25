@@ -12,7 +12,7 @@
       <div class="section">
         <h1 class="title"><%= @article.title %></h1>
         <p class="subtitle"><%= @article.description %></p>
-        <p><%= @article.paragraph1.html_safe? %> <!-- This will render the HTML content of the article --></p>
+        <p><%= @article.paragraph1.html_safe %> <!-- This will render the HTML content of the article --></p>
       </div>
         <% if @article.raw_html_content.present? %>
           <%= @article.raw_html_content.html_safe %>
