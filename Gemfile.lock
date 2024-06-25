@@ -121,8 +121,6 @@ GEM
     countries (5.7.2)
       unaccent (~> 0.3)
     crass (1.0.6)
-    cssbundling-rails (1.4.0)
-      railties (>= 6.0.0)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -366,7 +364,6 @@ DEPENDENCIES
   capybara
   cloudinary
   countries
-  cssbundling-rails
   debug
   devise
   dotenv-rails
