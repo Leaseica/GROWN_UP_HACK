@@ -15,4 +15,39 @@ ActiveAdmin.register User do
   #   permitted
   # end
 
+  filter :email
+  filter :city
+  filter :country
+  filter :admin
+
+  index do
+    selectable_column
+    id_column
+    column :email
+    column :city
+    column :country
+    column :admin
+    actions
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :admin
+      f.input :email
+      f.input :title, as: :select, collection: titles_list
+      f.input :first_name
+      f.input :last_name
+      f.input :gender, as: :select, collection: genders_list
+      f.input :occupation
+      f.input :address
+      f.input :zip_code
+      f.input :city
+      f.input :country
+      f.input :birthday
+      f.input :phone_number
+
+    end
+    f.actions
+  end
+
 end

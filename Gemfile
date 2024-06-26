@@ -57,6 +57,7 @@ gem "simple_calendar"
 gem "breadcrumbs_on_rails"
 gem 'tinymce-rails', '~> 7.1', '>= 7.1.2.1'
 gem 'countries', require: 'countries/global'
+gem 'country_select', '~> 8.0'
 
 # Authentication, authorization, and user management
 gem "pundit"

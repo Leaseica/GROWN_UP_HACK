@@ -11,7 +11,13 @@ class User < ApplicationRecord
   validates :phone_number, format: { with: /\A(\+33\d{9}|(\+\d{1,3}\s?(\(\d{1,3}\))?\s?\d{3}[\s.-]?\d{3}[\s.-]?\d{4})|(0\d{9}))\z/ }
   validates :zip_code, format: { with: /\A\d{5}\z/ }
 
+  def self.ransackable_associations(auth_object = nil)
+    ["my_guides", "reminders"]
+  end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["address", "admin", "birthday", "city", "country", "created_at", "email", "encrypted_password", "first_name", "gender", "id", "id_value", "last_name", "occupation", "phone_number", "remember_created_at", "reset_password_sent_at", "reset_password_token", "title", "updated_at", "zip_code"]
+  end
 
   def full_name
     components = [first_name, last_name&.capitalize].compact.join(' ')

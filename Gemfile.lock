@@ -129,6 +129,8 @@ GEM
     connection_pool (2.4.1)
     countries (5.7.2)
       unaccent (~> 0.3)
+    country_select (8.0.3)
+      countries (~> 5.0)
     crass (1.0.6)
     csv (3.3.0)
     date (3.3.4)
@@ -388,6 +390,7 @@ DEPENDENCIES
   capybara
   cloudinary
   countries
+  country_select (~> 8.0)
   debug
   devise
   dotenv-rails

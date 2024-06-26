@@ -119,7 +119,10 @@
           <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Procuration signée de la personne pour le compte de laquelle le mandataire effectue la formalité</li>
         </ul>
         <a href="/articles/84/my_guides/new" class="btn btn-primary mt-3">Commencer mes démarches</a>
+        <%= link_to 'Commencer mes démarches', new_article_my_guide_path(article_id: @article.id), class: 'btn btn-primary' %>
       </div>
+      <a href="/articles/ARTICLE_ID/my_guides/new" class="btn btn-primary">Commencer mes démarches</a>
+
 
       <div class="article-title mt-5">Aller plus loin</div>
       <!-- Platformes d'entraides -->

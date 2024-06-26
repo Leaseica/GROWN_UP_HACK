@@ -17,10 +17,49 @@ ActiveAdmin.register Article do
   filter :title
   filter :description
   filter :sub_category
-  filter :articles_platforms, as: :select, collection: -> { ArticlesPlatform.all }
-  filter :photo_attachment, as: :boolean, label: "Has Photo" do |articles|
-    articles.where.not(photo_attachment: nil)
+  filter :platforms, as: :select, collection: -> { Platform.all }
+  filter :created_at
+  filter :updated_at
+  filter :paragraph1
+  filter :raw_html_content
+  filter :my_guides, as: :select, collection: -> { MyGuide.all.map { |my_guide| [my_guide.user.email, my_guide.id] } }
+
+
+
+
+
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :description
+    column :sub_category
+    column :paragraph1
+    column :raw_html_content
+    column :created_at
+    column :updated_at
+    column :my_guides do |article|
+      article.my_guides.map { |my_guide| my_guide.user.email }.join(', ').html_safe
+    end
+    column :platforms do |article|
+      article.platforms.map { |platform| platform.name }.join(', ').html_safe
+    end
+
+    actions
   end
+
   # remove_filter :photo
 
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :description
+      f.input :sub_category
+      f.input :paragraph1
+      f.input :raw_html_content
+      f.input :platforms, as: :select, collection: Platform.all
+      f.input :photo, as: :file
+    end
+    f.actions
+  end
 end

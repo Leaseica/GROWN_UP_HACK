@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_26_142136) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_26_163314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,7 +104,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_142136) do
     t.boolean "has_previous_self_employment"
     t.string "representative_role"
     t.string "representative_type"
-    t.string "titre"
+    t.string "title"
     t.index ["article_id"], name: "index_my_guides_on_article_id"
     t.index ["user_id"], name: "index_my_guides_on_user_id"
   end

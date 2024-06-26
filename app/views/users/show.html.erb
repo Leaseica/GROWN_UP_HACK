@@ -15,7 +15,9 @@
         <div class="container">
           <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong><%= @user.occupation %></p>
           <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
-          <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong> <%= l(@user.birthday, format: "%d %B %Y") %></p>
+          <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong>
+          <%= @user.birthday.present? ? l(@user.birthday, format: :long) : 'Non spécifiée' %>
+          </p>
           <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city %> <%=  @user.zip_code%></p>
           <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong> <%= @user.country %></p>
           <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
@@ -42,7 +44,7 @@
           <div class="text-start gap-3">
             <div class="pb-2">
               <h3 class="bold-xl mb-2">Formulaire en cours</h3>
-              <% if @my_guide.user_id.present? %>
+              <% if @my_guide.present? %>
                   <h5 class="regular-l"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>
                   <%= link_to 'Mon formulaire',summary_my_guide_path(@my_guide) %></h5>
               <% end %>
@@ -70,7 +72,16 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-reminder-tab" data-bs-toggle="tab" data-bs-target="#nav-reminder" type="button" role="tab" aria-controls="nav-reminder" aria-selected="true">Mes tâches</button>
       <button class="nav-link" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Mon calendrier</button>
-      <button class="nav-link" id="nav-calendar-tab" data-bs-target="#nav-calendar" type="button" aria-selected="false"><%= link_to 'Nouvelle tâche ', new_my_guide_reminder_path(my_guide_id: @my_guide.id), class: 'btn btn-small' %></button>
+
+      <% if @my_guide %>
+        <button class="nav-link" id="nav-calendar-tab" data-bs-target="#nav-calendar" type="button" aria-selected="false">
+          <%= link_to 'Nouvelle tâche ', new_my_guide_reminder_path(my_guide_id: @my_guide.id), class: 'btn btn-small' %>
+        </button>
+      <% else %>
+        <!-- Optionally provide a fallback message or action -->
+        <button class="nav-link disabled" type="button">Nouvelle tâche</button>
+      <% end %>
+
     </div>
   </nav>
 
