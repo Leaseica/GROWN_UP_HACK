@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_155946) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_26_163314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -90,7 +104,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_155946) do
     t.boolean "has_previous_self_employment"
     t.string "representative_role"
     t.string "representative_type"
-    t.string "titre"
+    t.string "title"
     t.index ["article_id"], name: "index_my_guides_on_article_id"
     t.index ["user_id"], name: "index_my_guides_on_user_id"
   end

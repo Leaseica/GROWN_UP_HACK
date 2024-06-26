@@ -11,6 +11,8 @@ class MyGuidesController < ApplicationController
   def new
     @my_guide = MyGuide.new
     @my_guide.user = current_user
+    @my_guide.article = @article
+
   end
 
   # GET my_guides/1
@@ -100,6 +102,8 @@ class MyGuidesController < ApplicationController
   def my_guide_params
     params.require(:my_guide).permit(
       :article_id,
+      :user_id,
+      :title,
       :business_structure,
       :is_micro_entrepreneur,
       :is_business_extension,

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :set_breadcrumbs, unless: -> { controller_name == "pages" && action_name == "home" || controller_name == "users"}
+  before_action :set_breadcrumbs, unless: -> { controller_name == "pages" && action_name == "home" || controller_name == "users" }
 
   before_action :set_locale
 
@@ -74,14 +74,16 @@ class ApplicationController < ActionController::Base
         add_breadcrumb @sub_category.name
       end
 
-    elsif controller_name == "articles"
-      add_breadcrumb "Toutes les catégories", categories_path
-      @article = Article.find(params[:id])
-      @sub_category = @article.sub_category
-      @category = @sub_category.category
-      add_breadcrumb @category.name, category_sub_categories_path(@category)
-      add_breadcrumb @sub_category.name, sub_category_path(@sub_category)
-      add_breadcrumb @article.title, article_path(@article)
+    # elsif controller_name == "articles"
+      #   add_breadcrumb "Toutes les catégories", categories_path
+      # if params[:article_id]
+      #   @article = Article.find(params[:article_id])
+      # @article = Article.find(params[:id])
+      # @sub_category = @article.sub_category
+      # @category = @sub_category.category
+      # add_breadcrumb @category.name, category_sub_categories_path(@category)
+      # add_breadcrumb @sub_category.name, sub_category_path(@sub_category)
+      # add_breadcrumb @article.title, article_path(@article)
     end
   end
 

@@ -10,7 +10,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
+    Rails.logger.info "Params: #{params.inspect}"
     @articles = policy_scope(Article)
+    @articles = Article.includes(photo_attachment: :blob).all
   end
 
   # GET /articles/7

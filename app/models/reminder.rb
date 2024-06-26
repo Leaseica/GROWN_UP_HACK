@@ -15,21 +15,13 @@ class Reminder < ApplicationRecord
     (end_time.to_date - start_time.to_date).to_i >= 1
   end
 
-  # enum status: { todo: 0, in_progress: 1, done: 2 }
-
-  # # Définition de scopes pour les rappels selon leur statut
-  # scope :todo, -> { where(status: :todo) }
-  # scope :in_progress, -> { where(status: :in_progress) }
-  # scope :done, -> { where(status: :done) }
-
-  # enum status: {
-  #   not_started: 'À faire',
-  #   in_progress: 'En cours',
-  #   done: 'Terminé'
-  # }
   STATUS = ['À faire', 'En cours', 'Terminé']
   validates :status, inclusion: {in: Reminder::STATUS}
   def status_class(status)
     status.parameterize(separator: '-')
+  end
+
+   def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "description", "end_time", "id", "id_value", "my_guide_id", "start_time", "status", "title", "updated_at", "url", "user_id"]
   end
 end

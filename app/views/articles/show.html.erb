@@ -17,6 +17,7 @@
         <% if @article.raw_html_content.present? %>
           <%= @article.raw_html_content.html_safe %>
         <% end %>
+        <%= link_to 'Commencer mes démarches', new_article_my_guide_path(article_id: @article.id), class: 'btn btn-primary' %>
 
       <% @platforms.each do |platform| %>
         <div class="platform">

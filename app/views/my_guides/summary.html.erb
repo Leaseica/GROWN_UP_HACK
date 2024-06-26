@@ -1,8 +1,9 @@
 <!-- views/my_guides/summary.html.erb -->
 
 <div class="my-guide-summary">
-  <h2 class="bold-xxl">Récapitulatif de Mes Démarches URSSAF</h2>
-  <%= link_to "Retourner sur l'article", @article, class:"back-article" %>
+  <%= link_to "⬅️ Retourner sur l'article", @article, class: "mb-2" %>
+  <h2 class="bold-xxl mt-4">Récapitulatif de Mes Démarches URSSAF</h2>
+
   <div class= "container-global">
 
 
@@ -20,9 +21,9 @@
         <h3 class="bold-xl">Identité de l'entrepreneur</h3>
         <p><strong>Prénom:</strong> <%= @user.first_name %></p>
         <p><strong>Nom:</strong> <%= @user.last_name %></p>
-        <p><strong>Date de naissance:</strong> <%= @user.birthday.strftime('%d/%m/%Y') %></p>
+        <p><strong>Date de naissance:</strong> <%= @user.birthday.present? ? l(@user.birthday, format: :long) : 'Non spécifiée' %></p>
         <p><strong>Email:</strong> <%= @user.email %></p>
-        <p><strong>Genre:</strong> <%= t(@user.gender) %></p>
+        <p><strong>Genre:</strong> <%= @user.gender %></p>
         <p><strong>Occupation:</strong> <%= @user.occupation %></p>
         <p><strong>Adresse:</strong> <%= @user.address %></p>
         <p><strong>Ville:</strong> <%= @user.city %></p>

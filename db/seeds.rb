@@ -123,6 +123,7 @@ my_guides = [
   {
     article: article1,
     user: user1,
+    title: "Guide pour devenir freelance",
     business_structure: "Entrepreneur individuel",
     is_micro_entrepreneur: true,
     is_business_extension: false,
@@ -133,6 +134,7 @@ my_guides = [
   {
     article: article2,
     user: user2,
+    title: "Guide pour les freelances",
     business_structure: "Personne morale",
     is_micro_entrepreneur: false,
     is_business_extension: true,
