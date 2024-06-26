@@ -61,7 +61,7 @@ gem 'countries', require: 'countries/global'
 # Authentication, authorization, and user management
 gem "pundit"
 gem 'devise'
-gem "rails_admin", "3.0" # Admin interface
+gem 'activeadmin' # Admin interface
 
 group :development, :test do
   gem "dotenv-rails"
