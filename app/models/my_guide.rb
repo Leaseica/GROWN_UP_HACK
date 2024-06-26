@@ -21,4 +21,12 @@ class MyGuide < ApplicationRecord
     legal_person: 'Personne morale'
   }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["article_id", "business_structure", "created_at", "has_previous_self_employment", "id", "id_value", "is_business_extension", "is_micro_entrepreneur", "representative_role", "representative_type", "titre", "updated_at", "user_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["article", "user", "reminders", "photo"]
+  end
+
 end

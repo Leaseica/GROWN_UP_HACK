@@ -100,6 +100,8 @@ class MyGuidesController < ApplicationController
   def my_guide_params
     params.require(:my_guide).permit(
       :article_id,
+      :user_id,
+      :titre,
       :business_structure,
       :is_micro_entrepreneur,
       :is_business_extension,
