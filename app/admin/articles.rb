@@ -5,7 +5,7 @@ ActiveAdmin.register Article do
   #
   # Uncomment all parameters which should be permitted for assignment
 
-  permit_params :title, :description, :sub_category_id, :paragraph1, :raw_html_content
+  permit_params :title, :description, :sub_category_id, :paragraph1, :raw_html_content, :photo
 
   # or
 
@@ -44,11 +44,14 @@ ActiveAdmin.register Article do
     column :platforms do |article|
       article.platforms.map { |platform| platform.name }.join(', ').html_safe
     end
+    column :photo do |article|
+      image_tag url_for(article.photo), size: "100x100"
+    end
 
     actions
   end
 
-  # remove_filter :photo
+  remove_filter :photo
 
   form do |f|
     f.inputs do

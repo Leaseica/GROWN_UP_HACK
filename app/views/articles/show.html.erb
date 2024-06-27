@@ -13,6 +13,7 @@
         <h1 class="title"><%= @article.title %></h1>
         <p class="subtitle"><%= @article.description %></p>
         <p><%= @article.paragraph1.html_safe %> <!-- This will render the HTML content of the article --></p>
+        <p><%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill if @article.photo.attached? %></p>
       </div>
         <% if @article.raw_html_content.present? %>
           <%= @article.raw_html_content.html_safe %>

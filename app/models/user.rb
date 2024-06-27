@@ -7,12 +7,13 @@ class User < ApplicationRecord
   has_many :my_guides, dependent: :destroy
   accepts_nested_attributes_for :my_guides
   has_many :reminders
+  has_one_attached :file
 
   validates :phone_number, format: { with: /\A(\+33\d{9}|(\+\d{1,3}\s?(\(\d{1,3}\))?\s?\d{3}[\s.-]?\d{3}[\s.-]?\d{4})|(0\d{9}))\z/ }
   validates :zip_code, format: { with: /\A\d{5}\z/ }
 
   def self.ransackable_associations(auth_object = nil)
-    ["my_guides", "reminders"]
+    ["my_guides", "reminders", "file_attachment", "file_blob"]
   end
 
   def self.ransackable_attributes(auth_object = nil)
