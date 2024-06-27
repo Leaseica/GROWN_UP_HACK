@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :first_name, :last_name, :occupation, :address, :birthday, :country, :phone_number, :gender, :city, :zip_code, :title, :admin
+  permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :first_name, :last_name, :occupation, :address, :birthday, :country, :phone_number, :gender, :city, :zip_code, :title, :admin, :file
   #
   # or
   #
@@ -27,6 +27,15 @@ ActiveAdmin.register User do
     column :city
     column :country
     column :admin
+    column :full_name
+    column :file do |user|
+      if user.file.attached?
+        link_to user.file.filename, rails_blob_path(user.file, disposition: "attachment")
+      else
+        "No file attached"
+      end
+    end
+
     actions
   end
 
@@ -45,6 +54,7 @@ ActiveAdmin.register User do
       f.input :country
       f.input :birthday
       f.input :phone_number
+      f.input :file, as: :file
 
     end
     f.actions

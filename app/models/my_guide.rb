@@ -26,7 +26,7 @@ class MyGuide < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["article", "user", "reminder", "photo"]
+    ["article", "user", "reminder", "photo_attachment", "photo_blob"]
   end
 
 end

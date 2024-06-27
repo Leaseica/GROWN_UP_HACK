@@ -21,7 +21,11 @@ class Reminder < ApplicationRecord
     status.parameterize(separator: '-')
   end
 
-   def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_associations(auth_object = nil)
+    ["my_guide", "user"]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
     ["created_at", "description", "end_time", "id", "id_value", "my_guide_id", "start_time", "status", "title", "updated_at", "url", "user_id"]
   end
 end

@@ -7,14 +7,12 @@
   "administratif" => "cat_admin.jpg"
 } %>
 
-<% category_images.each do |category_name, image_name| %>
-  <% if category.name.downcase == category_name %>
-    <div class="category-card" style="background-image: url('<%= image_path(image_name) %>')">
-      <div class="layer">
-        <div class="content">
-          <h3 class="title-xl white"><%= category.name %></h3>
-        </div>
-      </div>
+
+<div class="subcategory-card"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key, height: 300, width: 400, crop: :fill if category.photo.attached? %>')">
+  <div class="layer">
+    <div class="content">
+      <h3 class="title-xl white"><%= category.name %></h3>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
