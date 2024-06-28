@@ -32,6 +32,7 @@ class ArticlesController < ApplicationController
       }
     end
     authorize @article
+    # @article_content = process_raw_html_content(@article.raw_html)
   end
 
   def session_store

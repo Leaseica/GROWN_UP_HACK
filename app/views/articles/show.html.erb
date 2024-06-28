@@ -15,23 +15,42 @@
         <p><%= @article.paragraph1.html_safe %> <!-- This will render the HTML content of the article --></p>
         <p><%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill if @article.photo.attached? %></p>
       </div>
-        <% if @article.raw_html_content.present? %>
-          <%= @article.raw_html_content.html_safe %>
-        <% end %>
-        <%= link_to 'Commencer mes démarches', new_article_my_guide_path(article_id: @article.id), class: 'btn btn-primary' %>
+      <div class="container py-5">
+        <div data-controller="insert-button" data-article-id="<%= @article.id %>">
+          <div data-insert-button-target="content">
+            <% if @article.raw_html_content.present? %>
+              <%= process_raw_html_content(@article.raw_html_content)%>
+            <% end %>
+          </div>
 
-      <% @platforms.each do |platform| %>
-        <div class="platform">
-          <h2><%= platform.name %></h2>
-          <p><%= platform.description %></p>
-          <p><%= platform.url %></p>
-          <% if platform.logo.present? %>
-            <p><img src="<%= platform.logo %>" alt="<%= platform.name %> logo" style="max-width: 100px; max-height: 100px;"></p>
-          <% end %>
         </div>
-      <% end %>
 
+        <% if @platforms.present? %>
+          <h2>Plateformes</h2>
+          <!-- Plateformes de freelance -->
+          <div class="mt-5">
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleFreelance1" aria-expanded="false" aria-controls="toggleFreelance1">
+            Les plateformes de freelancetest ⬇️
+            </button>
+            <div class="collapse" id="toggleFreelance1">
+              <div class="card-article">
+                <% @platforms.each do |platform| %>
+                  <div class="d-flex align-items-center mb-3">
+                    <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
+                      <% if platform.logo.present? %>
+                        <p><img src="<%= platform.logo %>" alt="<%= platform.name %> logo" style="max-width: 67px; max-height: 67px;"></p>
+                      <% end %>
+                    <% end %>
+                    <p><strong><%= platform.name %></strong> <%= platform.description %></p>
+                  </div>
+                <% end %>
 
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
       <div class="hstack gap-3 justify-content-center mt-5">
         <%= link_to "📝 Éditer",edit_article_path(@article), role: 'button', class: 'btn btn-small' if policy(@article).edit? %>
         <div class="vr"></div>
