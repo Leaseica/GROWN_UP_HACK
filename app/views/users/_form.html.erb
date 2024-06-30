@@ -153,12 +153,12 @@
                         label: "Confirmer le mot de passe",
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <%= f.button :submit, "Sauvegarder", class:'btn btn-small' %>
+          </div>
+          <% end %>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <%= f.button :submit, "Sauvegarder", class:'btn btn-small' %>
-        </div>
-        <% end %>
       </div>
     </div>
   </div>

@@ -43,7 +43,8 @@ fr:
       not_found_in_database: "%{authentication_keys} ou mot de passe incorrect."
       timeout: Votre session est expirée, veuillez vous reconnecter pour continuer.
       unauthenticated: Vous devez vous connecter ou vous enregistrer pour continuer.
-      unconfirmed: Vous devez confirmer votre compte par email.
+      unconfirmed: Vous devez confirmer votre compte par email pour continuer.
+
     mailer:
       confirmation_instructions:
         action: Confirmer mon email
@@ -109,12 +110,13 @@ fr:
       update_needs_confirmation: Vous avez bien modifié votre compte, mais nous devons vérifier votre nouvelle adresse email. Veuillez consulter vos emails et cliquer sur le lien de confirmation pour confirmer votre nouvelle adresse.
       updated: Votre compte a bien été modifié.
       updated_but_not_signed_in: Votre compte a été mis à jour avec succès. Vous devez vous reconnecter car votre mot de passe a été modifié.
+      is_invalid: "%{authentication_keys} ou mot de passe incorrect."
     sessions:
       already_signed_out: Déconnecté(e).
       new:
         sign_in: Connexion
-      signed_in: Connecté(e).
-      signed_out: Déconnecté(e).
+      signed_in: Connecté(e) ✨.
+      signed_out: Déconnecté(e) ✨.
     shared:
       links:
         back: Retour
@@ -127,6 +129,7 @@ fr:
       minimum_password_length:
         one: "(%{count} caractère au moins)"
         other: "(%{count} caractères au moins)"
+
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déblocage
@@ -135,11 +138,42 @@ fr:
       unlocked: Votre compte a bien été déverrouillé. Veuillez vous connecter.
   errors:
     messages:
+      invalid: n'est pas valide
       already_confirmed: a déjà été confirmé(e)
       confirmation_period_expired: doit être confirmé(e) en %{period}, veuillez en demander un(e) autre
       expired: est expiré, veuillez en demander un autre
       not_found: n'a pas été trouvé(e)
       not_locked: n'était pas verrouillé(e)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est2 trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
       not_saved:
-        one: "une erreur a empêché ce (cet ou cette) %{resource} d'être enregistré(e) :"
-        other: "%{count} erreurs ont empêché ce (cet ou cette) %{resource} d'être enregistré(e) :"
+          one: "une erreur à corriger :"
+          other: "%{count} erreurs à corriger :"
+      blank: "ne peut pas être vide"
+      taken: "est déjà pris(e)"
+      not_found_in_database: "n'a pas été trouvé(e) dans la base de données"
+      invalid_token: "n'est pas valide"
+      match: "ne correspond pas à %{attribute}"
+      not_an_integer: "doit être un nombre entier"
+      not_a_number: "n'est pas un nombre"
+      greater_than: "doit être supérieur(e) à %{count}"
+      greater_than_or_equal_to: "doit être supérieur(e) ou égal(e) à %{count}"
+      equal_to: "doit être égal(e) à %{count}"
+      less_than: "doit être inférieur(e) à %{count}"
+      less_than_or_equal_to: "doit être inférieur(e) ou égal(e) à %{count}"
+      odd: "doit être impair(e)"
+      even: "doit être pair(e)"
+      other_than: "doit être différent(e) de %{count}"
+      do_not_match: "ne correspond pas"
+
+      accepted: "doit être accepté(e)"
+      present: "doit être vide"
+      empty: "ne peut pas être vide"
+      too_long:
+        one: "est trop long (pas plus d'un caractère)"
+        other: "est trop long (pas plus de %{count} caractères)"
+      confirmation: "ne correspond pas"
