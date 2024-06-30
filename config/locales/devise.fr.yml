@@ -115,8 +115,8 @@ fr:
       already_signed_out: Déconnecté(e).
       new:
         sign_in: Connexion
-      signed_in: Connecté(e).
-      signed_out: Déconnecté(e).
+      signed_in: Connecté(e) ✨.
+      signed_out: Déconnecté(e) ✨.
     shared:
       links:
         back: Retour
@@ -154,3 +154,26 @@ fr:
           one: "une erreur à corriger :"
           other: "%{count} erreurs à corriger :"
       blank: "ne peut pas être vide"
+      taken: "est déjà pris(e)"
+      not_found_in_database: "n'a pas été trouvé(e) dans la base de données"
+      invalid_token: "n'est pas valide"
+      match: "ne correspond pas à %{attribute}"
+      not_an_integer: "doit être un nombre entier"
+      not_a_number: "n'est pas un nombre"
+      greater_than: "doit être supérieur(e) à %{count}"
+      greater_than_or_equal_to: "doit être supérieur(e) ou égal(e) à %{count}"
+      equal_to: "doit être égal(e) à %{count}"
+      less_than: "doit être inférieur(e) à %{count}"
+      less_than_or_equal_to: "doit être inférieur(e) ou égal(e) à %{count}"
+      odd: "doit être impair(e)"
+      even: "doit être pair(e)"
+      other_than: "doit être différent(e) de %{count}"
+      do_not_match: "ne correspond pas"
+
+      accepted: "doit être accepté(e)"
+      present: "doit être vide"
+      empty: "ne peut pas être vide"
+      too_long:
+        one: "est trop long (pas plus d'un caractère)"
+        other: "est trop long (pas plus de %{count} caractères)"
+      confirmation: "ne correspond pas"

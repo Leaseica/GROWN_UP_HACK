@@ -63,4 +63,20 @@ en:
       not_saved:
         one: "1 error to resolve:"
         other: "%{count} errors to resolve:"
+      not_found_in_database: "not found in database"
+      invalid: "is invalid"
+      invalid_token: "is invalid"
+      match: "doesn't match %{attribute}"
+      taken: "has already been taken"
+      too_short:
+        one: "is too short (minimum is 1 character)"
+        other: "is too short (minimum is %{count} characters)"
+      too_long:
+        one: "is too long (maximum is 1 character)"
+        other: "is too long (maximum is %{count} characters)"
+      wrong_length:
+        one: "is the wrong length (should be 1 character)"
+        other: "is the wrong length (should be %{count} characters)"
+      accepted: "must be accepted"
+      empty: "can't be empty"
       blank: "can't be blank"
