@@ -13,20 +13,22 @@
 
 
     <div class="card-index">
-      <% if @sub_categories.any? %>
-        <% @sub_categories.each_slice(3) do |sub_category_group| %>
-          <div class="section-row">
-            <% sub_category_group.each do |sub_category| %>
-              <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "subcategory-card-link" do %>
-                <%= render "sub_category_card", sub_category: sub_category %>
+      <div class="section">
+        <% if @sub_categories.any? %>
+          <% @sub_categories.each_slice(3) do |sub_category_group| %>
+            <div class="section-row">
+              <% sub_category_group.each do |sub_category| %>
+                <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "subcategory-card-link" do %>
+                  <%= render "sub_category_card", sub_category: sub_category %>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <div class="section-row divider1 mb-3 mt-4"></div>
+            </div>
+            <div class="section-row divider1 mb-3 mt-4"></div>
+          <% end %>
+        <% else %>
+          <p class="title-s gh-800 my-5"><%= random_messages %></p>
         <% end %>
-      <% else %>
-        <p class="title-s gh-800 my-5"><%= random_messages %></p>
-      <% end %>
+      </div>
     </div>
 
 
