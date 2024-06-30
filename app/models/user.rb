@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :reminders
   has_one_attached :file
 
-  validates :phone_number, format: { with: /\A(\+33\d{9}|(\+\d{1,3}\s?(\(\d{1,3}\))?\s?\d{3}[\s.-]?\d{3}[\s.-]?\d{4})|(0\d{9}))\z/ }
-  validates :zip_code, format: { with: /\A\d{5}\z/ }
+  # Optional validations
+  validates :phone_number, format: { with: /\A(\+33\d{9}|(\+\d{1,3}\s?(\(\d{1,3}\))?\s?\d{3}[\s.-]?\d{3}[\s.-]?\d{4})|(0\d{9}))\z/ }, allow_blank: true
+  validates :zip_code, format: { with: /\A\d{5}\z/ }, allow_blank: true
 
   def self.ransackable_associations(auth_object = nil)
     ["my_guides", "reminders", "file_attachment", "file_blob"]
@@ -48,7 +49,4 @@ class User < ApplicationRecord
     components = [address, zip_code, city].compact.join(' ')
     components.present? ? components : "Aucune adresse fournie"
   end
-
-
-
 end
