@@ -3,9 +3,15 @@
   padding: 60px 100px;
   color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border-top: $gh-200 2px solid;
 
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
   .footer-info {
     display: flex;
@@ -27,13 +33,13 @@
     }
 
     .footer-heading {
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: bold;
     }
   }
 
   .footer-description {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 20px;
     text-align: start;
   }
@@ -45,14 +51,23 @@
     align-items: flex-end;
     gap: 1rem;
 
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+
     .footer-links-heading {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: bold;
       color: $gh-green;
       margin-bottom: 10px;
       cursor: pointer;
+
       &:hover {
         text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        margin-top: 1rem;
       }
     }
 
@@ -63,7 +78,7 @@
       .footer-icon {
         color: #fff;
         margin: 0 10px;
-        font-size: 2rem;
+        font-size: 2.5rem;
 
         &:hover {
           color: #00d8a7;
@@ -73,6 +88,6 @@
   }
 
   .footer-copy {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
