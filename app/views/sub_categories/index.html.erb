@@ -18,7 +18,7 @@
           <% @sub_categories.each_slice(3) do |sub_category_group| %>
             <div class="section-row">
               <% sub_category_group.each do |sub_category| %>
-                <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "subcategory-card-link" do %>
+                <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "card-link" do %>
                   <%= render "sub_category_card", sub_category: sub_category %>
                 <% end %>
               <% end %>

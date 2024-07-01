@@ -4,135 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>500 - Erreur interne du serveur</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-    body{
-      background-image: url('data:image/svg+xml,%3Csvg width="52" height="26" viewBox="0 0 52 26" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z" /%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .content{
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      position:relative;
-    }
-    h1{
-      position: absolute;
-      font-size: 80px;
-      text-align:center;
-      width: 300px;
-    }
-
-    h1#five{
-      left: -50px;
-    }
-
-    h1#zero2{
-      left: 50px;
-
-    }
-    h1#point1{
-      font-size: 100px;
-      top: -50px;
-      left: 0px;
-      animation: moveeye1 7s infinite ease-in;
-    }
-    h1#point2{
-      font-size: 100px;
-      top: -50px;
-      left: 50px;
-      animation: moveeye2 7s infinite ease-in;
-    }
-
-    h2{
-      position: absolute;
-      font-size: 20px;
-      text-align:center;
-      width: 300px;
-    }
-
-    h2#err{
-      top: 5px;
-    }
-    h2#what{
-      top: 160px;
-    }
-    @keyframes moveeye1{
-      0%{
-        top: -50px;
-        left: 0px;
-      }
-      20%{
-        top: -70px;
-        left: 10px;
-      }
-      40%{
-        top: -70px;
-        left: 10px;
-      }
-      60%{
-        top: -40px;
-        left: -10px;
-      }
-      80%{
-        top: -40px;
-        left: 10px;
-      }
-      100%{
-        top: -50px;
-        left: 0px;
-      }
-    }
-
-    @keyframes moveeye2{
-      0%{
-        top: -50px;
-        left: 50px;
-      }
-      20%{
-        top: -70px;
-        left: 60px;
-      }
-      40%{
-        top: -70px;
-        left: 60px;
-      }
-      60%{
-        top: -40px;
-        left: 40px;
-      }
-      80%{
-        top: -40px;
-        left: 60px;
-      }
-      100%{
-        top: -50px;
-        left: 50px;
-      }
-    }
-    .heart {
-    color: #D23333;
-    }
-  </style>
 </head>
 
 <body>
   <div class="container">
     <div class="content">
-      <h1 id="five"> 5 </h1>
-      <h1 id="zero1"> 0 </h1>
-      <h1 id="zero2"> 0 </h1>
-      <h1 id="point1"> . </h1>
-      <h1 id="point2"> . </h1>
+      <h1 class="five">5</h1>
+      <h1 class="zero1">0</h1>
+      <h1 class="zero2">0</h1>
+      <h1 class="point1">.</h1>
+      <h1 class="point2">.</h1>
 
-      <h2 id="err"> Ce n'est pas de votre faute.<br>Ca vient de nous ! </h2>
-     <h2 id="what"> Ne vous inquiètez pas,<br>on s'en occupe. <i class="fas fa-heart heart"></i> </h2>
+      <h2 class="err">Ce n'est pas de votre faute.<br>Ca vient de nous !</h2>
+      <h2 class="what">Ne vous inquiétez pas,<br>on s'en occupe. <i class="fas fa-heart heart"></i></h2>
     </div>
   </div>
 </body>
-
 </html>
