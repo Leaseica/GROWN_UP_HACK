@@ -5,7 +5,7 @@ ActiveAdmin.register Platform do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :url, :logo, :description
+  permit_params :name, :url, :logo, :description, :types, :photo
   #
   # or
   #
@@ -14,11 +14,12 @@ ActiveAdmin.register Platform do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-
+  remove_filter :photo_attachment, :photo_blob
 
   index do
     selectable_column
     id_column
+    column :types
     column :name
     column :url do |platform|
       if platform.url.present?
@@ -28,6 +29,7 @@ ActiveAdmin.register Platform do
       end
     end
     column :logo
+    column :photo
     column :description
     column :created_at
     actions
@@ -35,9 +37,11 @@ ActiveAdmin.register Platform do
 
   form do |f|
     f.inputs do
+      f.input :types
       f.input :name
       f.input :url
       f.input :logo
+      f.input :logo, as: :file
       f.input :description
     end
     f.actions
