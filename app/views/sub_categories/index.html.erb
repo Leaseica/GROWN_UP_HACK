@@ -11,25 +11,28 @@
     </div>
   </div>
 
-
   <div class="section">
     <% if @sub_categories.any? %>
-      <% @sub_categories.each_slice(3) do |sub_category_group| %>
-        <div class="section-row">
-          <% sub_category_group.each do |sub_category| %>
-            <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "card-link" do %>
-              <%= render "sub_category_card", sub_category: sub_category %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="section-row divider1 mb-3 mt-4"></div>
-      <% end %>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @sub_categories.each do |sub_category| %>
+          <div class="col">
+            <div class="card text-center">
+              <%= link_to sub_category_path(sub_category, category_id: @category.id) do %>
+                <img src="<%= cl_image_path sub_category.photo.key, crop: :fill if sub_category.photo.attached? %>" class="card-img" alt="...">
+
+                <div class="card-img-overlay">
+                  <h3 class="title-xl white"><%= sub_category.name %></h3>
+                    <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <p class="title-s gh-800 my-5"><%= random_messages %></p>
     <% end %>
   </div>
-
-
 
   <div>
     <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small" %>
