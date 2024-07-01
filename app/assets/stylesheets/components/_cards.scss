@@ -49,26 +49,16 @@
   }
 }
 
-#show_sub_categories {
+
+.section-row {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  align-self: stretch;
-  background: var(--linear-gray, #FFF);
-
-  .section-row {
-    justify-content: space-around;
-  }
-}
-
-.card-index {
+  flex-direction: row;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 24px;
 
+}
 @media (max-width: 1024px) {
   .card-link {
     width: 100%;

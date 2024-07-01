@@ -9,23 +9,27 @@
         <% end %>
       </div>
     </div>
-    <div class="card-index">
-      <div class="section">
-        <% if @categories.any? %>
-          <% @categories.each_slice(3) do |category_group| %>
-          <div class="section-row">
-              <% category_group.each do |category| %>
-                  <%= link_to category_sub_categories_path(category), class: "card-link" do %>
-                    <%= render "shared/category_card", category: category %>
-                  <% end %>
-              <% end %>
-          </div>
-          <div class="section-row divider1 mb-3 mt-4"></div>
+
+    <div class="section">
+      <% if @categories.any? %>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <% @categories.each do |category| %>
+            <div class="col">
+              <div class="card text-center">
+                <%= link_to category_sub_categories_path(category) do %>
+                  <img src="<%= cl_image_path category.photo.key, crop: :fill if category.photo.attached? %>" class="card-img" alt="...">
+
+                  <div class="card-img-overlay">
+                    <h3 class="title-xl white"><%= category.name %></h3>
+                      <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           <% end %>
-        <% else %>
-          <p class="title-s gh-800 my-5"><%= random_messages %></p>
-        <% end %>
-      </div>
+        </div>
+      <% else %>
+        <p class="title-s gh-800 my-5"><%= random_messages %></p>
+      <% end %>
     </div>
-  </div>
 </div>
