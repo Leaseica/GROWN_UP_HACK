@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_26_163314) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_01_080316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_163314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "raw_html_content"
+    t.text "button"
     t.index ["sub_category_id"], name: "index_articles_on_sub_category_id"
   end
 
@@ -116,6 +117,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_163314) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "types"
   end
 
   create_table "reminders", force: :cascade do |t|

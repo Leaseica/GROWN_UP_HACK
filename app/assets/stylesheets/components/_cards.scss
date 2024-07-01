@@ -1,4 +1,4 @@
-.subcategory-card-link {
+.card-link {
   display: flex;
   width: 400px;
   height: 324px;
@@ -6,7 +6,7 @@
   align-items: stretch;
   text-decoration: none;
 
-  .subcategory-card {
+  .card-card {
     flex: 1;
     background-size: cover;
     display: flex;
@@ -36,7 +36,7 @@
   }
 
   &:hover {
-    .subcategory-card {
+    .card-card {
       background-size: 100% 100%;
       transition: background-size 200ms ease-in-out;
 
