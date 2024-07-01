@@ -422,7 +422,7 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
-  tinymce-rails (~> 7.1, >= 7.1.2.1)
+  tinymce-rails (= 7.2.0)
   turbo-rails
   tzinfo-data
   web-console

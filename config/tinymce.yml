@@ -1,7 +1,7 @@
 
 # See https://www.tiny.cloud/docs/configure/integration-and-setup/#content_css
 license_key: 'gpl'
-
+skin: false
 # selector: '.edit'
 height: 500
 skin: false
@@ -30,8 +30,7 @@ toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | b
 
 # image_list: 'documents.jpg'
 
-# importcss_append: true
+
 image_caption: true
 image_advtab: true
 file_picker_types: 'file image media'
-# importcss_exclusive: false
