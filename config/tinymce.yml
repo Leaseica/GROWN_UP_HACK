@@ -4,7 +4,7 @@ license_key: 'gpl'
 
 # selector: '.edit'
 height: 500
-
+skin: false
 remove_linebreaks: false
 force_br_newline: true
 verify_html: false
