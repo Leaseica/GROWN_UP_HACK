@@ -11,23 +11,27 @@
     </div>
   </div>
 
-
   <div class="section">
     <% if @articles.any? %>
-      <% @articles.each_slice(3) do |article_group| %>
-        <div class="section-row">
-          <% article_group.each do |article| %>
-            <%= link_to article_path(article), class: "card-link", data: {turbo_prefetch: false} do %>
-              <%= render "article_card", article: article %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="divider1 mb-3 mt-4"></div>
-      <% end %>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @articles.each do |article| %>
+          <div class="col">
+            <div class="card text-center">
+              <%= link_to article_path(article) do %>
+                <img src="<%= cl_image_path article.photo.key, crop: :fill if article.photo.attached? %>" class="card-img" alt="...">
+                <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))">
+                  <h3 class="title-xl white"><%= article.title %></h3>
+                    <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <p class="title-s gh-800 my-5"><%= random_messages %></p>
     <% end %>
-    <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
   </div>
+  <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
 
 </div>
