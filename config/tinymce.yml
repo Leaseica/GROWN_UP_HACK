@@ -1,4 +1,7 @@
-# license_key: 'gpl'
+
+# See https://www.tiny.cloud/docs/configure/integration-and-setup/#content_css
+license_key: 'gpl'
+
 # selector: '.edit'
 height: 500
 skin: 'oxide-dark'
@@ -21,7 +24,7 @@ theme_advanced_buttons3_add:
   - tablecontrols
   - fullscreen
   - code
-plugins: 'preview searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image importcss link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion'
+plugins: 'preview searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion'
 menubar: 'file edit view insert format tools table help'
 toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl"
 
