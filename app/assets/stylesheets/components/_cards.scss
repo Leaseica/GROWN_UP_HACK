@@ -2,7 +2,6 @@
   display: flex;
   width: 400px;
   height: 324px;
-  display: flex;
   align-items: stretch;
   text-decoration: none;
 
@@ -11,7 +10,7 @@
     background-size: cover;
     display: flex;
     align-items: stretch;
-    padding: 0px;
+    padding: 0;
     background-size: 105% 105%;
     background-position: center center;
     transition: background-color 200ms linear;
@@ -50,22 +49,109 @@
   }
 }
 
-#show_sub_categories {
+
+.section-row {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  align-self: stretch;
-  background: var(--linear-gray, #FFF);
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 24px;
 
+}
+@media (max-width: 1024px) {
+  .card-link {
+    width: 100%;
+    height: auto;
 
-  .section-row {
-    justify-content: space-around;
+    .card-card {
+      background-size: 110% 110%;
+
+      .layer {
+        padding: 10px;
+
+        .content {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    &:hover .card-card {
+      background-size: 105% 105%;
+    }
+  }
+
+  #show_sub_categories {
+    gap: 30px;
+
+    .section-row {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
-.card-index {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+@media (max-width: 768px) {
+  .card-link {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+    .card-card {
+      background-size: 115% 115%;
+
+      .layer {
+        padding: 15px;
+
+        .content {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &:hover .card-card {
+      background-size: 110% 110%;
+    }
+  }
+
+  #show_sub_categories {
+    gap: 20px;
+
+    .section-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .card-link {
+    width: 100%;
+    height: auto;
+
+    .card-card {
+      background-size: 120% 120%;
+
+      .layer {
+        padding: 20px;
+
+        .content {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    &:hover .card-card {
+      background-size: 115% 115%;
+    }
+  }
+
+  #show_sub_categories {
+    gap: 10px;
+
+    .section-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
