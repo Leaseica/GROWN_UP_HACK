@@ -5,7 +5,7 @@ ActiveAdmin.register Article do
   #
   # Uncomment all parameters which should be permitted for assignment
 
-  permit_params :title, :description, :sub_category_id, :paragraph1, :raw_html_content, :photo
+  permit_params :title, :description, :sub_category_id, :paragraph1, :raw_html_content, :photo, :additional_resources_1, :additional_resources_2, platform_ids: [], my_guide_ids: []
 
   # or
 
@@ -47,6 +47,8 @@ ActiveAdmin.register Article do
     column :photo do |article|
       image_tag url_for(article.photo), size: "100x100"
     end
+    column :additional_resources_1
+    column :additional_resources_2
 
     actions
   end
@@ -62,6 +64,8 @@ ActiveAdmin.register Article do
       f.input :raw_html_content
       f.input :platforms, as: :select, collection: Platform.all
       f.input :photo, as: :file
+      f.input :additional_resources_1
+      f.input :additional_resources_2
     end
     f.actions
   end

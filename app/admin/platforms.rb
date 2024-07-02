@@ -5,7 +5,7 @@ ActiveAdmin.register Platform do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :url, :logo, :description, :types, :photo
+  permit_params :name, :url, :logo, :description, :type, :photo
   #
   # or
   #
@@ -19,7 +19,7 @@ ActiveAdmin.register Platform do
   index do
     selectable_column
     id_column
-    column :types
+    column :type
     column :name
     column :url do |platform|
       if platform.url.present?
@@ -37,7 +37,7 @@ ActiveAdmin.register Platform do
 
   form do |f|
     f.inputs do
-      f.input :types
+      f.input :type, as: :select, collection: Platform::TYPES
       f.input :name
       f.input :url
       f.input :logo

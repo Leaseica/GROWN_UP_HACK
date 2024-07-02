@@ -120,7 +120,9 @@ class ArticlesController < ApplicationController
       :paragraph1,
       :photo,
       :sub_category_id,
-      :raw_html_content
+      :raw_html_content,
+      :additional_resources_1,
+      :additional_resources_2
     )
   end
 end

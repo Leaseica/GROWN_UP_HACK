@@ -19,6 +19,7 @@
 # User.destroy_all
 
 # db/seeds.rb
+require "open-uri"
 
 # Environment specific data clearing to prevent accidental data deletion in production
 if Rails.env.development? || Rails.env.test?
@@ -35,7 +36,7 @@ end
 puts "Seeding Users..."
 # Seed Users
 users = [
-  { email: "jane.doe1@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Développeur", address: "1 rue premier", zip_code: "75001", birthday: "1990-01-01", country: "France", phone_number: "+330601020304", gender: "Femme", admin: true },
+  { email: "jane.doe1@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe", occupation: "Développeur", address: "1 rue premier", zip_code: "75001", birthday: "1990-01-01", country: "France", phone_number: "+330601020304", gender: "Femme", admin: false },
   { email: "user21@example.com", password: "123456", first_name: "John", last_name: "Doe", occupation: "Coach", address: "2 rue deuxieme", zip_code: "75002", birthday: "03/02/1997", country: "Angleterre", phone_number: "+330601020304", gender: "Homme" },
   { email: "user31@example.com", password: "123456", first_name: "Jeff", last_name: "Doe", occupation: "Développeur", address: "3 rue troisieme", zip_code: "75003", birthday: "1998-02-02", country: "France", phone_number: "+330601020304", gender: "Homme" }
 ]
@@ -104,7 +105,7 @@ puts "Seeding Platforms..."
 # Seed Platforms
 platforms = [
   { name: "GitHub", url: "https://github.com", logo: "github_logo.png", description: "Where the world builds software." },
-  { name: "Medium", url: "https://medium.com", logo: "medium_logo.png", description: "Read, write and share stories that matter." }
+  { name: "Medium", url: "https://medium.com", logo: "medium_logo.png", description: "Read, write and share stories that matter.", types: ["blog"] },
 ]
 platforms.each do |plat|
   Platform.find_or_create_by!(name: plat[:name]).update!(plat)
