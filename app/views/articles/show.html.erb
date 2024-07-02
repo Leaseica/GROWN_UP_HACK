@@ -18,7 +18,7 @@
       <div class="container py-5">
         <div data-controller="insert-button" data-article-id="<%= @article.id %>">
           <div data-insert-button-target="content">
-            <% if @article.raw_html_content.present? %>
+            <% if @article.raw_html_content.present %>
               <%= process_raw_html_content(@article.raw_html_content)%>
             <% end %>
           </div>
@@ -33,15 +33,18 @@
           <!-- Plateformes additional_resources_1 -->
           <div class="mt-5">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleResources1" aria-expanded="false" aria-controls="toggleResources1">
-            <%= @article.additional_resources_1 %> ⬇️
+            <%= @article.additional_resources_1 %>
             </button>
             <div class="collapse" id="toggleResources1">
               <div class="card-article">
                <% @article.additional_resources_1_listing.each do |platform| %>
                   <div class="d-flex align-items-center mb-3">
                     <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
-                      <% if platform.logo.present? %>
-                        <p><img src="<%= platform.logo %>" alt="<%= platform.name %> logo" style="max-width: 67px; max-height: 67px;"></p>
+                      <% if platform.photo.attached? %>
+                        <p><img src=" <%= cl_image_tag platform.photo.key, height: 67, width: 67, crop: :fill %>"
+                                alt="<%= platform.name %> logo"></p>
+                      <% else %>
+                        <%= image_tag "brand_logo.svg" %>
                       <% end %>
                     <% end %>
                     <p><strong><%= platform.name %></strong> <%= platform.description %></p>
@@ -57,15 +60,18 @@
           <!-- Plateformes additional_resources_2 -->
           <div class="mt-5">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleResources2" aria-expanded="false" aria-controls="toggleResources2">
-            <%= @article.additional_resources_2 %> ⬇️
+            <%= @article.additional_resources_2 %>
             </button>
             <div class="collapse" id="toggleResources2">
               <div class="card-article">
                <% @article.additional_resources_2_listing.each do |platform| %>
                   <div class="d-flex align-items-center mb-3">
                     <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
-                      <% if platform.logo.present? %>
-                        <p><img src="<%= platform.logo %>" alt="<%= platform.name %> logo" style="max-width: 67px; max-height: 67px;"></p>
+                      <% if platform.photo.attached? %>
+                        <p><img src=" <%= cl_image_tag platform.photo.key, height: 67, width: 67, crop: :fill %>"
+                                alt="<%= platform.name %> logo"></p>
+                      <% else %>
+                        <%= image_tag "brand_logo.svg" %>
                       <% end %>
                     <% end %>
                     <p><strong><%= platform.name %></strong> <%= platform.description %></p>
