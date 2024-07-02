@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   before_action :session_store, only: %i[show]
   before_action :set_breadcrumbs, only: [:show]
 
+
   # GET /articles
   def index
     Rails.logger.info "Params: #{params.inspect}"
@@ -32,7 +33,8 @@ class ArticlesController < ApplicationController
       }
     end
     authorize @article
-    # @article_content = process_raw_html_content(@article.raw_html)
+
+
   end
 
   def session_store
@@ -113,6 +115,9 @@ class ArticlesController < ApplicationController
     end
   end
 
+
+
+
   def article_params
     params.require(:article).permit(
       :title,
@@ -122,7 +127,10 @@ class ArticlesController < ApplicationController
       :sub_category_id,
       :raw_html_content,
       :additional_resources_1,
-      :additional_resources_2
+      :additional_resources_2,
+      :additional_resources_1_listing,
+      :additional_resources_2_listing,
+      :platform_ids
     )
   end
 end

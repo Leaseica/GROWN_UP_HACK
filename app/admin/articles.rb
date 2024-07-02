@@ -5,10 +5,7 @@ ActiveAdmin.register Article do
   #
   # Uncomment all parameters which should be permitted for assignment
 
-  permit_params :title, :description, :sub_category_id, :paragraph1, :raw_html_content, :photo, :additional_resources_1, :additional_resources_2, platform_ids: [], my_guide_ids: []
-
-  # or
-
+  permit_params :title, :description, :sub_category_id, :paragraph1, :raw_html_content, :photo, :additional_resources_1, :additional_resources_2, additional_resources_1_listing: [], additional_resources_2_listing: [], platform_ids: [], my_guide_ids: []
   # permit_params do
   #   permitted = [:title, :description, :sub_category_id, :paragraph1, :raw_html_content]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
@@ -62,11 +59,36 @@ ActiveAdmin.register Article do
       f.input :sub_category
       f.input :paragraph1
       f.input :raw_html_content
-      f.input :platforms, as: :select, collection: Platform.all
       f.input :photo, as: :file
       f.input :additional_resources_1
+      f.input :additional_resources_1_listing, as: :check_boxes, collection: Platform.all.map { |platform| [platform.name, platform.id] }, input_html: { multiple: true }, label: 'Additional Resources 1 listing'
+
       f.input :additional_resources_2
+      f.input :additional_resources_2_listing, as: :check_boxes, collection: Platform.all.map { |platform| [platform.name, platform.id] }, input_html: { multiple: true }, label: 'Additional Resources 2 listing'
     end
     f.actions
+  end
+
+  show do
+    attributes_table do
+      row :title
+      row :description
+      row :sub_category
+      row :paragraph1
+      row :raw_html_content
+      row :created_at
+      row :updated_at
+      row :my_guides do |article|
+        article.my_guides.map { |my_guide| my_guide.user.email }.join(', ').html_safe
+      end
+      row :photo do |article|
+        image_tag url_for(article.photo), size: "100x100"
+      end
+      row :additional_resources_1, label: 'Additional Resources 1'
+      row :additional_resources_1_listing, label: 'Additional Resources 1 Listing'
+      row :additional_resources_2, label: 'Additional Resources 2'
+      row :additional_resources_2_listing, label: 'Additional Resources 2 Listing'
+
+    end
   end
 end
