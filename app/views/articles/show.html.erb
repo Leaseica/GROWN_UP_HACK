@@ -41,7 +41,7 @@
                   <div class="d-flex align-items-center mb-3">
                     <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
                       <% if platform.photo.attached? %>
-                        <p><img src=" <%= cl_image_tag platform.photo.key %>" style="height: 67px; width: 67px; object-fit: cover;" alt="<%= platform.name %> logo"></p>
+                        <img src="<%= cl_image_tag platform.photo.key %>" alt="<%= platform.name %> logo" style="height: 67px; width: 67px; object-fit: cover">
                       <% else %>
                         <%= image_tag "brand_logo.svg", height: 67, width: 67 %>
                       <% end %>
@@ -67,7 +67,7 @@
                   <div class="d-flex align-items-center mb-3">
                     <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
                       <% if platform.photo.attached? %>
-                        <p><img src="<%= cl_image_tag platform.photo.key %>" style="height: 67px; width: 67px; object-fit: cover" alt="<%= platform.name %> logo"></p>
+                        <img src="<%= cl_image_tag platform.photo.key %>" alt="<%= platform.name %> logo" style="height: 67px; width: 67px; object-fit: cover">
                       <% else %>
                         <%= image_tag "brand_logo.svg", height: 67, width: 67 %>
                       <% end %>
