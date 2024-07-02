@@ -149,37 +149,43 @@ articles_data = [
   { title: "Les étapes essentielles pour devenir freelance",
     description: "Découvre les étapes clés...",
     sub_category: SubCategory.find_by(name: "Se lancer à son compte"),
-    photo: "banner_fox_working.webp" },
+    photo: "banner_fox_working.webp"},
 
   { title: "Stratégies de marketing pour les freelances",
     description: "Apprends à promouvoir ton activité...",
     sub_category: SubCategory.find_by(name: "Se lancer à son compte"),
-    photo: "banner_fox_working.webp" },
+    photo: "banner_fox_working.webp",
+    raw_html_content: "" },
 
   { title: "Gestion financière pour les freelances",
     description: "Maîtrise la gestion financière...",
     sub_category: SubCategory.find_by(name: "Se lancer à son compte"),
-    photo: "banner_fox_working.webp" },
+    photo: "banner_fox_working.webp",
+    raw_html_content: "" },
 
   { title: "Les outils indispensables pour les freelances",
     description: "Découvre les outils et logiciels...",
     sub_category: SubCategory.find_by(name: "Se lancer à son compte"),
-    photo: "banner_fox_working.webp" },
+    photo: "banner_fox_working.webp",
+    raw_html_content: ""  },
 
   { title: "Conseils pour réussir en tant que freelance",
     description: "Conseils pratiques pour réussir...",
     sub_category: SubCategory.find_by(name: "Se lancer à son compte"),
-    photo: "banner_fox_working.webp" },
+    photo: "banner_fox_working.webp",
+    raw_html_content: "" },
 
   { title: "Réseautage efficace pour les freelances",
     description: "Apprends à développer ton réseau...",
     sub_category: SubCategory.find_by(name: "Se lancer à son compte"),
-    photo: "banner_fox_working.webp" },
+    photo: "banner_fox_working.webp",
+    raw_html_content: "" },
 ]
 
 articles_data.each do |data|
   article = Article.find_or_create_by!(title: data[:title], sub_category: data[:sub_category]) do |art|
     art.description = data[:description]
+    art.raw_html_content = data[:raw_html_content]
   end
 
   file_path = Rails.root.join("app/assets/images/#{data[:photo]}")
