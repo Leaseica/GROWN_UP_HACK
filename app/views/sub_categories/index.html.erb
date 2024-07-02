@@ -1,39 +1,40 @@
-<div  class="index">
-  <div class="gh_section">
-    <div class="row justify-content-center">
-    <h1><%= @category.name %><h1>
-    <h2>  Nos guides et articles t'accompagnent à chaque étape, comme des cartes au trésor te menant vers le succès dans ton voyage professionnel. </h2>
-      <div class="col-sm-8 my-3">
-        <%= form_with url: category_sub_categories_path(@category), method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+
+<div class="gh_section">
+  <div class="row justify-content-center">
+  <h1><%= @category.name %><h1>
+  <h2>  Nos guides et articles t'accompagnent à chaque étape, comme des cartes au trésor te menant vers le succès dans ton voyage professionnel. </h2>
+    <div class="col-sm-8 my-3">
+      <%= form_with url: category_sub_categories_path(@category), method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
+  </div>
 
+  <div class="section">
+    <% if @sub_categories.any? %>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @sub_categories.each do |sub_category| %>
+          <div class="col">
+            <div class="card text-center">
+              <%= link_to sub_category_path(sub_category, category_id: @category.id) do %>
+                <img src="<%= cl_image_path sub_category.photo.key, crop: :fill if sub_category.photo.attached? %>" class="card-img" alt="...">
 
-    <div class="card-index">
-      <div class="section">
-        <% if @sub_categories.any? %>
-          <% @sub_categories.each_slice(3) do |sub_category_group| %>
-            <div class="section-row">
-              <% sub_category_group.each do |sub_category| %>
-                <%= link_to sub_category_path(sub_category, category_id: @category.id), class: "card-link" do %>
-                  <%= render "sub_category_card", sub_category: sub_category %>
-                <% end %>
+                <div class="card-img-overlay">
+                  <h3 class="title-xl white"><%= sub_category.name %></h3>
+                    <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
+                </div>
               <% end %>
             </div>
-            <div class="section-row divider1 mb-3 mt-4"></div>
-          <% end %>
-        <% else %>
-          <p class="title-s gh-800 my-5"><%= random_messages %></p>
+          </div>
         <% end %>
       </div>
-    </div>
+    <% else %>
+      <p class="title-s gh-800 my-5"><%= random_messages %></p>
+    <% end %>
+  </div>
 
-
-    <div>
-      <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small" %>
-    </div>
+  <div>
+    <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small" %>
   </div>
 </div>
