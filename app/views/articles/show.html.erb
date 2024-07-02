@@ -18,7 +18,7 @@
       <div class="container py-5">
         <div data-controller="insert-button" data-article-id="<%= @article.id %>">
           <div data-insert-button-target="content">
-            <% if @article.raw_html_content.present %>
+            <% if @article.raw_html_content.present? %>
               <%= process_raw_html_content(@article.raw_html_content)%>
             <% end %>
           </div>
