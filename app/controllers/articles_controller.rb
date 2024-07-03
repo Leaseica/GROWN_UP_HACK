@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
     Rails.logger.info "Params: #{params.inspect}"
     @articles = policy_scope(Article)
     @articles = Article.includes(photo_attachment: :blob).all
+
   end
 
   # GET /articles/7
@@ -32,7 +33,6 @@ class ArticlesController < ApplicationController
     #     info_window_html: render_to_string(partial: "info_window", locals: { platform: platform })
     #   }
     # end
-    authorize @article
 
 
   end

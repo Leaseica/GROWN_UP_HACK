@@ -1,6 +1,7 @@
 class SubCategoriesController < ApplicationController
   before_action :set_category
   before_action :set_sub_category, only: [:show]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @category = Category.find(params[:category_id])

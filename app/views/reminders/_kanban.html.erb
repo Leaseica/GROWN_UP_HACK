@@ -1,67 +1,66 @@
 <%# app/views/reminders/index.html.erb %>
 <div class="reminder-container">
   <% Reminder::STATUS.each do |status| %>
-    <div class="row section">
-      <div class="section-content">
-        <div class="kanban">
-          <div class="cards-container <%= status.parameterize(separator: '-') %>">
-            <div class="cards-header">
-              <i class="fa-solid fa-circle mb-2"></i>
-              <h5 class="bold-xl"><%= status.humanize %></h5>
-              <div class="mb-2">
-                <%= @reminders.select { |r| r.status == status }.count %>
-              </div>
-            </div>
 
-            <div class="divider1"></div>
-
-            <% @reminders.select { |reminder| reminder.status == status }.first(3).each do |reminder| %>
-              <div class="card <%= status.parameterize(separator: '-') %> mb-3">
-                <h6 class="card__title"><%= link_to reminder.title, reminder_path(reminder) %></h6>
-                <div class="card__body">
-                  <% if reminder.my_guide.present? && reminder.my_guide.article.present? %>
-                    <h5 class="regular-l"><i class="fa-regular fa-file-lines me-2"></i><%= reminder.my_guide.article.title %></h5>
-                  <% else %>
-                    <p class="regular-s">Article associé non trouvé</p>
-                  <% end %>
-
-                  <div>
-                    <% days_left = (reminder.end_time.to_date - Date.today).to_i %>
-                    <h5 class="regular-l"><i class="fa-regular fa-clock me-2"></i>Jours restants: <strong><%= days_left %> jours</strong></h5>
-                  </div>
-
-                  <% if reminder.my_guide.present? %>
-                      <h5 class="regular-l"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i><%= link_to 'Mon formulaire', summary_my_guide_path(reminder.my_guide) %></h5>
-                  <% end %>
-                </div>
-                <div class="dropdown">
-                  <button class=" dropdown-toggle <%= "dropdown-tasks #{reminder.status.parameterize(separator: '-')}" %>" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <%= reminder.status %>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <% Reminder::STATUS.each do |status| %>
-                      <li><a class="dropdown-item" href="#">
-                      <%= link_to status, reminder_path(reminder, 'reminder[status]': status),
-                        data: { turbo_method: :patch },
-                        class: "dropdown-item" %>
-                      </a></li>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-            <% end %>
-
-            <% if @reminders.select { |reminder| reminder.status == status }.size > 3 %>
-              <div data-controller="togglekanban" class="mt-5">
-                <button data-action="click->togglekanban#fire" class="btn btn-medium outline-purple mb-3"  style="width: 100%;">Voir plus</button>
-                <div data-togglekanban-target="togglableElement" class="d-none">
-                  <%= render "reminders/reminder", reminders: @reminders %>
-                </div>
-              </div>
-            <% end %>
+    <div class="kanban">
+      <div class="cards-container <%= status.parameterize(separator: '-') %>">
+        <div class="cards-header">
+          <i class="fa-solid fa-circle mb-2"></i>
+          <h5 class="bold-xl"><%= status.humanize %></h5>
+          <div class="mb-2">
+            <%= @reminders.select { |r| r.status == status }.count %>
           </div>
         </div>
+
+        <div class="divider1"></div>
+
+        <% @reminders.select { |reminder| reminder.status == status }.first(3).each do |reminder| %>
+          <div class="card-kanban <%= status.parameterize(separator: '-') %> mb-3">
+            <h6 class="card-kanban__title"><%= link_to reminder.title, reminder_path(reminder) %></h6>
+            <div class="card-kanban__body">
+              <% if reminder.my_guide.present? && reminder.my_guide.article.present? %>
+                <h5 class="regular-l text-overflow-ellipses"><i class="icon-kanban fa-regular fa-file-lines me-2"></i><%= reminder.my_guide.article.title %></h5>
+              <% else %>
+                <p class="regular-s">Article associé non trouvé</p>
+              <% end %>
+
+              <div>
+                <% days_left = (reminder.end_time.to_date - Date.today).to_i %>
+                <h5 class="regular-l"><i class="icon-kanban fa-regular fa-clock me-2"></i>Jours restants: <strong><%= days_left %> jours</strong></h5>
+              </div>
+
+              <% if reminder.my_guide.present? %>
+                  <h5 class="regular-l"><i class="icon-kanban fa-solid fa-arrow-up-right-from-square me-2"></i><%= link_to 'Mon formulaire', summary_my_guide_path(reminder.my_guide) %></h5>
+              <% end %>
+            </div>
+            <div class="dropdown">
+              <button class=" dropdown-toggle <%= "dropdown-tasks #{reminder.status.parameterize(separator: '-')}" %>" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= reminder.status %>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <% Reminder::STATUS.each do |status| %>
+                  <li><a class="dropdown-item" href="#">
+                  <%= link_to status, reminder_path(reminder, 'reminder[status]': status),
+                    data: { turbo_method: :patch },
+                    class: "dropdown-item" %>
+                  </a></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+
+        <% if @reminders.select { |reminder| reminder.status == status }.size > 3 %>
+          <div data-controller="togglekanban" class="mt-5">
+            <button data-action="click->togglekanban#fire" class="btn btn-medium outline-purple mb-3"  style="width: 100%;">Voir plus</button>
+            <div data-togglekanban-target="togglableElement" class="d-none">
+              <%= render "reminders/reminder", reminders: @reminders %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
+
+
   <% end %>
 </div>

@@ -1,27 +1,26 @@
-
 <div class="gh_section">
   <div class="row justify-content-center">
     <h1 style="padding-bottom: 30px"><%= @sub_category.name %></h1>
-    <h2> Prépare-toi à l'aventure de ta vie en découvrant comment te lancer à ton compte. Trouve des conseils pratiques, des astuces et des ressources essentielles pour démarrer ton entreprise, développer ta marque et conquérir le marché. Nos guides détaillés et articles inspirants t'accompagneront à chaque étape de ton parcours entrepreneurial, te permettant de concrétiser tes rêves et de tracer ta propre voie vers le succès.</h2>
+    <h2>Prépare-toi à l'aventure de ta vie en découvrant comment te lancer à ton compte. Trouve des conseils pratiques, des astuces et des ressources essentielles pour démarrer ton entreprise, développer ta marque et conquérir le marché. Nos guides détaillés et articles inspirants t'accompagneront à chaque étape de ton parcours entrepreneurial, te permettant de concrétiser tes rêves et de tracer ta propre voie vers le succès.</h2>
     <div class="col-sm-8 my-3">
-      <%= form_with url: sub_category_path(@sub_category), method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= form_with url: sub_category_path(@sub_category), method: :get, class: "d-flex", role: "search" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword", aria: { label: "Search for guides and articles" } %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary", aria: { label: "Submit search" } %>
       <% end %>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" aria-labelledby="articles-heading">
+    <h2 id="articles-heading" class="sr-only">Articles</h2>
     <% if @articles.any? %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @articles.each do |article| %>
           <div class="col">
             <div class="card text-center">
-              <%= link_to article_path(article) do %>
-                <img src="<%= cl_image_path article.photo.key, crop: :fill if article.photo.attached? %>" class="card-img" alt="...">
+              <%= link_to article_path(article), aria: { label: "View details for #{article.title}" } do %>
+                <img src="<%= cl_image_path article.photo.key, crop: :fill if article.photo.attached? %>" class="card-img" alt="Image for <%= article.title %>">
                 <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))">
                   <h3 class="title-xl white"><%= article.title %></h3>
-                    <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
                 </div>
               <% end %>
             </div>
@@ -32,6 +31,12 @@
       <p class="title-s gh-800 my-5"><%= random_messages %></p>
     <% end %>
   </div>
-  <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary" if policy(@article).new? %>
 
+  <div class="mt-4">
+    <div class="mt-4">
+      <% if @user.present? && policy(@article).new? %>
+        <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary", aria: { label: "Create new article" } %>
+      <% end %>
+    </div>
+  </div>
 </div>

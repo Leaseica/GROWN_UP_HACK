@@ -1,28 +1,27 @@
 
 <div class="gh_section">
   <div class="row justify-content-center">
-  <h1><%= @category.name %><h1>
-  <h2>  Nos guides et articles t'accompagnent à chaque étape, comme des cartes au trésor te menant vers le succès dans ton voyage professionnel. </h2>
+    <h1><%= @category.name %></h1>
+    <h2>Nos guides et articles t'accompagnent à chaque étape, comme des cartes au trésor te menant vers le succès dans ton voyage professionnel.</h2>
     <div class="col-sm-8 my-3">
-      <%= form_with url: category_sub_categories_path(@category), method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= form_with url: category_sub_categories_path(@category), method: :get, class: "d-flex", role: "search" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword", aria: { label: "Search for guides and articles" } %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary", aria: { label: "Submit search" } %>
       <% end %>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" aria-labelledby="sub-categories-heading">
+    <h2 id="sub-categories-heading" class="sr-only">Subcategories</h2>
     <% if @sub_categories.any? %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @sub_categories.each do |sub_category| %>
           <div class="col">
             <div class="card text-center">
-              <%= link_to sub_category_path(sub_category, category_id: @category.id) do %>
-                <img src="<%= cl_image_path sub_category.photo.key, crop: :fill if sub_category.photo.attached? %>" class="card-img" alt="...">
-
+              <%= link_to sub_category_path(sub_category, category_id: @category.id), aria: { label: "View details for #{sub_category.name}" } do %>
+                <img src="<%= cl_image_path sub_category.photo.key, crop: :fill if sub_category.photo.attached? %>" class="card-img" alt="Image for <%= sub_category.name %>">
                 <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))">
                   <h3 class="title-xl white"><%= sub_category.name %></h3>
-                    <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
                 </div>
               <% end %>
             </div>
@@ -35,6 +34,6 @@
   </div>
 
   <div>
-    <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small" %>
+    <%= link_to "Retour à la liste des catégories", categories_path, class: "btn btn-small", aria: { label: "Back to categories list" } %>
   </div>
 </div>
