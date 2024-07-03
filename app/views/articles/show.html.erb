@@ -4,31 +4,25 @@
 </head>
 
 <body>
-  <div class="container-article">
-    <div class="container">
+  <main class="container-article">
+    <section class="container">
       <h1 class="title"><%= @article.title %></h1>
       <p class="article-subtitle mt-5"><%= @article.description %></p>
       <p class="article-subtitle"><%= @article.paragraph1 %></p>
-    </div>
-    <div class="container2">
+    </section>
 
+    <section class="container2">
       <div class="container pb-5">
-
         <div data-controller="insert-button" data-article-id="<%= @article.id %>">
           <div data-insert-button-target="content">
-
             <% if @article.raw_html_content.present? %>
-              <%= process_raw_html_content(@article.raw_html_content)%>
+              <%= process_raw_html_content(@article.raw_html_content) %>
             <% end %>
           </div>
-
         </div>
 
-
         <h2 class="subsection-title">Aller plus loin</h2>
-
         <% if @article.additional_resources_1_listing.present? %>
-          <!-- Plateformes additional_resources_1 -->
           <div class="mt-5">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleResources1" aria-expanded="false" aria-controls="toggleResources1">
               <%= @article.additional_resources_1 %>
@@ -37,11 +31,11 @@
               <div class="dropdown-outline">
                 <% @article.additional_resources_1_listing.each do |platform| %>
                   <div class="d-flex align-items-center mb-3">
-                    <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
+                    <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank", aria: { label: "Visit #{platform.name}" } do %>
                       <% if platform.photo.attached? %>
                         <%= cl_image_tag platform.photo.key, alt: "#{platform.name} logo", style: "height: 67px; width: 67px; object-fit: cover" %>
                       <% else %>
-                        <%= image_tag "brand_logo.svg", height: 67, width: 67 %>
+                        <%= image_tag "brand_logo.svg", alt: "Default brand logo", height: 67, width: 67 %>
                       <% end %>
                     <% end %>
                     <p><strong><%= platform.name %></strong> <%= platform.description %></p>
@@ -52,9 +46,7 @@
           </div>
         <% end %>
 
-
         <% if @article.additional_resources_2_listing.present? %>
-          <!-- Plateformes additional_resources_2 -->
           <div class="mt-5">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleResources2" aria-expanded="false" aria-controls="toggleResources2">
               <%= @article.additional_resources_2 %>
@@ -63,11 +55,11 @@
               <div class="dropdown-outline">
                 <% @article.additional_resources_2_listing.each do |platform| %>
                   <div class="d-flex align-items-center mb-3">
-                    <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
+                    <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank", aria: { label: "Visit #{platform.name}" } do %>
                       <% if platform.photo.attached? %>
                         <%= cl_image_tag platform.photo.key, alt: "#{platform.name} logo", style: "height: 67px; width: 67px; object-fit: cover" %>
                       <% else %>
-                        <%= image_tag "brand_logo.svg", height: 67, width: 67 %>
+                        <%= image_tag "brand_logo.svg", alt: "Default brand logo", height: 67, width: 67 %>
                       <% end %>
                     <% end %>
                     <p><strong><%= platform.name %></strong> <%= platform.description %></p>
@@ -79,7 +71,7 @@
         <% end %>
 
         <div class="hstack gap-3 justify-content-center mt-5">
-          <%= link_to "📝 Éditer",edit_article_path(@article), role: 'button', class: 'btn btn-small' if policy(@article).edit? %>
+          <%= link_to "📝 Éditer", edit_article_path(@article), role: 'button', class: 'btn btn-small' if policy(@article).edit? %>
           <div class="vr"></div>
           <%= button_to "Supprimer cet article", @article, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small' if policy(@article).destroy? %>
         </div>
@@ -87,6 +79,6 @@
           <%= link_to 'Retour', :back, class: 'btn btn-small' %>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>

@@ -16,22 +16,22 @@
             <div class="divider1"></div>
 
             <% @reminders.select { |reminder| reminder.status == status }.first(3).each do |reminder| %>
-              <div class="card <%= status.parameterize(separator: '-') %> mb-3">
-                <h6 class="card__title"><%= link_to reminder.title, reminder_path(reminder) %></h6>
-                <div class="card__body">
+              <div class="card-kanban <%= status.parameterize(separator: '-') %> mb-3">
+                <h6 class="card-kanban__title"><%= link_to reminder.title, reminder_path(reminder) %></h6>
+                <div class="card-kanban__body">
                   <% if reminder.my_guide.present? && reminder.my_guide.article.present? %>
-                    <h5 class="regular-l"><i class="fa-regular fa-file-lines me-2"></i><%= reminder.my_guide.article.title %></h5>
+                    <h5 class="regular-l"><i class="icon-kanban fa-regular fa-file-lines me-2"></i><%= reminder.my_guide.article.title %></h5>
                   <% else %>
                     <p class="regular-s">Article associé non trouvé</p>
                   <% end %>
 
                   <div>
                     <% days_left = (reminder.end_time.to_date - Date.today).to_i %>
-                    <h5 class="regular-l"><i class="fa-regular fa-clock me-2"></i>Jours restants: <strong><%= days_left %> jours</strong></h5>
+                    <h5 class="regular-l"><i class="icon-kanban fa-regular fa-clock me-2"></i>Jours restants: <strong><%= days_left %> jours</strong></h5>
                   </div>
 
                   <% if reminder.my_guide.present? %>
-                      <h5 class="regular-l"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i><%= link_to 'Mon formulaire', summary_my_guide_path(reminder.my_guide) %></h5>
+                      <h5 class="regular-l"><i class="icon-kanban fa-solid fa-arrow-up-right-from-square me-2"></i><%= link_to 'Mon formulaire', summary_my_guide_path(reminder.my_guide) %></h5>
                   <% end %>
                 </div>
                 <div class="dropdown">

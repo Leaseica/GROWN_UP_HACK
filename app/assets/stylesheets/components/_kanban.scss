@@ -45,17 +45,26 @@ $body-font: 'Inter', sans-serif;
   box-sizing: content-box;
 
   &.a-faire {
-    color:  $gh-purple;
     background-color: $gh-100;
+
+    .cards-header {
+      color:  $gh-purple;
+    }
   }
   &.en-cours {
-    color:  $gh-purple;
     background: #ECEEF8;
+
+    .cards-header {
+      color:  $gh-purple;
+    }
   }
 
   &.termine {
-    color:  $gh-green;
     background-color: $gh-100;
+
+    .cards-header {
+      color:  $gh-light-purple;
+    }
   }
 
   .cards-header {
@@ -77,16 +86,38 @@ $body-font: 'Inter', sans-serif;
   background: $gh-white;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
 
+  .icon-kanban {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+
   &.a-faire {
     border: 2px solid $gh-purple;
+
+    .icon-kanban {
+      color: $gh-purple;
+    }
   }
 
   &.en-cours {
     border: 2px solid $gh-purple;
+
+    .icon-kanban {
+      color: $gh-purple;
+    }
   }
 
   &.termine {
-    border: 5px solid $gh-green;
+    border: 5px solid $gh-light-purple;
+    color: $gh-600;
+
+    a {
+      color: $gh-600;
+    }
+
+    .icon-kanban {
+      color: $gh-light-purple;;
+    }
   }
 
   &__title {

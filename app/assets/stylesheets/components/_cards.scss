@@ -1,23 +1,27 @@
-.gh-card {
-  background: #F7F9FC;
-  padding: 3% 5%;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  @media (max-width: 1024px) {
-    order: 2;
+.card {
+
+  &.gh-gray {
+    background: #F7F9FC;
+    padding: 3% 5%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    @media (max-width: 1024px) {
+      order: 2;
+    }
   }
 
-  .gh-card-title {
+
+  .card-title {
     color: #2D3648;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
   }
 
-  .gh-card-subtitle {
+  .card-subtitle {
     color: #2D3648;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 400;
     line-height: 1.5;
   }
