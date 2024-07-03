@@ -87,6 +87,7 @@
 
     .illustration {
       text-align: center;
+      min-width: 25%;
       @media (max-width: 1024px) {
         max-width: 50%;
       }
