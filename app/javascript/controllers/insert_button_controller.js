@@ -14,7 +14,7 @@ export default class extends Controller {
     const articleId = this.element.dataset.articleId;
 
     if (content.includes(placeholder)) {
-      const buttonHtml = `<a href="/articles/${articleId}/my_guides/new?locale=fr" class="btn btn-primary">Commencer mes démarches</a>`;
+      const buttonHtml = `<a href="/articles/${articleId}/my_guides/new?locale=fr" class="btn btn-medium my-4">Commencer mes démarches</a>`;
       this.contentTarget.innerHTML = content.replace(placeholder, buttonHtml);
     }
   }

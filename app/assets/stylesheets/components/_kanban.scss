@@ -1,18 +1,3 @@
-.kanban-board {
-  display: flex;
-  justify-content: space-between;
-}
-
-.kanban-column {
-  flex: 1;
-  margin: 0 10px;
-  background-color: #f4f4f4;
-  border-radius: 4px;
-}
-
-.kanban-tasks {
-  padding: 10px;
-}
 
 .kanban-task {
   background-color: #fff;
@@ -81,7 +66,7 @@ $body-font: 'Inter', sans-serif;
 }
 
 
-.card-kanban {
+.card {
   display: flex;
   padding: 1.625rem 2.5625rem;
   flex-direction: column;

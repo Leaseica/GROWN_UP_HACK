@@ -5,10 +5,7 @@
   <h2 class="bold-xxl mt-4">Récapitulatif de Mes Démarches URSSAF</h2>
 
   <div class= "container-global">
-
-
     <div class= "summary-recap">
-
       <section class="summary-section">
         <h3 class="bold-xl">Identité de l'entreprise</h3>
         <p><strong>Forme de l'entreprise:</strong> <%= @my_guide.business_structure %></p>
@@ -45,14 +42,14 @@
 
     </div>
 
-    <div class= "container-right">
+    <div class="container-right">
       <%= image_tag 'telechargement_reussi.svg' %>
       <section class="summary-reminders">
       <h3><%= link_to "Mes rappels", user_path(@user) %></h3>
           <% @reminders.each do |reminder| %>
             <div class="reminder-content">
             <tr>
-              <div class= "reminder-title">
+              <div class="reminder-title">
                 <td><%= reminder.title %></td>
               </div>
               <div class="reminder-date">

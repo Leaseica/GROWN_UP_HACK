@@ -29,19 +29,18 @@
         <h2>Aller plus loin</h2>
 
         <% if @article.additional_resources_1_listing.present? %>
-
           <!-- Plateformes additional_resources_1 -->
           <div class="mt-5">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleResources1" aria-expanded="false" aria-controls="toggleResources1">
-            <%= @article.additional_resources_1 %>
+              <%= @article.additional_resources_1 %>
             </button>
             <div class="collapse" id="toggleResources1">
               <div class="card-article">
-               <% @article.additional_resources_1_listing.each do |platform| %>
+                <% @article.additional_resources_1_listing.each do |platform| %>
                   <div class="d-flex align-items-center mb-3">
                     <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
                       <% if platform.photo.attached? %>
-                        <img src="<%= cl_image_tag platform.photo.key %>" alt="<%= platform.name %> logo" style="height: 67px; width: 67px; object-fit: cover">
+                        <%= cl_image_tag platform.photo.key, alt: "#{platform.name} logo", style: "height: 67px; width: 67px; object-fit: cover" %>
                       <% else %>
                         <%= image_tag "brand_logo.svg", height: 67, width: 67 %>
                       <% end %>
@@ -49,25 +48,25 @@
                     <p><strong><%= platform.name %></strong> <%= platform.description %></p>
                   </div>
                 <% end %>
-
               </div>
             </div>
           </div>
         <% end %>
+
 
         <% if @article.additional_resources_2_listing.present? %>
           <!-- Plateformes additional_resources_2 -->
           <div class="mt-5">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleResources2" aria-expanded="false" aria-controls="toggleResources2">
-            <%= @article.additional_resources_2 %>
+              <%= @article.additional_resources_2 %>
             </button>
             <div class="collapse" id="toggleResources2">
               <div class="card-article">
-               <% @article.additional_resources_2_listing.each do |platform| %>
+                <% @article.additional_resources_2_listing.each do |platform| %>
                   <div class="d-flex align-items-center mb-3">
                     <%= link_to platform.url, class: "navbar-brand me-3", target: "_blank" do %>
                       <% if platform.photo.attached? %>
-                        <img src="<%= cl_image_tag platform.photo.key %>" alt="<%= platform.name %> logo" style="height: 67px; width: 67px; object-fit: cover">
+                        <%= cl_image_tag platform.photo.key, alt: "#{platform.name} logo", style: "height: 67px; width: 67px; object-fit: cover" %>
                       <% else %>
                         <%= image_tag "brand_logo.svg", height: 67, width: 67 %>
                       <% end %>
@@ -75,11 +74,11 @@
                     <p><strong><%= platform.name %></strong> <%= platform.description %></p>
                   </div>
                 <% end %>
-
               </div>
             </div>
           </div>
         <% end %>
+
 
       </div>
       <div class="hstack gap-3 justify-content-center mt-5">

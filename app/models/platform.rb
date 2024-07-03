@@ -2,6 +2,8 @@ class Platform < ApplicationRecord
   has_many :articles_platforms
   has_many :articles, through: :articles_platforms
   has_one_attached :photo
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 
   TYPES = ["Resources", "Freelance", "Education", "Networking", "Tools"]
 

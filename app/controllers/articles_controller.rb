@@ -21,17 +21,17 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @subcategory = @article.sub_category
     @category = @subcategory.category
-    @assos = Asso.all
+
     # @platforms = @article.platforms
     @platforms = Platform.all
-    # The `geocoded` scope filters only assos with coordinates
-    @markers = @assos.geocoded.map do |asso|
-      {
-        lat: asso.latitude,
-        lng: asso.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { asso: asso })
-      }
-    end
+    # The `geocoded` scope filters only platform with coordinates
+    # @markers = @platforms.geocoded.map do |platform|
+    #   {
+    #     lat: platform.latitude,
+    #     lng: platform.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: { platform: platform })
+    #   }
+    # end
     authorize @article
 
 
