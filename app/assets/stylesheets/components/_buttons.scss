@@ -156,9 +156,9 @@
 .dropdown-tasks {
   padding: 8px 12px;
   border-radius: 6px;
-  font-family: $body-font;
   font-weight: 700;
   line-height: 24px;
+
 
   &.a-faire {
     background-color: transparent;
@@ -169,12 +169,17 @@
   &.en-cours {
     background-color: $gh-purple;
     color: $gh-white;
+    border: 2px solid transparent;
   }
 
   &.termine {
-    background-color: $gh-green;
+    background-color: $gh-light-green;
     color: $gh-white;
-    border: 2px solid $gh-green;
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: $gh-green;
+    }
   }
 }
 
