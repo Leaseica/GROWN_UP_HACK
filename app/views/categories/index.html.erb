@@ -1,23 +1,23 @@
-
-<div class = "gh_section">
+<div class="gh_section">
   <div class="row justify-content-center">
-    <h1> Toutes les catégories </h1>
+    <h1>Toutes les catégories</h1>
     <div class="col-sm-8 my-3">
-      <%= form_with url: categories_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= form_with url: categories_path, method: :get, class: "d-flex", role: "search" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword", aria: { label: "Search within all categories" } %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary", aria: { label: "Submit search" } %>
       <% end %>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" aria-labelledby="categories-heading">
+    <h2 id="categories-heading" class="sr-only">Categories</h2>
     <% if @categories.any? %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @categories.each do |category| %>
           <div class="col">
             <div class="card text-center">
-              <%= link_to category_sub_categories_path(category) do %>
-                <img src="<%= cl_image_path category.photo.key, crop: :fill if category.photo.attached? %>" class="card-img" alt="...">
+              <%= link_to category_sub_categories_path(category), aria: { label: "View details for #{category.name}" } do %>
+                <img src="<%= cl_image_path category.photo.key, crop: :fill if category.photo.attached? %>" class="card-img" alt="Image of <%= category.name %>">
                 <div class="card-img-overlay">
                   <h3 class="title-xl white"><%= category.name %></h3>
                 </div>
