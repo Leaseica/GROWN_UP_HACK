@@ -20,7 +20,7 @@
               <%= link_to sub_category_path(sub_category, category_id: @category.id) do %>
                 <img src="<%= cl_image_path sub_category.photo.key, crop: :fill if sub_category.photo.attached? %>" class="card-img" alt="...">
 
-                <div class="card-img-overlay">
+                <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))">
                   <h3 class="title-xl white"><%= sub_category.name %></h3>
                     <%# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> %>
                 </div>
