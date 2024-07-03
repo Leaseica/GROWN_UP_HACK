@@ -155,3 +155,18 @@ $badge-colors: (
   text-align: center;
 
 }
+
+
+// Dropdown
+.dropdown-outline {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #F7F9FC;
+  padding: 2.825rem 2.125rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  @media (max-width: 1024px) {
+    order: 2;
+  }
+}

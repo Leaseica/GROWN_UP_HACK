@@ -1,445 +1,137 @@
 <h1>Articles#update</h1>
 <p>Find me in app/views/articles/update.html.erb</p>
-<body>
-  <div class="container2">
-    <div class="section">
-      <h1 class="title">Se lancer en freelance</h1>
-      <p class="subtitle">Ce statut offre une approche simplifiée pour démarrer une activité indépendante. Ses avantages: gestion administrative légère, fiscalité simplifiée et cotisations sociales basées sur le chiffre d'affaires. C'est une option idéale pour les débutants ou les travailleurs à temps partiel.</p>
-    </div>
 
-    <div class="subsection">
-      <div class="card">
-        <div class="card-title">Choisis la structure juridique de ton activité</div>
-        <div class="card-subtitle">Choisir la structure juridique de ton activité est une étape cruciale. Elle détermine la gestion de tes finances, tes obligations légales, ainsi que tes risques et responsabilités. Prends le temps de bien réfléchir pour trouver la formule qui correspondra le mieux à tes besoins et objectifs professionnels.</div>
-      </div>
-      <div class="illustration">
-        <img src="/assets/images/choice.png" class="responsive-image" alt="Choice">
-      </div>
-    </div>
 
-    <div class="divider">
-      <div class="line"></div>
-    </div>
+<div class="subsection">
+  <div class="card">
+    <div class="card-title">Choisis la structure juridique de ton activité</div>
+    <div class="card-subtitle">Choisir la structure juridique de ton activité est une étape cruciale. Elle détermine la gestion de tes finances, tes obligations légales, ainsi que tes risques et responsabilités. Prends le temps de bien réfléchir pour trouver la formule qui correspondra le mieux à tes besoins et objectifs professionnels.</div>
+  </div>
+  <div class="illustration">
+    <img src="app/assets/images/choice.png" class="responsive-image" alt="Choice">
+  </div>
+</div>
 
-    <div class="container py-5">
-      <div class="article-title">Les différentes structures juridiques pour les freelances</div>
-      <p>Il existe plusieurs options pour structurer ton activité en freelance. Chaque structure a ses propres avantages et inconvénients en termes de responsabilité, fiscalité et gestion administrative. Voici un aperçu des principales formes juridiques que tu peux choisir pour ton activité indépendante:</p>
+<div class="divider1"></div>
 
-      <!-- Entrepreneur individuel Section -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleIndividualEntrepreneur" aria-expanded="false" aria-controls="toggleIndividualEntrepreneur">
-          Entrepreneur individuel ⬇️
-        </button>
-        <div class="collapse" id="toggleIndividualEntrepreneur">
-          <div class="card-article">
-            <p class="mb-2 article-subtitle"><strong>Auto-entreprise</strong></p>
-            <ul>
-              <li>Forme simplifiée d'entreprise individuelle souvent utilisée par les freelances</li>
-              <li>Formalités administratives allégées</li>
-              <li>Comptabilité simplifiée</li>
-              <li>Impôts et cotisations sociales sur la base de ton chiffre d'affaires réel</li>
-            </ul>
+<div class="container py-5">
+  <div class="article-title">Les différentes structures juridiques pour les freelances</div>
+  <p>Il existe plusieurs options pour structurer ton activité en freelance. Chaque structure a ses propres avantages et inconvénients en termes de responsabilité, fiscalité et gestion administrative. Voici un aperçu des principales formes juridiques que tu peux choisir pour ton activité indépendante:</p>
 
-            <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle</strong></p>
-            <ul>
-              <li>Tu es considéré comme une seule entité avec ton entreprise</li>
-              <li>Tu es donc responsable de toutes les dettes et obligations commerciales</li>
-              <li>Les revenus de l'entreprise sont inclus dans ta déclaration de revenus personnelle</li>
-            </ul>
-
-            <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle à Responsabilité Limitée</strong></p>
-            <ul>
-              <li>Permet de séparer ton patrimoine personnel de celui de ton entreprise</li>
-              <li>Ce qui protège tes biens personnels en cas de difficultés financières de ton entreprise</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Personne morale Section -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#togglePersonneMorale" aria-expanded="false" aria-controls="togglePersonneMorale">
-          Personne morale ⬇️
-        </button>
-        <div class="collapse" id="togglePersonneMorale">
-          <div class="card-article">
-            <p class="mb-2 article-subtitle"><strong>Société par Actions Simplifiée Unipersonnelle</strong></p>
-            <ul>
-              <li>Forme de société plus complexe où tu es le seul actionnaire</li>
-              <li>Responsabilité plus limitée</li>
-              <li>Formalités administratives et comptables plus complexes</li>
-            </ul>
-
-            <p class="mb-2 article-subtitle"><strong>Société par Actions Limitée</strong></p>
-            <ul>
-              <li>Seulement si tu as l'intention de travailler avec d'autres personnes!</li>
-              <li>Offre une responsabilité limitée et une séparation des actifs personnels et professionnels</li>
-              <li>Implique également des formalités plus lourdes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Exploitation en commun Section -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleExploitationEnCommun" aria-expanded="false" aria-controls="toggleExploitationEnCommun">
-          Exploitation en commun ⬇️
-        </button>
-        <div class="collapse" id="toggleExploitationEnCommun">
-          <div class="card-article">
-            <p class="mb-2 article-subtitle"><strong>Le Portage salarial</strong></p>
-            <ul>
-              <li>Exercer une activité indépendante sans créer sa propre entreprise</li>
-              <li>Statut de consultant ou prestataire de services pour une entreprise de portage salarial</li>
-              <li>L'entreprise facture les clients pour les services fournis par ces consultants et leur verse un salaire en tant que salariés</li>
-              <li>Permet de bénéficier des avantages du statut de salarié tout en conservant une certaine autonomie</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Conseil section -->
-      <div class="subsection d-flex align-items-center mt-5">
-        <div class="card">
-          <div class="card-title">Notre conseil</div>
-          <div class="card-subtitle">Pour ceux qui envisagent de devenir freelances, la meilleure option est souvent de choisir le statut d'<strong>auto-entrepreneur</strong>. C'est un choix populaire en raison de sa simplicité administrative, de sa faible charge fiscale et de la protection des biens personnels en cas de difficultés financières. C'est un excellent point de départ pour tester une activité ou démarrer une petite entreprise. Il est important de bien comprendre les implications des différents statuts en discutant avec d'autres auto-entrepreneurs expérimentés ou en recherchant des informations supplémentaires auprès d'organismes publics spécialisés tels que le site officiel du gouvernement dédié à l'entrepreneuriat en France (https://entreprendre.service-public.fr/).</div>
-        </div>
-        <div class="illustration">
-          <img src="app/assets/images/idee.png" class="responsive-image" alt="Idee">
-        </div>
-      </div>
-
-      <!-- Document checklist -->
-      <div class="mt-5">
-        <div class="article-title">Avant de commencer les démarches, rassemble ces documents pour pouvoir remplir ton formulaire</div>
-        <ul class="list-group">
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Récépissé de dépôt de déclaration préalable délivré par la Préfecture (étranger ne résidant pas en France)</li>
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Attestation de renonciation à la protection du patrimoine personnel</li>
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Attestation notariée relative à l’insaisissabilité ou à la renonciation de l'insaisissabilité de la résidence principale</li>
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Procuration signée de la personne pour le compte de laquelle le mandataire effectue la formalité</li>
+  <!-- Entrepreneur individuel Section -->
+  <div class="mt-5">
+    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleIndividualEntrepreneur" aria-expanded="false" aria-controls="toggleIndividualEntrepreneur">
+      Entrepreneur individuel ⬇️
+    </button>
+    <div class="collapse" id="toggleIndividualEntrepreneur">
+      <div class="dropdown-outline">
+        <p class="mb-2 article-subtitle"><strong>Auto-entreprise</strong></p>
+        <ul>
+          <li>Forme simplifiée d'entreprise individuelle souvent utilisée par les freelances</li>
+          <li>Formalités administratives allégées</li>
+          <li>Comptabilité simplifiée</li>
+          <li>Impôts et cotisations sociales sur la base de ton chiffre d'affaires réel</li>
         </ul>
-        <a href="/articles/84/my_guides/new" class="btn btn-primary mt-3">Commencer mes démarches</a>
-        <%= link_to 'Commencer mes démarches', new_article_my_guide_path(article_id: @article.id), class: 'btn btn-primary' %>
-      </div>
-      <a href="/articles/ARTICLE_ID/my_guides/new" class="btn btn-primary">Commencer mes démarches</a>
-
-
-      <div class="article-title mt-5">Aller plus loin</div>
-      <!-- Platformes d'entraides -->
-      <div class="mt-4">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleEntaides" aria-expanded="false" aria-controls="toggleEntaides">
-          Les plateformes d'entraides ⬇️
-        </button>
-        <div class="collapse" id="toggleEntaides">
-          <div class="card-article">
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.grownuphack.com/404" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/AFE.png" style="width: 67px;" alt="AFE">
-              </a>
-              <p><strong>Agence France Entrepreneur</strong>, lancée à l'initiative de l'État, vise à informer et à assister les entrepreneurs de tous horizons, quel que soit leur statut juridique. Son site internet, convivial et exhaustif, vous permettra d'accéder à un espace collaboratif entre les divers acteurs de l'entrepreneuriat en France.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.pgparif.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/BGE.png" style="width: 67px;" alt="BGE">
-              </a>
-              <p><strong>BGE Parif</strong> est un réseau d'appui aux entrepreneurs de la région Île-de-France. Cet organisme se donne pour mission de soutenir les petites entreprises lors de leur création, afin de leur permettre de se développer et de pérenniser.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.entreprises.cci-paris-idf.fr/web/auto-entrepreneur" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/CCI.png" style="width: 67px;" alt="CCI">
-              </a>
-              <p><strong>CCI Paris</strong> vous accompagne dans le développement de votre projet de création d’entreprise grâce à une gamme de services et de conseils adaptés. Vous trouverez des informations essentielles pour la gestion quotidienne de votre auto-entreprise.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.bpifrance.fr" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/BPI.png" style="width: 67px;" alt="BPI">
-              </a>
-              <p><strong>BPI France</strong> vous accompagne grâce à une aide dans la gestion de votre entreprise. Vous trouverez des informations sur les financements, les garanties et les assurances pour vous aider à développer votre activité.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://stationf.co/" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/stationf.png" style="width: 67px;" alt="Station F">
-              </a>
-              <p><strong>Station F</strong> est le plus grand campus de start-up au monde. Il propose un écosystème complet pour les entrepreneurs, avec des programmes d'accompagnement, des événements et des ressources pour vous aider à lancer et à développer votre entreprise.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plateformes de freelance -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleFreelance" aria-expanded="false" aria-controls="toggleFreelance">
-          Les plateformes de freelance ⬇️
-        </button>
-        <div class="collapse" id="toggleFreelance">
-          <div class="card-article">
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.cremedelacreme.io" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/creme.jpg" style="width: 67px;" alt="Crème de la crème">
-              </a>
-              <p><strong>Crème de la crème</strong> est une plateforme qui met en relation des entreprises avec des freelances experts du digital pour des missions diverses. Crème de la crème se démarque par son processus de sélection rigoureux des freelances, garantissant la qualité des profils proposés aux entreprises, ainsi que par son approche centrée sur les compétences et l'expertise des freelances.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.malt.fr" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/malt.jpg" style="width: 67px;" alt="Malt">
-              </a>
-              <p><strong>Malt</strong> offre un large réseau de freelances qualifiés dans divers secteurs, offrant aux entreprises un accès à une variété d'experts pour leurs projets. Ce qui distingue Malt, c'est ses outils de gestion de projet intégrés qui facilitent le travail indépendant et la réalisation de projets professionnels de haute qualité. Les freelances bénéficient également d'une visibilité accrue grâce à une plateforme bien établie, ce qui leur permet de trouver plus facilement des opportunités de collaboration avec des entreprises de toutes tailles. Ils proposent aussi des outils en ligne facilitant les tâches administratives.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.comeup.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/upwork.jpeg" style="width: 67px;" alt="Comeup">
-              </a>
-              <p><strong>Comeup</strong> est une plateforme innovante qui vise à connecter les entreprises avec des talents émergents et créatifs. Contrairement aux plateformes traditionnelles, Comeup se concentre sur la découverte de nouveaux talents et sur la mise en valeur de leur créativité. Les entreprises peuvent découvrir et collaborer avec des freelances talentueux qui apportent une touche unique à leurs projets. Avec une approche axée sur l'exploration et la diversité des talents, Comeup offre une expérience de mise en relation dynamique et stimulante pour les entreprises à la recherche de nouvelles perspectives créatives.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.upwork.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/upwork.jpeg" style="width: 67px;" alt="Upwork">
-              </a>
-              <p><strong>Upwork</strong> est une plateforme en ligne qui met en relation des freelances et des entreprises du monde entier pour des projets de toutes tailles. Avec une vaste gamme de catégories, notamment le développement web, le design, la rédaction, le marketing et bien plus encore, Upwork offre aux entreprises un accès à un pool mondial de talents. Les freelances peuvent trouver des opportunités de travail variées et collaborer avec des clients internationaux, ce qui en fait une plateforme idéale pour ceux qui recherchent de la flexibilité et des opportunités d'expansion.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-5">
-        <a href="/articles/84/edit" class="btn btn-small outline" style="background-color: $gh-purple">Éditer</a>
-        <form action="/articles/84" method="post" data-turbo-method="delete" data-turbo-confirm="Are you sure?" class="btn btn-small outline" style="background-color: $gh-purple">
-          <button type="submit">Supprimer cet article</button>
-        </form>
-      </div>
-      <div>
-        <a href="/articles" class="btn btn-small outline" style="background-color: $gh-purple">Retour</a>
+        <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle</strong></p>
+        <ul>
+          <li>Tu es considéré comme une seule entité avec ton entreprise</li>
+          <li>Tu es donc responsable de toutes les dettes et obligations commerciales</li>
+          <li>Les revenus de l'entreprise sont inclus dans ta déclaration de revenus personnelle</li>
+        </ul>
+        <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle à Responsabilité Limitée</strong></p>
+        <ul>
+          <li>Permet de séparer ton patrimoine personnel de celui de ton entreprise</li>
+          <li>Ce qui protège tes biens personnels en cas de difficultés financières de ton entreprise</li>
+        </ul>
       </div>
     </div>
   </div>
-</body>
 
-<body>
-  <div class="container2">
-    <div class="section">
-      <h1 class="title">Se lancer en freelance</h1>
-      <p class="subtitle">Ce statut offre une approche simplifiée pour démarrer une activité indépendante. Ses avantages: gestion administrative légère, fiscalité simplifiée et cotisations sociales basées sur le chiffre d'affaires. C'est une option idéale pour les débutants ou les travailleurs à temps partiel.</p>
-    </div>
-
-    <div class="subsection">
-      <div class="card">
-        <div class="card-title">Choisis la structure juridique de ton activité</div>
-        <div class="card-subtitle">Choisir la structure juridique de ton activité est une étape cruciale. Elle détermine la gestion de tes finances, tes obligations légales, ainsi que tes risques et responsabilités. Prends le temps de bien réfléchir pour trouver la formule qui correspondra le mieux à tes besoins et objectifs professionnels.</div>
-      </div>
-      <div class="illustration">
-        <img src="app/assets/images/choice.png" class="responsive-image" alt="Choice">
-      </div>
-    </div>
-
-    <div class="divider">
-      <div class="line"></div>
-    </div>
-
-    <div class="container py-5">
-      <div class="article-title">Les différentes structures juridiques pour les freelances</div>
-      <p>Il existe plusieurs options pour structurer ton activité en freelance. Chaque structure a ses propres avantages et inconvénients en termes de responsabilité, fiscalité et gestion administrative. Voici un aperçu des principales formes juridiques que tu peux choisir pour ton activité indépendante:</p>
-
-      <!-- Entrepreneur individuel Section -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleIndividualEntrepreneur" aria-expanded="false" aria-controls="toggleIndividualEntrepreneur">
-          Entrepreneur individuel ⬇️
-        </button>
-        <div class="collapse" id="toggleIndividualEntrepreneur">
-          <div class="card-article">
-            <p class="mb-2 article-subtitle"><strong>Auto-entreprise</strong></p>
-            <ul>
-              <li>Forme simplifiée d'entreprise individuelle souvent utilisée par les freelances</li>
-              <li>Formalités administratives allégées</li>
-              <li>Comptabilité simplifiée</li>
-              <li>Impôts et cotisations sociales sur la base de ton chiffre d'affaires réel</li>
-            </ul>
-
-            <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle</strong></p>
-            <ul>
-              <li>Tu es considéré comme une seule entité avec ton entreprise</li>
-              <li>Tu es donc responsable de toutes les dettes et obligations commerciales</li>
-              <li>Les revenus de l'entreprise sont inclus dans ta déclaration de revenus personnelle</li>
-            </ul>
-
-            <p class="mb-2 article-subtitle"><strong>Entreprise Individuelle à Responsabilité Limitée</strong></p>
-            <ul>
-              <li>Permet de séparer ton patrimoine personnel de celui de ton entreprise</li>
-              <li>Ce qui protège tes biens personnels en cas de difficultés financières de ton entreprise</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Personne morale Section -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#togglePersonneMorale" aria-expanded="false" aria-controls="togglePersonneMorale">
-          Personne morale ⬇️
-        </button>
-        <div class="collapse" id="togglePersonneMorale">
-          <div class="card-article">
-            <p class="mb-2 article-subtitle"><strong>Société par Actions Simplifiée Unipersonnelle</strong></p>
-            <ul>
-              <li>Forme de société plus complexe où tu es le seul actionnaire</li>
-              <li>Responsabilité plus limitée</li>
-              <li>Formalités administratives et comptables plus complexes</li>
-            </ul>
-
-            <p class="mb-2 article-subtitle"><strong>Société par Actions Limitée</strong></p>
-            <ul>
-              <li>Seulement si tu as l'intention de travailler avec d'autres personnes!</li>
-              <li>Offre une responsabilité limitée et une séparation des actifs personnels et professionnels</li>
-              <li>Implique également des formalités plus lourdes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Exploitation en commun Section -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleExploitationEnCommun" aria-expanded="false" aria-controls="toggleExploitationEnCommun">
-          Exploitation en commun ⬇️
-        </button>
-        <div class="collapse" id="toggleExploitationEnCommun">
-          <div class="card-article">
-            <p class="mb-2 article-subtitle"><strong>Le Portage salarial</strong></p>
-            <ul>
-              <li>Exercer une activité indépendante sans créer sa propre entreprise</li>
-              <li>Statut de consultant ou prestataire de services pour une entreprise de portage salarial</li>
-              <li>L'entreprise facture les clients pour les services fournis par ces consultants et leur verse un salaire en tant que salariés</li>
-              <li>Permet de bénéficier des avantages du statut de salarié tout en conservant une certaine autonomie</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Conseil section -->
-      <div class="subsection d-flex align-items-center mt-5">
-        <div class="card">
-          <div class="card-title">Notre conseil</div>
-          <div class="card-subtitle">Pour ceux qui envisagent de devenir freelances, la meilleure option est souvent de choisir le statut d'<strong>auto-entrepreneur</strong>. C'est un choix populaire en raison de sa simplicité administrative, de sa faible charge fiscale et de la protection des biens personnels en cas de difficultés financières. C'est un excellent point de départ pour tester une activité ou démarrer une petite entreprise. Il est important de bien comprendre les implications des différents statuts en discutant avec d'autres auto-entrepreneurs expérimentés ou en recherchant des informations supplémentaires auprès d'organismes publics spécialisés tels que le site officiel du gouvernement dédié à l'entrepreneuriat en France (https://entreprendre.service-public.fr/).</div>
-        </div>
-        <div class="illustration">
-          <img src="app/assets/images/idee.png" class="responsive-image" alt="Idee">
-        </div>
-      </div>
-
-      <!-- Document checklist -->
-      <div class="mt-5">
-        <div class="article-title">Avant de commencer les démarches, rassemble ces documents pour pouvoir remplir ton formulaire</div>
-        <ul class="list-group">
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Récépissé de dépôt de déclaration préalable délivré par la Préfecture (étranger ne résidant pas en France)</li>
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Attestation de renonciation à la protection du patrimoine personnel</li>
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Attestation notariée relative à l’insaisissabilité ou à la renonciation de l'insaisissabilité de la résidence principale</li>
-          <li class="list-group-item bg-white"><input class="form-check-input me-1" type="checkbox"> Procuration signée de la personne pour le compte de laquelle le mandataire effectue la formalité</li>
+  <!-- Personne morale Section -->
+  <div class="mt-5">
+    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#togglePersonneMorale" aria-expanded="false" aria-controls="togglePersonneMorale">
+      Personne morale ⬇️
+    </button>
+    <div class="collapse" id="togglePersonneMorale">
+      <div class="dropdown-outline">
+        <p class="mb-2 article-subtitle"><strong>Société par Actions Simplifiée Unipersonnelle</strong></p>
+        <ul>
+          <li>Forme de société plus complexe où tu es le seul actionnaire</li>
+          <li>Responsabilité plus limitée</li>
+          <li>Formalités administratives et comptables plus complexes</li>
         </ul>
-        <a href="/articles/84/my_guides/new" class="btn btn-primary mt-3">Commencer mes démarches</a>
-      </div>
-
-      <div class="article-title mt-5">Aller plus loin</div>
-      <!-- Platformes d'entraides -->
-      <div class="mt-4">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleEntaides" aria-expanded="false" aria-controls="toggleEntaides">
-          Les plateformes d'entraides ⬇️
-        </button>
-        <div class="collapse" id="toggleEntaides">
-          <div class="card-article">
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.grownuphack.com/404" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/AFE.png" style="width: 67px;" alt="AFE">
-              </a>
-              <p><strong>Agence France Entrepreneur</strong>, lancée à l'initiative de l'État, vise à informer et à assister les entrepreneurs de tous horizons, quel que soit leur statut juridique. Son site internet, convivial et exhaustif, vous permettra d'accéder à un espace collaboratif entre les divers acteurs de l'entrepreneuriat en France.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.pgparif.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/BGE.png" style="width: 67px;" alt="BGE">
-              </a>
-              <p><strong>BGE Parif</strong> est un réseau d'appui aux entrepreneurs de la région Île-de-France. Cet organisme se donne pour mission de soutenir les petites entreprises lors de leur création, afin de leur permettre de se développer et de pérenniser.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.entreprises.cci-paris-idf.fr/web/auto-entrepreneur" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/CCI.png" style="width: 67px;" alt="CCI">
-              </a>
-              <p><strong>CCI Paris</strong> vous accompagne dans le développement de votre projet de création d’entreprise grâce à une gamme de services et de conseils adaptés. Vous trouverez des informations essentielles pour la gestion quotidienne de votre auto-entreprise.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.bpifrance.fr" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/BPI.png" style="width: 67px;" alt="BPI">
-              </a>
-              <p><strong>BPI France</strong> vous accompagne grâce à une aide dans la gestion de votre entreprise. Vous trouverez des informations sur les financements, les garanties et les assurances pour vous aider à développer votre activité.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://stationf.co/" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/stationf.png" style="width: 67px;" alt="Station F">
-              </a>
-              <p><strong>Station F</strong> est le plus grand campus de start-up au monde. Il propose un écosystème complet pour les entrepreneurs, avec des programmes d'accompagnement, des événements et des ressources pour vous aider à lancer et à développer votre entreprise.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plateformes de freelance -->
-      <div class="mt-5">
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleFreelance" aria-expanded="false" aria-controls="toggleFreelance">
-          Les plateformes de freelance ⬇️
-        </button>
-        <div class="collapse" id="toggleFreelance">
-          <div class="card-article">
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.cremedelacreme.io" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/creme.jpg" style="width: 67px;" alt="Crème de la crème">
-              </a>
-              <p><strong>Crème de la crème</strong> est une plateforme qui met en relation des entreprises avec des freelances experts du digital pour des missions diverses. Crème de la crème se démarque par son processus de sélection rigoureux des freelances, garantissant la qualité des profils proposés aux entreprises, ainsi que par son approche centrée sur les compétences et l'expertise des freelances.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.malt.fr" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/malt.jpg" style="width: 67px;" alt="Malt">
-              </a>
-              <p><strong>Malt</strong> offre un large réseau de freelances qualifiés dans divers secteurs, offrant aux entreprises un accès à une variété d'experts pour leurs projets. Ce qui distingue Malt, c'est ses outils de gestion de projet intégrés qui facilitent le travail indépendant et la réalisation de projets professionnels de haute qualité. Les freelances bénéficient également d'une visibilité accrue grâce à une plateforme bien établie, ce qui leur permet de trouver plus facilement des opportunités de collaboration avec des entreprises de toutes tailles. Ils proposent aussi des outils en ligne facilitant les tâches administratives.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.comeup.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/comeup.jpg" style="width: 67px;" alt="Comeup">
-              </a>
-              <p><strong>Comeup</strong> est une plateforme innovante qui vise à connecter les entreprises avec des talents émergents et créatifs. Contrairement aux plateformes traditionnelles, Comeup se concentre sur la découverte de nouveaux talents et sur la mise en valeur de leur créativité. Les entreprises peuvent découvrir et collaborer avec des freelances talentueux qui apportent une touche unique à leurs projets. Avec une approche axée sur l'exploration et la diversité des talents, Comeup offre une expérience de mise en relation dynamique et stimulante pour les entreprises à la recherche de nouvelles perspectives créatives.</p>
-            </div>
-
-            <div class="d-flex align-items-center mb-3">
-              <a href="https://www.upwork.com" class="navbar-brand me-3" target="_blank">
-                <img src="app/assets/images/upwork.jpeg" style="width: 67px;" alt="Upwork">
-              </a>
-              <p><strong>Upwork</strong> est une plateforme en ligne qui met en relation des freelances et des entreprises du monde entier pour des projets de toutes tailles. Avec une vaste gamme de catégories, notamment le développement web, le design, la rédaction, le marketing et bien plus encore, Upwork offre aux entreprises un accès à un pool mondial de talents. Les freelances peuvent trouver des opportunités de travail variées et collaborer avec des clients internationaux, ce qui en fait une plateforme idéale pour ceux qui recherchent de la flexibilité et des opportunités d'expansion.</p>
-            </div>
-          </div>
-        </div>
+        <p class="mb-2 article-subtitle"><strong>Société par Actions Limitée</strong></p>
+        <ul>
+          <li>Seulement si tu as l'intention de travailler avec d'autres personnes!</li>
+          <li>Offre une responsabilité limitée et une séparation des actifs personnels et professionnels</li>
+          <li>Implique également des formalités plus lourdes</li>
+        </ul>
       </div>
     </div>
   </div>
-</body>
 
- <%= raw @article.raw_html_content.gsub('app/assets/images/choice.png', asset_path('choice.png'))
-                                 .gsub('app/assets/images/idee.png', asset_path('idee.png'))
-                                 .gsub('app/assets/images/AFE.png', asset_path('AFE.png'))
-                                 .gsub('app/assets/images/BGE.png', asset_path('BGE.png'))
-                                 .gsub('app/assets/images/CCI.png', asset_path('CCI.png'))
-                                 .gsub('app/assets/images/BPI.png', asset_path('BPI.png'))
-                                 .gsub('app/assets/images/stationf.png', asset_path('stationf.png'))
-                                 .gsub('app/assets/images/malt.jpg', asset_path('malt.jpg'))
-                                 .gsub('app/assets/images/upwork.jpeg', asset_path('upwork.jpeg'))
-                                 .gsub('app/assets/images/comeup.jpg', asset_path('comeup.jpg'))
-                                 .gsub('app/assets/images/creme.jpg', asset_path('creme.jpg')) %>
+  <!-- Exploitation en commun Section -->
+  <div class="mt-5">
+    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#toggleExploitationEnCommun" aria-expanded="false" aria-controls="toggleExploitationEnCommun">
+      Exploitation en commun ⬇️
+    </button>
+    <div class="collapse" id="toggleExploitationEnCommun">
+      <div class="dropdown-outline">
+        <p class="mb-2 article-subtitle"><strong>Le Portage salarial</strong></p>
+        <ul>
+          <li>Exercer une activité indépendante sans créer sa propre entreprise</li>
+          <li>Statut de consultant ou prestataire de services pour une entreprise de portage salarial</li>
+          <li>L'entreprise facture les clients pour les services fournis par ces consultants et leur verse un salaire en tant que salariés</li>
+          <li>Permet de bénéficier des avantages du statut de salarié tout en conservant une certaine autonomie</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conseil section -->
+  <div class="subsection d-flex align-items-center mt-5">
+    <div class="card">
+      <div class="card-title">Notre conseil</div>
+      <div class="card-subtitle">Pour ceux qui envisagent de devenir freelances, la meilleure option est souvent de choisir le statut d'<strong>auto-entrepreneur</strong>. C'est un choix populaire en raison de sa simplicité administrative, de sa faible charge fiscale et de la protection des biens personnels en cas de difficultés financières. C'est un excellent point de départ pour tester une activité ou démarrer une petite entreprise. Il est important de bien comprendre les implications des différents statuts en discutant avec d'autres auto-entrepreneurs expérimentés ou en recherchant des informations supplémentaires auprès d'organismes publics spécialisés tels que le site officiel du gouvernement dédié à l'entrepreneuriat en France (https://entreprendre.service-public.fr/).</div>
+    </div>
+    <div class="illustration">
+      <img src="app/assets/images/idee.png" class="responsive-image" alt="Idee">
+    </div>
+  </div>
+
+  <!-- Document checklist -->
+  <div class="mt-5">
+    <div class="article-title">Avant de commencer les démarches, rassemble ces documents pour pouvoir remplir ton formulaire</div>
+    <ul class="list-group">
+      <li class="list-group-item bg-white">
+        <input class="form-check-input me-1" type="checkbox"> Récépissé de dépôt de déclaration préalable délivré par la Préfecture (étranger ne résidant pas en France)
+      </li>
+      <li class="list-group-item bg-white">
+        <input class="form-check-input me-1" type="checkbox"> Attestation de renonciation à la protection du patrimoine personnel
+      </li>
+      <li class="list-group-item bg-white">
+        <input class="form-check-input me-1" type="checkbox"> Attestation notariée relative à l’insaisissabilité ou à la renonciation de l'insaisissabilité de la résidence principale
+      </li>
+      <li class="list-group-item bg-white">
+        <input class="form-check-input me-1" type="checkbox"> Procuration signée de la personne pour le compte de laquelle le mandataire effectue la formalité
+      </li>
+    </ul>
+  </div>
+  <!-- BUTTON_PLACEHOLDER -->
+</div>
+
+
+<%= raw @article.raw_html_content.gsub('app/assets/images/choice.png', asset_path('choice.png'))
+                                .gsub('app/assets/images/idee.png', asset_path('idee.png'))
+                                .gsub('app/assets/images/AFE.png', asset_path('AFE.png'))
+                                .gsub('app/assets/images/BGE.png', asset_path('BGE.png'))
+                                .gsub('app/assets/images/CCI.png', asset_path('CCI.png'))
+                                .gsub('app/assets/images/BPI.png', asset_path('BPI.png'))
+                                .gsub('app/assets/images/stationf.png', asset_path('stationf.png'))
+                                .gsub('app/assets/images/malt.jpg', asset_path('malt.jpg'))
+                                .gsub('app/assets/images/upwork.jpeg', asset_path('upwork.jpeg'))
+                                .gsub('app/assets/images/comeup.jpg', asset_path('comeup.jpg'))
+                                .gsub('app/assets/images/creme.jpg', asset_path('creme.jpg')) %>
 <% article_images = {
   "les étapes essentielles pour devenir freelance" => "etapes.jpg",
   "stratégies de marketing pour les freelances" => "marketing_article.jpg",
