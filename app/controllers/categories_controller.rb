@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  before_action :authenticate_user!, except: %i[index show]
   def index
     @categories = Category.all
     if params[:query].present?

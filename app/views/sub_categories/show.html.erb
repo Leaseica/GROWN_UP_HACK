@@ -33,6 +33,10 @@
   </div>
 
   <div class="mt-4">
-    <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary", aria: { label: "Create new article" } if policy(@article).new? %>
+    <div class="mt-4">
+      <% if @user.present? && policy(@article).new? %>
+        <%= link_to "📝 Nouvel article", new_sub_category_article_path(@sub_category), class: "btn btn-primary", aria: { label: "Create new article" } %>
+      <% end %>
+    </div>
   </div>
 </div>

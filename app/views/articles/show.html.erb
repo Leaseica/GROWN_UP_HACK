@@ -4,13 +4,14 @@
 </head>
 
 <body>
+
   <main class="container-article">
     <section class="container">
       <h1 class="title"><%= @article.title %></h1>
       <p class="article-subtitle mt-5"><%= @article.description %></p>
       <p class="article-subtitle"><%= @article.paragraph1 %></p>
     </section>
-
+    <%# <%= link_to "Retour à la liste des articles", @article.sub_category, class: "btn btn-primary" %>
     <section class="container2">
       <div class="container pb-5">
         <div data-controller="insert-button" data-article-id="<%= @article.id %>">
@@ -71,12 +72,17 @@
         <% end %>
 
         <div class="hstack gap-3 justify-content-center mt-5">
-          <%= link_to "📝 Éditer", edit_article_path(@article), role: 'button', class: 'btn btn-small' if policy(@article).edit? %>
+
+            <%= link_to "📝 Éditer", edit_article_path(@article), role: 'button', class: 'btn btn-small',  aria: { label: "Edit article" } if @user.present? && policy(@article).edit? %>
+
+
           <div class="vr"></div>
-          <%= button_to "Supprimer cet article", @article, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small' if policy(@article).destroy? %>
+
+
+          <%= button_to "Supprimer cet article", @article, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn btn-small', aria: { label: "Delete article" }if @user.present? && policy(@article).destroy? %>
         </div>
         <div>
-          <%= link_to 'Retour', :back, class: 'btn btn-small' %>
+          <%= link_to '⬅️ Retour à la liste des articles', :back, class: "subtitle" %>
         </div>
       </div>
     </section>
