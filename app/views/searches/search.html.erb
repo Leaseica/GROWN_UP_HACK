@@ -1,2 +1,16 @@
-<h1>Searches#search</h1>
-<p>Find me in app/views/searches/search.html.erb</p>
+
+
+<!-- app/views/searches/search.html.erb -->
+<h1>Search Results for "<%= @query %>"</h1>
+
+<% if @results.present? %>
+  <ul>
+    <% @results.each do |result| %>
+      <li>
+        <%= link_to (result.searchable.respond_to?(:name) ? result.searchable.name : result.searchable.title), result.searchable %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found</p>
+<% end %>

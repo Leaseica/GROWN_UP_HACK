@@ -33,6 +33,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def search
+    @query = params[:query]
+    @results = PgSearch.multisearch(@query)
+  end
+
   private
 
   def user_not_authorized

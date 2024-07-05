@@ -1,4 +1,10 @@
 class Article < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:title, :description],
+  using: {
+    tsearch: { prefix: true }
+  }
+
   belongs_to :sub_category
   has_one_attached :photo
   has_many :my_guides
@@ -6,6 +12,8 @@ class Article < ApplicationRecord
   has_many :platforms, through: :articles_platforms
 
   validates :title, presence: true, uniqueness: true
+
+
 
   serialize :additional_resources_1_listing, JSON
   serialize :additional_resources_2_listing, JSON

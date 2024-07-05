@@ -7,4 +7,9 @@ class PagesController < ApplicationController
   def components
   end
 
+  def search
+    @query = params[:query]
+    PgSearch.multisearch(@query)
+  end
+
 end
