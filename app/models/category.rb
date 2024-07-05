@@ -15,12 +15,7 @@ class Category < ApplicationRecord
     tsearch: { prefix: true }
   }
 
-  multisearchable against: [:name],
-  using: {
-    tsearch: { prefix: true }
-  }
-
-  PgSearch.multisearch_options = { :using => { :tsearch => {:prefix => true } } }
+  multisearchable against: [:name]
 
   def self.ransackable_associations(auth_object = nil)
     ["articles", "sub_categories", "photo_attachment", "photo_blob"]

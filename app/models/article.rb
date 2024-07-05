@@ -1,9 +1,8 @@
 class Article < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [:title, :description],
-  using: {
-    tsearch: { prefix: true }
-  }
+
+  multisearchable against: [:title, :description]
+
 
   belongs_to :sub_category
   has_one_attached :photo

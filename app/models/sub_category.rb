@@ -14,12 +14,10 @@ class SubCategory < ApplicationRecord
     tsearch: { prefix: true }
   }
 
-  multisearchable against: [:name],
-  using: {
-    tsearch: { prefix: true }
-  }
+  multisearchable against: [:name]
 
-  PgSearch.multisearch_options = { :using => { :tsearch => {:prefix => true } } }
+
+
 
   def self.ransackable_associations(auth_object = nil)
     ["articles", "photo_attachment", "photo_blob"]
