@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @sub_categories = @category.sub_categories
+    redirect_to category_sub_categories_path(@category)
   end
 
   def new

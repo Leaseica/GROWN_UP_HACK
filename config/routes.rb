@@ -11,18 +11,37 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Standard RESTful routes for Categories
+  # # Standard RESTful routes for Categories
+  # resources :categories, only: [:index, :show] do
+  #   # Nested routes for SubCategories within Categories
+  #   resources :sub_categories, only: [:index, :show], shallow: true do
+  #     # Further nested routes for Articles within SubCategories
+  #     resources :articles, shallow: true
+  #   end
+  # end
+
+  # # Routes for Articles (non-nested actions)
+  # resources :articles, only: [:show] do
+  #   # Nested routes for MyGuides related to specific Articles
+  #   resources :my_guides, shallow: true do
+  #     member do
+  #       get :summary
+  #       get :download
+  #       post :session_store
+  #     end
+  #     resources :reminders, shallow: true
+  #   end
+  # end
+
   resources :categories, only: [:index, :show] do
-    # Nested routes for SubCategories within Categories
-    resources :sub_categories, only: [:index, :show], shallow: true do
-      # Further nested routes for Articles within SubCategories
-      resources :articles, except: [:show], shallow: true
-    end
+    resources :sub_categories, only: [:index, :show], shallow: true
   end
 
-  # Routes for Articles (non-nested actions)
+  resources :sub_categories, only: [] do
+    resources :articles, except: [:show], shallow: true
+  end
+
   resources :articles, only: [:show] do
-    # Nested routes for MyGuides related to specific Articles
     resources :my_guides, shallow: true do
       member do
         get :summary

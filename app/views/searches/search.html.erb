@@ -14,3 +14,23 @@
 <% else %>
   <p>No results found</p>
 <% end %>
+<!-- app/views/pages/search.html.erb -->
+<h1>Search Results for "<%= @query %>"</h1>
+
+<% if @results.present? %>
+  <ul>
+    <% @results.each do |result| %>
+      <li>
+        <% if result.searchable_type == "Category" %>
+          <%= link_to result.searchable.name, category_sub_categories_path(result.searchable) %>
+        <% elsif result.searchable_type == "SubCategory" %>
+          <%= link_to result.searchable.name, sub_category_path(result.searchable) %>
+        <% elsif result.searchable_type == "Article" %>
+          <%= link_to result.searchable.title, article_path(result.searchable) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found</p>
+<% end %>

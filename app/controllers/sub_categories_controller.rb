@@ -4,7 +4,7 @@ class SubCategoriesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @category = Category.find(params[:category_id])
+
     @sub_categories = @category.sub_categories
     if params[:query].present?
       # @sub_categories = @sub_categories.where("name ILIKE ?", "%#{params[:query]}%")
