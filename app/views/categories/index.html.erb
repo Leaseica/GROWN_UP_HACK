@@ -13,18 +13,7 @@
     <h2 id="categories-heading" class="sr-only">Categories</h2>
     <% if @categories.any? %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @categories.each do |category| %>
-          <div class="col">
-            <div class="card text-center">
-              <%= link_to category_sub_categories_path(category), aria: { label: "View details for #{category.name}" } do %>
-                <img src="<%= cl_image_path category.photo.key, crop: :fill if category.photo.attached? %>" class="card-img" alt="Image of <%= category.name %>">
-                <div class="card-img-overlay">
-                  <h3 class="title-xl white"><%= category.name %></h3>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+        <%= render partial: "shared/cards/card_category", collection: @categories, as: :card_item %>
       </div>
     <% else %>
       <p class="title-s gh-800 my-5"><%= random_messages %></p>

@@ -15,18 +15,7 @@
     <h2 id="sub-categories-heading" class="sr-only">Subcategories</h2>
     <% if @sub_categories.any? %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @sub_categories.each do |sub_category| %>
-          <div class="col">
-            <div class="card text-center">
-              <%= link_to sub_category_path(sub_category, category_id: @category.id), aria: { label: "View details for #{sub_category.name}" } do %>
-                <img src="<%= cl_image_path sub_category.photo.key, crop: :fill if sub_category.photo.attached? %>" class="card-img" alt="Image for <%= sub_category.name %>">
-                <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))">
-                  <h3 class="title-xl white"><%= sub_category.name %></h3>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+        <%= render partial: "shared/cards/card_sub_category", collection: @sub_categories, as: :card_item %>
       </div>
     <% else %>
       <p class="title-s gh-800 my-5"><%= random_messages %></p>

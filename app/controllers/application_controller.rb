@@ -71,8 +71,4 @@ class ApplicationController < ActionController::Base
       add_breadcrumb @article.title
     end
   end
-
-
-
-
 end

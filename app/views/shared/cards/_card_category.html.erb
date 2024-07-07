@@ -1,0 +1,12 @@
+<!-- app/views/shared/cards/_card_category.html.erb -->
+<!-- This snippet is used in app/views/categories/index.html.erb -->
+<div class="col">
+  <div class="card text-center">
+    <%= link_to category_path(card_item), aria: { label: "View details for #{card_item.name}" } do %>
+      <img src="<%= cl_image_path card_item.photo.key, crop: :fill if card_item.photo.attached? %>" class="card-img" alt="Image for <%= card_item.name %>">
+      <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))">
+        <h3 class="title-xl white"><%= card_item.name %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>

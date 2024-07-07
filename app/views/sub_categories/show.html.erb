@@ -14,18 +14,7 @@
     <h2 id="articles-heading" class="sr-only">Articles</h2>
     <% if @articles.any? %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @articles.each do |article| %>
-          <div class="col">
-            <div class="card text-center">
-              <%= link_to article_path(article), aria: { label: "View details for #{article.title}" } do %>
-                <img src="<%= cl_image_path article.photo.key, crop: :fill if article.photo.attached? %>" class="card-img" alt="Image for <%= article.title %>">
-                <div class="card-img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))">
-                  <h3 class="title-xl white"><%= article.title %></h3>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+        <%= render partial: "shared/cards/card_article", collection: @articles, as: :card_item %>
       </div>
     <% else %>
       <p class="title-s gh-800 my-5"><%= random_messages %></p>
