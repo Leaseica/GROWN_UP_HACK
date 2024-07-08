@@ -1,0 +1,12 @@
+.link-bold {
+  font-weight: bold;
+  text-decoration: none;
+  color: $gh-100;
+  font-size: 1.2rem;
+  font-weight: 500;
+
+  &:hover, &:focus, &:active{
+    text-decoration: underline;
+    font-weight: 700;
+  }
+}

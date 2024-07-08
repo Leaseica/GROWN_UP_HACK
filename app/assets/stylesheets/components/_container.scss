@@ -15,3 +15,37 @@
     margin: 2rem 3rem;
   }
 }
+
+.container-body {
+  display: flex;
+  padding: 30px 104px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  align-self: stretch;
+  background: var(--linear-gray, #FFF);
+
+  h1 {
+    color: var(--WF-Base-800, #2D3648);
+    /* Headings/Heading XXL */
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 67.2px */
+    letter-spacing: 0.56px;
+    text-align: center;
+  }
+  h2 {
+    color: var(--WF-Base-800, #2D3648);
+    text-align: center;
+    font-feature-settings: 'calt' off;
+    /* Body/Regular/Text XL */
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 35.2px */
+    letter-spacing: -0.22px;
+  }
+
+}

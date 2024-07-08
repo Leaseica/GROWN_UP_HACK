@@ -1,20 +1,65 @@
 <!-- app/views/pages/search.html.erb -->
-<h1>Search Results for "<%= @query %>"</h1>
+<div class="container-body">
+  <h1 class="mb-2">Search Results for "<%= @query %>"</h1>
 
-<% if @results.present? %>
-  <ul>
-    <% @results.each do |result| %>
-      <li>
-        <% if result.searchable_type == "Category" %>
-          <%= link_to result.searchable.name, category_sub_categories_path(result.searchable) %>
-        <% elsif result.searchable_type == "SubCategory" %>
-          <%= link_to result.searchable.name, sub_category_path(result.searchable) %>
-        <% elsif result.searchable_type == "Article" %>
-          <%= link_to result.searchable.title, article_path(result.searchable) %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No results found</p>
-<% end %>
+  <% if @results.present? %>
+    <div class="row row-cols-1 row-cols-md-3">
+      <% if @results.select { |result| result.searchable_type == "Category" }.any? %>
+
+        <!-- Categories Section -->
+        <div class="section" aria-labelledby="heading">
+          <% @results.select { |result| result.searchable_type == "Category" }.each do |result| %>
+            <div class="col d-flex align-items-stretch mb-2">
+              <div class="card text-center flex-grow-1">
+                <%= render partial: "shared/cards/card_category", locals: { card_item: result.searchable } %>
+                <div class="card-body">
+                  <h2><strong><%= result.searchable.name %></strong></h2>
+                  <p class="text-start"><%= result.searchable.description %></p>
+                  <h6 class="text-end" style="color: #3F51B5;"><strong>Catégorie</strong></h6>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @results.select { |result| result.searchable_type == "SubCategory" }.any? %>
+        <!-- Subcategories Section -->
+        <div class="section" aria-labelledby="heading">
+          <% @results.select { |result| result.searchable_type == "SubCategory" }.each do |result| %>
+            <div class="col d-flex align-items-stretch mb-2">
+              <div class="card text-center flex-grow-1">
+                <%= render partial: "shared/cards/card_sub_category", locals: { card_item: result.searchable } %>
+                <div class="card-body">
+                  <h2><strong><%= result.searchable.name %></strong></h2>
+                  <p><%= result.searchable.description %></p>
+                  <h6 class="text-end" style="color: #3F51B5;"><strong>Sous-Catégorie</strong></h6>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+
+      <% if @results.select { |result| result.searchable_type == "Article" }.any? %>
+        <!-- Articles Section -->
+        <div class="section" aria-labelledby="heading">
+          <% @results.select { |result| result.searchable_type == "Article" }.each do |result| %>
+            <div class="col d-flex align-items-stretch mb-2">
+              <div class="card text-center flex-grow-1">
+                <%= render partial: "shared/cards/card_article", locals: { card_item: result.searchable } %>
+                <div class="card-body">
+                  <h2><strong><%= result.searchable.title %></strong></h2>
+                  <p><%= result.searchable.description %></p>
+                  <h6 class="text-end" style="color: #3F51B5;"><strong>Article</strong></h6>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="title-s gh-800 my-5"><%= random_messages %></p>
+  <% end %>
+</div>
