@@ -37,12 +37,6 @@ module ApplicationHelper
       'creme.jpg' => 'creme.jpg'
     }
 
-    # assets.each do |asset_name, asset_path|
-    #   if raw_html.include?(asset_name)
-    #     raw_html = raw_html.gsub("app/assets/images/#{asset_name}", asset_path(asset_path))
-    #   end
-    # end
-
     routes = {
       'new_article_my_guide_path' => new_article_my_guide_path(@article)
     }

@@ -27,7 +27,7 @@ ActiveAdmin.register User do
     column :city
     column :country
     column :admin
-    column :full_name
+    column :has_a_name?
     column :file do |user|
       if user.file.attached?
         link_to user.file.filename, rails_blob_path(user.file, disposition: "attachment")

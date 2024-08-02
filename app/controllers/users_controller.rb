@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
 
 
+
   private
 
   def set_user

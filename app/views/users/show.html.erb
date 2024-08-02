@@ -5,8 +5,7 @@
 <div class="container-m3 p-4rem">
 
   <div class="container-banner">
-    <%= image_tag("avatar/cat.png", class: "avatar-bordered", alt: "avatar") %> <!-- This will display the user's avatar -->
-    <h1 class="title xl"><%= @user.first_name %>, <%= @user.last_name %></h1>
+    <h1><%= display_user_name(@user) %></h1>
   </div>
 
   <div class="mb-5">
@@ -16,14 +15,20 @@
         <div class="header">
           <h2 class="subtitle-xl text-brand">Mes informations</h2>
           <div class="container">
-            <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong><%= @user.occupation %></p>
-            <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong><%= @user.email %></p>
+            <p class="regular-l"> <i class="fa-solid fa-user me-2"></i><strong> Nom : </strong>
+            <%= @user.has_a_name? %></p>
+            <p class="regular-l"> <i class="fa-solid fa-briefcase me-2"></i><strong> Occupation : </strong>
+            <%= @user.occupation.present? ? @user.occupation : 'Non spécifiée' %></p>
+            <p class="regular-l"> <i class="fa-solid fa-envelope me-2"></i><strong> Email : </strong>
+            <%= @user.email %></p>
             <p class="regular-l"><i class="fa-solid fa-cake-candles me-2"></i><strong> Date de naissance : </strong>
-            <%= @user.birthday.present? ? l(@user.birthday, format: :long) : 'Non spécifiée' %>
-            </p>
-            <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong><%= @user.address %> <%= @user.city %> <%=  @user.zip_code%></p>
-            <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong> <%= @user.country %></p>
-            <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong> <%= @user.phone_number %></p>
+            <%= @user.birthday.present? ? l(@user.birthday, format: :long) : 'Non spécifiée' %></p>
+            <p class="regular-l"><i class="fa-solid fa-location-dot me-2"></i><strong> Adresse : </strong>
+            <%= @user.full_address %></p>
+            <p class="regular-l"><i class="fa-solid fa-globe me-2"></i><strong> Pays : </strong>
+            <%= @user.country.present? ? @user.country : 'Non spécifié' %></p>
+            <p class="regular-l"><i class="fa-solid fa-square-phone me-2"></i><strong> N° de téléphone : </strong>
+            <%= @user.phone_number.present? ? @user.phone_number : 'Non spécifié' %></p>
             <div class="divider1 mb-3 mt-4"></div>
             <%= link_to edit_user_path, role: "Éditer mon profil", class: 'btn btn-outline' do %>
               <i class="fa-solid fa-user-pen me-2"></i> Éditer

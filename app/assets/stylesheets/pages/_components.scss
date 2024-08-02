@@ -126,34 +126,8 @@ $badge-colors: (
 
 
 
-.title {
-  color: #2D3648;
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
 
-  &.xl {
-    font-size: 4rem;
-  }
 
-  &.lg {
-    font-size: 3rem;
-  }
-
-  &.md {
-    font-size: 2.5rem;
-  }
-}
-
-.subtitle-xl {
-  color: #2D3648;
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  // text-align: center;
-
-}
 
 
 // Dropdown
@@ -168,4 +142,11 @@ $badge-colors: (
   @media (max-width: 1024px) {
     order: 2;
   }
+}
+
+.profile-banner {
+  display: flex;
+  align-items: center;  /* Align items vertically in the center */
+  justify-content: flex-start; /* Start aligning items from the left */
+  padding: 20px; /* Add some padding around the content */
 }
