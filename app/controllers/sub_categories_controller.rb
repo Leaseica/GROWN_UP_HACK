@@ -31,6 +31,16 @@ class SubCategoriesController < ApplicationController
     # authorize @article
   end
 
+  def create
+    @sub_category = SubCategory.new(sub_category_params)
+    @sub_category.category = @category
+    if @sub_category.save
+      redirect_to category_sub_category_path(@category, @sub_category)
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_category

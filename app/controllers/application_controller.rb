@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :occupation, :address, :birthday, :country, :phone_number])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
 
   def initialize_session_store
