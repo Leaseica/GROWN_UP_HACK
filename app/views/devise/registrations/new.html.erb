@@ -3,7 +3,7 @@
     <h3 class="title py-2 mt-4 text-center">Inscription</h3>
     <div class="card shadow pt-3 m-5">
       <div class="card-body px-5 py-4">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', 'aria-labelledby': 'form-title' }, data: { turbo: false }) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', 'aria-labelledby': 'form-title' }) do |f| %>
 
           <div class="alert alert-danger alert-dismissible fade show m-1" role="alert">
             <%= devise_error_messages! %>

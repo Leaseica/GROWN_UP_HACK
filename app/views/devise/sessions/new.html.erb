@@ -1,10 +1,9 @@
-
 <div class="row justify-content-center">
   <main class="col-lg-8 order-lg-1">
     <h1 class="title py-2 mt-4 text-center">Connexion</h1>
     <section class="card shadow pt-3 m-5" aria-labelledby="loginForm">
       <div class="card-body px-5 py-4">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}, html: { role: 'form', aria: {label: 'Login form'} } ) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),  html: { role: 'form', aria: { label: 'Login form' } } ) do |f| %>
           <fieldset>
             <legend class="visually-hidden">User Credentials</legend>
             <%= f.input :email,
