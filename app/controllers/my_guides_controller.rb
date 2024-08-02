@@ -2,7 +2,7 @@ require 'prawn'
 
 class MyGuidesController < ApplicationController
   before_action :set_article, only: [:new, :create, :edit, :update]
-  before_action :set_my_guide, only: [:show, :edit, :update, :destroy, :summary]
+  before_action :set_my_guide, only: %i[show edit update destroy summary download]
   before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy, :summary]
   before_action :set_reminder, only: [:new, :create, :edit, :update, :destroy]
 
@@ -55,7 +55,6 @@ class MyGuidesController < ApplicationController
   end
 
   def download
-    @my_guide = MyGuide.find(params[:id])
     pdf = generate_pdf(@my_guide)
     send_data pdf.render, filename: "my_guide_#{params[:id]}.pdf", type: "application/pdf", disposition: "inline"
   end
