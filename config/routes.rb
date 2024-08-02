@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
-
-  devise_for :users
+  # Routes for the API
+  devise_for :users, :controllers => {:registrations => "registrations"}
   root to: "pages#home"
   get "components", to: "pages#components"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -37,9 +37,7 @@ Rails.application.routes.draw do
   resources :platforms
 
   resources :users, only: [:show, :edit, :update]
-  get "procedures", to: "users#procedures"
-  get "documents", to: "users#documents"
-  get "profile", to: "users#profile"
+
   # If you need a specific route for searching or any other custom action,
   # you can add them here. For example:
   get 'search', to: 'searches#search'

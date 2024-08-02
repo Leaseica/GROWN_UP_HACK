@@ -1,10 +1,9 @@
 class SubCategoriesController < ApplicationController
-  before_action :set_category
+  before_action :set_category, only: %i[index new create show]
   before_action :set_sub_category, only: [:show]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @category = Category.find(params[:category_id])
     @sub_categories = @category.sub_categories
     if params[:query].present?
       # @sub_categories = @sub_categories.where("name ILIKE ?", "%#{params[:query]}%")
@@ -31,6 +30,17 @@ class SubCategoriesController < ApplicationController
     # @article = Article.new(sub_category: @sub_category)
     # authorize @article
   end
+
+  def create
+    @sub_category = SubCategory.new(sub_category_params)
+    @sub_category.category = @category
+    if @sub_category.save
+      redirect_to category_sub_category_path(@category, @sub_category)
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_category

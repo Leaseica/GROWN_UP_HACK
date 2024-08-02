@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  before_action :set_category, only: %i[show edit update destroy]
+
   def index
     @categories = Category.all
     if params[:query].present?
@@ -29,12 +31,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
     authorize @category
   end
 
   def update
-    @category = Category.find(params[:id])
     authorize @category
     if @category.update(category_params)
       redirect_to category_path(@category), notice: "Category was successfully updated."
@@ -44,7 +44,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     authorize @category
     if @category.destroy
       respond_to do |format|
@@ -70,7 +69,7 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name, :description, :photo)
   end
 
-
-
-
+  def set_category
+    @category = Category.find(params[:id])
+  end
 end

@@ -19,7 +19,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/7
   def show
-    @article = Article.find(params[:id])
     @subcategory = @article.sub_category
     @category = @subcategory.category
 
@@ -79,7 +78,6 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/7
   def destroy
-    @article = Article.find(params[:id])
     sub_category_id = @article.sub_category_id
     authorize @article
     if @article.destroy
@@ -114,9 +112,6 @@ class ArticlesController < ApplicationController
       @sub_category = @article.sub_category
     end
   end
-
-
-
 
   def article_params
     params.require(:article).permit(
